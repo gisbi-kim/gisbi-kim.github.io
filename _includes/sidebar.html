@@ -1,0 +1,24 @@
+<nav>
+  <h1>Hi.</h1>
+  <a href="/">
+    {% if site.data.theme.social.gravatar %}
+    <img src="http://www.gravatar.com/avatar/{{ site.data.theme.social.gravatar }}?s=200" id="gravatar" alt="My photo"/>
+    {% else %}
+    <img src="/logo.png" id="logo" alt="Blog logo" width="210"/>
+    {% endif %}
+  </a>
+  <h2>I'm <a href="http://bit.ly/giseopkim" target="_blank">{{ site.data.theme.name }}</a>.</h2>
+  <div id="bio">
+    <p>
+      Ph.D. candidate at KAIST
+      <span style="vertical-align:-15%"> </span><br>
+      SLAM engineer, Spatial AI Enthusiast.
+    </p>
+    <!-- <p>
+      Edit me in <code>_includes/sidebar.html</code>
+    </p> -->
+  </div>
+  <div id="social">
+    {% include social.html %}
+  </div>
+</nav>

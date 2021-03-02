@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>The blog of Giseop Kim</title>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000"/>
+ <updated>2021-03-02T20:18:07+09:00</updated>
+ <id>http://localhost:4000</id>
+ <author>
+   <name>Giseop Kim</name>
+   <email>test@example.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>블로그 시작!</title>
+   <link href="http://localhost:4000/blog/2021/03/02/post1.html"/>
+   <updated>2021-03-02T00:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/2021/03/02/post1</id>
+   <content type="html">&lt;p&gt;블로그를 시작해봅니다.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>
