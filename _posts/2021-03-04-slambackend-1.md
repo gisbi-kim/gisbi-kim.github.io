@@ -153,7 +153,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 [^ps3]: 그래서 SLAM이 왕왕 **iterative** non-linear least-square optimization 이라고 불리기도 한다 
 
 <br>
-<center> **다음 시간에 계속 ...**  </center>
+<center> *** 다음 시간에 계속 ... ***  </center>
 <br>
 
 --- 
