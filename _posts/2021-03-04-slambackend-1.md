@@ -116,7 +116,7 @@ SCV는 구비한 sensor (laser 등)들과  motion model 과 observation model �
 - matrix $A$는 $m \times n$의 형태인데 통상적으로 $m$이 $n$보다 크다는 것이다 ($m > n$). 이런 상황을 보고 overdetermined system 이라고 부른다. <span style="color:gray"> ps. 심화과정[^2] </span>
 - matrix $A$는 sparse 하다. 왜냐하면 하나의 measurement 는 적은 수의 entity들 사이의 관계만 규정하기 때문이다 <span style="color:gray">(여기서는 두개 사이의 관계들만 예시로 나오고 있지만 물론 당연히 둘 이상일 수 있다. ps. 심화과정[^ps2])</span>. 
 
-[^2]: (1) 실제로는 랜드마크 수가 훨씬 더 수백 수천개만큼 많을 수도 있고 (SfM), 없을 수도 있다 (Pose-graph SLAM) (2) 실제로는 measurement model들이 대부분 non-linear 하기 때문에 1차미분한 Jacobian matrix H가 쓰인다. 더 엄밀하게는 이 H에 covariance matrix (noise matrix) 의 inverse squared 가 곱해진 형태가 A이다. 자세한 것은 Dellaert, Frank, and Michael Kaess. "Factor graphs for robot perception." Foundations and Trends in Robotics (2017) 의 chapter 2 를 참고. (3) 최근에는 underdetermined system 일 때 SLAM을 어떻게 풀어야할지에 관한 연구도 이루어지고 있다 -- 참고: Fourie, Dehann, et al. "Towards Real-Time Non-Gaussian SLAM for Underdetermined Navigation." (IROS 2020). 
+[^2]: (1) 실제로는 랜드마크 수가 훨씬 더 수백 수천개만큼 많을 수도 있고 (SfM), 없을 수도 있다 (Pose-graph SLAM) <br> (2) 실제로는 measurement model들이 대부분 non-linear 하기 때문에 1차미분한 Jacobian matrix H가 쓰인다. 더 엄밀하게는 이 H에 covariance matrix (noise matrix) 의 inverse squared 가 곱해진 형태가 A이다. 자세한 것은 이 책[^fgbook]의 chapter 2 를 참고. <br> (3) 최근에는 underdetermined system 일 때 SLAM을 어떻게 풀어야할지에 관한 연구도 이루어지고 있다 -- 참고: Fourie, Dehann, et al. "Towards Real-Time Non-Gaussian SLAM for Underdetermined Navigation." (IROS 2020). 
 
 [^ps2]: 여기서 예측하는 대상을 variable, 그 관계에 대해 factor 라고 부른다. factor 는 수학적으로는 n-ary function이다. 자세한 내용은 이 책[^fgbook] 의 Chapter 1장 (만 읽어도 됨) 참고. 
 
@@ -145,7 +145,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 이 경우 거의 iterative 하게 푸는 것이 국룰이다.  
 즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고,
 1. $x_{0}$으로부터 출발해서 optimal 한 변화량 $\Delta^{*}$ 을 추정한다음에
-2. $x_{\text{next}} = x_{\text{prev}} + \Delta* $ 만큼 업데이트 해주는 방식으로 최적해를 향해 나아간다. 
+2. $x_{\text{next}} = x_{\text{prev}} + \Delta^{*} $ 만큼 업데이트 해주는 방식으로 최적해를 향해 나아간다. 
 
 그러면 *어떻게 $Ax=b$ 를 풀까?* 라는 문제는  
 다시 ***어떻게 $A\Delta=b$ 를 풀까?*** 라는 문제가 된다 [^ps3].
