@@ -234,11 +234,11 @@ Algebraically 풀 수 있는, 즉 대수적인 툴이 필요하기 때문에<br 
   <li>matrix $A$는 sparse 하다. 왜냐하면 하나의 measurement 는 적은 수의 entity들 사이의 관계만 규정하기 때문이다 <span style="color:gray">(여기서는 두개 사이의 관계들만 예시로 나오고 있지만 물론 당연히 둘 이상일 수 있다. ps. 심화과정<sup id="fnref:ps2" role="doc-noteref"><a href="#fn:ps2" class="footnote">5</a></sup>)</span>.</li>
 </ul>
 
-<center> **SLAM이란 도대체 무엇인가?**  </center>
+<h3 id="slam이란-도대체-무엇인가">SLAM이란 도대체 무엇인가?</h3>
 
 <p>이제는 명확해졌다!</p>
 
-<p>SCV는 이 (연립)방정식을 풀어야 한다!!!</p>
+<p>SCV는 이 연립방정식 $Ax=b$를 풀어야 한다!!!</p>
 
 <hr />
 <h1 id="어떻게-axb를-풀까">어떻게 Ax=b를 풀까?</h1>
@@ -253,18 +253,19 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 <p>해 (optimal solution) 가 deterministic 하게 존재하지 않을 수 있다. <br />
 즉, 완전히 $Ax == b$ 로 완벽히 같을 수는 없다는 말.</p>
 
-<p>대신 우리는 $ |Ax - b|_{2}^{2} $ 를 최소화하는 해를 찾게 된다 (least square optimization).<br />
+<p>대신 우리는 $ |Ax - b|_{2}^{2} $ 를 최소화하는 해를 찾게 된다 (least square optimization<sup id="fnref:lsbook" role="doc-noteref"><a href="#fn:lsbook" class="footnote">6</a></sup>).<br />
 완벽히 같진 않더라도 비슷은 해지자고.</p>
 
 <p>이 경우 거의 iterative 하게 푸는 것이 국룰이다.<br />
-즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고,</p>
+즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고, 대신,</p>
 <ol>
   <li>$x_{0}$으로부터 출발해서 optimal 한 변화량 $\Delta^{*}$ 을 추정한다음에</li>
   <li>$x_{\text{next}} = x_{\text{prev}} + \Delta^{*} $ 만큼 업데이트 해주는 방식으로 최적해를 향해 나아간다.</li>
 </ol>
 
-<p>그러면 <em>어떻게 $Ax=b$ 를 풀까?</em> 라는 문제는<br />
-다시 <strong><em>어떻게 $A\Delta=b$ 를 풀까?</em></strong> 라는 문제가 된다 <sup id="fnref:ps3" role="doc-noteref"><a href="#fn:ps3" class="footnote">6</a></sup>.</p>
+<p>그러면 <em>어떻게 $Ax=b$ 를 풀까?</em> 라는 문제는</p>
+
+<p>다시, <strong><em>어떻게 $A\Delta=b$ 를 풀까?</em></strong> 라는 문제가 된다 <sup id="fnref:ps3" role="doc-noteref"><a href="#fn:ps3" class="footnote">7</a></sup>.</p>
 
 <p><br /></p>
 <center> *** 다음 시간에 계속 ... ***  </center>
@@ -273,7 +274,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 <hr />
 <h1 id="요약">요약</h1>
 <ul>
-  <li>SLAM back-end 입문으로 Factor graphs for robot perception 책 <sup id="fnref:fgbook" role="doc-noteref"><a href="#fn:fgbook" class="footnote">7</a></sup> 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다.</li>
+  <li>SLAM back-end 입문으로 Factor graphs for robot perception 책 <sup id="fnref:fgbook" role="doc-noteref"><a href="#fn:fgbook" class="footnote">8</a></sup> 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다.</li>
 </ul>
 
 <hr />
@@ -314,10 +315,13 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
       <p>link — To be added <a href="#fnref:link" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
     <li id="fn:2" role="doc-endnote">
-      <p>(1) 실제로는 랜드마크 수가 훨씬 더 수백 수천개만큼 많을 수도 있고 (SfM), 없을 수도 있다 (Pose-graph SLAM) <br /> (2) 실제로는 measurement model들이 대부분 non-linear 하기 때문에 1차미분한 Jacobian matrix H가 쓰인다. 더 엄밀하게는 이 H에 covariance matrix (noise matrix) 의 inverse squared 가 곱해진 형태가 A이다. 자세한 것은 이 책<sup id="fnref:fgbook:1" role="doc-noteref"><a href="#fn:fgbook" class="footnote">7</a></sup>의 chapter 2 를 참고. <br /> (3) 최근에는 underdetermined system 일 때 SLAM을 어떻게 풀어야할지에 관한 연구도 이루어지고 있다 – 참고: Fourie, Dehann, et al. “Towards Real-Time Non-Gaussian SLAM for Underdetermined Navigation.” (IROS 2020). <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>(1) 실제로는 랜드마크 수가 훨씬 더 수백 수천개만큼 많을 수도 있고 (SfM), 없을 수도 있다 (Pose-graph SLAM) <br /> (2) 실제로는 measurement model들이 대부분 non-linear 하기 때문에 1차미분한 Jacobian matrix H가 쓰인다. 더 엄밀하게는 이 H에 covariance matrix (noise matrix) 의 inverse squared 가 곱해진 형태가 A이다. 자세한 것은 이 책<sup id="fnref:fgbook:1" role="doc-noteref"><a href="#fn:fgbook" class="footnote">8</a></sup>의 chapter 2 를 참고. <br /> (3) 최근에는 underdetermined system 일 때 SLAM을 어떻게 풀어야할지에 관한 연구도 이루어지고 있다 – 참고: Fourie, Dehann, et al. “Towards Real-Time Non-Gaussian SLAM for Underdetermined Navigation.” (IROS 2020). <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
     <li id="fn:ps2" role="doc-endnote">
-      <p>여기서 예측하는 대상을 variable, 그 관계에 대해 factor 라고 부른다. factor 는 수학적으로는 n-ary function이다. 자세한 내용은 이 책<sup id="fnref:fgbook:2" role="doc-noteref"><a href="#fn:fgbook" class="footnote">7</a></sup> 의 Chapter 1장 (만 읽어도 됨) 참고. <a href="#fnref:ps2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p>여기서 예측하는 대상을 variable, 그 관계에 대해 factor 라고 부른다. factor 는 수학적으로는 n-ary function이다. 자세한 내용은 이 책<sup id="fnref:fgbook:2" role="doc-noteref"><a href="#fn:fgbook" class="footnote">8</a></sup> 의 Chapter 1장 (만 읽어도 됨) 참고. <a href="#fnref:ps2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:lsbook" role="doc-endnote">
+      <p>더 알아보고싶다면, 이 논문을 참고. Grisetti, Giorgio, et al. “Least squares optimization: From theory to practice.” Robotics (2020) <a href="#fnref:lsbook" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
     <li id="fn:ps3" role="doc-endnote">
       <p>그래서 SLAM이 왕왕 <strong>iterative</strong> non-linear least-square optimization 이라고 불리기도 한다 <a href="#fnref:ps3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>

@@ -120,11 +120,11 @@ SCV는 구비한 sensor (laser 등)들과  motion model 과 observation model �
 
 [^ps2]: 여기서 예측하는 대상을 variable, 그 관계에 대해 factor 라고 부른다. factor 는 수학적으로는 n-ary function이다. 자세한 내용은 이 책[^fgbook] 의 Chapter 1장 (만 읽어도 됨) 참고. 
 
-<center> **SLAM이란 도대체 무엇인가?**  </center>
+### SLAM이란 도대체 무엇인가?
 
 이제는 명확해졌다! 
 
-SCV는 이 (연립)방정식을 풀어야 한다!!!
+SCV는 이 연립방정식 $Ax=b$를 풀어야 한다!!!
 
 --- 
 # 어떻게 Ax=b를 풀까? 
@@ -139,16 +139,19 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 해 (optimal solution) 가 deterministic 하게 존재하지 않을 수 있다.   
 즉, 완전히 $Ax == b$ 로 완벽히 같을 수는 없다는 말. 
 
-대신 우리는 $ \|Ax - b\|_{2}^{2} $ 를 최소화하는 해를 찾게 된다 (least square optimization).  
+대신 우리는 $ \|Ax - b\|_{2}^{2} $ 를 최소화하는 해를 찾게 된다 (least square optimization[^lsbook]).  
 완벽히 같진 않더라도 비슷은 해지자고.
 
+[^lsbook]: 더 알아보고싶다면, 이 논문을 참고. Grisetti, Giorgio, et al. "Least squares optimization: From theory to practice." Robotics (2020)
+
 이 경우 거의 iterative 하게 푸는 것이 국룰이다.  
-즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고,
+즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고, 대신, 
 1. $x_{0}$으로부터 출발해서 optimal 한 변화량 $\Delta^{*}$ 을 추정한다음에
 2. $x_{\text{next}} = x_{\text{prev}} + \Delta^{*} $ 만큼 업데이트 해주는 방식으로 최적해를 향해 나아간다. 
 
 그러면 *어떻게 $Ax=b$ 를 풀까?* 라는 문제는  
-다시 ***어떻게 $A\Delta=b$ 를 풀까?*** 라는 문제가 된다 [^ps3].
+
+다시, ***어떻게 $A\Delta=b$ 를 풀까?*** 라는 문제가 된다 [^ps3].
 
 [^ps3]: 그래서 SLAM이 왕왕 **iterative** non-linear least-square optimization 이라고 불리기도 한다 
 
