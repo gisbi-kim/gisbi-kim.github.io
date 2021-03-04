@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Giseop Kim - SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다</title>
+  <meta name="author" content="Giseop Kim" />
+  <meta name="description" content="The blog of Giseop Kim" />
+  <link rel="canonical" href="http://localhost:4000/blog/2021/03/04/slambackend-1.html" />
+
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon_logo.png" type="image/vnd.microsoft.icon">
+  <link rel="alternate" type="application/atom+xml" title="Giseop Kim" href="http://localhost:4000/atom.xml" />
+
+  <!-- see the how-to-use of academicon here http://jpswalsh.github.io/academicons/ -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    </script>
+    <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  
+
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar">
+      <nav>
+  <h1>Hi.</h1>
+  <a href="/">
+    
+    <img src="/logo.png" id="logo" alt="Blog logo" width="210"/>
+    
+  </a>
+  <h2>I'm <a href="http://bit.ly/giseopkim" target="_blank">Giseop Kim</a>.</h2>
+  <div id="bio">
+    <p>
+      Ph.D. candidate at KAIST
+      <span style="vertical-align:-15%"> </span><br>
+      SLAM engineer, Spatial AI Enthusiast.
+    </p>
+    <!-- <p>
+      Edit me in <code>_includes/sidebar.html</code>
+    </p> -->
+  </div>
+  <div id="social">
+    Follow me:
+<div id="stalker">
+
+  <a title=" on Scholar" href="https://scholar.google.com/citations?user=9mKOLX8AAAAJ&hl=en" target="_blank">
+    <i class="ai ai-google-scholar"></i> 
+    <!-- google -->
+  </a>
+
+  
+  <a title="gisbi-kim on Github" href="https://github.com/gisbi-kim" target="_blank">
+    <i class="fa fa-github-square"></i> 
+  </a>
+  
+
+  <a title=" on Youtube" href="https://www.youtube.com/channel/UCrmVMJ3KEFbDD9EtnAmDT6g" target="_blank">
+    <i class="fa fa-youtube-square"></i> 
+  </a>
+
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="GiseopK on Twitter" href="https://twitter.com/GiseopK" target="_blank">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  March 04, 2021 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다</h1>
+
+<div id="post">
+  <!-- see using latex here: https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/ -->
+<hr />
+
+<h1 id="개요">개요</h1>
+<p>SLAM은 세상의 모든것 <em>[1. 나 (robot)와 2.너 (world)]</em> 의<br />
+state (e.g., position, orientation, velocity) 를 예측하는 학문이다.<br />
+그래서 state estimation 이라고 불리기도 한다.</p>
+
+<p>이런 최적 state 를 예측하는 solver 에 관한 연구를<br />
+SLAM back-end 라고 편의상 부르기도 한다.</p>
+
+<p>그런데 어떻게 예측할까? 어떻게 최적해를 얻을까?</p>
+
+<p>(SLAM back-end의 마일스톤 논문인) Square Root SAM 논문<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> 에서 말했듯,<br />
+SLAM은 수학적으로 $Ax=b$ 를 푸는 문제이다.</p>
+
+<p>그래서 SLAM back-end 라고 하면 주로</p>
+
+<p>어떻게 더 $Ax=b$를<br />
+빠르고 (fast), 정확하고 (accurate), 안정적으로 (numerically stable) 풀 수 있는지에 대한 연구라고 생각하면 된다.</p>
+
+<p><span style="color:gray"> (다음 편들에서 그런 알고리즘들에 대해서 자세히 알아보도록 하고) </span></p>
+
+<p>일단 왜 SLAM이 $Ax=b$ 를 푸는 문제인지 알아보자.</p>
+
+<hr />
+<h1 id="slam-이란">SLAM 이란</h1>
+
+<p>어느 마을에 건설로봇 (SCV)이 있었다.</p>
+
+<p>얘는 자기가 어디서 온 지 모른다.</p>
+
+<p>그래서 편의상 자기가 현재 Origin (e.g., [0, 0]) 에 있다고 생각한다.</p>
+
+<figure>
+  <img src="/figs/2021-03-04-slambackend-1/robot1.png" alt="img1" style="width:100%" />
+  <figcaption> </figcaption>
+</figure>
+<p><span></span></p>
+
+<p>SCV는 길을 가고 있었다. 로봇인 이상 움직이지 않을 수 없으므로.</p>
+
+<figure>
+  <img src="/figs/2021-03-04-slambackend-1/robot2.png" alt="img2" style="width:100%" />
+  <figcaption> </figcaption>
+</figure>
+<p><span></span></p>
+
+<p>얘는 사이사이마다 얼마만큼 이동한지 (relative motion) 를 측정하는 능력 (<em>odometry</em>) 이 있어서 (<span style="color:blue">파랑 화살표</span>),</p>
+
+<p>자연스럽게 $t=2, 3, 4, 5$에서의 위치도 계산할 수 있었다 (localization).</p>
+
+<p>근데 그 능력 (odometry) 은 엄청 정확하지는 않아서 (sensor noise), <br />
+갈수록 자기가 어디에 있는지 덜 신뢰하게 될 수밖에 없었다 (uncertainty was propagated).</p>
+
+<p>그래서 얘는 주변의 포토캐논들 (landmark) 을 봐가면서 이동하기 시작했다.<br />
+SCV는 사실 laser 를 장착하고 있어서 포토캐논까지의 거리를 직접적으로 잴 수 있었다 (<span style="color:orange">주황 화살표</span>).</p>
+
+<figure id="BN">
+  <img src="/figs/2021-03-04-slambackend-1/robot3.png" alt="img3" style="width:105%" />
+  <figcaption> 
+        <center> <a href="#BN" class="img3"> Figure: Bayes Net </a> </center>
+  </figcaption>
+</figure>
+<p><span></span></p>
+
+<p>그래서 파랑색 제약 (motion constraints) 도 다 만족시키는 와중에,<br />
+노란색 제약 (landmark constraints) 들도 다 만족시키도록 한다면<br />
+SCV는 자기의 위치를 조금 더 정확히 추정할 수 있을 것이다.</p>
+
+<p>통상적으로 파랑색 제약을 생성하는 모델을 motion model,<br />
+노란색 제약을 생성하는 모델을 observation model 이라고 부르긴 하는데<br />
+그냥 여기서는 둘 다 measurement (or factor) 라고 부르자.</p>
+
+<p>이런 관계 (방향성, directed) 그래프를 Bayes Net 이라고 부른다.<br />
+(ps. Bayes Net에 관한 좋은 강의 추천<sup id="fnref:fgyoutube" role="doc-noteref"><a href="#fn:fgyoutube" class="footnote">2</a></sup>)</p>
+
+<p>근데 우리는 그림이 필요한게 아니라 (iSAM2에 가면 필요하다. 언젠가 다음편에서 소개함<sup id="fnref:link" role="doc-noteref"><a href="#fn:link" class="footnote">3</a></sup>),<br />
+Algebraically 풀 수 있는, 즉 대수적인 툴이 필요하기 때문에<br />
+이 Bayes Net의 measurement 들을 한 데 다 우겨넣으면</p>
+
+<p>이렇게 matrix 형태로 표현할 수 있다.</p>
+
+<figure id="Axb">
+  <img src="/figs/2021-03-04-slambackend-1/axb.png" alt="img4" style="width:95%" />
+  <figcaption> 
+        <center> <a href="#Axb" class="img3"> Figure: SLAM system </a> </center>
+  </figcaption>
+</figure>
+<p><span></span></p>
+
+<p>SCV는 구비한 sensor (laser 등)들과  motion model 과 observation model 을 통해 $\textbf{b}$ 를 직접 측정해서 알고 있다.</p>
+
+<p>따라서 SCV의 정교한 위치(state) 는<br />
+위의 $Ax=b$ 를 풀어서 나오는 최적해일 것이다 (state estimation).</p>
+
+<p>덤으로 포토캐논들의 위치도 알 수 있게 된다 (mapping) <del>개이득</del>.</p>
+
+<p>우리는 여기서 통상적인 사실 몇 가지를 알 수 있다.</p>
+<ul>
+  <li>matrix $A$는 $m \times n$의 형태인데 통상적으로 $m$이 $n$보다 크다는 것이다 ($m &gt; n$). 이런 상황을 보고 overdetermined system 이라고 부른다. <span style="color:gray"> ps. 심화과정<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote">4</a></sup> </span></li>
+  <li>matrix $A$는 sparse 하다. 왜냐하면 하나의 measurement 는 적은 수의 entity들 사이의 관계만 규정하기 때문이다 <span style="color:gray">(여기서는 두개 사이의 관계들만 예시로 나오고 있지만 물론 당연히 둘 이상일 수 있다. ps. 심화과정<sup id="fnref:ps2" role="doc-noteref"><a href="#fn:ps2" class="footnote">5</a></sup>)</span>.</li>
+</ul>
+
+<center> **SLAM이란 도대체 무엇인가?**  </center>
+
+<p>이제는 명확해졌다!</p>
+
+<p>SCV는 이 (연립)방정식을 풀어야 한다!!!</p>
+
+<hr />
+<h1 id="어떻게-axb를-풀까">어떻게 Ax=b를 풀까?</h1>
+
+<p>$Ax=b$를 풀 때, 
+A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~<br />
+라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제이다…</p>
+
+<p>실제로는 SCV의 odometry와 laser sensor 가<br />
+정확하지 않기 때문에 (noisy measurements) <del><em>SCV는 싼 유닛이다</em></del></p>
+
+<p>해 (optimal solution) 가 deterministic 하게 존재하지 않을 수 있다. <br />
+즉, 완전히 $Ax == b$ 로 완벽히 같을 수는 없다는 말.</p>
+
+<p>대신 우리는 $ |Ax - b|_{2}^{2} $ 를 최소화하는 해를 찾게 된다 (least square optimization).<br />
+완벽히 같진 않더라도 비슷은 해지자고.</p>
+
+<p>이 경우 거의 iterative 하게 푸는 것이 국룰이다.<br />
+즉, optimal 한 $x^{*}$ 를 단번에 찾을 수는 없고,</p>
+<ol>
+  <li>$x_{0}$으로부터 출발해서 optimal 한 변화량 $\Delta^{*}$ 을 추정한다음에</li>
+  <li>$x_{\text{next}} = x_{\text{prev}} + \Delta* $ 만큼 업데이트 해주는 방식으로 최적해를 향해 나아간다.</li>
+</ol>
+
+<p>그러면 <em>어떻게 $Ax=b$ 를 풀까?</em> 라는 문제는<br />
+다시 <strong><em>어떻게 $A\Delta=b$ 를 풀까?</em></strong> 라는 문제가 된다 <sup id="fnref:ps3" role="doc-noteref"><a href="#fn:ps3" class="footnote">6</a></sup>.</p>
+
+<p><br /></p>
+<center> **다음 시간에 계속 ...**  </center>
+<p><br /></p>
+
+<hr />
+<h1 id="요약">요약</h1>
+<ul>
+  <li>SLAM back-end 입문으로 Factor graphs for robot perception 책 <sup id="fnref:fgbook" role="doc-noteref"><a href="#fn:fgbook" class="footnote">7</a></sup> 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다.</li>
+</ul>
+
+<hr />
+<h2 id="예고">예고</h2>
+<p>다음으로</p>
+<blockquote>
+  <p>SLAM back-end 이야기 (2편): $Ax=b$ 풀기<br />
+— QR decomposition 이란? + Householder reflection <em>구현</em> (Matlab 실습)</p>
+</blockquote>
+
+<p>편을 써보겠습니다.</p>
+
+<p><span style="color:gray"> 그 다음으로 <del>제발</del> &lt;SLAM back-end 이야기 (2편): $Ax=b$ 풀기 — Householder reflection <em>이론</em>&gt; 편을 써보겠습니다. </span></p>
+
+<hr />
+<h2 id="생각해보기">생각해보기</h2>
+
+<ol>
+  <li>
+    <p>SCV의 <a href="#Axb"> SLAM system matrix </a> 에서 지금 matrix 의 column 순서가 포토캐논부터 적혀져있다. 근데 이거를 SCV부터 적으면, 즉 column order 가 달라지면 estimation 할 때 어떤 점들이 달라질까? 해가 달라질까? 더 빨리 풀 수 있을까? 아니면 아무 상관 없을까?</p>
+  </li>
+  <li>
+    <p>SCV 는 $t=3$에서 포토캐논 a 와 c를 봤다고 생각했다. 하지만 알고보니 b와 d를 본 것이었다면? 즉 data association 의 outlier 가 존재할 때 SLAM 의 최적해는 어떤 영향을 받을까? 그리고 이런 false association 이 존재함에도 불구하고, 어떻게 해를 더 강건하게 예측할 수 있을까?</p>
+  </li>
+</ol>
+
+<hr />
+<h3 id="주석">주석</h3>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Dellaert, Frank, and Michael Kaess. “Square Root SAM: Simultaneous localization and mapping via square root information smoothing.” The International Journal of Robotics Research 25.12 (2006): 1181-1203. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:fgyoutube" role="doc-endnote">
+      <p>Youtube lectures — <a href="https://youtube.com/playlist?list=PLOJ3GF0x2_eWtGXfZ5Ne1Jul5L-6Q76Sz">Factor graphs short course (Jan 2020, UAL)</a> by Prof. Jose Luis Blanco <a href="#fnref:fgyoutube" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:link" role="doc-endnote">
+      <p>link — To be added <a href="#fnref:link" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>(1) 실제로는 랜드마크 수가 훨씬 더 수백 수천개만큼 많을 수도 있고 (SfM), 없을 수도 있다 (Pose-graph SLAM) (2) 실제로는 measurement model들이 대부분 non-linear 하기 때문에 1차미분한 Jacobian matrix H가 쓰인다. 더 엄밀하게는 이 H에 covariance matrix (noise matrix) 의 inverse squared 가 곱해진 형태가 A이다. 자세한 것은 Dellaert, Frank, and Michael Kaess. “Factor graphs for robot perception.” Foundations and Trends in Robotics (2017) 의 chapter 2 를 참고. (3) 최근에는 underdetermined system 일 때 SLAM을 어떻게 풀어야할지에 관한 연구도 이루어지고 있다 – 참고: Fourie, Dehann, et al. “Towards Real-Time Non-Gaussian SLAM for Underdetermined Navigation.” (IROS 2020). <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:ps2" role="doc-endnote">
+      <p>여기서 예측하는 대상을 variable, 그 관계에 대해 factor 라고 부른다. factor 는 수학적으로는 n-ary function이다. 자세한 내용은 이 책<sup id="fnref:fgbook:1" role="doc-noteref"><a href="#fn:fgbook" class="footnote">7</a></sup> 의 Chapter 1장 (만 읽어도 됨) 참고. <a href="#fnref:ps2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:ps3" role="doc-endnote">
+      <p>그래서 SLAM이 왕왕 <strong>iterative</strong> non-linear least-square optimization 이라고 불리기도 한다 <a href="#fnref:ps3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:fgbook" role="doc-endnote">
+      <p>Dellaert, Frank, and Michael Kaess. “Factor graphs for robot perception.” Foundations and Trends in Robotics (2017) <a href="#fnref:fgbook" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:fgbook:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a></p>
+    </li>
+  </ol>
+</div>
+
+</div>
+
+<div id="related">
+  <h3>Other posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>02 Mar 2021 &raquo;</span> <a href="/blog/2021/03/02/slam-root.html">SLAM의 뿌리를 찾아서</a>
+    </li>
+    
+    <li>
+      <span>02 Mar 2021 &raquo;</span> <a href="/blog/2021/03/02/segmap-build.html">SegMap 빌드하기</a>
+    </li>
+    
+    <li>
+      <span>01 Mar 2021 &raquo;</span> <a href="/blog/2021/03/01/blog-start.html">블로그 시작!</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+    The postings on this site are my own and don't necessarily represent my 
+    employer’s positions, strategies or opinions.
+  </p>
+  
+
+  <p>
+    © Giseop Kim, 2021 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+  </p>
+</div>
+      </div>
+    </div>
+  </div>
+
+<!-- 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-xxxx-x']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+ -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4VNTPFW7FW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4VNTPFW7FW');
+</script>
+
+</body>
+</html>

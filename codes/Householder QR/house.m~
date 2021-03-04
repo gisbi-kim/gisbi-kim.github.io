@@ -1,0 +1,9 @@
+function [v] = house(A, j)
+
+[m, n] = size(A);
+
+v = zeros(m, 1);
+
+
+end
+

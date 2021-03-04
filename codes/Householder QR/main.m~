@@ -1,0 +1,22 @@
+
+numStates = 4;
+numMeasurements = 6;
+
+A = rand(numMeasurements, numStates);
+
+R = A;
+Q = eye(size(A));
+for j=1:numStates
+
+    v = housevec(R, j);
+    H = housemat(v);
+
+    Rj = H*R(j:end, j:end);
+    R(j:end, j:end) = Rj;
+    
+    Q = Qj * Q; 
+    
+    disp(j);
+    disp(R);
+end
+
