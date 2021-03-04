@@ -1,8 +1,12 @@
-# Giseop Kim
+# Giseop Kim Blog
 
 ## Run local
-- $ bundle exec
-- $ jekyll serve
+if ubuntu:
+- ```$ bundle exec```
+- ```$ jekyll serve```
+
+if mac:
+- ```$ bundle exec jekyll serve```
 
 ## Site Template 
 - The site template is from https://jekyllthemes.io/theme/lagom 
