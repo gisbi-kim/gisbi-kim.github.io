@@ -51,27 +51,53 @@
   <div class="container">
     <div class="four columns sidebar">
       <nav>
-  <h1>Hi.</h1>
+  <!-- <h1>Hi,</h1> -->
   <a href="/">
     
-    <img src="/logo.png" id="logo" alt="Blog logo" width="210"/>
+    <img src="/logo.png" id="logo" alt="Blog logo" width="170"/>
     
   </a>
-  <h2>I'm <a href="http://bit.ly/giseopkim" target="_blank">Giseop Kim</a>.</h2>
+
+  <h2 style="margin-top:-15px"> 
+    <a href="http://bit.ly/giseopkim" target="_blank">Giseop Kim</a> <a href="/"> blog </a> 
+  </h2>
+
   <div id="bio">
+    <br><br> 
+    <p style="margin-top:-70px">
+      <!-- <span style="vertical-align:150%"> </span><br> -->
+      <center> Ph.D. candidate at <a href="https://irap.kaist.ac.kr/" target="_blank"> KAIST </a> </center>
+      <!-- <span style="vertical-align:-15%"> </span><br> -->
+      <center style="font-size:0.95em"> SLAM engineer </center>
+      <center style="font-size:0.95em"> Spatial AI Enthusiast </center>
+    </p>  
     <p>
-      Ph.D. candidate at KAIST
-      <span style="vertical-align:-15%"> </span><br>
-      SLAM engineer, Spatial AI Enthusiast.
+      <!-- <span style="vertical-align:-15%"> </span><br> -->
+      <center style = "margin-top:-10px; font-size:0.9em; letter-spacing:1.6px;"> paulgkim@kaist.ac.kr </center> 
+      <!-- font-family:Serif; -->
     </p>
     <!-- <p>
       Edit me in <code>_includes/sidebar.html</code>
     </p> -->
   </div>
+
   <div id="social">
-    Follow me:
+    <!-- <center> My channels </center> -->
+<center>
 <div id="stalker">
 
+  <a title="home" href="/">
+    <i class="fa fa-home"></i> 
+  </a>
+
+  <a title="notion cv blog" href="http://bit.ly/gk_profile" target="_blank">
+    <i class="fa fa-user"></i> 
+  </a>
+
+  <a title="CV" href="https://github.com/gisbi-kim/cv-gskim" target="_blank">
+    <i class="ai ai-cv"></i> 
+  </a>
+  
   <a title=" on Scholar" href="https://scholar.google.com/citations?user=9mKOLX8AAAAJ&hl=en" target="_blank">
     <i class="ai ai-google-scholar"></i> 
     <!-- google -->
@@ -95,11 +121,11 @@
 
   
 
-  
+  <!-- 
   <a title="GiseopK on Twitter" href="https://twitter.com/GiseopK" target="_blank">
     <i class="fa fa-twitter-square"></i>
   </a>
-  
+   -->
 
   
 
@@ -113,8 +139,9 @@
 
   
 </div>
-
+</center>
   </div>
+
 </nav>
 
     </div>
@@ -244,8 +271,8 @@ Algebraically 풀 수 있는, 즉 대수적인 툴이 필요하기 때문에<br 
 <h1 id="어떻게-axb를-풀까">어떻게 Ax=b를 풀까?</h1>
 
 <p>$Ax=b$를 풀 때, 
-A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~<br />
-라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제이다…</p>
+A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~ (normal equation 이라고 부른다)<br />
+라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제에 불과하다…</p>
 
 <p>실제로는 SCV의 odometry와 laser sensor 가<br />
 정확하지 않기 때문에 (noisy measurements) <del><em>SCV는 싼 유닛이다</em></del></p>
@@ -266,6 +293,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 <p>그러면 <em>어떻게 $Ax=b$ 를 풀까?</em> 라는 문제는</p>
 
 <p>다시, <strong><em>어떻게 $A\Delta=b$ 를 풀까?</em></strong> 라는 문제가 된다 <sup id="fnref:ps3" role="doc-noteref"><a href="#fn:ps3" class="footnote">7</a></sup>.</p>
+
+<p>따라서 SLAM이란, $\underset{\Delta}{\mathrm{argmin}} \ ||A\Delta - b ||_{2}^{2}$ 인 $\Delta$를<br />
+어떻게 (효율적으로 w.r.t time and memory) 찾을까? 에 대답하는 문제이다.</p>
 
 <p><br /></p>
 <center> *** 다음 시간에 계속 ... ***  </center>
@@ -298,6 +328,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   </li>
   <li>
     <p>SCV 는 $t=3$에서 포토캐논 a 와 c를 봤다고 생각했다. 하지만 알고보니 b와 d를 본 것이었다면? 즉 data association 의 outlier 가 존재할 때 SLAM 의 최적해는 어떤 영향을 받을까? 그리고 이런 false association 이 존재함에도 불구하고, 어떻게 해를 더 강건하게 예측할 수 있을까?</p>
+  </li>
+  <li>
+    <p>$||Ax - b ||_{2}^{2}$ 의 argmin 을 찾는 것은 일반적으로 SLAM외에도 다른 computer vision estimation 문제에도 매우 자주 등장하는 상황이다. SLAM에 있어 위 식을 푸는 것은 다른 computer vision 의 estimation 문제와 어떤점에서 특별하게 다를까?</p>
   </li>
 </ol>
 
@@ -364,7 +397,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   
 
   <p>
-    © Giseop Kim, 2021 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
+    © <a href="http://bit.ly/gk_profile"> Giseop Kim </a>, 2021 &mdash; built with <a href="http://jekyllrb.com/">Jekyll</a> using <a href="https://github.com/swanson/lagom">Lagom theme</a>
   </p>
 </div>
       </div>

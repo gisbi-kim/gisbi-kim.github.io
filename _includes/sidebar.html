@@ -1,24 +1,38 @@
 <nav>
-  <h1>Hi.</h1>
+  <!-- <h1>Hi,</h1> -->
   <a href="/">
     {% if site.data.theme.social.gravatar %}
     <img src="http://www.gravatar.com/avatar/{{ site.data.theme.social.gravatar }}?s=200" id="gravatar" alt="My photo"/>
     {% else %}
-    <img src="/logo.png" id="logo" alt="Blog logo" width="210"/>
+    <img src="/logo.png" id="logo" alt="Blog logo" width="170"/>
     {% endif %}
   </a>
-  <h2>I'm <a href="http://bit.ly/giseopkim" target="_blank">{{ site.data.theme.name }}</a>.</h2>
+
+  <h2 style="margin-top:-15px"> 
+    <a href="http://bit.ly/giseopkim" target="_blank">{{ site.data.theme.name }}</a> <a href="/"> blog </a> 
+  </h2>
+
   <div id="bio">
+    <br><br> 
+    <p style="margin-top:-70px">
+      <!-- <span style="vertical-align:150%"> </span><br> -->
+      <center> Ph.D. candidate at <a href="https://irap.kaist.ac.kr/" target="_blank"> KAIST </a> </center>
+      <!-- <span style="vertical-align:-15%"> </span><br> -->
+      <center style="font-size:0.95em"> SLAM engineer </center>
+      <center style="font-size:0.95em"> Spatial AI Enthusiast </center>
+    </p>  
     <p>
-      Ph.D. candidate at KAIST
-      <span style="vertical-align:-15%"> </span><br>
-      SLAM engineer, Spatial AI Enthusiast.
+      <!-- <span style="vertical-align:-15%"> </span><br> -->
+      <center style = "margin-top:-10px; font-size:0.9em; letter-spacing:1.6px;"> paulgkim@kaist.ac.kr </center> 
+      <!-- font-family:Serif; -->
     </p>
     <!-- <p>
       Edit me in <code>_includes/sidebar.html</code>
     </p> -->
   </div>
+
   <div id="social">
     {% include social.html %}
   </div>
+
 </nav>

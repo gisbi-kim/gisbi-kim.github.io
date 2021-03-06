@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-04T22:57:40+09:00</updated>
+ <updated>2021-03-07T00:35:01+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -131,8 +131,8 @@ Algebraically 풀 수 있는, 즉 대수적인 툴이 필요하기 때문에&lt;
 &lt;h1 id=&quot;어떻게-axb를-풀까&quot;&gt;어떻게 Ax=b를 풀까?&lt;/h1&gt;
 
 &lt;p&gt;$Ax=b$를 풀 때, 
-A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~&lt;br /&gt;
-라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제이다…&lt;/p&gt;
+A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~ (normal equation 이라고 부른다)&lt;br /&gt;
+라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제에 불과하다…&lt;/p&gt;
 
 &lt;p&gt;실제로는 SCV의 odometry와 laser sensor 가&lt;br /&gt;
 정확하지 않기 때문에 (noisy measurements) &lt;del&gt;&lt;em&gt;SCV는 싼 유닛이다&lt;/em&gt;&lt;/del&gt;&lt;/p&gt;
@@ -153,6 +153,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;p&gt;그러면 &lt;em&gt;어떻게 $Ax=b$ 를 풀까?&lt;/em&gt; 라는 문제는&lt;/p&gt;
 
 &lt;p&gt;다시, &lt;strong&gt;&lt;em&gt;어떻게 $A\Delta=b$ 를 풀까?&lt;/em&gt;&lt;/strong&gt; 라는 문제가 된다 &lt;sup id=&quot;fnref:ps3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:ps3&quot; class=&quot;footnote&quot;&gt;7&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+&lt;p&gt;따라서 SLAM이란, $\underset{\Delta}{\mathrm{argmin}} \ ||A\Delta - b ||_{2}^{2}$ 인 $\Delta$를&lt;br /&gt;
+어떻게 (효율적으로 w.r.t time and memory) 찾을까? 에 대답하는 문제이다.&lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;center&gt; *** 다음 시간에 계속 ... ***  &lt;/center&gt;
@@ -185,6 +188,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;SCV 는 $t=3$에서 포토캐논 a 와 c를 봤다고 생각했다. 하지만 알고보니 b와 d를 본 것이었다면? 즉 data association 의 outlier 가 존재할 때 SLAM 의 최적해는 어떤 영향을 받을까? 그리고 이런 false association 이 존재함에도 불구하고, 어떻게 해를 더 강건하게 예측할 수 있을까?&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;$||Ax - b ||_{2}^{2}$ 의 argmin 을 찾는 것은 일반적으로 SLAM외에도 다른 computer vision estimation 문제에도 매우 자주 등장하는 상황이다. SLAM에 있어 위 식을 푸는 것은 다른 computer vision 의 estimation 문제와 어떤점에서 특별하게 다를까?&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 

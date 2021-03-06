@@ -130,8 +130,8 @@ SCV는 이 연립방정식 $Ax=b$를 풀어야 한다!!!
 # 어떻게 Ax=b를 풀까? 
 
 $Ax=b$를 풀 때, 
-A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~  
-라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제이다...
+A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ 를 쉽게 구할 수 있지~ (normal equation 이라고 부른다)  
+라고 말한다면 그것은 중학교 교과서에서만 가능한 연립방정식 예제에 불과하다...
 
 실제로는 SCV의 odometry와 laser sensor 가  
 정확하지 않기 때문에 (noisy measurements) ~~*SCV는 싼 유닛이다*~~
@@ -152,6 +152,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 그러면 *어떻게 $Ax=b$ 를 풀까?* 라는 문제는  
 
 다시, ***어떻게 $A\Delta=b$ 를 풀까?*** 라는 문제가 된다 [^ps3].
+
+따라서 SLAM이란, $\underset{\Delta}{\mathrm{argmin}} \ \|\|A\Delta - b \|\|_{2}^{2}$ 인 $\Delta$를  
+어떻게 (효율적으로 w.r.t time and memory) 찾을까? 에 대답하는 문제이다. 
 
 [^ps3]: 그래서 SLAM이 왕왕 **iterative** non-linear least-square optimization 이라고 불리기도 한다 
 
@@ -181,6 +184,8 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 1. SCV의 <a href="#Axb"> SLAM system matrix </a> 에서 지금 matrix 의 column 순서가 포토캐논부터 적혀져있다. 근데 이거를 SCV부터 적으면, 즉 column order 가 달라지면 estimation 할 때 어떤 점들이 달라질까? 해가 달라질까? 더 빨리 풀 수 있을까? 아니면 아무 상관 없을까?
 
 2. SCV 는 $t=3$에서 포토캐논 a 와 c를 봤다고 생각했다. 하지만 알고보니 b와 d를 본 것이었다면? 즉 data association 의 outlier 가 존재할 때 SLAM 의 최적해는 어떤 영향을 받을까? 그리고 이런 false association 이 존재함에도 불구하고, 어떻게 해를 더 강건하게 예측할 수 있을까?
+
+3. $\|\|Ax - b \|\|_{2}^{2}$ 의 argmin 을 찾는 것은 일반적으로 SLAM외에도 다른 computer vision estimation 문제에도 매우 자주 등장하는 상황이다. SLAM에 있어 위 식을 푸는 것은 다른 computer vision 의 estimation 문제와 어떤점에서 특별하게 다를까?
 
 ---
 ### 주석
