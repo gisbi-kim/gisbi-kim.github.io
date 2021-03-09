@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-07T01:10:02+09:00</updated>
+ <updated>2021-03-09T16:28:32+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -167,6 +167,8 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   &lt;li&gt;SLAM back-end 입문으로 Factor graphs for robot perception 책 &lt;sup id=&quot;fnref:fgbook&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:fgbook&quot; class=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt; 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;span style=&quot;color:gray&quot;&gt; ps. 심화과정 – 팩트체크: 근데 사실 b는 … &lt;sup id=&quot;fnref:psb&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:psb&quot; class=&quot;footnote&quot;&gt;9&lt;/a&gt;&lt;/sup&gt; &lt;/span&gt;&lt;/p&gt;
+
 &lt;hr /&gt;
 &lt;h2 id=&quot;예고&quot;&gt;예고&lt;/h2&gt;
 &lt;p&gt;다음으로&lt;/p&gt;
@@ -221,6 +223,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
     &lt;/li&gt;
     &lt;li id=&quot;fn:fgbook&quot; role=&quot;doc-endnote&quot;&gt;
       &lt;p&gt;Dellaert, Frank, and Michael Kaess. “Factor graphs for robot perception.” Foundations and Trends in Robotics (2017) &lt;a href=&quot;#fnref:fgbook&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt; &lt;a href=&quot;#fnref:fgbook:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt; &lt;a href=&quot;#fnref:fgbook:2&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;sup&gt;3&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li id=&quot;fn:psb&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;#Axb&quot;&gt; SLAM system matrix figure &lt;/a&gt; 에서 $b$가 마치 measurement 값인것 처럼 일단 소개를 했었었다 (쉬운 이해를 위해). 하지만 사실 b는 prediction error vector이다. 즉 어떤 시점 $i$ 에서, measurement model 을 이용해서 예측된 (우리가 그 값일 거라고 기대하는) measurement $h_{i}(X_{i}^{o})$ 와 실제로 얻은 measurement 값 $z_{i}$ 의 차이가 $b$ vector 가 된다. 즉, $|z_{i} - h_{i}(X_{i}^{o})|$ 가 $b$ vector인 것이다. 더 엄밀하게는 prediction error vector에 whitening 까지 된 것이 $b$ vector가 되는 것인데, 자세한 내용은 Factor Graph Book&lt;sup id=&quot;fnref:fgbook:3&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:fgbook&quot; class=&quot;footnote&quot;&gt;8&lt;/a&gt;&lt;/sup&gt; 의 챕터 2.3 을 참고. &lt;a href=&quot;#fnref:psb&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;

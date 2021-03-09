@@ -1,16 +1,21 @@
 <nav>
   <!-- <h1>Hi,</h1> -->
+
+  <hr class="solid" style="margin-top:+20px">
+
   <a href="/">
     {% if site.data.theme.social.gravatar %}
     <img src="http://www.gravatar.com/avatar/{{ site.data.theme.social.gravatar }}?s=200" id="gravatar" alt="My photo"/>
     {% else %}
-    <img src="/logo.png" id="logo" alt="Blog logo" width="170"/>
+    <!-- <img src="/logo.png" id="logo" alt="Blog logo" width="170"/> -->
     {% endif %}
   </a>
 
   <h2 style="margin-top:-15px"> 
     <a href="http://bit.ly/giseopkim" style="font-weight:bold" target="_blank">{{ site.data.theme.name }}</a> <a href="/"> blog </a> 
   </h2>
+
+  <hr class="solid" style="margin-top:+15px">
 
   <div id="bio">
     <br><br> 

@@ -156,6 +156,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 따라서 SLAM이란, $\underset{\Delta}{\mathrm{argmin}} \ \|\|A\Delta - b \|\|_{2}^{2}$ 인 $\Delta$를  
 어떻게 (효율적으로 w.r.t time and memory) 찾을까? 에 대답하는 문제이다. 
 
+
 [^ps3]: 그래서 SLAM이 왕왕 **iterative** non-linear least-square optimization 이라고 불리기도 한다 
 
 <br>
@@ -165,6 +166,10 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 --- 
 # 요약
 - SLAM back-end 입문으로 Factor graphs for robot perception 책 [^fgbook] 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다. 
+
+<span style="color:gray"> ps. 심화과정 -- 팩트체크: 근데 사실 b는 ... [^psb] </span> 
+
+[^psb]: <a href="#Axb"> SLAM system matrix figure </a> 에서 $b$가 마치 measurement 값인것 처럼 일단 소개를 했었었다 (쉬운 이해를 위해). 하지만 사실 b는 prediction error vector이다. 즉 어떤 시점 $i$ 에서, measurement model 을 이용해서 예측된 (우리가 그 값일 거라고 기대하는) measurement $h_{i}(X_{i}^{o})$ 와 실제로 얻은 measurement 값 $z_{i}$ 의 차이가 $b$ vector 가 된다. 즉, $\|z_{i} - h_{i}(X_{i}^{o})\|$ 가 $b$ vector인 것이다. 더 엄밀하게는 prediction error vector에 whitening 까지 된 것이 $b$ vector가 되는 것인데, 자세한 내용은 Factor Graph Book[^fgbook] 의 챕터 2.3 을 참고.
 
 [^fgbook]: Dellaert, Frank, and Michael Kaess. "Factor graphs for robot perception." Foundations and Trends in Robotics (2017)
 

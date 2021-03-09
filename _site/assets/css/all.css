@@ -1466,6 +1466,7 @@ hr.dashed {
   /* Solid border */
   hr.solid {
     border-top: 3px solid #ddd;
+    /* border-top: 3px solid rgba(255, 142, 35, 0.753); */
   }
   
   /* Rounded border */

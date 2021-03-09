@@ -52,15 +52,20 @@
     <div class="four columns sidebar">
       <nav>
   <!-- <h1>Hi,</h1> -->
+
+  <hr class="solid" style="margin-top:+20px">
+
   <a href="/">
     
-    <img src="/logo.png" id="logo" alt="Blog logo" width="170"/>
+    <!-- <img src="/logo.png" id="logo" alt="Blog logo" width="170"/> -->
     
   </a>
 
   <h2 style="margin-top:-15px"> 
     <a href="http://bit.ly/giseopkim" style="font-weight:bold" target="_blank">Giseop Kim</a> <a href="/"> blog </a> 
   </h2>
+
+  <hr class="solid" style="margin-top:+15px">
 
   <div id="bio">
     <br><br> 
@@ -307,6 +312,8 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   <li>SLAM back-end 입문으로 Factor graphs for robot perception 책 <sup id="fnref:fgbook" role="doc-noteref"><a href="#fn:fgbook" class="footnote">8</a></sup> 을 추천합니다. SAM, iSAM, iSAM2 세 논문의 내용을 쉬운 언어로 잘 서술하고 있습니다.</li>
 </ul>
 
+<p><span style="color:gray"> ps. 심화과정 – 팩트체크: 근데 사실 b는 … <sup id="fnref:psb" role="doc-noteref"><a href="#fn:psb" class="footnote">9</a></sup> </span></p>
+
 <hr />
 <h2 id="예고">예고</h2>
 <p>다음으로</p>
@@ -361,6 +368,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
     </li>
     <li id="fn:fgbook" role="doc-endnote">
       <p>Dellaert, Frank, and Michael Kaess. “Factor graphs for robot perception.” Foundations and Trends in Robotics (2017) <a href="#fnref:fgbook" class="reversefootnote" role="doc-backlink">&#8617;</a> <a href="#fnref:fgbook:1" class="reversefootnote" role="doc-backlink">&#8617;<sup>2</sup></a> <a href="#fnref:fgbook:2" class="reversefootnote" role="doc-backlink">&#8617;<sup>3</sup></a></p>
+    </li>
+    <li id="fn:psb" role="doc-endnote">
+      <p><a href="#Axb"> SLAM system matrix figure </a> 에서 $b$가 마치 measurement 값인것 처럼 일단 소개를 했었었다 (쉬운 이해를 위해). 하지만 사실 b는 prediction error vector이다. 즉 어떤 시점 $i$ 에서, measurement model 을 이용해서 예측된 (우리가 그 값일 거라고 기대하는) measurement $h_{i}(X_{i}^{o})$ 와 실제로 얻은 measurement 값 $z_{i}$ 의 차이가 $b$ vector 가 된다. 즉, $|z_{i} - h_{i}(X_{i}^{o})|$ 가 $b$ vector인 것이다. 더 엄밀하게는 prediction error vector에 whitening 까지 된 것이 $b$ vector가 되는 것인데, 자세한 내용은 Factor Graph Book<sup id="fnref:fgbook:3" role="doc-noteref"><a href="#fn:fgbook" class="footnote">8</a></sup> 의 챕터 2.3 을 참고. <a href="#fnref:psb" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
