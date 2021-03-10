@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/assets/css/all.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  
+  <!-- 
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         TeX: {
@@ -44,8 +44,19 @@
     <script type="text/javascript" async
       src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-  
+   -->
 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
+    
 </head>
 <body>
   <div class="container">
@@ -212,6 +223,7 @@
 
 <h2 id="journals">Journals</h2>
 
+<p style="margin-top:-10px"> </p>
 <p id="j20sc2"> </p>
 <ul>
   <li>Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition</li>
@@ -223,6 +235,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="ral19"> </p>
 <ul>
   <li>1-Day Learning, 1-Year Localization: Long-term LiDAR Localization using Scan Context Image</li>
@@ -238,6 +251,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Classification-based Long-term LiDAR Localization"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="ceus19"> </p>
 <ul>
   <li>A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology</li>
@@ -251,6 +265,7 @@
 
 <h2 id="conferences">Conferences</h2>
 
+<p style="margin-top:-10px"> </p>
 <p id="iros20"> </p>
 <ul>
   <li>Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images</li>
@@ -266,6 +281,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Remove Dynamic Points in the Wild"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra20undeeplo"> </p>
 <ul>
   <li>Unsupervised Geometry-Aware Deep LiDAR Odometry</li>
@@ -280,6 +296,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra20mulran"> </p>
 <ul>
   <li>MulRan: Multimodal Range Dataset for Urban Place Recognition</li>
@@ -296,6 +313,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR+Radar SLAM Dataset and Radar Place Recognition"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra18sc"> </p>
 <ul>
   <li>Scan Context: Egocentric Spatial Descriptor for Place Recognition within 3D Point Cloud Map</li>
@@ -313,6 +331,7 @@
 
 <h2 id="workshops">Workshops</h2>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra19wsjang"> </p>
 <ul>
   <li>CNN-based Approach for Opti-Acoustic Reciprocal Feature Matching</li>
@@ -323,9 +342,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2019 Workshop on Underwater Robotics Perception —  
     <a href="/publications/hsjang-2019-icra-ws.pdf" target="_blank"> Paper</a>
     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper paper"  <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper"  <br />
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra18ws"> </p>
 <ul>
   <li>Learning Scan Context toward Long-term LiDAR Localization</li>
@@ -341,6 +361,7 @@
 
 <h2 id="domestic-korean">Domestic (Korean)</h2>
 
+<p style="margin-top:-10px"> </p>
 <p id="kros20"> </p>
 <ul>
   <li>CNN-based Opti-Acoustic Transformation for Underwater Feature Matching</li>
@@ -361,6 +382,14 @@
 <div id="related" style="margin-top:-20px">
   <h3>Other posts</h3>
   <ul class="posts" style="margin-top:-15px">
+    
+    <li>
+      <!--  -->
+      <span>09 Mar 2021 &raquo;</span> 
+      <span style="color:gray"> [Filtering-based SLAM] &raquo;</span>
+      <a href="/blog/2021/03/09/bayesfiltering-1.html">Bayesian Filtering 이야기 (1편): posterior 의 mean, covariance 구하기 (수식 유도)</a>
+      <!--  -->
+    </li>
     
     <li>
       <!--  -->

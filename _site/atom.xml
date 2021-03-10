@@ -4,13 +4,127 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-10T15:56:17+09:00</updated>
+ <updated>2021-03-10T17:56:25+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
    <email>paulgkim@kaist.ac.kr</email>
  </author>
 
+ 
+ <entry>
+   <title>Bayesian Filtering 이야기 (1편): posterior 의 mean, covariance 구하기 (수식 유도)</title>
+   <link href="http://localhost:4000/blog/2021/03/09/bayesfiltering-1.html"/>
+   <updated>2021-03-09T00:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/2021/03/09/bayesfiltering-1</id>
+   <content type="html">&lt;h1 id=&quot;개요&quot;&gt;개요&lt;/h1&gt;
+
+&lt;p&gt;SLAM은 filtering-based 와 optimization-based 로 편의상 나눌 수 있다.&lt;br /&gt;
+(물론 두 방법이 robot 의 state 를 추정하는데 상보적으로 동시에 쓰일수도 있다.)&lt;/p&gt;
+
+&lt;p&gt;&lt;span style=&quot;color:gray&quot;&gt; [Factor graph-based SLAM] &lt;/span&gt; 에서는&lt;br /&gt;
+optimization-based 기반의 SLAM에 대해서 소개하고 있다.&lt;/p&gt;
+
+&lt;p&gt;한편,  &lt;span style=&quot;color:gray&quot;&gt; [Filtering-based SLAM] &lt;/span&gt; 시리즈에서는&lt;br /&gt;
+filtering-based SLAM 에 대해서 소개하려고 하는데,&lt;br /&gt;
+이 포스트 (와 몇 편 더) 에서는, 그전에 먼저&lt;br /&gt;
+filtering-based SLAM의 근간이 되는 Bayesian analysis 자체에 대해 소개하려고 한다.&lt;br /&gt;
+mathmatical machinary 랄까, 기본을 알면 SLAM은 오히려 쉬울 것이다. 
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;bayesisan-analysis-란&quot;&gt;Bayesisan Analysis 란?&lt;/h1&gt;
+
+&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+
+&lt;p&gt;Bayesisan Analysis 이 무엇인지 설명하기 전에,&lt;br /&gt;
+Bayesisan Analysis 이 왜 필요한지, 예시 상황으로부터 시작해보자.&lt;/p&gt;
+
+&lt;p&gt;우리는 어떤 한 시점에서 로봇의 위치를 알고싶다.&lt;br /&gt;
+이 경우 위치를 $\textbf{x}_{i} = (x, y)$ 의 두 값으로 표현할 수 있다. (heading 은 편의상 생략)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;상황 1:
+    &lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+    &lt;p&gt;로봇은 위치를 추정하기 위해서 GPS를 사용했다. &lt;br /&gt;
+GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $h_1(\cdot)$).&lt;/p&gt;
+
+    &lt;p&gt;그래서 로봇은 자기의 위치를 $(1,2)$ 이라고 생각하고 여러 미션을 수행하려고 한다.&lt;/p&gt;
+
+    &lt;p&gt;근데 GPS는 로봇의 위치가 다시 $(1.5, 3)$ 라고 알려주었다 (measurement 2, $h_2(\cdot)$).&lt;br /&gt;
+그래서 로봇은 자기의 위치를 다시 $(1.5, 3)$ 으로 바꿨다.&lt;br /&gt;
+근데 GPS는 로봇의 위치가 다시 $(2.5, 1)$ 라고 알려주었다 (measurement 3, $h_3(\cdot)$).&lt;br /&gt;
+그래서 로봇은 자기의 위치를 다시 $(2.5, 1)$ 으로 바꿨다.&lt;/p&gt;
+
+    &lt;p&gt;… 무한반복 …&lt;br /&gt;
+로봇은 확신없이 자기 위치를 결국 추정하지 못하고 결국 세월이 다갔다 …&lt;/p&gt;
+
+    &lt;p&gt;이렇게, 매번 개별 measurement만의 가능도 (likelihood) 를 최대화 해주는 방식으로&lt;br /&gt;
+위치를 추정하는 게 좋은 방법일까?&lt;br /&gt;
+이러면 그때그때 들어오는 measurement 에 biased 된 예측이 내려질 것이다&lt;sup id=&quot;fnref:likelihood&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:likelihood&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+
+  &lt;/li&gt;
+  &lt;li&gt;상황 2:
+    &lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+    &lt;p&gt;상황1과 똑같이, 로봇은 위치를 추정하기 위해서 GPS를 사용했다. &lt;br /&gt;
+GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $h_1(\cdot)$).&lt;/p&gt;
+
+    &lt;p&gt;근데 이 로봇은 자기의 현재 위치가 $(0.5, 2)$ 라고 믿고 있는 상태이다 (prior).&lt;br /&gt;
+이 값은 현재 시점에서 측정 (measurement) 한 것은 아니지만 로봇이 알고있는 어떤 믿음이다.&lt;/p&gt;
+
+    &lt;p&gt;로봇은 이 경우에도 상황1에서와 같이 현재 측정된 정보만을 최대화 하도록&lt;br /&gt;
+자기의 위치를 추정해야할까?&lt;br /&gt;
+흠 근데 그건 좀 unreasonable 해 보인다.&lt;br /&gt;
+prior 와 measurement 두 정보를 모두 고려하는 게 좋을 것 같다.&lt;/p&gt;
+
+    &lt;p&gt;근데 만약 prior 와 measurement 두 정보를 모두 고려한다 하더라도,&lt;br /&gt;
+수학적으로 어떻게 융합하여야 하는가?&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;bayesisan-analysis-란-1&quot;&gt;Bayesisan Analysis 란?&lt;/h2&gt;
+
+&lt;p&gt;Bayesian analysis 는 우리가 알고싶은 parameter (들, variables as vector)의&lt;br /&gt;
+posterior probability 를 maximize 하는&lt;br /&gt;
+optimal parameter (그래서 maximum a posteriori, MAP) 를 찾는 방법을 말한다.&lt;/p&gt;
+
+&lt;p&gt;다들 알다시피 Bayes Rule 을 쓰면 다음과 같은데&lt;/p&gt;
+
+\[\begin{align*}
+  p(A \ | \ B) &amp;amp;\propto p(A) \cdot p( B \  | \ A) \\ 
+\end{align*}\]
+
+&lt;p&gt;robotics (or 여타 estimation) 에서 실제로 중요한 것은&lt;br /&gt;
+위에서 $A$와 $B$의 위치가 바뀌는게 베이즈어쩌구구나~ 가 아니라&lt;br /&gt;
+$A$와 $B$ 자리에 어떤 물리적 의미를 지니는 것이 해당하는지가 중요하다.&lt;/p&gt;
+
+\[\begin{align*}
+  p(\theta \ | \ \textbf{y}_{1:t}) &amp;amp;\propto p(\theta) \cdot p(\textbf{y}_{1:t} \ | \ \theta) \\ 
+  \text{posterior} &amp;amp;\propto \text{posterior} \cdot \text{likelihood}
+\end{align*}\]
+
+&lt;p&gt;WIP …&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h1 id=&quot;요약&quot;&gt;요약&lt;/h1&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;예고&quot;&gt;예고&lt;/h2&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;생각해보기&quot;&gt;생각해보기&lt;/h2&gt;
+
+&lt;hr /&gt;
+&lt;h3 id=&quot;주석&quot;&gt;주석&lt;/h3&gt;
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:likelihood&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;&lt;a href=&quot;https://dtransposed.github.io/blog/Bayesian-Linear-Regression.html&quot; target=&quot;_blank&quot;&gt; 이 블로그 &lt;/a&gt;의 gif 예제를 보면 이해하기 쉽다. &lt;a href=&quot;https://dtransposed.github.io/assets/9/batch_1/Data_Space.gif&quot; target=&quot;_blank&quot;&gt; data point들이 sequentially 들어올 때 &lt;/a&gt;, 그때그때마다의 measurement에만 최대로 fit하는 예측을 내리게 된다면 &lt;a href=&quot;https://dtransposed.github.io/assets/9/batch_1/Likelihood.gif&quot; target=&quot;_blank&quot;&gt; 이렇게 들쭉날쭉한 결과를 얻게 될 것이다. &lt;/a&gt; &lt;a href=&quot;#fnref:likelihood&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다</title>
@@ -663,6 +777,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 
 &lt;h2 id=&quot;journals&quot;&gt;Journals&lt;/h2&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;j20sc2&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition&lt;/li&gt;
@@ -674,6 +789,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;An Improved LiDAR Place Recognition&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;ral19&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;1-Day Learning, 1-Year Localization: Long-term LiDAR Localization using Scan Context Image&lt;/li&gt;
@@ -689,6 +805,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Classification-based Long-term LiDAR Localization&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;ceus19&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology&lt;/li&gt;
@@ -702,6 +819,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 
 &lt;h2 id=&quot;conferences&quot;&gt;Conferences&lt;/h2&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;iros20&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images&lt;/li&gt;
@@ -717,6 +835,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Remove Dynamic Points in the Wild&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra20undeeplo&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Unsupervised Geometry-Aware Deep LiDAR Odometry&lt;/li&gt;
@@ -731,6 +850,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Learning LiDAR Odometry without Ground-truth&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra20mulran&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;MulRan: Multimodal Range Dataset for Urban Place Recognition&lt;/li&gt;
@@ -747,6 +867,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;LiDAR+Radar SLAM Dataset and Radar Place Recognition&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra18sc&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Scan Context: Egocentric Spatial Descriptor for Place Recognition within 3D Point Cloud Map&lt;/li&gt;
@@ -764,6 +885,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 
 &lt;h2 id=&quot;workshops&quot;&gt;Workshops&lt;/h2&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra19wsjang&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;CNN-based Approach for Opti-Acoustic Reciprocal Feature Matching&lt;/li&gt;
@@ -774,9 +896,10 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICRA 2019 Workshop on Underwater Robotics Perception —  
     &lt;a href=&quot;/publications/hsjang-2019-icra-ws.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;
     &lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;A preliminary report of &lt;a href=&quot;#kros20&quot;&gt;the KRoS20&lt;/a&gt; paper paper&quot;  &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;A preliminary report of &lt;a href=&quot;#kros20&quot;&gt;the KRoS20&lt;/a&gt; paper&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra18ws&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Learning Scan Context toward Long-term LiDAR Localization&lt;/li&gt;
@@ -792,6 +915,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 
 &lt;h2 id=&quot;domestic-korean&quot;&gt;Domestic (Korean)&lt;/h2&gt;
 
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;kros20&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;CNN-based Opti-Acoustic Transformation for Underwater Feature Matching&lt;/li&gt;

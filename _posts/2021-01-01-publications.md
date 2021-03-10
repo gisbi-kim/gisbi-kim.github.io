@@ -18,6 +18,7 @@ use_math: true
 
 ## Journals 
 
+<p style="margin-top:-10px"> </p>
 <p id="j20sc2"> </p>
 - Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition
 <p style="margin-top:-15px"> </p>
@@ -27,6 +28,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="ral19"> </p>
 - 1-Day Learning, 1-Year Localization: Long-term LiDAR Localization using Scan Context Image
 <p style="margin-top:-15px"> </p>
@@ -40,6 +42,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Classification-based Long-term LiDAR Localization"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="ceus19"> </p>
 - A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology
 <p style="margin-top:-15px"> </p>
@@ -53,6 +56,7 @@ use_math: true
 
 ## Conferences  
 
+<p style="margin-top:-10px"> </p>
 <p id="iros20"> </p>
 - Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images
 <p style="margin-top:-15px"> </p>
@@ -66,6 +70,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Remove Dynamic Points in the Wild"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra20undeeplo"> </p>
 - Unsupervised Geometry-Aware Deep LiDAR Odometry
 <p style="margin-top:-15px"> </p>
@@ -78,6 +83,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra20mulran"> </p>
 - MulRan: Multimodal Range Dataset for Urban Place Recognition
 <p style="margin-top:-15px"> </p>
@@ -92,6 +98,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR+Radar SLAM Dataset and Radar Place Recognition"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra18sc"> </p>
 - Scan Context: Egocentric Spatial Descriptor for Place Recognition within 3D Point Cloud Map
 <p style="margin-top:-15px"> </p>
@@ -108,6 +115,7 @@ use_math: true
 
 ## Workshops 
 
+<p style="margin-top:-10px"> </p>
 <p id="icra19wsjang"> </p>
 - CNN-based Approach for Opti-Acoustic Reciprocal Feature Matching
 <p style="margin-top:-15px"> </p>
@@ -116,9 +124,10 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2019 Workshop on Underwater Robotics Perception —  
     <a href="/publications/hsjang-2019-icra-ws.pdf" target="_blank"> Paper</a>
     <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper paper"  <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper"  <br>
 </p>
 
+<p style="margin-top:-10px"> </p>
 <p id="icra18ws"> </p>
 - Learning Scan Context toward Long-term LiDAR Localization
 <p style="margin-top:-15px"> </p>
@@ -133,6 +142,7 @@ use_math: true
 
 ## Domestic (Korean)
 
+<p style="margin-top:-10px"> </p>
 <p id="kros20"> </p>
 - CNN-based Opti-Acoustic Transformation for Underwater Feature Matching 
 <p style="margin-top:-15px"> </p>
