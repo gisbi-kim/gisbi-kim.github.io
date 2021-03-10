@@ -21,6 +21,30 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    </script>
+    <script type="text/javascript" async
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  
 
 </head>
 <body>
@@ -178,7 +202,149 @@
 <hr class="solidlight" style="margin-top:+20px">
 
 <div id="post">
-  <p>TODO</p>
+  <h2 id="journals">Journals</h2>
+
+<p id="j20sc2"> </p>
+<ul>
+  <li>Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; submitted and under review, journal 2021 — Paper (TBA), Code (TBA) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br />
+</p>
+
+<p id="ral19"> </p>
+<ul>
+  <li>1-Day Learning, 1-Year Localization: Long-term LiDAR Localization using Scan Context Image</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Byungjae Park$^{†}$, Ayoung Kim. (†: joint work with ETRI)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Robotics and Automation Letters, 2019 (with ICRA 2019) —  
+    <a href="/publications/gkim-2019-ral.pdf" target="_blank"> Paper</a>,  
+    <a href="https://www.youtube.com/watch?v=apmmduXTnaE" target="_blank"> Video</a>,
+    <a href="https://www.dropbox.com/sh/pn01awfz7huys45/AABOEz3hJ2FLuhUkfjrsJs3Fa?dl=0" target="_blank"> Slide</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Classification-based Long-term LiDAR Localization"  <br />
+</p>
+
+<p id="ceus19"> </p>
+<ul>
+  <li>A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim, Youngchul Kim$^{†}$. (†: joint work with KAIST Urban Design Lab)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Computer, Environment and Urban Systems, 2019 — <a href="https://www.sciencedirect.com/science/article/pii/S0198971518301881" target="_blank"> Paper (online)</a> <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR-based Urban Site Analysis"  <br />
+</p>
+
+<h2 id="conferences">Conferences</h2>
+
+<p id="iros20"> </p>
+<ul>
+  <li>Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;" id="iros20">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IROS 2020 —  
+    <a href="/publications/gskim-2020-iros.pdf" target="_blank"> Paper</a>,  
+    <a href="https://github.com/irapkaist/removert" target="_blank"> Code</a>,
+    <a href="https://www.youtube.com/watch?v=M9PEGi5fAq8" target="_blank"> Video</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Remove Dynamic Points in the Wild"  <br />
+</p>
+
+<p id="icra20undeeplo"> </p>
+<ul>
+  <li>Unsupervised Geometry-Aware Deep LiDAR Odometry</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younggun Cho, <u>Giseop Kim</u>, Ayoung Kim. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
+    <a href="/publications/ycho-2020-icra.pdf" target="_blank"> Paper</a>,  
+    <a href="https://www.youtube.com/watch?v=-imRJXq6ZuE" target="_blank"> Video</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br />
+</p>
+
+<p id="icra20mulran"> </p>
+<ul>
+  <li>MulRan: Multimodal Range Dataset for Urban Place Recognition</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Yeong Sang Park, Younghun Cho, Jinyong Jeong, Ayoung Kim. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
+    <a href="/publications/gskim-2020-icra.pdf" target="_blank"> Paper</a>,  
+    <a href="https://sites.google.com/view/mulran-pr/home" target="_blank"> Dataset website</a>,
+    <a href="https://github.com/irapkaist/scancontext/tree/master/fast_evaluator_radar" target="_blank"> Code (radar place recognition)</a>,
+    <a href="https://www.youtube.com/watch?v=qJi1KJmrM2U" target="_blank"> Video</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR+Radar SLAM Dataset and Radar Place Recognition"  <br />
+</p>
+
+<p id="icra18sc"> </p>
+<ul>
+  <li>Scan Context: Egocentric Spatial Descriptor for Place Recognition within 3D Point Cloud Map</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IROS 2018 —  
+    <a href="/publications/gkim-2018-iros.pdf" target="_blank"> Paper</a>,  
+    <a href="https://github.com/irapkaist/scancontext" target="_blank"> Code</a>,
+    <a href="https://www.youtube.com/watch?v=_etNafgQXoY" target="_blank"> Video</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A LiDAR Place Recognition: Robust, Fast, and Versatile"  <br />
+</p>
+
+<h2 id="workshops">Workshops</h2>
+
+<p id="icra19wsjang"> </p>
+<ul>
+  <li>CNN-based Approach for Opti-Acoustic Reciprocal Feature Matching</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hyesu Jang, <u>Giseop Kim</u>, Yeongjun Lee$^{†}$, Ayoung Kim. (†: joint work with KRISO)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2019 Workshop on Underwater Robotics Perception —  
+    <a href="/publications/hsjang-2019-icra-ws.pdf" target="_blank"> Paper</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper paper"  <br />
+</p>
+
+<p id="icra18ws"> </p>
+<ul>
+  <li>Learning Scan Context toward Long-term LiDAR Localization</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Byungjae Park$^{†}$, Ayoung Kim. (†: joint work with ETRI)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2018 Workshop on Long-term autonomy  (won the <a href="https://blockchair.com/bitcoin/transaction/7d23c8a6b6ea6c4acc3d6625cfb0aa5d8b91e6ea873a551f306fe17cb1ffa144#o=1" target="_blank"> Best paper award</a>) —  
+    <a href="/publications/gkim-2018-icraws.pdf" target="_blank"> Paper</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#ral19">the RAL19</a> paper"  <br />
+</p>
+
+<h2 id="domestic-korean">Domestic (Korean)</h2>
+
+<p id="kros20"> </p>
+<ul>
+  <li>CNN-based Opti-Acoustic Transformation for Underwater Feature Matching</li>
+</ul>
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hyesu Jang, Yeongjun Lee$^{†}$, <u>Giseop Kim</u>, Ayoung Kim. (†: joint work with KRISO)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Journal of Korea Robotics Society 2020 (Special Issue: Underwater Robotics) —  
+    <a href="http://jkros.org/_common/do.php?a=full&amp;b=33&amp;bidx=2176&amp;aidx=26014" target="_blank"> Paper (online)</a>
+    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Camera-sonar style transfer-based multimodal matching"  <br />
+</p>
 
 </div>
 
@@ -217,6 +383,10 @@
       <span>01 Mar 2021 &raquo;</span> 
       <span style="color:gray"> [Life] &raquo;</span>
       <a href="/blog/2021/03/01/blog-start.html">블로그 시작!</a>
+      <!--  -->
+    </li>
+    
+    <li>
       <!--  -->
     </li>
     
