@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-10T15:35:41+09:00</updated>
+ <updated>2021-03-10T15:56:17+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -654,7 +654,14 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/publications/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/publications</id>
-   <content type="html">&lt;h2 id=&quot;journals&quot;&gt;Journals&lt;/h2&gt;
+   <content type="html">&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px; float:right;&quot;&gt;
+    NOTE: publications are sorted in time order 
+&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;journals&quot;&gt;Journals&lt;/h2&gt;
 
 &lt;p id=&quot;j20sc2&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;

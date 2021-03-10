@@ -9,6 +9,13 @@ categories:
 use_math: true
 ---
 
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px; float:right;">
+    NOTE: publications are sorted in time order 
+</p>
+
+<br>
+
 ## Journals 
 
 <p id="j20sc2"> </p>
