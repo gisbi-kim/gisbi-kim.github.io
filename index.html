@@ -4,10 +4,87 @@ title: Blog Posts
 ---
 
 <div id="home">
-  <h2><i class="fa fa-bookmark"></i> Blog Posts</h2>
+
+  <!--    -->
+  <!-- About me and latest news -->
+  <h2><i class="fa fa-bookmark"></i> About Me</h2>
+  <p style="margin-top:-10px"> </p>
   <ul id="blog-posts" class="posts">
     {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }} &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% if post.type == "aboutme" %}
+          {{ post.content }}
+        {% endif %}
+    {% endfor %}
+    
+    <p style="margin-top:-10px"> </p>
+    {% for post in site.posts %}
+      {% if post.type == "latestnews" %}
+      <li>
+        &raquo;
+        <span style="color:gray"> {{ post.season }}</span>
+        <!-- &raquo; -->
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+      {% endif %}
+    {% endfor %}
+
+    {% for post in site.posts %}
+    {% if post.type == "publications" %}
+    <li>
+      &raquo;
+      <span style="color:gray"> {{ post.season }}</span>
+      <!-- &raquo; -->
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+    {% endif %}
+  {% endfor %}
+  </ul>
+
+
+  <!--    -->
+  <!-- Research -->
+  <p style="margin-top:+20px"> </p>
+  <h2><i class="fa fa-book"></i> Research</h2>
+  <p style="margin-top:-20px"> </p>
+  <ul id="blog-posts" class="posts">
+    {% for post in site.posts %}
+      {% if post.showlist == true %}
+        {% if post.type == "research" %}
+        <li>
+          <!-- &nbsp; -->
+          <span> {{ post.date | date: "%b %Y" }}</span>
+          <span style="color:gray"> [{{ post.season }}] &raquo;</span>
+          <!-- &raquo; -->
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+        {% endif %}
+      {% endif %}
     {% endfor %}
   </ul>
-</div>
+
+
+  <!--    -->
+  <!-- Life -->
+  <p style="margin-top:+20px"> </p>
+  <h2><i class="fa fa-map-signs"></i> Life</h2>
+  <p style="margin-top:-20px"> </p>
+  <ul id="blog-posts" class="posts">
+    {% for post in site.posts %}
+      {% if post.showlist == true %}
+        {% if post.type == "life" %}
+        <li>
+          <!-- &nbsp; -->
+          <span> {{ post.date | date: "%b %d, %Y" }}</span>
+          <!-- <span style="color:gray"> [{{ post.season }}] &raquo;</span> -->
+          <!-- &raquo; -->
+          <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+  

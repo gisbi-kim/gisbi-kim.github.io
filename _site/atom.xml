@@ -4,11 +4,11 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-09T17:33:55+09:00</updated>
+ <updated>2021-03-10T14:30:50+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
-   <email>test@example.com</email>
+   <email>paulgkim@kaist.ac.kr</email>
  </author>
 
  
@@ -18,7 +18,7 @@
    <updated>2021-03-04T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/04/slambackend-1</id>
    <content type="html">&lt;!-- see using latex here: https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/ --&gt;
-&lt;hr /&gt;
+&lt;!-- --- --&gt;
 
 &lt;h1 id=&quot;개요&quot;&gt;개요&lt;/h1&gt;
 &lt;p&gt;SLAM은 세상의 모든것 &lt;em&gt;[1. 나 (robot)와 2.너 (world)]&lt;/em&gt; 의&lt;br /&gt;
@@ -237,9 +237,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/blog/2021/03/02/slam-root.html"/>
    <updated>2021-03-02T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/02/slam-root</id>
-   <content type="html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;slam의-뿌리를-찾아서-&quot;&gt;&lt;strong&gt;SLAM의 뿌리&lt;/strong&gt;를 찾아서 ...&lt;/h1&gt;
+   <content type="html">&lt;h3 id=&quot;slam의-뿌리를-찾아서-&quot;&gt;&lt;strong&gt;SLAM의 뿌리&lt;/strong&gt;를 찾아서 ...&lt;/h3&gt;
 &lt;p&gt;떠나봅시다. &lt;/p&gt;
 &lt;p&gt;NOTE: 이 글은 예전에 미디엄에 올린 &amp;lt;SLAM을 SLAM답게 만드는 건 무엇일까?: 내맘대로 SLAM 정의하기&amp;gt; 의 후속편 같은 느낌으로 적어보았습니다. &lt;/p&gt;
 &lt;blockquote&gt;
@@ -401,12 +399,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/blog/2021/03/02/segmap-build.html"/>
    <updated>2021-03-02T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/02/segmap-build</id>
-   <content type="html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
+   <content type="html">&lt;ul&gt;
   &lt;li&gt;NOTE: &lt;a href=&quot;https://gisbi.medium.com/segmap-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0-220d6d9b4ef6&quot;&gt;미디엄 블로그&lt;/a&gt; 이전중입니다&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;hr /&gt;
 
 &lt;h1 id=&quot;목표&quot;&gt;목표&lt;/h1&gt;
 &lt;ul&gt;
@@ -651,6 +646,47 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <updated>2021-03-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/01/blog-start</id>
    <content type="html">&lt;p&gt;블로그를 시작해봅니다.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Publications</title>
+   <link href="http://localhost:4000/publications/"/>
+   <updated>2021-01-01T00:00:00+09:00</updated>
+   <id>http://localhost:4000/publications</id>
+   <content type="html">&lt;p&gt;TODO&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Latest News</title>
+   <link href="http://localhost:4000/latestnews/"/>
+   <updated>2021-01-01T00:00:00+09:00</updated>
+   <id>http://localhost:4000/latestnews</id>
+   <content type="html">&lt;p&gt;TODO&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>About Me</title>
+   <link href="http://localhost:4000/aboutme/"/>
+   <updated>2021-01-01T00:00:00+09:00</updated>
+   <id>http://localhost:4000/aboutme</id>
+   <content type="html">&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+
+&lt;p style=&quot;font-size:14px;&quot;&gt;
+&amp;nbsp; I am a Ph.D. student at Korea Advanced Institute of Science and Technology (KAIST). I am a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab &lt;/a&gt;, where I'm advised by Prof. &lt;a href=&quot;https://irap.kaist.ac.kr/~ayoung/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-17px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:14px;&quot;&gt;
+&amp;nbsp; My main research topic during the Ph.D. has been focused on robust 3D mapping in complex urban sites using LiDAR sensors. To do so, I have interests in all mobile robot-related topics and spatial AI including from 3D perception, sensor fusion, and SLAM to deep learning.  
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-17px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:14px;&quot;&gt;
+&amp;nbsp; I have experience with a full pipeline of SLAM in the real-world (i.e., from sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management).
+&lt;/p&gt;
 </content>
  </entry>
  

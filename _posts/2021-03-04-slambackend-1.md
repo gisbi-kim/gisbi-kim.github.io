@@ -1,6 +1,9 @@
 ---
 layout: post
+showlist: true
 title: "SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다" 
+season: Factor graph-based SLAM
+type: research
 categories:
 - blog
 tags:
@@ -9,7 +12,7 @@ use_math: true
 ---
 
 <!-- see using latex here: https://mkkim85.github.io/blog-apply-mathjax-to-jekyll-and-github-pages/ -->
----
+<!-- --- -->
 
 # 개요
 SLAM은 세상의 모든것 *[1. 나 (robot)와 2.너 (world)]* 의  

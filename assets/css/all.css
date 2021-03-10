@@ -22,6 +22,12 @@ hr.dashed {
     border-top: 3px solid #ddd;
     /* border-top: 3px solid rgba(255, 142, 35, 0.753); */
   }
+
+  /* Solid border */
+  hr.solidlight {
+    border-top: 1px solid #ddd;
+    /* border-top: 3px solid rgba(255, 142, 35, 0.753); */
+  }
   
   /* Rounded border */
   hr.rounded {

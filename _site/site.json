@@ -24,4 +24,22 @@
 "title": "블로그 시작!",
 "url": "/blog/2021/03/01/blog-start.html"},
 
+{"date": "Fri, 01 Jan 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": [],
+"title": "Publications",
+"url": "/publications/"},
+
+{"date": "Fri, 01 Jan 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": [],
+"title": "Latest News",
+"url": "/latestnews/"},
+
+{"date": "Fri, 01 Jan 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": [],
+"title": "About Me",
+"url": "/aboutme/"},
+
 false]

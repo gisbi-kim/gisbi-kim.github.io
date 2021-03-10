@@ -1,14 +1,14 @@
 ---
 layout: post
+showlist: true
 title: SegMap 빌드하기 
+season: Daily Research 
+type: research
 categories:
 - blog
 ---
-
-<br>
 - NOTE: [미디엄 블로그](https://gisbi.medium.com/segmap-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0-220d6d9b4ef6) 이전중입니다 
 
----
 
 # 목표 
 - segmap 을 빌드해보자.
