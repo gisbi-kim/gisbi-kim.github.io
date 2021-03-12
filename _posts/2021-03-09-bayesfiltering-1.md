@@ -40,13 +40,13 @@ Bayesisan Analysis 이 왜 필요한지, 예시 상황으로부터 시작해보�
 - 상황 1: 
   <p style="margin-top:-15px"> </p>
   로봇은 위치를 추정하기 위해서 GPS를 사용했다.   
-  GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $h_1(\cdot)$).  
+  GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $\textbf{z}_1$).  
   
   그래서 로봇은 자기의 위치를 $(1,2)$ 이라고 생각하고 여러 미션을 수행하려고 한다.  
   
-  근데 GPS는 로봇의 위치가 다시 $(1.5, 3)$ 라고 알려주었다 (measurement 2, $h_2(\cdot)$).  
+  근데 GPS는 로봇의 위치가 다시 $(1.5, 3)$ 라고 알려주었다 (measurement 2, $\textbf{z}_2$).  
   그래서 로봇은 자기의 위치를 다시 $(1.5, 3)$ 으로 바꿨다.  
-  근데 GPS는 로봇의 위치가 다시 $(2.5, 1)$ 라고 알려주었다 (measurement 3, $h_3(\cdot)$).  
+  근데 GPS는 로봇의 위치가 다시 $(2.5, 1)$ 라고 알려주었다 (measurement 3, $\textbf{z}_3$).  
   그래서 로봇은 자기의 위치를 다시 $(2.5, 1)$ 으로 바꿨다.  
   
   ... 무한반복 ...  
@@ -61,8 +61,9 @@ Bayesisan Analysis 이 왜 필요한지, 예시 상황으로부터 시작해보�
 <p id="situ2"> </p>
 - 상황 2:  
   <p style="margin-top:-15px"> </p>
-  상황1과 똑같이, 로봇은 위치를 추정하기 위해서 GPS를 사용했다.   
-  GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $h_1(\cdot)$).  
+  상황1과 똑같이,  
+  로봇은 위치를 추정하기 위해서 GPS를 사용했다.   
+  GPS는 로봇의 위치가 $(1,2)$ 라고 알려주었다 (measurement, $\textbf{z}_1$).  
 
   근데 이 로봇은 자기의 현재 위치가 $(0.5, 2)$ 라고 믿고 있는 상태이다 (prior).  
   이 값은 현재 시점에서 측정 (measurement) 한 것은 아니지만 로봇이 알고있는 어떤 믿음이다.  
@@ -109,10 +110,9 @@ optimal parameter (그래서 maximum a posteriori, MAP) 를 찾는 방법을 말
 
 이것을 모두 한데 우겨넣고 vector 로 만든 것을 $\textbf{x}$ 라고 해보자 (state). 
 
-우리는 $\textbf{x}$ 를 예측하기 위한 단서들을 가지고 있다 (measurement).  
+우리는 $\textbf{x}$ 를 예측하기 위한 단서들을 가지고 있다 (measurements, $\textbf{z}_{1:k}$).  
 로봇은 센서를 가지고 있기 때문에 다양한 측정을 할 수 있다.  
 (예: laser 센서로 알려진 랜드마크까지의 거리를 재기, GPS로 위치를 바로 얻기 등)  
-
 robotics 에서 measurement 는 문자로 적을 때는 $\textbf{z}$ 로 많이 적는 편이다. 
 
 따라서 우리가 관심있는 SLAM (i.e., state estimation) 이란 문제는,  
@@ -152,35 +152,37 @@ $$
 $\propto$ 로 쓴 이유: 보통 분모는 normalization 용도 (확률의 정의를 지켜주기 위해서 sum 을 1로 만들어주는 역할)로 생각되기 때문에, 통상적으로 practically 생략하는 편이 많다. 어짜피 우리가 관심이 있는 것은 최대확률값이 아니라, 최대확률이 될 때의 $\textbf{x}$값이기 때문이다 (상수의 곱에 무관하다).
 
 이 때 일반적으로 우리는 prior 와 likelihood 가 Gaussian 을 따른다고 가정한다.  
-
-그러면 Gaussian 의 좋은(!) 성질 덕분에 posterior 도 Gaussian이 된다. 
+그러면 Gaussian 의 좋은(!) 성질 덕분에 <u>posterior 도 Gaussian</u>이 된다. 
 
 여기서 그럼 다시 물어야 할 것이,  
 posterior가 Gaussian인 것이 (state estimation 관점에서) 왜 중요할까?
 
-- 일단 Gaussian은 optimal argmax 값을 얻기가 편하다 (median이 mean 과 같음).  
-- 그리고 Gaussian인 경우, 자연스럽게 recursive 한 estimation 이 가능해진다.  
-이게 뭔말이냐면, 현재 턴의 posterior 가 다음턴의 prior 로 쓰인다고 생각해보자.  
-앞서, 우리는 prior 가 Gaussian이라고 가정했었다. 그럼 posterior 도 Gaussian이 되고, 다음턴의 prior 도 다시 Gaussian이 되고, 그 턴의 posterior 도 다시 Gaussian이 되고, ... 무한 반복.[^conju]
+- 일단 Gaussian은 optimal argmax 값을 얻기가 편하다 (median이 mean 과 같음) [^additional].
+- 그리고 Gaussian인 경우, 자연스럽게 recursive 한 estimation 이 가능해진다. 이게 뭔말이냐면, 현재 턴의 posterior 가 다음턴의 prior 로 쓰인다고 생각해보자. 앞서, 우리는 prior 가 Gaussian이라고 가정했었다. 그럼 posterior 도 Gaussian이 되고, 다음턴의 prior 도 다시 Gaussian이 되고, 그 턴의 posterior 도 다시 Gaussian이 되고, ... 무한 반복.[^conju]
   - 즉, 현재 시점에서 얻은 사전 정보를 다음턴에 자연스럽게 활용할 수 있다. 심지어 가우시안의 유용한 성질들 덕분에 그 recursive update 조차도 <u>closed form</u> 으로 딱 떨어진다 (곧 증명해본다). 
 - 또한, Gaussian은 mean (optimal) 과 더불어 covariance (uncertainty) 도 얻을 수 있다.  
-(robotics 는 거의 uncertainty 에 관한 학문이라고 할 수 있을만큼 이 uncertainty 는 다양하게 쓰이고 중요하다)  
   - 예를 들어 앞서 본 <a href="#situ2">예시상황2</a> 에서 prior 와 likelihood 를 어떻게 융합해야하는지에 관한 문제가 있었다. 이 비율의 balancing 이 prior 와 likelihood 각각의 uncertainty 들에 의해 조절된다 (곧 증명해본다)!
+  - robotics 는 거의 uncertainty 에 관한 학문이라고 할 수 있을만큼 이 uncertainty 는 다양하게 쓰이고 중요하다 [^cov].  
+
+[^additional]: optimization-based SLAM 관점에서도 좋다. Gaussian 의 Exp 안의 term 이 Mahalanobis L2 norm form 이고 이것을 최소화 하는 것은 확률을 최대화하는 것과 동치가 되기 때문에, 자연스럽게 원래 확률의 언어로 표현되었던 것이 least square optimization 문제로 변환이 된다. <a href="/"> [Factor graph-based SLAM]» SLAM back-end 이야기 (2편) </a> 에서도 이 이야기를 좀 더 해보겠다.   
 
 [^conju]: 우리는 지금 posterior 가 prior 와 같은 분포 패밀리가 되는 것을 원하고 있었다. Gaussian = Gaussian $\times$ Gaussian 인 조합 외에, conjugate distribution이라고 검색해보면 몇개 더 다양한 분포의 조합이 가능함을 알 수 있다. 하지만 practically, Gaussian 말고 별로 다른 조합은 적어도 SLAM에서는 잘 써본 적이 없다 (== Gaussian에 대해서만 일단 잘 알면 된다). 
 
 ## 암튼 정리해보자면  
 우리가 state estimation 에서 Bayesian filtering 이라고 부르는 것은 다음과 같은 상황을 의미한다.  
-- 로봇은 자신의 상태 $\textbf{x}$의 최적값을 알고 싶다 [^xdetail]. 
+- 로봇은 자신의 상태 (state) $\textbf{x}$의 최적값을 알고 싶다 [^xdetail]. 
+  - 어떤 물리적 (위치, 속도 등) 혹은 비물리적 (임의의 시스템 파라미터) 요소라도 state 가 될 수 있다. 가장 일반적으로는 pose (e.g., SE(3)).
 - 로봇은 센서측정데이터 (measurement) $\textbf{z}_{1:k}$ 를 가지고 있다.  
+  - 어떤 센서라도 가능하다. 가장 일반적인 것은 Camera, LiDAR, IMU, GPS, Radar, Wheel encoder 등.
 - 우리는 $ p(\textbf{x} \ \| \ \textbf{z}_{1:k}) $ 를 최대화 하고 싶다 [^eqposterior].   
-  - == 우리는 posterior probability 의 mean (== 확률을 최대로 하는 $\textbf{x}$) 과 covariance 를 알고 싶다. 
+  - $==$ 우리는 posterior probability 의 mean (== 확률을 최대로 하는 $\textbf{x}$) 과 covariance 를 알고 싶다. 
 - 우리는 posterior 를 직접 최대화하는 것이 아니라, 대신 우회적으로 prior 와 likelihood 의 곱을 최대화 한다. 
 - prior 와 likelihood의 분포로 Gaussian 을 사용한다.
-- covariance는 pior 와 likelihood 를 융합할 때 기여도를 고려하는 역할을 한다.[^cov] 
+- covariance는 pior 와 likelihood 를 융합할 때 기여도를 고려하는 역할을 한다.
 <p id="introproof"> </p>
 - posterior의 mean 과 covariance는 prior 와 likelihood 의 mean 과 covariance 를 이용해서 (closed-form으로!) 얻어진다 (이제 증명해 봄)
-- posterior 는 다음 턴의 prior 로써 기능한다 [^priorrole] (다음 편에서 더 자세히 다룰 예정).
+- posterior 는 다음 턴의 prior 로써 기능 [^priorrole] 한다.
+  - <a href="/">다음 편 (Bayesian Filtering 이야기 (2편)) </a>에서 더 자세히 다룰 예정.
 
 [^xdetail]: 속도, 주변 맵 포인트들의 위치, 자신의 내부 상태 등 다양한 어떤 값들이든 될 수 있다. 예를 들자면, 가장 일반적인 형태로는 robot 자신의 set of poses (i.e., trajectory over time) 과 주변 환경 특징점 (landmark) 들의 3차원 위치 x,y,z 들이 될 수 있다 -- <a href="{{ site.baseurl }}{% post_url 2021-03-04-slambackend-1 %}#Axb"> 이 그림 </a> 을 보면 이해하기 쉬울 것이다. 
 
@@ -196,10 +198,14 @@ posterior가 Gaussian인 것이 (state estimation 관점에서) 왜 중요할까
 
 앞서 우리는, 우리가 알고싶어하는 값 $\textbf{x}$ 의 posterior probability 의  
 mean 과 covariance 를 알고싶어한다고 소개했다.  
-이것이 Filter-based SLAM의 수학적 틀이기도 하다! 
+
+이것이 사실 Filter-based SLAM의 수학적 틀 [^filterslamadd] 이기도 하다! 
+
+[^filterslamadd]: mean 과 covariance format의 경우 update 시 장단점이 있어서, computationally 이점을 얻기 위해 information matrix 를 update 하는 방식으로 푸는 시도들이 그 이후에 발전되어 왔다. Eustice, Ryan M., Hanumant Singh, and John J. Leonard. "Exactly sparse delayed-state filters for view-based SLAM." IEEE Transactions on Robotics (2006) 등의 논문을 참고. 이에 대해서는 <a href="http://jinyongjeong.github.io/2017/02/19/lec07_EIF/"> 진용님의 블로그 </a> 에 잘 정리되어 있으니 참고. 
 
 왜 mean 이 궁금한 것인가에 대해 다시 한번 recap을 하자면,  
-Gaussian일 경우, 그 값이 posterior probability 를 최대화해주는 값이기 때문이다. 
+Gaussian일 경우, 그 값이 posterior probability 를 최대화해주는 값이기 때문이다.  
+확률이 최대란 말은, 확률이 최대가 되는 그 때의 $\textbf{x}$ 가 말 그대로 가장 "probable" 하다는 뜻이 된다.   
 
 또한, posterior probability 의 mean 과 covariance 는  
 prior 와 likelihood 의 mean 과 covariance 들을 이용해서 얻어진다고 <a href="#introproof"> 소개 </a> 했었다.  
@@ -248,11 +254,12 @@ $\textbf{z}_i$ 는 알고싶은 (모르는) variable 이다.
 식으로 적으면 $\textbf{z}\_i = {h}_{i}(\textbf{x})$ 가 된다. 
 
 예를 들어 1차원 선상에서 움직이는 로봇을 생각해보자.  
-어떤 알려진 landmark 가 $2$ 의 위치에 있었다고 하자.  
-이 때 로봇은 거리센서를 가지고 있어서 그 landmark 까지의 거리를 잴 수 있다.  
+어떤 알려진 landmark 가 $2$ 의 위치에 있었다고 하자 ($2$의 위치에 있다는 사실도 로봇에게 알려져있다[^map]).  
 
-그럼 그 거리측량값 (measurement) $\textbf{z}_i$ 는  
-로봇의 위치에 의존적일 것이다. 
+[^map]: 이것이 SLAM과 더불어 mobile robotics 에서 많이 푸는 문제인 "locazliation in a given map".
+
+이 때 로봇은 거리센서를 가지고 있어서 그 landmark 까지의 거리를 잴 수 있다.  
+그럼 그 거리측량값 (measurement) $\textbf{z}_i$ 는, 로봇의 위치에 의존적일 것이다. 
 
 예를 들어, 여기서는   
 $\hat{\textbf{z}_i} = h_i(\textbf{x}) = | \textbf{x} - 2 |$ 가 될 것이다. 
@@ -278,20 +285,21 @@ $\hat{\textbf{z}_i} = h_i(\textbf{x}) = | \textbf{x} - 2 |$ 가 될 것이다.
 자세한 수학적 근거는 대학미적분학 정도를 들었다면 다 알것이므로 생략한다.  
 혹은 여기를 참고: <a href="https://en.wikipedia.org/wiki/Matrix_calculus#Vector-by-vector"> vector-by-vector 미분 (위키) </a> 
 
-$h(\cdot)$ 을 미분해서 선형화 시킨 것 (i.e., $h(\cdot)$의 자코비안) 을 보통 $H$ 와 같이 대문자로 많이 적는다.  
-이 경우 linear 하므로 $h(\textbf{x})$ 에서처럼 괄호 안에 argument 방식으로 굳이 적어줄 필요가 없어진다.  
+$h(\cdot)$ 을 미분해서 선형화 시킨 것 (i.e., $h(\cdot)$의 자코비안) 을  
+보통 $H$ 와 같이 대문자로 많이 적는다.  
 
+이 경우 linear 하므로, $h(\textbf{x})$ 에서처럼 괄호 안에 argument 방식으로 굳이 적어줄 필요가 없어진다.  
 즉, $\hat{\textbf{z}_{}} = H_i\textbf{x}$ 와 같이 간단히 매트릭스 곱으로 적을 수 있다. 
 
-근데 이것은 실측 값이 아니라 예측값임을 잊지 말아야 한다!  
+근데 이것은 실측 값이 아니라 예측값 (말 그대로 "모델")임을 잊지 말아야 한다!  
 
 실측값은 센서 오차 등으로 $H_i\textbf{x}$ 와는 조금 다를 수 있다.  
 $H_i\textbf{x}$ 에 여기에 또 Gaussian noise 가 더해진 것이 실측값 $\textbf{z}$ 라고 모델링 해볼 수 있다.   
 이 noise 는 말 그대로 noise 이기 때문에 mean 이 $0$ 이고 covariance 가 대충 작은 값 얼마라고 할 수 있다 [^userparam].  
 
 문제를 단순화 하기 위해서  
-$\textbf{z}$ 가 1-dim vector 이고  
-따라서 covariance 가 단순히 어떤 스칼라 값 $\sigma^{2}$ 라고 하자 (이후 포스팅에서 일반화해봄).
+$\textbf{z}_i$ 가 1-dim vector 이고  
+따라서 a single measurement 의 covariance 가 단순히 어떤 스칼라 값 $\sigma^{2}$ 라고 하자 (이후 포스팅에서 일반화해봄).
 
 <!-- 위의 말들을 다음과 같이 쓸 수 있다. 
 <p id="zxs"> </p>
@@ -306,7 +314,7 @@ $$
 
 
 
-[^userparam]: 이것이 filtering 이든 optimization 이든 예측에 영향을 주는 user-parameter 가 된다. 따라서 실제로 연구나 실무에서 이 값을 튜닝을 통해 예측 결과의 품질을 사람이 봐가면서 조정하는 식으로 이루어지고 있다. 따라서 어떤 논문에서 자기들이 최고의 결과를 이 데이터셋에서 보여주었다 하더라도 그 최적값을 얻을 수 있었던 파라미터를 노가다를 뛰어서 찾아서 얻은 결과임을 생각해야 한다 -- 다른 데이터셋에서도 일관적으로 높은 성능을 보일 것이라는 보장을 가질 수는 없다. 따라서 엄밀하게 보자면 이런 부분에서 자동화가 되고 학습을 통해 최적 noise parameter 들을 찾을 수 있다면 이런게 spatial AI로 갈 수 있는 부분 중 하나일 것이라 생각한다. 
+[^userparam]: 이 noise 의 covariance가 filtering 이든 optimization 이든 예측에 영향을 주는 user-parameter 가 된다. 따라서 실제로 연구나 실무에서 이 값을 튜닝을 통해 예측 결과의 품질을 사람이 봐가면서 조정하는 식으로 이루어지고 있다. 딥러닝이 여러 loss 들을 조합할 때의 비율 (weight) 을 노가다로 찾는다면, SLAM에서는 각 factor (measurement)들의 covariance 들이 hyper parameter (이지만 노가다로 구해지는) 가 된다 (-- 노가다가 귀찮기 때문에 보통 적당한 fixed value 를 사용하긴 하지만). 따라서 어떤 논문에서 자기들이 최고의 결과를 이 데이터셋에서 보여주었다 하더라도 그 최적값을 얻을 수 있었던 파라미터를 노가다를 뛰어서 찾아서 얻은 결과임을 생각해야 한다 -- 다른 데이터셋에서도 일관적으로 높은 성능을 보일 것이라는 보장을 가질 수는 없다. 따라서 엄밀하게 보자면 이런 부분에서 자동화가 되고 학습을 통해 최적 noise parameter 들을 찾을 수 있다면 이런게 spatial AI로 갈 수 있는 부분 중 하나일 것이라 생각한다. 
 
 그럼 noise 의 mean 은 0이었기 때문에  
 실제 measurement $\textbf{z}_{i}$ 는  
@@ -316,7 +324,7 @@ mean이 $H\textbf{x}$ 이고, variance 가 $\sigma^{2}$ 인 Gaussian 을 따른�
 
 거의 다왔다. 
 
-이제 prior 와 likelihood 의 mean 과 covariance 가 준비되었다.  
+이제 prior 와 likelihood 의 mean 과 covariance 들이 모두 준비되었다.  
 이거를 어떻게 잘 융합하면 posterior 의 mean 과 covariance 가 나오는지 이제 유도해보자. 
 
 <br>
@@ -347,7 +355,7 @@ Gaussian 분포는 이런 성질(장점) 들을 가지고 있다. (<a href="http
 </figure>
 <span></span>
 
-저기 적힌대로 따라 하면 된다.  
+저기 중앙의 수식에 적힌대로 따라 하면 된다.  
 차근 차근 해보자. 
 
 <br>
@@ -357,7 +365,7 @@ Gaussian 분포는 이런 성질(장점) 들을 가지고 있다. (<a href="http
 이해하기 쉽도록 <a href="#gaussianprop4"> 위의 그림에 있는 수식 </a> 과 같은 notation 을 사용하자. 
 
 번호 $1$ 의 위치에 prior, 번호 $2$ 번의 위치에 likelihood 를 넣어보자.  
-그러면 일단 prior 에 대해서는 쉽다:
+그러면 일단 prior 에 대해서는 쉽다[^reason]:
 
 $$
 \begin{align*}
@@ -366,6 +374,9 @@ $$
 \end{align*}
 $$
 
+[^reason]: 앞서 말했듯이, prior 에는 random variable 이 $\textbf{x}$ 하나밖에 없기 때문에, 간단하게 그냥 mean 과 covariance 를 말해줄 수 있다. $\textbf{x}$ 의 mean 을 $\textbf{m}_0$, covariance 를 $\textbf{P}_0$ 라고 하면 된다. subscriptor 로 $0$를 쓴 이유는 별 이유는 없고 그냥 시작 시점이다~ 최초의 시점이다~ 그런의미이다. 
+
+
 그럼, likelihood에 대한, $\Sigma_{2}$ 와 $\mu_{2}$는 무엇인가?  
 
 일단, likelihood 가 $\prod_{i = 1}^{k} p(\textbf{z}_{i} \| \ \textbf{x})$ 처럼 여러개의 항들의 곱이었기 때문에 
@@ -373,7 +384,9 @@ $$
 
 이를 위해서 $\textbf{z}_i$ 들을 쌓아서 하나의 긴 vector $\textbf{z}$ 를 만들어 주자. 
 
-그러면 $\textbf{z}$는 mean 이 $\textbf{H}\textbf{x}$ 이고 covariance 가 diag($\sigma^2$) $=\sigma^2 \textbf{I}$ 인 Gaussian을 따르게 된다. 
+그러면 $\textbf{z}$는 mean 이 $\textbf{H}\textbf{x}$ 이고 covariance 가 diag($\sigma^2$) $=\sigma^2 \textbf{I}$인[^diagreason] Gaussian을 따르게 된다. 
+
+[^diagreason]: white noise 는 has a zero correlation with all other values in the series 이기 때문에 diagonal term만 존재한다. 
 
 이 때 $\textbf{H}$ 는 $\textbf{H}_i$ 를 세로로 쌓은 (stack) matrix 이다.  
 $\textbf{I}$는 identity matrix 이며 shape 은 $\textbf{H}$의 세로(row)길이 by 세로길이 가 된다.
@@ -399,7 +412,7 @@ Gaussian 의 exponential term 을 요리조리 재구성하면 그것을 얻을 
 먼저 Gaussian 분포의 실제 수식 생김새를 보면, 이렇게 생겼다.
 
 <figure id="gaussian1">
-  <img src="/figs/2021-03-09-bayesfiltering-1/gaussian1.png" style="width:100%">
+  <img src="/figs/2021-03-09-bayesfiltering-1/gaussian1.png" style="width:90%">
   <figcaption> 
         <center> <a href="#gaussian1"> Figure: Gaussian Density </a> </center>
   </figcaption>
@@ -409,7 +422,7 @@ Gaussian 의 exponential term 을 요리조리 재구성하면 그것을 얻을 
 여기서 exponential 안쪽의 각 항에 위치하는 애들이 mean 과 covariance 의 의미를 가진다. 
 
 <figure id="gaussian2">
-  <img src="/figs/2021-03-09-bayesfiltering-1/gaussian2.png" style="width:100%">
+  <img src="/figs/2021-03-09-bayesfiltering-1/gaussian2.png" style="width:90%">
   <figcaption> 
         <center> <a href="#gaussian2"> Figure: Gaussian Density (visually explained) </a> </center>
   </figcaption>
@@ -451,19 +464,22 @@ $$
 = \ &  (  \textbf{I}\textbf{z} - \textbf{H}\textbf{x} )^{T} (\sigma^2 \textbf{I})^{-1} ( \textbf{I}\textbf{z} - \textbf{H}\textbf{x} ) \\ 
 = \ &  \left(  (\textbf{H}\textbf{H}^{T})(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{H}\textbf{x} \right)^{T} (\sigma^2 \textbf{I})^{-1} \left( (\textbf{H}\textbf{H}^{T})(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{H}\textbf{x} \right) \\ 
 = \ &  \left( \textbf{H}(\textbf{H}^{T})(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{H}\textbf{x} \right)^{T} (\sigma^2 \textbf{I})^{-1} \left( \textbf{H}(\textbf{H}^{T})(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{H}\textbf{x} \right) \\ 
-= \ &  \left( \textbf{H} \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \right)^{T} (\sigma^2 \textbf{I})^{-1} \left( \textbf{H} \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \right) \\ 
+= \ &  \left( \textbf{H} \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \right)^{T} (\sigma^2 \textbf{I})^{-1} \left( \textbf{H} \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \right)\\ 
 = \ &  \left(\left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right)^{T} \textbf{H}^{T} \right)(\sigma^2 \textbf{I})^{-1} \left( \textbf{H} \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \right) \\ 
 = \ &  \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right)^{T} \left( \textbf{H}^{T} (\sigma^2 \textbf{I})^{-1}  \textbf{H} \right) \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} - \textbf{x} \right) \\ 
 = \ & \left( \textbf{x} - \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right)^{T} \left( \frac{\textbf{H}^{T}\textbf{H}}{\sigma^2} \right) \left( \textbf{x} - \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \\ 
 = \ & \left( \textbf{x} - \mu_{x} \right)^{T} \left( \Sigma_{x}^{-1} \right) \left( \textbf{x} - \mu_{x} \right)
-
 \end{align*}
 $$
+
+<span style="color:gray"> 해설[^eqexplain] </span>
+
+[^eqexplain]: 4번째에서 5번째 $=$ 로 넘어갈 때 $(AB)^{T} = B^{T}A^{T}$ 가 쓰였다. 
 
 따라서 우리는 이로부터,  
 $\textbf{H}\textbf{x}$ 와 $\sigma^{2}$ 가 각각 $\textbf{z}$ 의 mean 과 covariance 일 때,   
 $\textbf{x}$ 의 mean은 $\textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z}$ 이고, covariance 는 $\left( \frac{\textbf{H}^{T}\textbf{H}}{\sigma^2} \right) ^{-1}$ 임을 알 수 있다.  
-(여기서 $\textbf{z}$ 는 로봇이 센서를 이용해서 실측한 값이다) 
+(NOTE: 여기서 $\textbf{z}$ 는 로봇이 센서를 이용해서 실측한 값이다) 
 
 따라서 <a href="#gaussianprop4"> 위의 그림에 있는 수식 </a> 의 $\Sigma_{2}$ 와 $\mu_{2}$ 는 다음과 같다. 
 
@@ -474,7 +490,9 @@ $$
 \end{align*}
 $$
 
-따라서 Gaussian product 의 공식대로 하면 posterior 의 mean 과 covariannce 는 다음과 같다. 
+<br>
+따라서 Gaussian product 의 공식대로 하면  
+posterior 의 mean 과 covariannce 는 다음과 같다. 
 
 먼저 posterior 의 covariance $\textbf{P}_{\text{pos}}$는 다음과 같다. (슬라이드 그림에서 $\Sigma$ 로 되어있어서 지금까지 $\Sigma$ 로 이야기했는데, covariance 를 일컫는 notation 을 prior 에서 그랬듯이 $\textbf{P}$ 로 다시 통일하도록 하자)
 
@@ -515,20 +533,28 @@ $$
 --- 
 # 요약
 
-WIP ... 
+- Bayesian Filtering 의 뿌리에 대해 알아보았습니다. 
+  - posterior 는 measurement 가 주어졌을 때, state 의 확률을 의미한다. 그리고 이것을 최대화하는 과정을 MAP (maximum a posteriori) 라고 부른다. 
+  - 실제로는 posterior 의 mean 과 covariance 를 직접 구하지 않고, prior 와 likelihood 의 mean 과 covariance 를 조합해서 구한다. 
+  - prior, likelihood, posterior 가 모두 Gaussian이라고 가정할 경우, Gaussian product 에 의해, posterior 의 mean 과 covariance 가 closed form 으로 딱 떨어진다. 
+  - 그리고 이렇게 얻어진 posterior는 다음 턴의 (새로운 measurement 가 하나 더 들어왔다고 생각해보자) prior 로 다시 쓰인다. 즉, recursive estimation 이 가능한 수학적 엔진을 오늘 만들어보았다! (recursive estimation 에 대해서는 다음편에서 더 자세히 이야기함) 
 
-- 이 책[^bayesfilteringbook]을 추천합니다 
+- Bayesian Filtering 공부에 대해서, 이 책[^bayesfilteringbook]을 추천합니다
 
-[^bayesfilteringbook]: WIP
+[^bayesfilteringbook]: Särkkä, Simo. Bayesian filtering and smoothing. No. 3. Cambridge University Press, 2013. <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.461.4042&rep=rep1&type=pdf"> PDF link <a>
+
 
 
 --- 
 ## 예고 
 
+- 다음 편에서 오늘 유도한 걸 그대로 이용해서 칼만필터를 유도해보겠습니다. 
 
---- 
-## 생각해보기
 
+<!-- --- 
+## 생각해보기 -->
+
+<br>
 
 ---
 ### 주석
