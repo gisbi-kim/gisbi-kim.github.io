@@ -1,7 +1,7 @@
 ---
 layout: post
 showlist: true
-title: "Bayesian Filtering 이야기 (1편): posterior 의 mean, covariance 구하기 (수식 유도)" 
+title: "Bayesian Filtering 이야기 [1편]: posterior 의 mean, covariance 구하기" 
 season: Filter-based SLAM
 type: research
 categories:

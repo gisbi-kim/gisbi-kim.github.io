@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-12T11:32:02+09:00</updated>
+ <updated>2021-03-12T14:12:06+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -13,7 +13,28 @@
 
  
  <entry>
-   <title>Bayesian Filtering 이야기 (1편): posterior 의 mean, covariance 구하기 (수식 유도)</title>
+   <title>Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작</title>
+   <link href="http://localhost:4000/blog/2021/03/12/bayesfiltering-2.html"/>
+   <updated>2021-03-12T00:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/2021/03/12/bayesfiltering-2</id>
+   <content type="html">&lt;p&gt;TBA&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>SLAM back-end 이야기 [2편]: Ax=b 대신 Ry=d 를 풀자! (Householder QR 분해 &mdash; 구현편)</title>
+   <link href="http://localhost:4000/blog/2021/03/11/slambackend-2.html"/>
+   <updated>2021-03-11T00:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/2021/03/11/slambackend-2</id>
+   <content type="html">&lt;p&gt;TBA&lt;/p&gt;
+
+&lt;!-- ---
+### 주석 --&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Bayesian Filtering 이야기 [1편]: posterior 의 mean, covariance 구하기</title>
    <link href="http://localhost:4000/blog/2021/03/09/bayesfiltering-1.html"/>
    <updated>2021-03-09T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/09/bayesfiltering-1</id>
@@ -595,7 +616,7 @@ posterior 의 mean 과 covariannce 는 다음과 같다.&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다</title>
+   <title>SLAM back-end 이야기 [1편]: SLAM은 Ax=b 를 푸는 것이다</title>
    <link href="http://localhost:4000/blog/2021/03/04/slambackend-1.html"/>
    <updated>2021-03-04T00:00:00+09:00</updated>
    <id>http://localhost:4000/blog/2021/03/04/slambackend-1</id>
@@ -1413,7 +1434,72 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/latestnews/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/latestnews</id>
-   <content type="html">&lt;p&gt;TODO&lt;/p&gt;
+   <content type="html">&lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;To be added …&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2020&quot;&gt;2020&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dec 2020: I released &lt;a href=&quot;https://github.com/gisbi-kim/SC-LIO-SAM&quot;&gt; LiDAR-inertial SLAM code (SC-LIO-SAM: Scan Context + LIO-SAM, C++)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Nov 2020: I released &lt;a href=&quot;https://github.com/irapkaist/removert&quot;&gt; Removert code (C++)&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Oct 2020: I visited SOSLAB and gave a &lt;a href=&quot;https://www.dropbox.com/s/p30dpjqjbjhq69x/20201022%20SOSLAB%20talk%20Giseop%20Kim%20share.pdf?dl=0&quot;&gt; talk (slide) &lt;/a&gt; about LiDAR place recognition and SLAM.&lt;/li&gt;
+  &lt;li&gt;Oct 2020: I presented &lt;a href=&quot;https://www.youtube.com/watch?v=V6OcdNVQRwg&amp;amp;t=231s&quot;&gt; Removert &lt;/a&gt; at (virtual) IROS 2020. 
+&lt;!-- - May 2020: I had logged and finished MulRan-extended dataset for Sejong City during last 1 year. --&gt;&lt;/li&gt;
+  &lt;li&gt;Jul 2020: I finished the CE481 (a.k.a SLAM 101) TA, Spring 2020.&lt;/li&gt;
+  &lt;li&gt;Jun 2020: The &lt;a href=&quot;/publications/#iros20&quot;&gt; Removert paper &lt;/a&gt; is accepted for IROS 20.&lt;/li&gt;
+  &lt;li&gt;Jun 2020: I presented &lt;a href=&quot;/publications/#icra20mulran&quot;&gt; MulRan dataset paper &lt;/a&gt; at (virtual) ICRA 2020. 
+&lt;!-- - May 2020: I had logged and finished MulRan-extended dataset for Sejong City during last 1 year. --&gt;&lt;/li&gt;
+  &lt;li&gt;May 2020: I made a portable backpack sensor system (call Jige) with lab members.&lt;/li&gt;
+  &lt;li&gt;Apr 2020: I released &lt;a href=&quot;https://github.com/gisbi-kim&quot;&gt; Scan Context C++ and SC-LeGO-LOAM project codes &lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Jan 2020: I visited NAVER LABS and gave a talk about structural place recognition.&lt;/li&gt;
+  &lt;li&gt;Jan 2020: I passed the Ph.D. qualification exam of the CEE dept, KAIST.&lt;/li&gt;
+  &lt;li&gt;Jan 2020: The &lt;a href=&quot;/publications/#icra20undeeplo&quot;&gt; UndeepLO paper &lt;/a&gt; is accepted for ICRA 20 (I participated as a 2nd author and did comparison experiments).&lt;/li&gt;
+  &lt;li&gt;Jan 2020: The &lt;a href=&quot;/publications/#icra20mulran&quot;&gt; MulRan dataset paper &lt;/a&gt; is accepted for ICRA 20.&lt;/li&gt;
+  &lt;li&gt;Jan 2020: Our team is selected for Bilateral Research Exchange Support Program (2 years), co-work with prof. Tomas Krajnik.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2019&quot;&gt;2019&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Oct 2019: I visited ICCV 2019 and met people of SLAM-Korea FB group.&lt;/li&gt;
+  &lt;li&gt;Oct 2019: I released Scan Context Python and &lt;a href=&quot;https://github.com/gisbi-kim/PyICP-SLAM&quot;&gt; PyICP-SLAM project code&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Jun 2019: I initiated MulRan (Radar + LiDAR dataset) project and first used Ouster LiDAR. During this project, I was advised &lt;a href=&quot;http://jinyongjeong.github.io/about/&quot;&gt; Dr. Jinyong Jeong &lt;/a&gt; to build and extend a car-platform sensor system.&lt;/li&gt;
+  &lt;li&gt;May 2019: I visited Montreal, Canada, and had a presentation of the RA-L paper at ICRA 2019 (my first 2-hour interaction session).&lt;/li&gt;
+  &lt;li&gt;May 2019: I was awarded ICRA 2019 RAS Travel Grant.&lt;/li&gt;
+  &lt;li&gt;Apr 2019: I visited Czech Republic to start a co-work with &lt;a href=&quot;http://labe.felk.cvut.cz/~tkrajnik/&quot;&gt;prof. Tomas Krajnik&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Mar 2019: I officially started to study as a Ph.D student.&lt;/li&gt;
+  &lt;li&gt;Feb 2019: The &lt;a href=&quot;/publications/#ceus19&quot;&gt; urban analysis journal paper &lt;/a&gt; was accepted and published.&lt;/li&gt;
+  &lt;li&gt;Jan 2019: I developed the &lt;a href=&quot;/publications/#icra18ws&quot;&gt; ICRA18-workshop paper &lt;/a&gt;  with Dr. Byungjae Park of ETRI, and it was accepted at &lt;a href=&quot;/publications/#ral19&quot;&gt; RA-Letter with ICRA19 presentation optioin &lt;/a&gt;. (I had my first robotics journal rebuttal process)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2018&quot;&gt;2018&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dec 2018: I successfully defended my &lt;a href=&quot;/publications/gkim-dissertation-ms.pdf&quot; target=&quot;_blank&quot;&gt; MS thesis&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Oct 2018: I visited University of Girona for 2 weeks to study underwater SLAM.&lt;/li&gt;
+  &lt;li&gt;Oct 2018: I had a oral presentation of &lt;a href=&quot;/publications/#icra18sc&quot;&gt; LiDAR place recognition paper (Scan Context) &lt;/a&gt; paper at IROS 18, Madrid, Spain.&lt;/li&gt;
+  &lt;li&gt;Jul 2018: I made a bike sensor system from scratch for Venture Research Program.&lt;/li&gt;
+  &lt;li&gt;Jun 2018: My &lt;a href=&quot;/publications/#icra18sc&quot;&gt; LiDAR place recognition paper &lt;/a&gt; was accepted at IROS 2018.&lt;/li&gt;
+  &lt;li&gt;Jun 2018: I was selected for KAIST College of Engineering’s MS/Ph.D student Venture Research Program.&lt;/li&gt;
+  &lt;li&gt;May 2018: I visited Brisbane, Australia. I had my first oral presentation at an international conference (ICRA 2018), and &lt;a href=&quot;https://blockchair.com/bitcoin/transaction/7d23c8a6b6ea6c4acc3d6625cfb0aa5d8b91e6ea873a551f306fe17cb1ffa144#o=1&quot; target=&quot;_blank&quot;&gt; won the best paper award&lt;/a&gt;) of the Long-term Autonomy workshop.&lt;/li&gt;
+  &lt;li&gt;Apr 2018: The &lt;a href=&quot;/publications/#icra18ws&quot;&gt; long-term localization paper &lt;/a&gt; was accepted at a ICRA 18 workshop.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2017&quot;&gt;2017&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dec 2017: I got a my first oral presentation (non-published) at RiTA 2017.
+&lt;!-- - Aug 2017: I had studied about LiDAR-based city spatial analysis and submitted a first journal paper (non-robotics).   --&gt;&lt;/li&gt;
+  &lt;li&gt;Jul 2017: I interned at ETRI and was advised by &lt;a href=&quot;https://sites.google.com/site/sunglok/&quot;&gt; Dr. Sunglok Choi &lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;May 2017: I attended ICRA 17 at Singapore and had my first ever poster session.&lt;/li&gt;
+  &lt;li&gt;Mar 2017: I was accepted at a 1 page abstract for ICRA 2017 late-braking poster session.&lt;/li&gt;
+  &lt;li&gt;Mar 2017: I officially joined Intelligent Robotic Autonomy and Perception (IRAP) lab, KAIST, as MS student, advised by &lt;a href=&quot;https://irap.kaist.ac.kr/~ayoung/index.html&quot;&gt;prof. Ayoung Kim &lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2016&quot;&gt;2016&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Oct 2016: I visited IROS 2016 (Daejeon, South Korea).&lt;/li&gt;
+  &lt;li&gt;Sep 2016: I started a undergraduate student researcher at IRAP lab.&lt;/li&gt;
+  &lt;li&gt;Jun 2016: I finished the TA of CE352 (signal processing, lectured by prof. Ayoung Kim), Spring 2016.&lt;/li&gt;
+&lt;/ul&gt;
 </content>
  </entry>
  
@@ -1422,20 +1508,20 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/aboutme/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/aboutme</id>
-   <content type="html">&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+   <content type="html">&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-&amp;nbsp; I am a Ph.D. student at Korea Advanced Institute of Science and Technology (KAIST). I am a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab &lt;/a&gt;, where I'm advised by Prof. &lt;a href=&quot;https://irap.kaist.ac.kr/~ayoung/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;.
+I am a Ph.D. student at Korea Advanced Institute of Science and Technology (KAIST). I am a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab &lt;/a&gt;, where I'm advised by Prof. &lt;a href=&quot;https://irap.kaist.ac.kr/~ayoung/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;.
 &lt;/p&gt;
 
-&lt;p style=&quot;margin-top:-17px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-&amp;nbsp; My main research topic during the Ph.D. has been focused on robust 3D mapping in complex urban sites using LiDAR sensors. To do so, I have interests in all mobile robot-related topics and spatial AI including from 3D perception, sensor fusion, and SLAM to deep learning.  
+My main research topic during the Ph.D. has been focused on robust 3D mapping in complex urban sites using LiDAR sensors. To do so, I have interests in all mobile robot-related topics and spatial AI including from 3D perception, sensor fusion, and SLAM to deep learning.  
 &lt;/p&gt;
 
-&lt;p style=&quot;margin-top:-17px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-&amp;nbsp; I have experience with a full pipeline of SLAM in the real-world (i.e., from sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management).
+I have experience with a full pipeline of SLAM in the real-world (i.e., from sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management).
 &lt;/p&gt;
 </content>
  </entry>

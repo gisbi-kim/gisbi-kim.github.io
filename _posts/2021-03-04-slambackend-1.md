@@ -1,8 +1,8 @@
 ---
 layout: post
 showlist: true
-title: "SLAM back-end 이야기 (1편): SLAM은 Ax=b 를 푸는 것이다" 
-season: Factor graph-based SLAM
+title: "SLAM back-end 이야기 [1편]: SLAM은 Ax=b 를 푸는 것이다" 
+season: Factor graph SLAM
 type: research
 categories:
 - blog
