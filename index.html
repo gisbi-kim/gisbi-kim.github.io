@@ -55,7 +55,8 @@ title: Blog Posts
 
 </ul>
 
-
+  <hr class="solidlight" style="margin-top:+20px">
+  <p style="margin-bottom:-20px"> </p>
   <!--    -->
   <!-- Research -->
   <p style="margin-top:+20px"> </p>
@@ -67,8 +68,8 @@ title: Blog Posts
         {% if post.type == "research" %}
         <li>
           <!-- &nbsp; -->
-          <span> {{ post.date | date: "%b %Y" }}</span>
-          <span style="color:gray"> [{{ post.season }}] &raquo;</span>
+          <!-- <span> {{ post.date | date: "%b %Y" }}</span> -->
+          <span style="color:gray"> [{{ post.season }}]&raquo;</span>
           <!-- &raquo; -->
           <a href="{{ post.url }}">{{ post.title }}</a>
         </li>
@@ -79,6 +80,8 @@ title: Blog Posts
   </ul>
 
 
+  <hr class="solidlight" style="margin-top:+20px">
+  <p style="margin-bottom:-20px"> </p>
   <!--    -->
   <!-- Life -->
   <p style="margin-top:+20px"> </p>
