@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-12T14:50:43+09:00</updated>
+ <updated>2021-03-15T10:42:13+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -170,7 +170,7 @@ measurement 가 측정이 완료되어서, 주어져야 계산할 수 있기 때
 
 \[\begin{align*}
   p(\textbf{x} \ | \ \textbf{z}_{1:k}) &amp;amp;\propto p(\textbf{x}) \cdot p(\textbf{z}_{1:k} \ | \ \textbf{x}) \\ 
-  \text{posterior} &amp;amp;\propto \text{posterior} \cdot \text{likelihood}
+  \text{posterior} &amp;amp;\propto \text{prior} \cdot \text{likelihood}
 \end{align*}\]
 
 &lt;p&gt;$\propto$ 로 쓴 이유: 보통 분모는 normalization 용도 (확률의 정의를 지켜주기 위해서 sum 을 1로 만들어주는 역할)로 생각되기 때문에, 통상적으로 practically 생략하는 편이 많다. 어짜피 우리가 관심이 있는 것은 최대확률값이 아니라, 최대확률이 될 때의 $\textbf{x}$값이기 때문이다 (상수의 곱에 무관하다).&lt;/p&gt;

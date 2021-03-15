@@ -143,7 +143,7 @@ measurement 가 측정이 완료되어서, 주어져야 계산할 수 있기 때
 $$
 \begin{align*}
   p(\textbf{x} \ | \ \textbf{z}_{1:k}) &\propto p(\textbf{x}) \cdot p(\textbf{z}_{1:k} \ | \ \textbf{x}) \\ 
-  \text{posterior} &\propto \text{posterior} \cdot \text{likelihood}
+  \text{posterior} &\propto \text{prior} \cdot \text{likelihood}
 \end{align*}
 $$
 
