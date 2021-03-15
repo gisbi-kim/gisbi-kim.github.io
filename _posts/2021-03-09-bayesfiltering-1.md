@@ -15,7 +15,7 @@ use_math: true
 SLAM은 filter-based 와 optimization-based 로 편의상 나눌 수 있다.  
 (물론 두 방법이 robot 의 state 를 추정하는데 상보적으로 동시에 쓰일수도 있다.)
 
-<span style="color:gray"> [Factor graph-based SLAM] </span> 에서는  
+<span style="color:gray"> [Factor graph SLAM] </span> 에서는  
 optimization-based 기반의 SLAM에 대해서 소개하고 있다. 
 
 한편,  <span style="color:gray"> [Filter-based SLAM] </span> 시리즈에서는  
@@ -231,6 +231,7 @@ subscriptor 로 $0$를 쓴 이유는 별 이유는 없고 그냥 시작 시점�
 그럼 likelihood 의 mean 과 covariance 는 무엇일까? 알아보자.  
 
 ## Measurement Model 
+<p id="zmodel"> </p>
 
 likelihood는 $p(\textbf{z}_{1:k} \| \ \textbf{x})$ 이거였다.  
 
@@ -508,20 +509,21 @@ $$
 $$
 \begin{align*}
   \textbf{m}_{\text{pos}} &= \textbf{P}_{\text{pos}} \left( \Sigma_1{}^{-1}\mu_{1} + \Sigma_2{}^{-1}\mu_{2} \right) \\ 
-    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right) \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \right) \\ 
-    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T} \right) \left( \textbf{H} \textbf{H}^{T} \right) (\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \\ 
-    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right) \\ 
-    &= \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right)
+    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right) \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \right) \\ 
+    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T} \right) \left( \textbf{H} \textbf{H}^{T} \right) (\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \\ 
+    &= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right) \\ 
+    &= \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right)
 \end{align*}
 $$
 
+<p id="proofdone"> </p>
 증명 끝!
 
 이를 수식으로 다시 정리하면:  
 
 $$
 \begin{align*}
-  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left(\left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \ \ \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) 
+  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left(\left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \ \ \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) 
 \end{align*}
 $$
 

@@ -29,10 +29,10 @@
           }
         },
         tex2jax: {
-        inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$', '$$'] ],
-        processEscapes: true,
-      }
+          inlineMath: [ ['$', '$'] ],
+          displayMath: [ ['$$', '$$'] ],
+          processEscapes: true,
+        }
     });
     MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
           alert("Math Processing Error: "+message[1]);
@@ -40,10 +40,18 @@
     MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           alert("Math Processing Error: "+message[1]);
         });
-    </script>
-    <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+</script>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+<!-- Mathjax Support -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
    -->
 
   <script type="text/x-mathjax-config">
@@ -387,7 +395,7 @@
       <!--  -->
       <!-- <span>12 Mar 2021 &raquo;</span>  -->
       <span style="color:gray; font-size:0.85em;"> [Filter-based SLAM] &raquo;</span>
-      <a href="/blog/2021/03/12/bayesfiltering-2.html" style="font-size:0.85em;">Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작</a>
+      <a href="/blog/2021/03/12/bayesfiltering-2.html" style="font-size:0.85em;">Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)</a>
       <!--  -->
     </li>
     

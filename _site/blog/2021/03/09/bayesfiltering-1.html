@@ -29,10 +29,10 @@
           }
         },
         tex2jax: {
-        inlineMath: [ ['$', '$'] ],
-        displayMath: [ ['$$', '$$'] ],
-        processEscapes: true,
-      }
+          inlineMath: [ ['$', '$'] ],
+          displayMath: [ ['$$', '$$'] ],
+          processEscapes: true,
+        }
     });
     MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
           alert("Math Processing Error: "+message[1]);
@@ -40,10 +40,18 @@
     MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
           alert("Math Processing Error: "+message[1]);
         });
-    </script>
-    <script type="text/javascript" async
-      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+</script>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+<!-- Mathjax Support -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
    -->
 
   <script type="text/x-mathjax-config">
@@ -221,7 +229,7 @@
 <p>SLAM은 filter-based 와 optimization-based 로 편의상 나눌 수 있다.<br />
 (물론 두 방법이 robot 의 state 를 추정하는데 상보적으로 동시에 쓰일수도 있다.)</p>
 
-<p><span style="color:gray"> [Factor graph-based SLAM] </span> 에서는<br />
+<p><span style="color:gray"> [Factor graph SLAM] </span> 에서는<br />
 optimization-based 기반의 SLAM에 대해서 소개하고 있다.</p>
 
 <p>한편,  <span style="color:gray"> [Filter-based SLAM] </span> 시리즈에서는<br />
@@ -442,6 +450,7 @@ subscriptor 로 $0$를 쓴 이유는 별 이유는 없고 그냥 시작 시점�
 <p>그럼 likelihood 의 mean 과 covariance 는 무엇일까? 알아보자.</p>
 
 <h2 id="measurement-model">Measurement Model</h2>
+<p id="zmodel"> </p>
 
 <p>likelihood는 $p(\textbf{z}_{1:k} | \ \textbf{x})$ 이거였다.</p>
 
@@ -693,18 +702,19 @@ posterior 의 mean 과 covariannce 는 다음과 같다.</p>
 
 \[\begin{align*}
   \textbf{m}_{\text{pos}} &amp;= \textbf{P}_{\text{pos}} \left( \Sigma_1{}^{-1}\mu_{1} + \Sigma_2{}^{-1}\mu_{2} \right) \\ 
-    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right) \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \right) \\ 
-    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T} \right) \left( \textbf{H} \textbf{H}^{T} \right) (\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \\ 
-    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right) \\ 
-    &amp;= \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right)
+    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right) \left( \textbf{H}^{T}(\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \right) \\ 
+    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \left( \frac{1}{\sigma^2}\textbf{H}^{T} \right) \left( \textbf{H} \textbf{H}^{T} \right) (\textbf{H}\textbf{H}^{T})^{-1}\textbf{z} \right) \\ 
+    &amp;= \textbf{P}_{\text{pos}} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right) \\ 
+    &amp;= \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right)
 \end{align*}\]
 
+<p id="proofdone"> </p>
 <p>증명 끝!</p>
 
 <p>이를 수식으로 다시 정리하면:</p>
 
 \[\begin{align*}
-  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left(\left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0 \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \ \ \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) 
+  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left(\left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \ \ \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) 
 \end{align*}\]
 
 <p>가 된다!</p>
@@ -803,7 +813,7 @@ posterior 의 mean 과 covariannce 는 다음과 같다.</p>
       <!--  -->
       <!-- <span>12 Mar 2021 &raquo;</span>  -->
       <span style="color:gray; font-size:0.85em;"> [Filter-based SLAM] &raquo;</span>
-      <a href="/blog/2021/03/12/bayesfiltering-2.html" style="font-size:0.85em;">Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작</a>
+      <a href="/blog/2021/03/12/bayesfiltering-2.html" style="font-size:0.85em;">Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)</a>
       <!--  -->
     </li>
     

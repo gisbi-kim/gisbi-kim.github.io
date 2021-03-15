@@ -3,7 +3,7 @@
 {"date": "Fri, 12 Mar 2021 00:00:00 +0900",
 "categories": ["blog"],
 "tags": ["Blog"],
-"title": "Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작",
+"title": "Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)",
 "url": "/blog/2021/03/12/bayesfiltering-2.html"},
 
 {"date": "Thu, 11 Mar 2021 00:00:00 +0900",
