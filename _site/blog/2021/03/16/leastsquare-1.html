@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Giseop Kim - Latest News</title>
+  <title>Giseop Kim - Iterative Optimization [1편]: Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization</title>
   <meta name="author" content="Giseop Kim" />
   <meta name="description" content="The blog of Giseop Kim" />
-  <link rel="canonical" href="http://localhost:4000/latestnews/" />
+  <link rel="canonical" href="http://localhost:4000/blog/2021/03/16/leastsquare-1.html" />
 
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon_logo.png" type="image/vnd.microsoft.icon">
@@ -20,7 +20,39 @@
   <link rel="stylesheet" href="/assets/css/all.css">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-  <!--  -->
+  <!-- 
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+          inlineMath: [ ['$', '$'] ],
+          displayMath: [ ['$$', '$$'] ],
+          processEscapes: true,
+        }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+<!-- Mathjax Support -->
+<!-- <script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script> -->
+
+   -->
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -179,6 +211,8 @@
       <p style="margin-bottom:-20px">
       
       <p class="meta">
+  
+    [Least Square Opt.] ― March 16, 2021   
    
   
   <a href="/">
@@ -186,76 +220,14 @@
   </a>
 </p>
 
-<h1 class="title">Latest News</h1>
+<h1 class="title">Iterative Optimization [1편]: Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization</h1>
 <hr class="solidlight" style="margin-top:+20px">
 
 <div id="post">
-  <h1 id="2021">2021</h1>
-<ul>
-  <li>To be added …</li>
-</ul>
+  <p>TBA</p>
 
-<h1 id="2020">2020</h1>
-<ul>
-  <li>Dec 2020: I released <a href="https://github.com/gisbi-kim/SC-LIO-SAM"> LiDAR-inertial SLAM code (SC-LIO-SAM: Scan Context + LIO-SAM, C++)</a>.</li>
-  <li>Nov 2020: I released <a href="https://github.com/irapkaist/removert"> Removert code (C++)</a>.</li>
-  <li>Oct 2020: I visited SOSLAB and gave a <a href="https://www.dropbox.com/s/p30dpjqjbjhq69x/20201022%20SOSLAB%20talk%20Giseop%20Kim%20share.pdf?dl=0"> talk (slide) </a> about LiDAR place recognition and SLAM.</li>
-  <li>Oct 2020: I presented <a href="https://www.youtube.com/watch?v=V6OcdNVQRwg&amp;t=231s"> Removert </a> at (virtual) IROS 2020. 
-<!-- - May 2020: I had logged and finished MulRan-extended dataset for Sejong City during last 1 year. --></li>
-  <li>Jul 2020: I finished the CE481 (a.k.a SLAM 101) TA, Spring 2020.</li>
-  <li>Jun 2020: The <a href="/publications/#iros20"> Removert paper </a> is accepted for IROS 20.</li>
-  <li>Jun 2020: I presented <a href="/publications/#icra20mulran"> MulRan dataset paper </a> at (virtual) ICRA 2020. 
-<!-- - May 2020: I had logged and finished MulRan-extended dataset for Sejong City during last 1 year. --></li>
-  <li>May 2020: I made a portable backpack sensor system (call Jige) with lab members.</li>
-  <li>Apr 2020: I released <a href="https://github.com/gisbi-kim"> Scan Context C++ and SC-LeGO-LOAM project codes </a>.</li>
-  <li>Jan 2020: I visited NAVER LABS and gave a talk about structural place recognition.</li>
-  <li>Jan 2020: I passed the Ph.D. qualification exam of the CEE dept, KAIST.</li>
-  <li>Jan 2020: The <a href="/publications/#icra20undeeplo"> UndeepLO paper </a> is accepted for ICRA 20 (I participated as a 2nd author and did comparison experiments).</li>
-  <li>Jan 2020: The <a href="/publications/#icra20mulran"> MulRan dataset paper </a> is accepted for ICRA 20.</li>
-  <li>Jan 2020: Our team is selected for Bilateral Research Exchange Support Program (2 years), co-work with prof. Tomas Krajnik.</li>
-</ul>
-
-<h1 id="2019">2019</h1>
-<ul>
-  <li>Oct 2019: I visited ICCV 2019 and met people of SLAM-Korea FB group.</li>
-  <li>Oct 2019: I released Scan Context Python and <a href="https://github.com/gisbi-kim/PyICP-SLAM"> PyICP-SLAM project code</a>.</li>
-  <li>Jun 2019: I initiated MulRan (Radar + LiDAR dataset) project and first used Ouster LiDAR. During this project, I was advised <a href="http://jinyongjeong.github.io/about/"> Dr. Jinyong Jeong </a> to build and extend a car-platform sensor system.</li>
-  <li>May 2019: I visited Montreal, Canada, and had a presentation of the RA-L paper at ICRA 2019 (my first 2-hour interaction session).</li>
-  <li>May 2019: I was awarded ICRA 2019 RAS Travel Grant.</li>
-  <li>Apr 2019: I visited Czech Republic to start a co-work with <a href="http://labe.felk.cvut.cz/~tkrajnik/">prof. Tomas Krajnik</a>.</li>
-  <li>Mar 2019: I officially started to study as a Ph.D student.</li>
-  <li>Feb 2019: The <a href="/publications/#ceus19"> urban analysis journal paper </a> was accepted and published.</li>
-  <li>Jan 2019: I developed the <a href="/publications/#icra18ws"> ICRA18-workshop paper </a>  with Dr. Byungjae Park of ETRI, and it was accepted at <a href="/publications/#ral19"> RA-Letter with ICRA19 presentation optioin </a>. (I had my first robotics journal rebuttal process)</li>
-</ul>
-
-<h1 id="2018">2018</h1>
-<ul>
-  <li>Dec 2018: I successfully defended my <a href="/publications/gkim-dissertation-ms.pdf" target="_blank"> MS thesis</a>.</li>
-  <li>Oct 2018: I visited University of Girona for 2 weeks to study underwater SLAM.</li>
-  <li>Oct 2018: I had a oral presentation of <a href="/publications/#icra18sc"> LiDAR place recognition paper (Scan Context) </a> paper at IROS 18, Madrid, Spain.</li>
-  <li>Jul 2018: I made a bike sensor system from scratch for Venture Research Program.</li>
-  <li>Jun 2018: My <a href="/publications/#icra18sc"> LiDAR place recognition paper </a> was accepted at IROS 2018.</li>
-  <li>Jun 2018: I was selected for KAIST College of Engineering’s MS/Ph.D student Venture Research Program.</li>
-  <li>May 2018: I visited Brisbane, Australia. I had my first oral presentation at an international conference (ICRA 2018), and <a href="https://blockchair.com/bitcoin/transaction/7d23c8a6b6ea6c4acc3d6625cfb0aa5d8b91e6ea873a551f306fe17cb1ffa144#o=1" target="_blank"> won the best paper award</a>) of the Long-term Autonomy workshop.</li>
-  <li>Apr 2018: The <a href="/publications/#icra18ws"> long-term localization paper </a> was accepted at a ICRA 18 workshop.</li>
-</ul>
-
-<h1 id="2017">2017</h1>
-<ul>
-  <li>Dec 2017: I got a my first oral presentation (non-published) at RiTA 2017.
-<!-- - Aug 2017: I had studied about LiDAR-based city spatial analysis and submitted a first journal paper (non-robotics).   --></li>
-  <li>Jul 2017: I interned at ETRI and was advised by <a href="https://sites.google.com/site/sunglok/"> Dr. Sunglok Choi </a>.</li>
-  <li>May 2017: I attended ICRA 17 at Singapore and had my first ever poster session.</li>
-  <li>Mar 2017: I was accepted at a 1 page abstract for ICRA 2017 late-braking poster session.</li>
-  <li>Mar 2017: I officially joined Intelligent Robotic Autonomy and Perception (IRAP) lab, KAIST, as MS student, advised by <a href="https://irap.kaist.ac.kr/~ayoung/index.html">prof. Ayoung Kim </a>.</li>
-</ul>
-
-<h1 id="2016">2016</h1>
-<ul>
-  <li>Oct 2016: I visited IROS 2016 (Daejeon, South Korea).</li>
-  <li>Sep 2016: I started a undergraduate student researcher at IRAP lab.</li>
-  <li>Jun 2016: I finished the TA of CE352 (signal processing, lectured by prof. Ayoung Kim), Spring 2016.</li>
-</ul>
+<!-- ---
+### 주석 -->
 
 </div>
 
@@ -264,14 +236,6 @@
 <div id="related" style="margin-top:-20px">
   <h3>Other posts</h3>
   <ul class="posts" style="margin-top:-10px">
-    
-    <li>
-      <!--  -->
-      <!-- <span>16 Mar 2021 &raquo;</span>  -->
-      <span style="color:gray; font-size:0.85em;"> [Least Square Opt.] &raquo;</span>
-      <a href="/blog/2021/03/16/leastsquare-1.html" style="font-size:0.85em;">Iterative Optimization [1편]: Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization</a>
-      <!--  -->
-    </li>
     
     <li>
       <!--  -->
@@ -326,6 +290,10 @@
       <!-- <span>01 Mar 2021 &raquo;</span>  -->
       <span style="color:gray; font-size:0.85em;"> [Life] &raquo;</span>
       <a href="/blog/2021/03/01/blog-start.html" style="font-size:0.85em;">블로그 시작!</a>
+      <!--  -->
+    </li>
+    
+    <li>
       <!--  -->
     </li>
     

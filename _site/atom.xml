@@ -4,13 +4,25 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-16T01:37:18+09:00</updated>
+ <updated>2021-03-16T01:42:03+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
    <email>paulgkim@kaist.ac.kr</email>
  </author>
 
+ 
+ <entry>
+   <title>Iterative Optimization [1편]: Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization</title>
+   <link href="http://localhost:4000/blog/2021/03/16/leastsquare-1.html"/>
+   <updated>2021-03-16T00:00:00+09:00</updated>
+   <id>http://localhost:4000/blog/2021/03/16/leastsquare-1</id>
+   <content type="html">&lt;p&gt;TBA&lt;/p&gt;
+
+&lt;!-- ---
+### 주석 --&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)</title>
