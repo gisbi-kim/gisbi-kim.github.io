@@ -8,8 +8,9 @@ categories:
 - blog
 ---
 
-# 2021 
-- To be added ...
+# 2021
+- To be added ...  
+- Mar 2020: I passed the Ph.D. thesis proposal presentation. 
 
 # 2020
 - Dec 2020: I released <a href="https://github.com/gisbi-kim/SC-LIO-SAM"> LiDAR-inertial SLAM code (SC-LIO-SAM: Scan Context + LIO-SAM, C++)</a>. 

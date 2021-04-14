@@ -17,18 +17,19 @@ title: Blog Main
     {% endfor %}
     
     <p style="margin-top:-10px"> </p>
-    {% for post in site.posts %}
-      {% if post.type == "latestnews" %}
-      <li>
-        &raquo;
-        <span style="color:gray"> {{ post.season }}</span>
-        <!-- &raquo; -->
-        <a href="{{ post.url }}">{{ post.title }}</a>
-      </li>
-      <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
-      {% endif %}
-    {% endfor %}
 
+    {% for post in site.posts %}
+    {% if post.type == "aboutmedetail" %}
+    <li>
+      &raquo;
+      <span style="color:gray"> {{ post.season }}</span>
+      <!-- &raquo; -->
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+    <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+    {% endif %}
+    {% endfor %}
+    
     {% for post in site.posts %}
     {% if post.type == "publications" %}
     <li>
@@ -42,15 +43,15 @@ title: Blog Main
     {% endfor %}
 
     {% for post in site.posts %}
-    {% if post.type == "projects" %}
-    <li>
-      &raquo;
-      <span style="color:gray"> {{ post.season }}</span>
-      <!-- &raquo; -->
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
-    {% endif %}
+      {% if post.type == "latestnews" %}
+      <li>
+        &raquo;
+        <span style="color:gray"> {{ post.season }}</span>
+        <!-- &raquo; -->
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+      <!-- <li><span> post &raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li> -->
+      {% endif %}
     {% endfor %}
 
 </ul>

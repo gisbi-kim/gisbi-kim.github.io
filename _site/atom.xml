@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-03-16T01:42:03+09:00</updated>
+ <updated>2021-04-14T13:01:23+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -1712,15 +1712,6 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
  </entry>
  
  <entry>
-   <title>Projects</title>
-   <link href="http://localhost:4000/projects/"/>
-   <updated>2021-01-01T00:00:00+09:00</updated>
-   <id>http://localhost:4000/projects</id>
-   <content type="html">&lt;p&gt;TODO&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Latest News</title>
    <link href="http://localhost:4000/latestnews/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
@@ -1728,6 +1719,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <content type="html">&lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
 &lt;ul&gt;
   &lt;li&gt;To be added …&lt;/li&gt;
+  &lt;li&gt;Mar 2020: I passed the Ph.D. thesis proposal presentation.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;2020&quot;&gt;2020&lt;/h1&gt;
@@ -1790,6 +1782,17 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
   &lt;li&gt;Oct 2016: I visited IROS 2016 (Daejeon, South Korea).&lt;/li&gt;
   &lt;li&gt;Sep 2016: I started a undergraduate student researcher at IRAP lab.&lt;/li&gt;
   &lt;li&gt;Jun 2016: I finished the TA of CE352 (signal processing, lectured by prof. Ayoung Kim), Spring 2016.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>About Me (more)</title>
+   <link href="http://localhost:4000/aboutmedetail/"/>
+   <updated>2021-01-01T00:00:00+09:00</updated>
+   <id>http://localhost:4000/aboutmedetail</id>
+   <content type="html">&lt;ul&gt;
+  &lt;li&gt;Contents will be moved from &lt;a href=&quot;http://bit.ly/gk_profile&quot;&gt; the personal notion page  &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
