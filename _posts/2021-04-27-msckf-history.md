@@ -20,7 +20,7 @@ MSCKF 계열은 Tightly-coupled Filter-based[^note1] 라고 할 수 있다.
     2. Optimization-based VIO보다 적은연산량을 필요로 한다.  
     3. 따라서 가벼운 onboard platform에서 선호된다. 
 
-[^note1]: 이외에 Loosely coupled filter-based 도 있는데, loosely coupled 는 일반적으로 VO 알고리즘의 해를 칼만 필터의 측정치(measurement)로 사용하여 결합한다. <br> 따라서 특징점 수에 상관없이 항상 같은 수준의 계산 복잡도를 가진다. <br> 이러한 약결합 방식은 강결합 방식에 비해 필터 구조가 간단하기 때문에, 다른 센서를 융합함으로써 성능을 향상시키기 용이하다 <br> 논문: <br> — 11 ICRA Real-time metric state estimation for modular vision-inertial systems (스케일 팩터를 상태변수에 추가함), <br> — 13 ICRA Stereo vision and IMU based real-time ego-motion and depth image computation on a handheld device (스테레오 버전), <br> — 13 IROS A robust and modular multi-sensor fusion approach applied to MAV navigation and 14 ICRA Multi-Sensor Fusion for Robust Autonomous Flight in Indoor and Outdoor Environments with a Rotorcraft MAV (IMU, laser scanner, stereo cameras, pressure altimeter, magnetometer, and a GPS 등 다양한 다른 센서를 융합한 버전)
+[^note1]: 이외에 Loosely coupled filter-based 도 있는데, loosely coupled 는 일반적으로 VO 알고리즘의 해를 칼만 필터의 측정치(measurement)로 사용하여 결합한다. <br> 따라서 특징점 수에 상관없이 항상 같은 수준의 계산 복잡도를 가진다 (관측된 특징점을 상태변수에 포함시키지 않기 때문). <br> 이러한 약결합 방식은 강결합 방식에 비해 필터 구조가 간단하기 때문에, 다른 센서를 융합함으로써 성능을 향상시키기 용이하다 <br> 논문: <br> — 11 ICRA Real-time metric state estimation for modular vision-inertial systems (스케일 팩터를 상태변수에 추가함), <br> — 13 ICRA Stereo vision and IMU based real-time ego-motion and depth image computation on a handheld device (스테레오 버전), <br> — 13 IROS A robust and modular multi-sensor fusion approach applied to MAV navigation and 14 ICRA Multi-Sensor Fusion for Robust Autonomous Flight in Indoor and Outdoor Environments with a Rotorcraft MAV (IMU, laser scanner, stereo cameras, pressure altimeter, magnetometer, and a GPS 등 다양한 다른 센서를 융합한 버전)
 
 ---
 
