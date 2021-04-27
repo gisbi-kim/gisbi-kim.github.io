@@ -32,7 +32,7 @@ MSCKF 계열은 Tightly-coupled Filter-based[^note1] 라고 할 수 있다.
 - 논문[^note2]
     - 07 ICRA A. I. Mourikis and S. I. Roumeliotis, “A multi-state constraint Kalman filter for vision-aided inertial navigation”
 
-[^note2]: 이 논문을 이해하기 위해서는 IMU model과 quaternion에 대한 기초지식이 요구된다. <br> — 이에 대해서는 Trawny, Nikolas, and Stergios I. Roumeliotis. "Indirect Kalman filter for 3D attitude estimation. (2005) 를 추천한다 (note: MSCKF논문의 교신저자인 Roumeliotis가 여기서도 교신저자이다).  <br> — 또는 최근 문서인 Joan Sola의 Quaternion kinematics for the error-state Kalman filter (2017) 도 되게 잘 설명하고 있다.
+[^note2]: 이 논문을 이해하기 위해서는 IMU model과 quaternion에 대한 기초지식이 요구된다. <br> — 이에 대해서는 Trawny, Nikolas, and Stergios I. Roumeliotis. "Indirect Kalman filter for 3D attitude estimation. (2005) 를 추천한다 (note: MSCKF논문의 교신저자인 Roumeliotis가 여기서도 교신저자이다).  <br> — 또는 최근 문서인 Joan Sola의 Quaternion kinematics for the error-state Kalman filter (2017) 도 되게 잘 설명하고 있다. <br> — ps. 일반적으로 항법 추정문제에서 칼만 필터는 추정 변수의 "오차"를 상태변수로 사용한다 - 이런 세팅을 indirect 라고 부른다. 그래서 위 두 테크리포트의 제목에 indirect 라든가 error-state 라든가 하는 단어가 포함되어 있는 것을 볼 수 있다. 
 
 
 ## MSCKF의 후속 (2012, 2013)
