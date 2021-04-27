@@ -2,7 +2,7 @@
 layout: post
 showlist: true
 title: SegMap 빌드하기 
-season: Daily Research 
+season: SLAM 잡담 
 type: research
 categories:
 - blog

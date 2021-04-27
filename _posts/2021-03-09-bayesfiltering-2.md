@@ -1,7 +1,7 @@
 ---
 layout: post
 showlist: true
-title: "Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)" 
+title: "Bayesian Filtering [2편] — Recursive estimation 의 시작 (칼만필터 유도)" 
 season: Filter-based SLAM
 type: research
 categories:

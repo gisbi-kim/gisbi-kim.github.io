@@ -1,33 +1,45 @@
 [
 
+{"date": "Tue, 27 Apr 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": ["Blog"],
+"title": "Filter-based VIO [1편] — MSCKF 계열 history 정리",
+"url": "/blog/2021/04/27/msckf-history.html"},
+
 {"date": "Tue, 16 Mar 2021 00:00:00 +0900",
 "categories": ["blog"],
 "tags": ["Blog"],
-"title": "Iterative Optimization [1편]: Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization",
+"title": "Iterative Optimization [1편] — Nonlinear ICP 구현을 통해 알아보는 Gauss-newton Optimization",
 "url": "/blog/2021/03/16/leastsquare-1.html"},
-
-{"date": "Fri, 12 Mar 2021 00:00:00 +0900",
-"categories": ["blog"],
-"tags": ["Blog"],
-"title": "Bayesian Filtering 이야기 [2편]: Recursive estimation 의 시작 (칼만필터 유도 1)",
-"url": "/blog/2021/03/12/bayesfiltering-2.html"},
-
-{"date": "Thu, 11 Mar 2021 00:00:00 +0900",
-"categories": ["blog"],
-"tags": ["Blog"],
-"title": "SLAM back-end 이야기 [2편]: Ax=b 대신 Ry=d 를 풀자! (Householder QR 분해 &mdash; 구현편)",
-"url": "/blog/2021/03/11/slambackend-2.html"},
 
 {"date": "Tue, 09 Mar 2021 00:00:00 +0900",
 "categories": ["blog"],
 "tags": ["Blog"],
-"title": "Bayesian Filtering 이야기 [1편]: posterior 의 mean, covariance 구하기",
+"title": "Bayesian Filtering [2편] — Recursive estimation 의 시작 (칼만필터 유도)",
+"url": "/blog/2021/03/09/bayesfiltering-2.html"},
+
+{"date": "Tue, 09 Mar 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": ["Blog"],
+"title": "Bayesian Filtering [1편] — posterior 의 mean, covariance 구하기",
 "url": "/blog/2021/03/09/bayesfiltering-1.html"},
 
 {"date": "Thu, 04 Mar 2021 00:00:00 +0900",
 "categories": ["blog"],
 "tags": ["Blog"],
-"title": "SLAM back-end 이야기 [1편]: SLAM은 Ax=b 를 푸는 것이다",
+"title": "SLAM back-end [2++편] — Householder QR 분해 구현해보기",
+"url": "/blog/2021/03/04/slambackend-3.html"},
+
+{"date": "Thu, 04 Mar 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": ["Blog"],
+"title": "SLAM back-end [2편] — Ax=b 대신 Ry=d 를 풀자",
+"url": "/blog/2021/03/04/slambackend-2.html"},
+
+{"date": "Thu, 04 Mar 2021 00:00:00 +0900",
+"categories": ["blog"],
+"tags": ["Blog"],
+"title": "SLAM back-end [1편] — SLAM은 Ax=b 를 푸는 것이다",
 "url": "/blog/2021/03/04/slambackend-1.html"},
 
 {"date": "Tue, 02 Mar 2021 00:00:00 +0900",
