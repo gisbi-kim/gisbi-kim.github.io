@@ -6,10 +6,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Giseop Kim - Publications</title>
+  <title>Giseop Kim - Scan Context-based LiDAR Pose-graph SLAM [구현]</title>
   <meta name="author" content="Giseop Kim" />
   <meta name="description" content="The blog of Giseop Kim" />
-  <link rel="canonical" href="http://localhost:4000/publications/" />
+  <link rel="canonical" href="http://localhost:4000/blog/2021/05/17/sclidarslam.html" />
 
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon_logo.png" type="image/vnd.microsoft.icon">
@@ -211,6 +211,8 @@
       <p style="margin-bottom:-20px">
       
       <p class="meta">
+  
+    [LiDAR SLAM] ― May 17, 2021   
    
   
   <a href="/">
@@ -218,170 +220,113 @@
   </a>
 </p>
 
-<h1 class="title">Publications</h1>
+<h1 class="title">Scan Context-based LiDAR Pose-graph SLAM [구현]</h1>
 <hr class="solidlight" style="margin-top:+20px">
 
 <div id="post">
-  <p style="margin-top:-15px"> </p>
-<p style="font-size:13px; float:right;">
-    NOTE: publications are sorted in time order 
-</p>
+  <h1 id="lidar-slam">LiDAR SLAM</h1>
 
+<p>SLAM 이란</p>
+
+\[\begin{align*}
+    \text{SLAM} = \text{odometry} + \text{loop closing} 
+\end{align*}\]
+
+<p>이라고 할 수 있다.</p>
+<ul>
+  <li>odometry 는 locally accruate 한 consecutive motion 을 예측하고</li>
+  <li>loop closing 은 odometry에서 누적된 error 를 smoothing 한다.
+    <ul>
+      <li>loop detection 과 pose-graph optimization 으로 구성된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+<h2 id="sc-based-lidar-slam">SC-based LiDAR SLAM</h2>
+
+<p>예전에 LiDAR SLAM을 구성하기 위해<br />
+<a href="https://github.com/irapkaist/scancontext">Scan Context</a> 기반의 loop detection 을 lidar odometry 에 통합한 적이 있다.</p>
+<ul>
+  <li>https://github.com/irapkaist/SC-LeGO-LOAM</li>
+  <li>https://github.com/gisbi-kim/SC-LIO-SAM</li>
+</ul>
+
+<p>처음에는 LeGO-LOAM 저자의 pose-graph optimziation 구현 (skeleton) 이 좋아서 거기에 integrate 했었는데,<br />
+사용하다보니 다른 front-end 에 물렸으면 싶을 때가 종종 있다.</p>
+<ul>
+  <li>ex. LeGO-LOAM은 range image 상에서 feature 를 찾기 때문에, roll pitch motion 이 왕왕 큰 hand-held 에서 A-LOAM보다 경험적으로 잘 안된다던지 그런 현상들을 좀 겪는다.</li>
+</ul>
+
+<hr />
+<h2 id="sc-based-pose-graph-slam">SC-based Pose-graph SLAM</h2>
+
+<p>그래서 loop detection 및 pose-graph optimization 부분만<br />
+별도의 ros node 로 구성해보았다.</p>
+<ul>
+  <li><a href="https://github.com/gisbi-kim/SC-A-LOAM/blob/main/src/laserPosegraphOptimization.cpp">laserPosegraphOptimization.cpp</a></li>
+</ul>
+
+<p>사용자는 임의의 lidar odometry 를 실행하고,<br />
+그 임의의 lidar odometry 프로그램은 time t에서의 odometry 와 point cloud topic 을 publish 시켜주기만 하면된다.</p>
+
+<p>그럼 위의 laserPosegraphOptimization.cpp node 는 그 odometry (locally errornous한) 와 point cloud topic 을 subscribe 해서<br />
+내부적으로 loop 를 찾고 pose graph optimization 을 수행한다.</p>
+<ul>
+  <li>결과적으로는 보정된 odometry (및 path) 와 error 가 해소된 global map 을 publish 한다. Rviz 로 이를 확인할 수 있다.</li>
+</ul>
+
+<p>laserPosegraphOptimization.cpp 모듈을 SC-PGO라고 부른다면,<br />
+LiDAR SLAM의 전체 파이프라인은 아래와 같다.</p>
+<figure id="scfastlio">
+  <img src="/figs/2021-05-17-sclidarslam/anypipe.png" style="width:90%" />
+  <figcaption> 
+        <center> <a href="https://github.com/gisbi-kim/SC-A-LOAM"> Code Link </a> </center>
+  </figcaption>
+</figure>
 <p><br /></p>
 
-<h2 id="journals">Journals</h2>
-
-<p style="margin-top:-10px"> </p>
-<p id="j20sc2"> </p>
+<p>이 리포지토리에서는 존재하는 open source 중 가장 간단한 lidar odometry인<br />
+A-LOAM과 결합하여 바로 사용할 수 있도록 하였다.</p>
 <ul>
-  <li>Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition</li>
+  <li>코드: <a href="https://github.com/gisbi-kim/SC-A-LOAM">SC-A-LOAM (github)</a></li>
+  <li>예시:</li>
 </ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; submitted and under review, journal 2021 — Paper (TBA), Code (TBA) <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br />
-</p>
+<figure id="scfastlio">
+  <img src="/figs/2021-05-17-sclidarslam/riverside01.png" style="width:90%" />
+  <figcaption> 
+        <center> <a href="https://youtu.be/FwAVX5TVm04?t=303"> Youtube Link (대전 갑천)</a> </center>
+  </figcaption>
+</figure>
+<p><br /></p>
 
-<p style="margin-top:-10px"> </p>
-<p id="ral19"> </p>
+<hr />
+<h2 id="generic-and-modular">Generic and Modular</h2>
+
+<p>하지만 SC-PGO (laserPosegraphOptimization.cpp) 는<br />
+lidar odometry algorithm에 완전히 독립적인 모듈이기 때문에<br />
+어떤 lidar odometry front-end 와도 결합될 수 있다.</p>
 <ul>
-  <li>1-Day Learning, 1-Year Localization: Long-term LiDAR Localization using Scan Context Image</li>
+  <li>따라서 SC-based Generic (modular) Pose-graph SLAM 라고 부를 수 있겠다.</li>
 </ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Byungjae Park$^{†}$, Ayoung Kim. (†: joint work with ETRI)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Robotics and Automation Letters, 2019 (with ICRA 2019) —  
-    <a href="/publications/gkim-2019-ral.pdf" target="_blank"> Paper</a>,  
-    <a href="https://www.youtube.com/watch?v=apmmduXTnaE" target="_blank"> Video</a>,
-    <a href="https://www.dropbox.com/sh/pn01awfz7huys45/AABOEz3hJ2FLuhUkfjrsJs3Fa?dl=0" target="_blank"> Slide</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Classification-based Long-term LiDAR Localization"  <br />
-</p>
 
-<p style="margin-top:-10px"> </p>
-<p id="ceus19"> </p>
+<p>예시로, FAST-LIO라는 ESKF 기반 최신 LIO 와도 물려보았다 (아래 예시 비디오).</p>
+<figure id="scfastlio">
+  <img src="/figs/2021-05-17-sclidarslam/scfastlio.png" style="width:85%" />
+  <figcaption> 
+        <center> <a href="https://youtu.be/Fw9S6D6HozA?t=1708"> Youtube Link (including step-by-step tutorial) </a> </center>
+  </figcaption>
+</figure>
+<p><br />
+(당연한 이야기지만) odometry only 일 때 누적된 에러를 “쉽게” 보정할 수 있다 – 사용자는 odometry 와 loop closing 의 결합에 대해 고민할 필요없이, 단순히 두 node 를 각각 실행해주는 것으로 LiDAR SLAM을 완성할 수 있다.</p>
+
 <ul>
-  <li>A new 3D space syntax metric based on 3D isovist capture in urban space using remote sensing technology</li>
+  <li>ps. 이 예제에서 알 수 있듯이 Scan Context 는 livox lidar (전방 70도만 봄) 에서도 잘 작동함을 알 수 있다.</li>
+  <li>ps 2. 또한 odometry topic 은 특성 sensor 에 dependent하지 않기 때문에 꼭 lidar odometry가 아니라 vo, wheel odometry 등 다양한 source 와도 쉽게 결합할 수 있을 것으로 생각된다.</li>
 </ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim, Youngchul Kim$^{†}$. (†: joint work with KAIST Urban Design Lab)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Computer, Environment and Urban Systems, 2019 — <a href="https://www.sciencedirect.com/science/article/pii/S0198971518301881" target="_blank"> Paper (online)</a> <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR-based Urban Site Analysis"  <br />
-</p>
 
-<h2 id="conferences">Conferences</h2>
-
-<p style="margin-top:-10px"> </p>
-<p id="iros20"> </p>
-<ul>
-  <li>Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;" id="iros20">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IROS 2020 —  
-    <a href="/publications/gskim-2020-iros.pdf" target="_blank"> Paper</a>,  
-    <a href="https://github.com/irapkaist/removert" target="_blank"> Code</a>,
-    <a href="https://www.youtube.com/watch?v=M9PEGi5fAq8" target="_blank"> Video</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Remove Dynamic Points in the Wild"  <br />
-</p>
-
-<p style="margin-top:-10px"> </p>
-<p id="icra20undeeplo"> </p>
-<ul>
-  <li>Unsupervised Geometry-Aware Deep LiDAR Odometry</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younggun Cho, <u>Giseop Kim</u>, Ayoung Kim. <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
-    <a href="/publications/ycho-2020-icra.pdf" target="_blank"> Paper</a>,  
-    <a href="https://www.youtube.com/watch?v=-imRJXq6ZuE" target="_blank"> Video</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br />
-</p>
-
-<p style="margin-top:-10px"> </p>
-<p id="icra20mulran"> </p>
-<ul>
-  <li>MulRan: Multimodal Range Dataset for Urban Place Recognition</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Yeong Sang Park, Younghun Cho, Jinyong Jeong, Ayoung Kim. <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
-    <a href="/publications/gskim-2020-icra.pdf" target="_blank"> Paper</a>,  
-    <a href="https://sites.google.com/view/mulran-pr/home" target="_blank"> Dataset website</a>,
-    <a href="https://github.com/irapkaist/scancontext/tree/master/fast_evaluator_radar" target="_blank"> Code (radar place recognition)</a>,
-    <a href="https://www.youtube.com/watch?v=qJi1KJmrM2U" target="_blank"> Video</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR+Radar SLAM Dataset and Radar Place Recognition"  <br />
-</p>
-
-<p style="margin-top:-10px"> </p>
-<p id="icra18sc"> </p>
-<ul>
-  <li>Scan Context: Egocentric Spatial Descriptor for Place Recognition within 3D Point Cloud Map</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IROS 2018 —  
-    <a href="/publications/gkim-2018-iros.pdf" target="_blank"> Paper</a>,  
-    <a href="https://github.com/irapkaist/scancontext" target="_blank"> Code</a>,
-    <a href="https://www.youtube.com/watch?v=_etNafgQXoY" target="_blank"> Video</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A LiDAR Place Recognition: Robust, Fast, and Versatile"  <br />
-</p>
-
-<h2 id="workshops">Workshops</h2>
-
-<p style="margin-top:-10px"> </p>
-<p id="icra19wsjang"> </p>
-<ul>
-  <li>CNN-based Approach for Opti-Acoustic Reciprocal Feature Matching</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hyesu Jang, <u>Giseop Kim</u>, Yeongjun Lee$^{†}$, Ayoung Kim. (†: joint work with KRISO)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2019 Workshop on Underwater Robotics Perception —  
-    <a href="/publications/hsjang-2019-icra-ws.pdf" target="_blank"> Paper</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#kros20">the KRoS20</a> paper"  <br />
-</p>
-
-<p style="margin-top:-10px"> </p>
-<p id="icra18ws"> </p>
-<ul>
-  <li>Learning Scan Context toward Long-term LiDAR Localization</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Byungjae Park$^{†}$, Ayoung Kim. (†: joint work with ETRI)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2018 Workshop on Long-term autonomy  (won the <a href="https://blockchair.com/bitcoin/transaction/7d23c8a6b6ea6c4acc3d6625cfb0aa5d8b91e6ea873a551f306fe17cb1ffa144#o=1" target="_blank"> Best paper award</a>) —  
-    <a href="/publications/gkim-2018-icraws.pdf" target="_blank"> Paper</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A preliminary report of <a href="#ral19">the RAL19</a> paper"  <br />
-</p>
-
-<h2 id="domestic-korean">Domestic (Korean)</h2>
-
-<p style="margin-top:-10px"> </p>
-<p id="kros20"> </p>
-<ul>
-  <li>CNN-based Opti-Acoustic Transformation for Underwater Feature Matching</li>
-</ul>
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hyesu Jang, Yeongjun Lee$^{†}$, <u>Giseop Kim</u>, Ayoung Kim. (†: joint work with KRISO)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Journal of Korea Robotics Society 2020 (Special Issue: Underwater Robotics) —  
-    <a href="http://jkros.org/_common/do.php?a=full&amp;b=33&amp;bidx=2176&amp;aidx=26014" target="_blank"> Paper (online)</a>
-    <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Camera-sonar style transfer-based multimodal matching"  <br />
-</p>
+<!-- ---  -->
+<!-- ### 주석 -->
 
 </div>
 
@@ -390,14 +335,6 @@
 <div id="related" style="margin-top:-20px">
   <h3>Other posts</h3>
   <ul class="posts" style="margin-top:-10px">
-    
-    <li>
-      <!--  -->
-      <!-- <span>17 May 2021 &raquo;</span>  -->
-      <span style="color:gray; font-size:0.85em;"> [LiDAR SLAM] &raquo;</span>
-      <a href="/blog/2021/05/17/sclidarslam.html" style="font-size:0.85em;">Scan Context-based LiDAR Pose-graph SLAM [구현]</a>
-      <!--  -->
-    </li>
     
     <li>
       <!--  -->
@@ -468,6 +405,14 @@
       <!-- <span>02 Mar 2021 &raquo;</span>  -->
       <span style="color:gray; font-size:0.85em;"> [SLAM 잡담] &raquo;</span>
       <a href="/blog/2021/03/02/segmap-build.html" style="font-size:0.85em;">SegMap 빌드하기</a>
+      <!--  -->
+    </li>
+    
+    <li>
+      <!--  -->
+      <!-- <span>01 Mar 2021 &raquo;</span>  -->
+      <span style="color:gray; font-size:0.85em;"> [Life] &raquo;</span>
+      <a href="/blog/2021/03/01/blog-start.html" style="font-size:0.85em;">블로그 시작!</a>
       <!--  -->
     </li>
     
