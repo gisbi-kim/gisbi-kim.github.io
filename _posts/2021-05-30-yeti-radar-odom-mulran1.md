@@ -11,7 +11,7 @@ tags:
 use_math: true
 ---
 
-# Radar SLAM 
+# Radar 
 - Here, the radar means Navtech radar data.
   - For details, see https://oxford-robotics-institute.github.io/radar-robotcar-dataset/
 - Radar is robust to occlusions than LiDAR in urban sites.
@@ -220,4 +220,4 @@ lidar odometry algorithm에 완전히 독립적인 모듈이기 때문에
 
 
 ---
-### 주석
+### Comments
