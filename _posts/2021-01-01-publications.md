@@ -16,15 +16,43 @@ use_math: true
 
 <br>
 
+## Dissertations 
+
+<p style="margin-top:-10px"> </p>
+<p id="msthesis"> </p>
+- LiDAR-based Lifelong Robotic Mapping in Changing Environments
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advised by  <a href="https://ayoungk.github.io/" target="_blank"> Dr. Ayoung Kim</a> and Dr. Youngchul Kim<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ph.D., CEE, KAIST, 2022 (expected) —  
+    Thesis (TBA)
+    <br>
+</p>
+
+<p style="margin-top:-10px"> </p>
+<p id="msthesis"> </p>
+- Isovist-induced Robust LiDAR Localization
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advised by <a href="https://ayoungk.github.io/" target="_blank"> Dr. Ayoung Kim</a> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; M.S., CEE, KAIST, 2019 —  
+    <a href="/publications/gkim-dissertation-ms.pdf" target="_blank"> Thesis</a>
+    <br>
+</p>
+
 ## Journals 
 
 <p style="margin-top:-10px"> </p>
 <p id="j20sc2"> </p>
-- Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition
+- Scan Context++: Structural Place Recognition Robust to Rotation and Lateral Variations in Urban Environments
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; submitted and under review, journal 2021 — Paper (TBA), Code (TBA) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Transactions on Robotics (T-RO), accepted, 2021 — 
+    <a href="/publications/gkim-2021-tro.pdf" target="_blank"> Paper</a>,  
+    Code (TBA) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br>
 </p>
 
@@ -57,13 +85,27 @@ use_math: true
 ## Conferences  
 
 <p style="margin-top:-10px"> </p>
+<p id="icra22"> </p>
+- LT-mapper: A Modular Framework for LiDAR-based Lifelong Mapping
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;" id="iros20">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Submitted and Under review, 2021 —  
+    <a href="/publications/gkim-2021-ltmapper.pdf" target="_blank"> Paper</a>,  
+    <a href="https://github.com/gisbi-kim/lt-mapper" target="_blank"> Code</a>,
+    Video (TBA)
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Automatic LiDAR Map Management"  <br>
+</p>
+
+<p style="margin-top:-10px"> </p>
 <p id="iros20"> </p>
 - Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;" id="iros20">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IROS 2020 —  
-    <a href="/publications/gskim-2020-iros.pdf" target="_blank"> Paper</a>,  
+    <a href="/publications/gkim-2020-iros.pdf" target="_blank"> Paper</a>,  
     <a href="https://github.com/irapkaist/removert" target="_blank"> Code</a>,
     <a href="https://www.youtube.com/watch?v=M9PEGi5fAq8" target="_blank"> Video</a>
     <br>
@@ -90,7 +132,7 @@ use_math: true
 <p style="font-size:13px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Yeong Sang Park, Younghun Cho, Jinyong Jeong, Ayoung Kim. <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
-    <a href="/publications/gskim-2020-icra.pdf" target="_blank"> Paper</a>,  
+    <a href="/publications/gkim-2020-icra.pdf" target="_blank"> Paper</a>,  
     <a href="https://sites.google.com/view/mulran-pr/home" target="_blank"> Dataset website</a>,
     <a href="https://github.com/irapkaist/scancontext/tree/master/fast_evaluator_radar" target="_blank"> Code (radar place recognition)</a>,
     <a href="https://www.youtube.com/watch?v=qJi1KJmrM2U" target="_blank"> Video</a>

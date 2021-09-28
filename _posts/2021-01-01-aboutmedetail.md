@@ -1,7 +1,7 @@
 ---
 layout: post
 showlist: false 
-title: About Me (more)
+title: About Me (detail)
 permalink: /aboutmedetail/
 type: aboutmedetail
 categories:
@@ -9,4 +9,4 @@ categories:
 use_math: true
 ---
 
-- Contents will be moved from <a href="http://bit.ly/gk_profile"> the personal notion page  </a>
+- Please see this <a href="http://bit.ly/gk_profile"> personal notion page  </a>

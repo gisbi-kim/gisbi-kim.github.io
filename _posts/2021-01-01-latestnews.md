@@ -9,8 +9,9 @@ categories:
 ---
 
 # 2021
-- To be added ...  
-- Mar 2020: I passed the Ph.D. thesis proposal presentation. 
+- Sep 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#j20sc2"> Scan Context++ paper </a> is accepted for T-RO. 
+- May 2021: I had a talk at the <a href="https://sites.google.com/view/radar-robotics/home?authuser=0">ICRA21 radar workshop</a> and introduced radar data and MulRan dataset <a href="https://youtu.be/jFvKW9Kj8Ts">[talk video]</a>. 
+- Mar 2021: I passed the Ph.D. thesis proposal presentation. 
 
 # 2020
 - Dec 2020: I released <a href="https://github.com/gisbi-kim/SC-LIO-SAM"> LiDAR-inertial SLAM code (SC-LIO-SAM: Scan Context + LIO-SAM, C++)</a>. 

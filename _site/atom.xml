@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-06-03T14:13:41+09:00</updated>
+ <updated>2021-09-28T16:49:55+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -2368,17 +2368,49 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
+&lt;h2 id=&quot;dissertations&quot;&gt;Dissertations&lt;/h2&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;msthesis&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LiDAR-based Lifelong Robotic Mapping in Changing Environments&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt; &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Advised by  &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Dr. Ayoung Kim&lt;/a&gt; and Dr. Youngchul Kim&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Ph.D., CEE, KAIST, 2022 (expected) —  
+    Thesis (TBA)
+    &lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;msthesis&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Isovist-induced Robust LiDAR Localization&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt; &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Advised by &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Dr. Ayoung Kim&lt;/a&gt; &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; M.S., CEE, KAIST, 2019 —  
+    &lt;a href=&quot;/publications/gkim-dissertation-ms.pdf&quot; target=&quot;_blank&quot;&gt; Thesis&lt;/a&gt;
+    &lt;br /&gt;
+&lt;/p&gt;
+
 &lt;h2 id=&quot;journals&quot;&gt;Journals&lt;/h2&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;j20sc2&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Scan Context++: Rotation and Lateral Invariant Spatial Descriptor for Robust and Fast Structural Place Recognition&lt;/li&gt;
+  &lt;li&gt;Scan Context++: Structural Place Recognition Robust to Rotation and Lateral Variations in Urban Environments&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:13px;&quot;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)&lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; submitted and under review, journal 2021 — Paper (TBA), Code (TBA) &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; IEEE Transactions on Robotics (T-RO), accepted, 2021 — 
+    &lt;a href=&quot;/publications/gkim-2021-tro.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    Code (TBA) &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;An Improved LiDAR Place Recognition&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
@@ -2413,6 +2445,22 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;h2 id=&quot;conferences&quot;&gt;Conferences&lt;/h2&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;icra22&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;LT-mapper: A Modular Framework for LiDAR-based Lifelong Mapping&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot; id=&quot;iros20&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Ayoung Kim. &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Submitted and Under review, 2021 —  
+    &lt;a href=&quot;/publications/gkim-2021-ltmapper.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    &lt;a href=&quot;https://github.com/gisbi-kim/lt-mapper&quot; target=&quot;_blank&quot;&gt; Code&lt;/a&gt;,
+    Video (TBA)
+    &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Automatic LiDAR Map Management&quot;  &lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;iros20&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Remove, then Revert: Static Point cloud Map Construction using Multiresolution Range Images&lt;/li&gt;
@@ -2421,7 +2469,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;p style=&quot;font-size:13px;&quot; id=&quot;iros20&quot;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Ayoung Kim. &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; IROS 2020 —  
-    &lt;a href=&quot;/publications/gskim-2020-iros.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    &lt;a href=&quot;/publications/gkim-2020-iros.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
     &lt;a href=&quot;https://github.com/irapkaist/removert&quot; target=&quot;_blank&quot;&gt; Code&lt;/a&gt;,
     &lt;a href=&quot;https://www.youtube.com/watch?v=M9PEGi5fAq8&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;
     &lt;br /&gt;
@@ -2452,7 +2500,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;p style=&quot;font-size:13px;&quot;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Yeong Sang Park, Younghun Cho, Jinyong Jeong, Ayoung Kim. &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICRA 2020 —  
-    &lt;a href=&quot;/publications/gskim-2020-icra.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    &lt;a href=&quot;/publications/gkim-2020-icra.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
     &lt;a href=&quot;https://sites.google.com/view/mulran-pr/home&quot; target=&quot;_blank&quot;&gt; Dataset website&lt;/a&gt;,
     &lt;a href=&quot;https://github.com/irapkaist/scancontext/tree/master/fast_evaluator_radar&quot; target=&quot;_blank&quot;&gt; Code (radar place recognition)&lt;/a&gt;,
     &lt;a href=&quot;https://www.youtube.com/watch?v=qJi1KJmrM2U&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;
@@ -2531,8 +2579,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <id>http://localhost:4000/latestnews</id>
    <content type="html">&lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;To be added …&lt;/li&gt;
-  &lt;li&gt;Mar 2020: I passed the Ph.D. thesis proposal presentation.&lt;/li&gt;
+  &lt;li&gt;Sep 2021: The &lt;a href=&quot;/publications/#j20sc2&quot;&gt; Scan Context++ paper &lt;/a&gt; is accepted for T-RO.&lt;/li&gt;
+  &lt;li&gt;May 2021: I had a talk at the &lt;a href=&quot;https://sites.google.com/view/radar-robotics/home?authuser=0&quot;&gt;ICRA21 radar workshop&lt;/a&gt; and introduced radar data and MulRan dataset &lt;a href=&quot;https://youtu.be/jFvKW9Kj8Ts&quot;&gt;[talk video]&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Mar 2021: I passed the Ph.D. thesis proposal presentation.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;2020&quot;&gt;2020&lt;/h1&gt;
@@ -2600,12 +2649,12 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
  </entry>
  
  <entry>
-   <title>About Me (more)</title>
+   <title>About Me (detail)</title>
    <link href="http://localhost:4000/aboutmedetail/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/aboutmedetail</id>
    <content type="html">&lt;ul&gt;
-  &lt;li&gt;Contents will be moved from &lt;a href=&quot;http://bit.ly/gk_profile&quot;&gt; the personal notion page  &lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Please see this &lt;a href=&quot;http://bit.ly/gk_profile&quot;&gt; personal notion page  &lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
  </entry>
