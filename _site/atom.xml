@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-10-03T17:45:34+09:00</updated>
+ <updated>2021-12-30T00:05:16+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -2938,17 +2938,17 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <content type="html">&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-I am a Ph.D. student at Korea Advanced Institute of Science and Technology (KAIST). I am a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab &lt;/a&gt;, where I'm advised by Prof. &lt;a href=&quot;https://irap.kaist.ac.kr/~ayoung/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;.
+I obtained a Ph.D. (2022) at KAIST, South Korea. I was a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab&lt;/a&gt; (currently moved to RPM Robotics Lab, SNU), and advised by Prof. &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;. 
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-My main research topic during the Ph.D. has been focused on robust 3D mapping in complex urban sites using LiDAR sensors. To do so, I have interests in all mobile robot-related topics and spatial AI including from 3D perception, sensor fusion, and SLAM to deep learning.  
+My main research topic during the Ph.D. had been focused on &lt;a href=&quot;https://bit.ly/3HbkjEH&quot; target=&quot;_blank&quot;&gt;robust 3D mapping in complex urban sites using LiDAR sensors&lt;/a&gt;. I have experience with a full pipeline of robot state estimation in real-world (from 3D perception, sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management). 
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-I have experience with a full pipeline of SLAM in the real-world (i.e., from sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management).
+My current position is a research scientist at NAVER LABS. I am conducting research on robust and scalable localization and mapping of autonomous vehicles in a complex city.
 &lt;/p&gt;
 </content>
  </entry>
