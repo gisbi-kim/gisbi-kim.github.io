@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-12-30T00:05:16+09:00</updated>
+ <updated>2021-12-30T00:09:18+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -2938,7 +2938,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <content type="html">&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-I obtained a Ph.D. (2022) at KAIST, South Korea. I was a member of the &lt;a href=&quot;https://irap.kaist.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab&lt;/a&gt; (currently moved to RPM Robotics Lab, SNU), and advised by Prof. &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;. 
+I obtained a Ph.D. (2022) at KAIST, South Korea. I was a member of the &lt;a href=&quot;https://rpm.snu.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab&lt;/a&gt; (currently moved to RPM Robotics Lab, SNU), and advised by Prof. &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;. 
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
