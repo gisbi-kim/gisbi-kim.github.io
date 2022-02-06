@@ -11,7 +11,7 @@ use_math: true
 
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px; float:right;">
-    NOTE: publications are sorted in time order 
+    NOTE: publications are sorted in time order, <a href="https://www.semanticscholar.org/author/Giseop-Kim/66319300"> all bib files are found here. </a>
 </p>
 
 <br>
@@ -25,8 +25,8 @@ use_math: true
 <p style="font-size:13px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Advised by  <a href="https://ayoungk.github.io/" target="_blank"> Dr. Ayoung Kim</a> and Dr. Youngchul Kim<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ph.D., CEE, KAIST, 2022 (expected) —  
-    Thesis (TBA)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ph.D., CEE, KAIST, 2022 —  
+    Thesis (TBA), <a href="https://docs.google.com/presentation/d/e/2PACX-1vQW1_LZZ6_RiOG2zmIZO9tR52ryRSDCDvJuK5YWrrHO5Y_iBNA-IB-_nsB8LcvZcl8Zfc6NU0A3nPWS/pub?start=false&loop=false&delayms=60000&slide=id.gfabac6aa73_0_21" target="_blank"> Defence presentation material </a>
     <br>
 </p>
 
@@ -52,6 +52,7 @@ use_math: true
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Transactions on Robotics (T-RO), accepted, 2021 — 
     <a href="/publications/gkim-2021-tro.pdf" target="_blank"> Paper</a>,  
+    <a href="https://youtu.be/ZWEqwYKQIeg" target="_blank"> Video</a>,  
     Code (TBA) <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "An Improved LiDAR Place Recognition"  <br>
 </p>
@@ -90,12 +91,26 @@ use_math: true
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;" id="iros20">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Submitted and Under review, 2021 —  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2022 (Accepted, To appear) —  
     <a href="/publications/gkim-2021-ltmapper.pdf" target="_blank"> Paper</a>,  
     <a href="https://github.com/gisbi-kim/lt-mapper" target="_blank"> Code</a>,
-    Video (TBA)
+    <a href="https://youtu.be/vlYKfp1p2j8" target="_blank"> Video </a>
     <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Automatic LiDAR Map Management"  <br>
+</p>
+
+<p style="margin-top:-10px"> </p>
+<p id="iceic22"> </p>
+- SC-LiDAR-SLAM: a Front-end Agnostic Versatile LiDAR SLAM System
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;" id="iros20">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Seungsang Yun, Jeongyun Kim, and Ayoung Kim. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICEIC 2022 —  
+    <a href="/publications/gkim-2022-sclidarslam.pdf" target="_blank"> Paper</a>,
+    <a href="https://youtu.be/XA6Q24GHQO0" target="_blank"> Video</a>,
+    <a href="/publications/gkim-2022-sclidarslam-poster.pdf" target="_blank"> Poster</a>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "A set of Open source LiDAR SLAM systems."  <br>
 </p>
 
 <p style="margin-top:-10px"> </p>

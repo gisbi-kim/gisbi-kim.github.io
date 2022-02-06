@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2021-12-30T00:09:18+09:00</updated>
+ <updated>2022-02-06T15:40:26+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -2634,7 +2634,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <id>http://localhost:4000/publications</id>
    <content type="html">&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:13px; float:right;&quot;&gt;
-    NOTE: publications are sorted in time order 
+    NOTE: publications are sorted in time order, &lt;a href=&quot;https://www.semanticscholar.org/author/Giseop-Kim/66319300&quot;&gt; all bib files are found here. &lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
@@ -2650,8 +2650,8 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;p style=&quot;font-size:13px;&quot;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt; &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Advised by  &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Dr. Ayoung Kim&lt;/a&gt; and Dr. Youngchul Kim&lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Ph.D., CEE, KAIST, 2022 (expected) —  
-    Thesis (TBA)
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Ph.D., CEE, KAIST, 2022 —  
+    Thesis (TBA), &lt;a href=&quot;https://docs.google.com/presentation/d/e/2PACX-1vQW1_LZZ6_RiOG2zmIZO9tR52ryRSDCDvJuK5YWrrHO5Y_iBNA-IB-_nsB8LcvZcl8Zfc6NU0A3nPWS/pub?start=false&amp;amp;loop=false&amp;amp;delayms=60000&amp;amp;slide=id.gfabac6aa73_0_21&quot; target=&quot;_blank&quot;&gt; Defence presentation material &lt;/a&gt;
     &lt;br /&gt;
 &lt;/p&gt;
 
@@ -2681,6 +2681,7 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)&lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; IEEE Transactions on Robotics (T-RO), accepted, 2021 — 
     &lt;a href=&quot;/publications/gkim-2021-tro.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    &lt;a href=&quot;https://youtu.be/ZWEqwYKQIeg&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;,  
     Code (TBA) &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;An Improved LiDAR Place Recognition&quot;  &lt;br /&gt;
 &lt;/p&gt;
@@ -2723,12 +2724,28 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:13px;&quot; id=&quot;iros20&quot;&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Ayoung Kim. &lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Submitted and Under review, 2021 —  
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICRA 2022 (Accepted, To appear) —  
     &lt;a href=&quot;/publications/gkim-2021-ltmapper.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
     &lt;a href=&quot;https://github.com/gisbi-kim/lt-mapper&quot; target=&quot;_blank&quot;&gt; Code&lt;/a&gt;,
-    Video (TBA)
+    &lt;a href=&quot;https://youtu.be/vlYKfp1p2j8&quot; target=&quot;_blank&quot;&gt; Video &lt;/a&gt;
     &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Automatic LiDAR Map Management&quot;  &lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;iceic22&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;SC-LiDAR-SLAM: a Front-end Agnostic Versatile LiDAR SLAM System&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot; id=&quot;iros20&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;u&gt;Giseop Kim&lt;/u&gt;, Seungsang Yun, Jeongyun Kim, and Ayoung Kim. &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICEIC 2022 —  
+    &lt;a href=&quot;/publications/gkim-2022-sclidarslam.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,
+    &lt;a href=&quot;https://youtu.be/XA6Q24GHQO0&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;,
+    &lt;a href=&quot;/publications/gkim-2022-sclidarslam-poster.pdf&quot; target=&quot;_blank&quot;&gt; Poster&lt;/a&gt;
+    &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;A set of Open source LiDAR SLAM systems.&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
@@ -2848,9 +2865,17 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <link href="http://localhost:4000/latestnews/"/>
    <updated>2021-01-01T00:00:00+09:00</updated>
    <id>http://localhost:4000/latestnews</id>
-   <content type="html">&lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&quot;2022&quot;&gt;2022&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;Sep 2021: The &lt;a href=&quot;/publications/#j20sc2&quot;&gt; Scan Context++ paper &lt;/a&gt; is accepted for T-RO.&lt;/li&gt;
+  &lt;li&gt;Feb 2021: The &lt;a href=&quot;/publications/#iceic22&quot;&gt; SC-LiDAR-SLAM paper &lt;/a&gt; is accepted for and presented at ICEIC 2022.&lt;/li&gt;
+  &lt;li&gt;Jan 2021: The &lt;a href=&quot;/publications/#icra22&quot;&gt; LT-mapper paper &lt;/a&gt; is accepted for ICRA 2022.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dec 2021: I joined NAVER LABS as a research engineer!&lt;/li&gt;
+  &lt;li&gt;Nov 2021: I successfully defended my Ph.D. dissertation presentation!&lt;/li&gt;
+  &lt;li&gt;Sep 2021: The &lt;a href=&quot;/publications/#j20sc2&quot;&gt; Scan Context++ paper &lt;/a&gt; is accepted for T-RO journal.&lt;/li&gt;
   &lt;li&gt;May 2021: I had a talk at the &lt;a href=&quot;https://sites.google.com/view/radar-robotics/home?authuser=0&quot;&gt;ICRA21 radar workshop&lt;/a&gt; and introduced radar data and MulRan dataset &lt;a href=&quot;https://youtu.be/jFvKW9Kj8Ts&quot;&gt;[talk video]&lt;/a&gt;.&lt;/li&gt;
   &lt;li&gt;Mar 2021: I passed the Ph.D. thesis proposal presentation.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2938,18 +2963,27 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <content type="html">&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-I obtained a Ph.D. (2022) at KAIST, South Korea. I was a member of the &lt;a href=&quot;https://rpm.snu.ac.kr/&quot; target=&quot;_blank&quot;&gt; IRAP lab&lt;/a&gt; (currently moved to RPM Robotics Lab, SNU), and advised by Prof. &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;. 
+I obtained a Ph.D. (2022) at KAIST, South Korea. I was a member of the IRAP lab (currently moved to &lt;a href=&quot;https://rpm.snu.ac.kr/&quot; target=&quot;_blank&quot;&gt;RPM Robotics Lab&lt;/a&gt;, SNU), and advised by Prof. &lt;a href=&quot;https://ayoungk.github.io/&quot; target=&quot;_blank&quot;&gt; Ayoung Kim&lt;/a&gt;. 
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-My main research topic during the Ph.D. had been focused on &lt;a href=&quot;https://bit.ly/3HbkjEH&quot; target=&quot;_blank&quot;&gt;robust 3D mapping in complex urban sites using LiDAR sensors&lt;/a&gt;. I have experience with a full pipeline of robot state estimation in real-world (from 3D perception, sensor fusion, calibration, odometry, place retrieval, pose-graph optimization, multi-session localization, to long-term map management). 
+My research topic during Ph.D. had been focused on &lt;a href=&quot;https://bit.ly/3HbkjEH&quot; target=&quot;_blank&quot;&gt;LiDAR-based robust 3D mapping in complex urban sites&lt;/a&gt;. I have experience with a full pipeline of robotic localization and mapping in real-world (from 3D perception, sensor fusion, calibration, odometry, place recognition, pose-graph optimization, multi-session localization, to long-term map management). 
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p style=&quot;font-size:14px;&quot;&gt;
-My current position is a research scientist at NAVER LABS. I am conducting research on robust and scalable localization and mapping of autonomous vehicles in a complex city.
+I am currently a research engineer at &lt;a href=&quot;https://www.naverlabs.com/&quot; target=&quot;_blank&quot;&gt;NAVER LABS&lt;/a&gt;. I'm focusing on developing robust and scalable localization and mapping of autonomous vehicles in a complex city.
 &lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:14px;&quot;&gt;
+Please see this &lt;a href=&quot;http://bit.ly/gk_profile&quot; target=&quot;_blank&quot;&gt; notion page&lt;/a&gt; for more details about me.
+&lt;/p&gt;
+
+&lt;!-- &lt;p style=&quot;font-size:11px;&quot; align=&quot;right&quot;&gt;
+  last update: 2022-02-06 
+&lt;/p&gt; --&gt;
 </content>
  </entry>
  

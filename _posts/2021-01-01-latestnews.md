@@ -8,8 +8,14 @@ categories:
 - blog
 ---
 
+# 2022 
+- Feb 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#iceic22"> SC-LiDAR-SLAM paper </a> is accepted for and presented at ICEIC 2022. 
+- Jan 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#icra22"> LT-mapper paper </a> is accepted for ICRA 2022. 
+
 # 2021
-- Sep 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#j20sc2"> Scan Context++ paper </a> is accepted for T-RO. 
+- Dec 2021: I joined NAVER LABS as a research engineer!
+- Nov 2021: I successfully defended my Ph.D. dissertation presentation!
+- Sep 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#j20sc2"> Scan Context++ paper </a> is accepted for T-RO journal. 
 - May 2021: I had a talk at the <a href="https://sites.google.com/view/radar-robotics/home?authuser=0">ICRA21 radar workshop</a> and introduced radar data and MulRan dataset <a href="https://youtu.be/jFvKW9Kj8Ts">[talk video]</a>. 
 - Mar 2021: I passed the Ph.D. thesis proposal presentation. 
 
