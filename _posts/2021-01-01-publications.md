@@ -45,6 +45,19 @@ use_math: true
 ## Journals 
 
 <p style="margin-top:-10px"> </p>
+<p id="j22"> </p>
+- OpenStreetMap-based LiDAR Global Localization in Urban Environment without a Prior LiDAR Map	
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younghun Cho, <u>Giseop Kim</u>, Sang-min Lee, and Jee-Hwan Ryu<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Robotics and Automation Letters, accepted, 2022 (with ICRA 2022) — 
+    Paper (TBA),  
+    Video (TBA) <br>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "No need to visit places in advance to localize a robot"  <br>
+</p>
+
+
+<p style="margin-top:-10px"> </p>
 <p id="j20sc2"> </p>
 - Scan Context++: Structural Place Recognition Robust to Rotation and Lateral Variations in Urban Environments
 <p style="margin-top:-15px"> </p>
@@ -128,19 +141,6 @@ use_math: true
 </p>
 
 <p style="margin-top:-10px"> </p>
-<p id="icra20undeeplo"> </p>
-- Unsupervised Geometry-Aware Deep LiDAR Odometry
-<p style="margin-top:-15px"> </p>
-<p style="font-size:13px;">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younggun Cho, <u>Giseop Kim</u>, Ayoung Kim. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
-    <a href="/publications/ycho-2020-icra.pdf" target="_blank"> Paper</a>,  
-    <a href="https://www.youtube.com/watch?v=-imRJXq6ZuE" target="_blank"> Video</a>
-    <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br>
-</p>
-
-<p style="margin-top:-10px"> </p>
 <p id="icra20mulran"> </p>
 - MulRan: Multimodal Range Dataset for Urban Place Recognition
 <p style="margin-top:-15px"> </p>
@@ -153,6 +153,19 @@ use_math: true
     <a href="https://www.youtube.com/watch?v=qJi1KJmrM2U" target="_blank"> Video</a>
     <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "LiDAR+Radar SLAM Dataset and Radar Place Recognition"  <br>
+</p>
+
+<p style="margin-top:-10px"> </p>
+<p id="icra20undeeplo"> </p>
+- Unsupervised Geometry-Aware Deep LiDAR Odometry
+<p style="margin-top:-15px"> </p>
+<p style="font-size:13px;">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younggun Cho, <u>Giseop Kim</u>, Ayoung Kim. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2020 —  
+    <a href="/publications/ycho-2020-icra.pdf" target="_blank"> Paper</a>,  
+    <a href="https://www.youtube.com/watch?v=-imRJXq6ZuE" target="_blank"> Video</a>
+    <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Learning LiDAR Odometry without Ground-truth"  <br>
 </p>
 
 <p style="margin-top:-10px"> </p>

@@ -9,8 +9,9 @@ categories:
 ---
 
 # 2022 
-- Feb 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#iceic22"> SC-LiDAR-SLAM paper </a> is accepted for and presented at ICEIC 2022. 
-- Jan 2021: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#icra22"> LT-mapper paper </a> is accepted for ICRA 2022. 
+- Feb 2022: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#j22"> OSM-based LiDAR localization paper </a> is accepted for RA-L (with ICRA 2022). 
+- Feb 2022: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#iceic22"> SC-LiDAR-SLAM paper </a> is accepted for and presented at ICEIC 2022. 
+- Jan 2022: The <a href="{{ site.baseurl }}{% post_url 2021-01-01-publications %}#icra22"> LT-mapper paper </a> is accepted for ICRA 2022. 
 
 # 2021
 - Dec 2021: I joined NAVER LABS as a research engineer!

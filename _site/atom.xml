@@ -4,7 +4,7 @@
  <title>The blog of Giseop Kim</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000"/>
- <updated>2022-02-06T15:40:26+09:00</updated>
+ <updated>2022-02-09T19:55:49+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Giseop Kim</name>
@@ -2672,6 +2672,20 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;h2 id=&quot;journals&quot;&gt;Journals&lt;/h2&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;j22&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;OpenStreetMap-based LiDAR Global Localization in Urban Environment without a Prior LiDAR Map&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Younghun Cho, &lt;u&gt;Giseop Kim&lt;/u&gt;, Sang-min Lee, and Jee-Hwan Ryu&lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; IEEE Robotics and Automation Letters, accepted, 2022 (with ICRA 2022) — 
+    Paper (TBA),  
+    Video (TBA) &lt;br /&gt;  
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;No need to visit places in advance to localize a robot&quot;  &lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;j20sc2&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Scan Context++: Structural Place Recognition Robust to Rotation and Lateral Variations in Urban Environments&lt;/li&gt;
@@ -2765,21 +2779,6 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
-&lt;p id=&quot;icra20undeeplo&quot;&gt; &lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Unsupervised Geometry-Aware Deep LiDAR Odometry&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
-&lt;p style=&quot;font-size:13px;&quot;&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Younggun Cho, &lt;u&gt;Giseop Kim&lt;/u&gt;, Ayoung Kim. &lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICRA 2020 —  
-    &lt;a href=&quot;/publications/ycho-2020-icra.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
-    &lt;a href=&quot;https://www.youtube.com/watch?v=-imRJXq6ZuE&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;
-    &lt;br /&gt;
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Learning LiDAR Odometry without Ground-truth&quot;  &lt;br /&gt;
-&lt;/p&gt;
-
-&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
 &lt;p id=&quot;icra20mulran&quot;&gt; &lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;MulRan: Multimodal Range Dataset for Urban Place Recognition&lt;/li&gt;
@@ -2794,6 +2793,21 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
     &lt;a href=&quot;https://www.youtube.com/watch?v=qJi1KJmrM2U&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;
     &lt;br /&gt;
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;LiDAR+Radar SLAM Dataset and Radar Place Recognition&quot;  &lt;br /&gt;
+&lt;/p&gt;
+
+&lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
+&lt;p id=&quot;icra20undeeplo&quot;&gt; &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Unsupervised Geometry-Aware Deep LiDAR Odometry&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style=&quot;margin-top:-15px&quot;&gt; &lt;/p&gt;
+&lt;p style=&quot;font-size:13px;&quot;&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; Younggun Cho, &lt;u&gt;Giseop Kim&lt;/u&gt;, Ayoung Kim. &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ICRA 2020 —  
+    &lt;a href=&quot;/publications/ycho-2020-icra.pdf&quot; target=&quot;_blank&quot;&gt; Paper&lt;/a&gt;,  
+    &lt;a href=&quot;https://www.youtube.com/watch?v=-imRJXq6ZuE&quot; target=&quot;_blank&quot;&gt; Video&lt;/a&gt;
+    &lt;br /&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; tldr: &quot;Learning LiDAR Odometry without Ground-truth&quot;  &lt;br /&gt;
 &lt;/p&gt;
 
 &lt;p style=&quot;margin-top:-10px&quot;&gt; &lt;/p&gt;
@@ -2867,8 +2881,9 @@ A의 inverse (혹은 pseudo inverse) 를 곱해서 바로 (deterministic) $x$ �
    <id>http://localhost:4000/latestnews</id>
    <content type="html">&lt;h1 id=&quot;2022&quot;&gt;2022&lt;/h1&gt;
 &lt;ul&gt;
-  &lt;li&gt;Feb 2021: The &lt;a href=&quot;/publications/#iceic22&quot;&gt; SC-LiDAR-SLAM paper &lt;/a&gt; is accepted for and presented at ICEIC 2022.&lt;/li&gt;
-  &lt;li&gt;Jan 2021: The &lt;a href=&quot;/publications/#icra22&quot;&gt; LT-mapper paper &lt;/a&gt; is accepted for ICRA 2022.&lt;/li&gt;
+  &lt;li&gt;Feb 2022: The &lt;a href=&quot;/publications/#j22&quot;&gt; OSM-based LiDAR localization paper &lt;/a&gt; is accepted for RA-L (with ICRA 2022).&lt;/li&gt;
+  &lt;li&gt;Feb 2022: The &lt;a href=&quot;/publications/#iceic22&quot;&gt; SC-LiDAR-SLAM paper &lt;/a&gt; is accepted for and presented at ICEIC 2022.&lt;/li&gt;
+  &lt;li&gt;Jan 2022: The &lt;a href=&quot;/publications/#icra22&quot;&gt; LT-mapper paper &lt;/a&gt; is accepted for ICRA 2022.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&quot;2021&quot;&gt;2021&lt;/h1&gt;
