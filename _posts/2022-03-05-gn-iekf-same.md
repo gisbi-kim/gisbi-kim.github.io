@@ -49,7 +49,7 @@ iterative least square optimization 으로 보통 해를 구하게 된다.
 
 원래 $Ax=b$ 를 풀던 것을 $A\delta x = b$를 만족하는 optimal 한 $\delta$${x}^{\*}$를 구하고, $x \leftarrow x \oplus \delta x ^{\*}$ 를 통해 $x$를 업데이트해주는 것. 
 
-$\delta x ^{*}$ 가 사전에 설정한 변화량 threshold 보다 작아지면 수렴한 것으로 보고 이 때의 해 $x$ 를 최종 optimal solution $x^{*}$ 로 확정한다. 
+$\delta$$x^{\*}$ 가 사전에 설정한 변화량 threshold 보다 작아지면 수렴한 것으로 보고 이 때의 해 $x$ 를 최종 optimal solution $x^{*}$ 로 확정한다. 
 
 - ps. 이 때 $\delta$$x$ 를 업데이트 하는 1. 방향, 2. 크기 를 어떻게 설정하느냐에 따라 line-search-based or trust-region based 로 나뉘며, 이들의 핵심은 1차미분을 활용하느냐, 2차미분을 활용하느냐 라고 할 수 있겠다.
     - 2차미분 활용방식인 Newton 계열을 개선한 것이 Gauss-Newton 이고, 여기에 damping 을 더하면 LM (Levenberg–Marquardt) 가 된다.
