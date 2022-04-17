@@ -50,9 +50,10 @@ use_math: true
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Younghun Cho, <u>Giseop Kim</u>, Sang-min Lee, and Jee-Hwan Ryu<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Robotics and Automation Letters, accepted, 2022 (with ICRA 2022) — 
-    Paper (TBA),  
-    Video (TBA) <br>  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Robotics and Automation Letters, 2022 (with ICRA 2022) — 
+    <a href="/publications/ycho-2022-ral.pdf" target="_blank"> Paper</a>,  
+    <a href="https://youtu.be/lCYNzUg-Fcc" target="_blank"> Video</a>
+    <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "No need to visit places in advance to localize a robot"  <br>
 </p>
 
@@ -63,7 +64,7 @@ use_math: true
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Sunwook Choi$^{†}$, Ayoung Kim. (†: joint work with NAVER LABS)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Transactions on Robotics (T-RO), accepted, 2021 — 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; IEEE Transactions on Robotics, accepted, 2021 — 
     <a href="/publications/gkim-2021-tro.pdf" target="_blank"> Paper</a>,  
     <a href="https://youtu.be/ZWEqwYKQIeg" target="_blank"> Video</a>,  
     Code (TBA) <br>
@@ -104,10 +105,12 @@ use_math: true
 <p style="margin-top:-15px"> </p>
 <p style="font-size:13px;" id="iros20">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <u>Giseop Kim</u>, Ayoung Kim. <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2022 (Accepted, To appear) —  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ICRA 2022 —  
     <a href="/publications/gkim-2021-ltmapper.pdf" target="_blank"> Paper</a>,  
     <a href="https://github.com/gisbi-kim/lt-mapper" target="_blank"> Code</a>,
-    <a href="https://youtu.be/vlYKfp1p2j8" target="_blank"> Video </a>
+    Videos (<a href="https://youtu.be/2UWKKRfFlwc" target="_blank">demo, </a>,
+    <a href="https://youtu.be/BXBTVurNToU" target="_blank">tutorial, </a>
+    <a href="https://youtu.be/pFTwZpe3a6Q" target="_blank">presentation</a>)
     <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tldr: "Automatic LiDAR Map Management"  <br>
 </p>
