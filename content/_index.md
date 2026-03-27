@@ -86,10 +86,7 @@ sections:
     content:
       title: Teaching
       text: |
-        ### Lectures at DGIST
-        - **MECH307** Introduction to Artificial Intelligence (Fall 2025)
-        - **AT603** Introduction to Mobility Engineering (Fall 2025)
-        - **BE203** Creative Mechanical Design (Spring 2025)
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQXlSIXx1gDCMjN4jpwSV2gjEGSxExK5K4zAQ2YYhyaP8VwiFrPJZP9ihmeYcN5SRLwXJNGVHf8YGeC/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="400" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
       columns: '1'
 
