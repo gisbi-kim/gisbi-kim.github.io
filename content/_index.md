@@ -62,18 +62,14 @@ sections:
     design:
       view: citation
 
-  - block: collection
+  - block: markdown
     id: talks
     content:
       title: Invited Talks
-      filters:
-        folders:
-          - event
-      sort_by: 'Date'
-      sort_ascending: false
-      count: 10
+      text: |
+        <iframe src="https://docs.google.com/spreadsheets/d/1IMAH9483sktm1k30Z_7phFRiy5stcVT6u2kbW4Re6rU/pubhtml?widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
-      view: compact
+      columns: '1'
 
   - block: collection
     id: projects
