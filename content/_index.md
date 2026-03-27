@@ -78,6 +78,15 @@ sections:
       columns: '1'
 
   - block: markdown
+    id: essays
+    content:
+      title: Essays
+      text: |
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdZds3xu1PX87GZRQxhJ4-3AEb0djkevT_N0j4F3IiclUkxRFMyJd5ph66FwHsyVbq-dtbSCFQ705t/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="400" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
+    design:
+      columns: '1'
+
+  - block: markdown
     id: posts
     content:
       title: Blog Archive (before DGIST)
