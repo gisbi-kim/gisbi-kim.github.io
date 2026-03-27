@@ -8,12 +8,12 @@ main:
   - name: Talks
     url: '#talks'
     weight: 30
-- name: Teaching
+  - name: Teaching
     url: '#teaching'
-    weight: 50
+    weight: 40
   - name: Blog
     url: '/post/'
-    weight: 60
+    weight: 50
   - name: CV
     url: https://drive.google.com/drive/folders/1_0XFI8jedwYIr4QIIQ17cvAXhwOPRSrd
-    weight: 70
+    weight: 60
