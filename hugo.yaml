@@ -1,0 +1,41 @@
+baseURL: 'https://gisbi-kim.github.io/'
+title: Giseop Kim
+languageCode: en-us
+defaultContentLanguage: en
+googleAnalytics: 'G-4VNTPFW7FW'
+
+module:
+  imports:
+    - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-bootstrap/v5
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    lineNos: false
+
+enableEmoji: true
+enableRobotsTXT: true
+
+imaging:
+  resampleFilter: CatmullRom
+  quality: 75
+  anchor: smart
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+permalinks:
+  post: '/post/:slug/'
+  event: '/talk/:slug/'
+
+security:
+  funcs:
+    getenv:
+      - '^HUGO_'
+      - '^CI$'
+      - '^WC_'

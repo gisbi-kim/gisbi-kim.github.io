@@ -1,1 +1,13 @@
-_site/*
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

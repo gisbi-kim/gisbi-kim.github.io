@@ -1,0 +1,35 @@
+appearance:
+  theme_day: minimal
+  theme_night: minimal
+  font: minimal
+  font_size: M
+
+marketing:
+  analytics:
+    google_analytics: 'G-4VNTPFW7FW'
+
+features:
+  math:
+    enable: true
+  privacy_pack:
+    enable: false
+
+locale:
+  date_format: 'Jan 2, 2006'
+  time_format: '3:04 PM'
+
+header:
+  navbar:
+    enable: true
+    fixed: true
+
+footer:
+  copyright:
+    notice: '&copy; {year} Giseop Kim. All rights reserved.'
+
+contact:
+  email: gsk@dgist.ac.kr
+  address:
+    city: Daegu
+    country: South Korea
+    country_code: KR
