@@ -1,7 +1,7 @@
 ---
 title: Giseop Kim
 role: Assistant Professor
-avatar_filename: avatar.jpg
+avatar_filename: avatar.png
 bio: SLAM, 3D Reconstruction, Spatial AI, Physical AI
 interests:
   - Simultaneous Localization and Mapping (SLAM)
