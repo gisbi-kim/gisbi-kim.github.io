@@ -1,4 +1,5 @@
 ---
+slug: slambackend-1
 title: "SLAM back-end [1편] — SLAM은 Ax=b 를 푸는 것이다"
 date: 2021-03-04
 math: true

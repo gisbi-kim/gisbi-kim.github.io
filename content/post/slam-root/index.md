@@ -1,4 +1,5 @@
 ---
+slug: slam-root
 title: "SLAM의 뿌리를 찾아서"
 date: 2021-03-02
 math: false

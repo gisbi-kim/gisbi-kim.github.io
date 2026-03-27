@@ -1,4 +1,5 @@
 ---
+slug: icra21-radar-ws
 title: "ICRA 2021 Radar in Robotics Workshop 요약"
 date: 2021-05-31
 math: true

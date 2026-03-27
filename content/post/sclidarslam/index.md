@@ -1,4 +1,5 @@
 ---
+slug: sclidarslam
 title: "Scan Context-based LiDAR Pose-graph SLAM [구현]"
 date: 2021-05-17
 math: true

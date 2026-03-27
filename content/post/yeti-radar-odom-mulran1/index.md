@@ -1,4 +1,5 @@
 ---
+slug: yeti-radar-odom-mulran1
 title: "Radar Odometry Results on MulRan dataset"
 date: 2021-05-30
 math: true

@@ -1,4 +1,5 @@
 ---
+slug: gn-iekf-same
 title: "Gauss-Newton Opt == IEKF update ?"
 date: 2022-03-05
 math: true

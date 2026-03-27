@@ -1,4 +1,5 @@
 ---
+slug: blog-start
 title: "블로그 시작!"
 date: 2021-03-01
 math: false

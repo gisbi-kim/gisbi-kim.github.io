@@ -1,4 +1,5 @@
 ---
+slug: bayesfiltering-2
 title: "Bayesian Filtering [2편] — Recursive estimation 의 시작 (칼만필터 유도)"
 date: 2021-03-09
 math: true

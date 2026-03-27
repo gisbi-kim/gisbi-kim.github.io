@@ -1,4 +1,5 @@
 ---
+slug: bayesfiltering-1
 title: "Bayesian Filtering [1편] — posterior 의 mean, covariance 구하기"
 date: 2021-03-09
 math: true

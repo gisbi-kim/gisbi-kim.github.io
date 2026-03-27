@@ -1,4 +1,5 @@
 ---
+slug: segmap-build
 title: "SegMap 빌드하기"
 date: 2021-03-02
 math: false

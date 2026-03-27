@@ -1,4 +1,5 @@
 ---
+slug: msckf-history
 title: "Filter-based VIO [1편] — MSCKF 계열 history 정리"
 date: 2021-04-27
 math: true

@@ -1,4 +1,5 @@
 ---
+slug: slam-textbooks
 title: "SLAM Back-end 공부자료 5개 추천"
 date: 2021-10-03
 math: true
