@@ -67,7 +67,7 @@ sections:
     content:
       title: Invited Talks
       text: |
-        <iframe src="https://docs.google.com/spreadsheets/d/1IMAH9483sktm1k30Z_7phFRiy5stcVT6u2kbW4Re6rU/pubhtml?widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
+        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS1gqbTRqYQP-jMI2xQ1QlI4JoGjGMa6Uw_iKCBCp3Nlxj_f7TobWkSx7o-rqcldBB10TcXKVG1udn0/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
       columns: '1'
 
