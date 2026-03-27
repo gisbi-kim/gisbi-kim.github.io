@@ -5,10 +5,7 @@ avatar_filename: avatar.jpg
 bio: SLAM, 3D Reconstruction, Spatial AI, Physical AI
 interests:
   - Simultaneous Localization and Mapping (SLAM)
-  - 3D Reconstruction & Digital Twin
   - Mobile Robot Navigation
-  - Neural Map Representation
-  - Sensor Fusion & Inertial-aided Navigation
   - Spatial AI & Physical AI
 organizations:
   - name: DGIST
