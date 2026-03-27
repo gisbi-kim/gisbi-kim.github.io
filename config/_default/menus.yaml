@@ -8,10 +8,7 @@ main:
   - name: Talks
     url: '#talks'
     weight: 30
-  - name: Projects
-    url: '#projects'
-    weight: 40
-  - name: Teaching
+- name: Teaching
     url: '#teaching'
     weight: 50
   - name: Blog

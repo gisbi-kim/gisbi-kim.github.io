@@ -68,19 +68,6 @@ sections:
     design:
       columns: '1'
 
-  - block: collection
-    id: projects
-    content:
-      title: Funded Projects
-      filters:
-        folders:
-          - project
-      sort_by: 'Date'
-      sort_ascending: false
-    design:
-      view: showcase
-      columns: 2
-
   - block: markdown
     id: teaching
     content:
