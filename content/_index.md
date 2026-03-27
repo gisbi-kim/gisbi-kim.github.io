@@ -89,23 +89,9 @@ sections:
   - block: markdown
     id: posts
     content:
-      title: Blog Archive (before DGIST)
+      title: Blog Archive
       text: |
-        - [Gauss-Newton Opt == IEKF update?](/post/gn-iekf-same/)
-        - [SLAM Back-end Study Materials Recommendations](/post/slam-textbooks/)
-        - [ICRA 2021 Radar Workshop Summary](/post/icra21-radar-ws/)
-        - [Radar Odometry Results on MulRan Dataset](/post/yeti-radar-odom-mulran1/)
-        - [Scan Context LiDAR Pose-graph SLAM Implementation](/post/sclidarslam/)
-        - [Filter-based VIO - MSCKF History](/post/msckf-history/)
-        - [Iterative Optimization - Gauss-Newton via Nonlinear ICP](/post/leastsquare-1/)
-        - [Bayesian Filtering Part 2 - Kalman Filter Derivation](/post/bayesfiltering-2/)
-        - [Bayesian Filtering Part 1 - Posterior Mean and Covariance](/post/bayesfiltering-1/)
-        - [SLAM Back-end Part 3 - Householder QR Decomposition](/post/slambackend-3/)
-        - [SLAM Back-end Part 2 - Ry=d Instead of Ax=b](/post/slambackend-2/)
-        - [SLAM Back-end Part 1 - SLAM as Solving Ax=b](/post/slambackend-1/)
-        - [SLAM's Roots](/post/slam-root/)
-        - [Building SegMap](/post/segmap-build/)
-        - [Blog Start!](/post/blog-start/)
+        [Lists (~2022) →](/post/)
     design:
       columns: '1'
 ---
