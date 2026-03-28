@@ -91,6 +91,8 @@ sections:
     content:
       title: Blog Archive
       text: |
+        [Lists (2022~2024) →](https://gsk1m.github.io/)
+
         [Lists (~2022) →](/post/)
     design:
       columns: '1'
