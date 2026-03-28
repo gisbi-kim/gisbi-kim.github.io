@@ -12,13 +12,13 @@ organizations:
     url: https://www.dgist.ac.kr
 education:
   courses:
-    - course: PhD in Civil and Environmental Engineering
+    - course: PhD in Civil & Env. Eng.
       institution: KAIST
       year: 2022
-    - course: MS in Civil and Environmental Engineering
+    - course: MS in Civil & Env. Eng.
       institution: KAIST
       year: 2019
-    - course: BS in Civil and Environmental Engineering
+    - course: BS in Civil & Env. Eng.
       institution: KAIST
       year: 2017
 social:
