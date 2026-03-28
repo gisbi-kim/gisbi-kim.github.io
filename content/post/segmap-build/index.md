@@ -2,6 +2,7 @@
 slug: segmap-build
 title: "SegMap 빌드하기"
 date: 2021-03-02
+draft: true
 math: false
 categories:
   - SLAM 잡담
