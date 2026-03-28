@@ -27,7 +27,7 @@ social:
     link: mailto:gsk@dgist.ac.kr
   - icon: google-scholar
     icon_pack: ai
-    link: https://scholar.google.com/citations?user=9mKOLX8AAAAJ&hl=en
+    link: https://scholar.google.com/citations?hl=en&user=9mKOLX8AAAAJ&view_op=list_works
   - icon: github
     icon_pack: fab
     link: https://github.com/gisbi-kim
