@@ -11,6 +11,9 @@ main:
   - name: Teaching
     url: '#teaching'
     weight: 40
+  - name: Essays
+    url: '#essays'
+    weight: 50
   - name: CV
     url: https://drive.google.com/drive/folders/1_0XFI8jedwYIr4QIIQ17cvAXhwOPRSrd
     weight: 60
