@@ -44,3 +44,5 @@ I am an Assistant Professor in the Department of Robotics and Mechatronics Engin
 Before joining DGIST, I was a Research Scientist at [NAVER LABS](https://www.naverlabs.com/) (2021--2024), working on autonomous driving and 3D vision. I received my PhD, MS, and BS from [KAIST](https://www.kaist.ac.kr), all in Civil and Environmental Engineering, under the guidance of Prof. [Ayoung Kim](https://ayoungk.github.io).
 
 My research focuses on enabling robots to perceive and navigate the real world robustly and efficiently — through SLAM, 3D reconstruction, sensor fusion, and spatial AI.
+
+📄 [Research Statement](https://drive.google.com/file/d/1M1U6Llh2SOsDc2hgOX444oZoSnwXaRQZ/view) | [Teaching Statement](https://drive.google.com/file/d/1iuaPLiIPfuC60yNRa1hFNmiPdgalY1vB/view)
