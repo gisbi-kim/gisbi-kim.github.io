@@ -13,40 +13,14 @@ sections:
       title: Biography
       username: admin
 
-  - block: experience
+  - block: markdown
     id: experience
     content:
       title: Experience
-      items:
-        - title: Assistant Professor & PI of APRL
-          company: DGIST
-          company_url: 'https://www.dgist.ac.kr'
-          company_logo: ''
-          location: Daegu, South Korea
-          date_start: '2024-12-01'
-          date_end: ''
-          description: |
-            Dept. of Robotics and Mechatronics Engineering (Joint: AI, Mechanical Engineering Track).
-            Leading the [Autonomy and Perceptual Robotics Lab (APRL)](https://sites.google.com/view/aprl-dgist/home).
-
-        - title: Research Scientist
-          company: NAVER LABS
-          company_url: 'https://www.naverlabs.com/'
-          company_logo: ''
-          location: Seongnam, South Korea
-          date_start: '2021-12-01'
-          date_end: '2024-12-01'
-          description: Autonomous Driving Group (2021--2023) and Vision Group (2024).
-
-        - title: Graduate Student Researcher
-          company: KAIST
-          company_url: 'https://www.kaist.ac.kr'
-          company_logo: ''
-          location: Daejeon, South Korea
-          date_start: '2017-03-01'
-          date_end: '2021-08-31'
-          description: |
-            [IRAP Lab](https://rpm.snu.ac.kr), Dept. of Civil and Environmental Engineering.
+      text: |
+        - **Assistant Professor**, [DGIST](https://www.dgist.ac.kr) (2024.12–) — PI of [APRL](https://sites.google.com/view/aprl-dgist/home)
+        - **Research Scientist**, [NAVER LABS](https://www.naverlabs.com/) (2021.12–2024.12)
+        - **M.S. & Ph.D.**, [KAIST](https://www.kaist.ac.kr) (2017.03–2021.08) — [IRAP Lab](https://rpm.snu.ac.kr)
     design:
       columns: '1'
 
@@ -56,6 +30,8 @@ sections:
       title: Publications/Patents
       text: |
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQHgfe61bUmA_pvgx2JpOXeLxW8E62rTHDsOmNt8gBf0Yf9kSHFv_Gc5MqL24pG3NB6HeN0BMm3vm_Q/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
+
+        [Papers before DGIST →](/papers-before-dgist/)
     design:
       columns: '1'
 

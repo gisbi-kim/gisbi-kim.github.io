@@ -23,6 +23,8 @@ header:
     enable: true
     fixed: true
 
+sharing: false
+
 footer:
   copyright:
     notice: '&copy; {year} Giseop Kim. All rights reserved.'
