@@ -27,7 +27,7 @@ sections:
   - block: markdown
     id: publications
     content:
-      title: Publications/Patents
+      title: '[Publications/Patents](https://docs.google.com/spreadsheets/d/1llgG9WcpRqQPqnEssBBPod2qq9l4lC4UWN0OnIQyqow/edit?usp=sharing)'
       text: |
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQHgfe61bUmA_pvgx2JpOXeLxW8E62rTHDsOmNt8gBf0Yf9kSHFv_Gc5MqL24pG3NB6HeN0BMm3vm_Q/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
 
