@@ -38,7 +38,7 @@ sections:
   - block: markdown
     id: talks
     content:
-      title: Invited Talks
+      title: '[Invited Talks](https://docs.google.com/spreadsheets/d/1IMAH9483sktm1k30Z_7phFRiy5stcVT6u2kbW4Re6rU/edit?usp=sharing)'
       text: |
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vS1gqbTRqYQP-jMI2xQ1QlI4JoGjGMa6Uw_iKCBCp3Nlxj_f7TobWkSx7o-rqcldBB10TcXKVG1udn0/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="600" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
@@ -47,7 +47,7 @@ sections:
   - block: markdown
     id: teaching
     content:
-      title: Teaching
+      title: '[Teaching](https://docs.google.com/spreadsheets/d/1HVrS1Vh9fEC6k8Jm2okt9LzbeGS8vWSdmC6orGq1Udk/edit?usp=sharing)'
       text: |
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQXlSIXx1gDCMjN4jpwSV2gjEGSxExK5K4zAQ2YYhyaP8VwiFrPJZP9ihmeYcN5SRLwXJNGVHf8YGeC/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="400" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
@@ -56,7 +56,7 @@ sections:
   - block: markdown
     id: essays
     content:
-      title: Essays
+      title: '[Essays](https://docs.google.com/spreadsheets/d/1K6xR-CiUZex9eF2j6FrT3dTzzGVsKckb9X4mz2fB0ck/edit?gid=0#gid=0)'
       text: |
         <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTdZds3xu1PX87GZRQxhJ4-3AEb0djkevT_N0j4F3IiclUkxRFMyJd5ph66FwHsyVbq-dtbSCFQ705t/pubhtml?gid=0&single=true&widget=true&headers=false" width="100%" height="400" frameborder="0" style="border:0; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></iframe>
     design:
