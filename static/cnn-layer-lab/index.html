@@ -172,6 +172,31 @@
       line-height: 1.2;
     }
 
+    .progress-wrap {
+      margin-top: 8px;
+      display: grid;
+      gap: 5px;
+    }
+
+    .progress-track {
+      height: 8px;
+      background: #e9eef3;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      width: 0;
+      height: 100%;
+      background: var(--blue);
+      transition: width .16s ease;
+    }
+
+    .progress-label {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: minmax(310px, 390px) 1fr;
@@ -602,6 +627,12 @@
       <div class="stat">
         <span>상태</span>
         <strong id="statusText">대기 중</strong>
+        <div class="progress-wrap" aria-label="학습 진행률">
+          <div class="progress-track">
+            <div id="trainProgressFill" class="progress-fill"></div>
+          </div>
+          <div id="trainProgressText" class="progress-label">대기 중</div>
+        </div>
       </div>
       <div class="stat">
         <span>현재 epoch</span>
@@ -1020,6 +1051,8 @@
       epochText: document.querySelector('#epochText'),
       lossText: document.querySelector('#lossText'),
       accText: document.querySelector('#accText'),
+      trainProgressFill: document.querySelector('#trainProgressFill'),
+      trainProgressText: document.querySelector('#trainProgressText'),
       sampleCanvas: document.querySelector('#sampleCanvas'),
       sampleLabel: document.querySelector('#sampleLabel'),
       predictionList: document.querySelector('#predictionList'),
@@ -1037,6 +1070,12 @@
 
     function setStatus(text) {
       els.statusText.textContent = text;
+    }
+
+    function setTrainProgress(percent, text) {
+      const clamped = Math.max(0, Math.min(100, percent));
+      els.trainProgressFill.style.width = `${clamped}%`;
+      els.trainProgressText.textContent = text;
     }
 
     function targetEpochs() {
@@ -1548,6 +1587,7 @@
       els.epochText.textContent = `0 / ${targetEpochs()}`;
       els.lossText.textContent = '-';
       els.accText.textContent = '-';
+      setTrainProgress(0, '데이터 로드 중');
       resetEvaluationReport();
       drawLossChart();
 
@@ -1562,6 +1602,7 @@
         drawSample(state.currentIndex);
         await predictCurrentSample();
         setStatus('로드 완료');
+        setTrainProgress(0, '학습 대기');
         updateTrainButton();
         els.sampleBtn.disabled = false;
         els.inspectBtn.disabled = false;
@@ -1590,17 +1631,26 @@
       els.inspectBtn.disabled = true;
       els.evalBtn.disabled = true;
       setStatus(`${state.trainedEpochs + 1}번째 epoch 학습 중`);
+      setTrainProgress(0, '0% - batch 준비 중');
+      const trainBatches = Math.ceil(Number(els.trainSizeInput.value) * 0.85 / 64);
 
       await state.model.fit(state.trainXs, state.trainYs, {
         epochs: 1,
         batchSize: 64,
         validationSplit: 0.15,
         callbacks: {
+          onBatchEnd: async (batch, logs) => {
+            const percent = Math.min(99, Math.round(((batch + 1) / trainBatches) * 100));
+            setStatus(`${state.trainedEpochs + 1}번째 epoch 학습 중 ${percent}%`);
+            setTrainProgress(percent, `${percent}% - batch ${batch + 1} / ${trainBatches}`);
+            await tf.nextFrame();
+          },
           onEpochEnd: async (epoch, logs) => {
             state.trainedEpochs += 1;
             state.history.push({ loss: logs.loss, valLoss: logs.val_loss });
             els.epochText.textContent = `${state.trainedEpochs} / ${target}`;
             els.lossText.textContent = logs.loss.toFixed(4);
+            setTrainProgress(100, '100% - 평가와 feature map 갱신 중');
             drawLossChart();
             await tf.nextFrame();
           }
@@ -1612,8 +1662,10 @@
       await evaluateFullTestSet();
       if (state.trainedEpochs >= target) {
         setStatus('목표 epoch 완료');
+        setTrainProgress(100, '목표 epoch 완료');
       } else {
         setStatus(`${state.trainedEpochs} epoch 완료 - 다음 epoch 대기`);
+        setTrainProgress(100, 'epoch 완료 - 다음 클릭 대기');
       }
       updateTrainButton();
       els.loadBtn.disabled = false;
@@ -1638,6 +1690,7 @@
     els.evalBtn.addEventListener('click', evaluateFullTestSet);
     els.convLayerSelect.addEventListener('change', () => {
       setStatus('레이어 수 변경 - 데이터 로드 필요');
+      setTrainProgress(0, '데이터 로드 필요');
       els.trainBtn.disabled = true;
       els.sampleBtn.disabled = true;
       els.inspectBtn.disabled = true;
