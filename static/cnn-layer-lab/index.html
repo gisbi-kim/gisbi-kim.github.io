@@ -564,6 +564,8 @@
             <option value="mnist_mix_80_20">MNIST 숫자 mix 80/20</option>
             <option value="mnist_mix_50_50">MNIST 숫자 mix 50/50</option>
             <option value="fashion_mnist">Fashion-MNIST</option>
+            <option value="fashion_mnist_invert">Fashion-MNIST 색 반전</option>
+            <option value="fashion_mnist_mix_70_30">Fashion-MNIST mix 70/30</option>
           </select>
         </label>
         <label>
@@ -970,6 +972,20 @@
         labels: FASHION_LABELS_PATH,
         labelNames: FASHION_LABELS,
         transform: 'none'
+      },
+      fashion_mnist_invert: {
+        imageSprite: FASHION_IMAGES_PATH,
+        labels: FASHION_LABELS_PATH,
+        labelNames: FASHION_LABELS,
+        transform: 'invert'
+      },
+      fashion_mnist_mix_70_30: {
+        imageSprite: FASHION_IMAGES_PATH,
+        labels: FASHION_LABELS_PATH,
+        labelNames: FASHION_LABELS,
+        transform: 'mix',
+        mixRatio: 0.7,
+        bothCorrect: false
       }
     };
 
