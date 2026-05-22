@@ -33,6 +33,7 @@ Selected contributions:
 - 🎤 **Talks** — conference, seminar, and invited talk slides
 - 📚 **Publications** — papers with code, data, and supplementary material
 - 🧪 **Projects** — APRL research threads and lab software releases
+- 🗺️ **stern-20kf viewer** — <https://gisbi-kim.github.io/stern-20kf/>
 - 🎓 **Teaching** — DGIST courses (RT604 SLAM, MECH301 Robots for Human, ...)
 
 ## Stack
