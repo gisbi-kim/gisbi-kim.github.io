@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pose / Point Cloud Viewer</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #111418;
+        color: #eef2f5;
+      }
+
+      #app {
+        position: fixed;
+        inset: 0;
+      }
+
+      .panel {
+        position: fixed;
+        left: 14px;
+        top: 14px;
+        width: min(360px, calc(100vw - 28px));
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: rgba(17, 20, 24, 0.86);
+        backdrop-filter: blur(12px);
+        box-sizing: border-box;
+      }
+
+      .title {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        line-height: 1.35;
+      }
+
+      .title strong {
+        font-size: 14px;
+      }
+
+      .badge {
+        color: #b8c7d5;
+        white-space: nowrap;
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 96px 1fr 52px;
+        align-items: center;
+        gap: 9px;
+        min-height: 31px;
+        font-size: 12px;
+      }
+
+      .row label {
+        color: #c8d3dc;
+      }
+
+      input[type="range"] {
+        width: 100%;
+      }
+
+      .value {
+        font-variant-numeric: tabular-nums;
+        color: #f6f8fa;
+        text-align: right;
+      }
+
+      .toggles {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      button {
+        min-height: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 6px;
+        background: #202831;
+        color: #eef2f5;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      button.active {
+        background: #2d6a87;
+        border-color: #55a7c6;
+      }
+
+      .status {
+        margin-top: 10px;
+        color: #aebcca;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .legend {
+        position: fixed;
+        right: 14px;
+        bottom: 14px;
+        padding: 9px 10px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        background: rgba(17, 20, 24, 0.78);
+        font-size: 12px;
+        color: #c8d3dc;
+      }
+
+      .swatch {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 6px;
+        vertical-align: -1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <section class="panel">
+      <div class="title">
+        <div><strong>Pose / Point Cloud</strong><br />Z-up orbit viewer</div>
+        <div class="badge" id="frameBadge">loading</div>
+      </div>
+      <div class="row">
+        <label for="frame">Frame</label>
+        <input id="frame" type="range" min="0" max="19" value="0" step="1" />
+        <div class="value" id="frameValue">0</div>
+      </div>
+      <div class="row">
+        <label for="conf">Confidence</label>
+        <input id="conf" type="range" min="0" max="0.95" value="0.4" step="0.01" />
+        <div class="value" id="confValue">0.40</div>
+      </div>
+      <div class="row">
+        <label for="size">Point size</label>
+        <input id="size" type="range" min="1" max="8" value="3" step="0.1" />
+        <div class="value" id="sizeValue">3.0</div>
+      </div>
+      <div class="toggles">
+        <button id="single">Current</button>
+        <button id="accum">Accum</button>
+        <button id="all" class="active">All</button>
+        <button id="poses" class="active">Camera poses</button>
+      </div>
+      <div class="status" id="status">Loading sampled binary data...</div>
+    </section>
+    <div class="legend">
+      <div><span class="swatch" style="background:#ff4d4d"></span>X axis</div>
+      <div><span class="swatch" style="background:#55d26a"></span>Y axis</div>
+      <div><span class="swatch" style="background:#4da3ff"></span>Z up</div>
+    </div>
+
+    <script type="module">
+      import * as THREE from "three";
+      import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+
+      THREE.Object3D.DEFAULT_UP.set(0, 0, 1);
+
+      const app = document.querySelector("#app");
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setClearColor(0x111418, 1);
+      app.appendChild(renderer.domElement);
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.001, 200);
+      camera.up.set(0, 0, 1);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.08;
+      controls.screenSpacePanning = false;
+
+      const state = {
+        manifest: null,
+        frames: [],
+        frameIndex: 0,
+        confThreshold: 0.4,
+        pointSize: 3,
+        exposure: 1.1,
+        saturation: 1.6,
+        gamma: 0.65,
+        viewMode: "all",
+        showPoses: true,
+      };
+
+      const pointGroup = new THREE.Group();
+      const poseGroup = new THREE.Group();
+      const helperGroup = new THREE.Group();
+      scene.add(pointGroup, poseGroup, helperGroup);
+
+      helperGroup.add(makeAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0.6, 0, 0), 0xff4d4d));
+      helperGroup.add(makeAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0.6, 0), 0x55d26a));
+      helperGroup.add(makeAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 0.6), 0x4da3ff));
+
+      const frameInput = document.querySelector("#frame");
+      const confInput = document.querySelector("#conf");
+      const sizeInput = document.querySelector("#size");
+      const frameValue = document.querySelector("#frameValue");
+      const confValue = document.querySelector("#confValue");
+      const sizeValue = document.querySelector("#sizeValue");
+      const frameBadge = document.querySelector("#frameBadge");
+      const status = document.querySelector("#status");
+      const singleBtn = document.querySelector("#single");
+      const accumBtn = document.querySelector("#accum");
+      const allBtn = document.querySelector("#all");
+      const posesBtn = document.querySelector("#poses");
+
+      async function loadArray(url, Type) {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to load ${url}`);
+        return new Type(await response.arrayBuffer());
+      }
+
+      async function loadData() {
+        const manifest = await fetch("data/manifest.json").then((r) => r.json());
+        state.manifest = manifest;
+        frameInput.max = String(manifest.frames - 1);
+
+        const loaded = [];
+        for (const item of manifest.frameData) {
+          const [points, conf, rgb] = await Promise.all([
+            loadArray(`data/${item.points}`, Float32Array),
+            loadArray(`data/${item.conf}`, Float32Array),
+            loadArray(`data/${item.rgb}`, Uint8Array),
+          ]);
+          loaded.push({ ...item, points, conf, rgb, object: null });
+          status.textContent = `Loaded frame ${item.frame + 1}/${manifest.frames}`;
+        }
+        state.frames = loaded;
+
+        const center = new THREE.Vector3(...manifest.center);
+        const min = new THREE.Vector3(...manifest.boundsMin);
+        const max = new THREE.Vector3(...manifest.boundsMax);
+        const extents = new THREE.Vector3().subVectors(max, min);
+        const radius = Math.max(0.8, extents.length() * 0.62);
+        const aspect = window.innerWidth / window.innerHeight;
+        const viewSize = Math.max(extents.x / Math.max(aspect, 0.001), extents.y, 0.8) * 0.7;
+        controls.target.copy(center);
+        camera.position.set(center.x, center.y, center.z + radius * 2.2);
+        camera.left = -viewSize * aspect;
+        camera.right = viewSize * aspect;
+        camera.top = viewSize;
+        camera.bottom = -viewSize;
+        camera.near = Math.max(0.001, radius / 500);
+        camera.far = radius * 40;
+        camera.updateProjectionMatrix();
+
+        buildPoseGroup();
+        updatePoints();
+      }
+
+      function buildPoseGroup() {
+        poseGroup.clear();
+        const manifest = state.manifest;
+        const min = new THREE.Vector3(...manifest.boundsMin);
+        const max = new THREE.Vector3(...manifest.boundsMax);
+        const scale = Math.max(0.04, max.distanceTo(min) * 0.045);
+
+        for (const frame of state.frames) {
+          const rig = makeCameraRig(scale);
+          const matrix = new THREE.Matrix4();
+          matrix.set(...frame.pose);
+          rig.matrixAutoUpdate = false;
+          rig.matrix.copy(matrix);
+          rig.userData.frame = frame.frame;
+          poseGroup.add(rig);
+        }
+      }
+
+      function makeCameraRig(scale) {
+        const group = new THREE.Group();
+        const z = scale;
+        const w = scale * 0.42;
+        const h = scale * 0.26;
+        const vertices = [
+          0, 0, 0, -w, -h, z,
+          0, 0, 0, w, -h, z,
+          0, 0, 0, w, h, z,
+          0, 0, 0, -w, h, z,
+          -w, -h, z, w, -h, z,
+          w, -h, z, w, h, z,
+          w, h, z, -w, h, z,
+          -w, h, z, -w, -h, z,
+        ];
+        const frustum = new THREE.LineSegments(
+          new THREE.BufferGeometry().setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3)),
+          new THREE.LineBasicMaterial({ color: 0xf2d15c, transparent: true, opacity: 0.78 })
+        );
+        group.add(frustum);
+        const axisLength = scale * 0.4;
+        const axisRadius = scale * 0.018;
+        group.add(makeThickAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(axisLength, 0, 0), 0xff4d4d, axisRadius));
+        group.add(makeThickAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, axisLength, 0), 0x55d26a, axisRadius));
+        group.add(makeThickAxisLine(new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, axisLength), 0x4da3ff, axisRadius));
+        return group;
+      }
+
+      function makeAxisLine(a, b, color) {
+        return new THREE.Line(
+          new THREE.BufferGeometry().setFromPoints([a, b]),
+          new THREE.LineBasicMaterial({ color })
+        );
+      }
+
+      function makeThickAxisLine(a, b, color, radius) {
+        const direction = new THREE.Vector3().subVectors(b, a);
+        const length = direction.length();
+        const geometry = new THREE.CylinderGeometry(radius, radius, length, 10);
+        const material = new THREE.MeshBasicMaterial({ color });
+        const cylinder = new THREE.Mesh(geometry, material);
+        cylinder.position.copy(a).addScaledVector(direction, 0.5);
+        cylinder.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), direction.normalize());
+        return cylinder;
+      }
+
+      function makePointObject(frame) {
+        const positions = [];
+        const colors = [];
+        for (let i = 0; i < frame.count; i++) {
+          if (frame.conf[i] < state.confThreshold) continue;
+          positions.push(frame.points[i * 3], frame.points[i * 3 + 1], frame.points[i * 3 + 2]);
+          colors.push(frame.rgb[i * 3] / 255, frame.rgb[i * 3 + 1] / 255, frame.rgb[i * 3 + 2] / 255);
+        }
+
+        const geometry = new THREE.BufferGeometry();
+        geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+        geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+        geometry.computeBoundingSphere();
+
+        const material = makePointMaterial();
+        const points = new THREE.Points(geometry, material);
+        points.userData.visibleCount = positions.length / 3;
+        return points;
+      }
+
+      function makePointMaterial() {
+        const material = new THREE.PointsMaterial({
+          size: state.pointSize,
+          vertexColors: true,
+          sizeAttenuation: false,
+        });
+        material.onBeforeCompile = (shader) => {
+          shader.uniforms.exposure = { value: state.exposure };
+          shader.uniforms.saturation = { value: state.saturation };
+          shader.uniforms.gamma = { value: state.gamma };
+          shader.fragmentShader = shader.fragmentShader
+            .replace(
+              "#include <common>",
+              `#include <common>
+              uniform float exposure;
+              uniform float saturation;
+              uniform float gamma;
+
+              vec3 adjustTone(vec3 color) {
+                color *= exposure;
+                float luma = dot(color, vec3(0.2126, 0.7152, 0.0722));
+                color = mix(vec3(luma), color, saturation);
+                color = pow(max(color, vec3(0.0)), vec3(1.0 / max(gamma, 0.001)));
+                return clamp(color, 0.0, 1.0);
+              }`
+            )
+            .replace(
+              "#include <color_fragment>",
+              `#include <color_fragment>
+              diffuseColor.rgb = adjustTone(diffuseColor.rgb);`
+            );
+        };
+        return material;
+      }
+
+      function updatePoints() {
+        pointGroup.clear();
+        let frames = [state.frames[state.frameIndex]];
+        if (state.viewMode === "accum") frames = state.frames.slice(0, state.frameIndex + 1);
+        if (state.viewMode === "all") frames = state.frames;
+        let total = 0;
+        for (const frame of frames) {
+          const object = makePointObject(frame);
+          total += object.userData.visibleCount;
+          pointGroup.add(object);
+        }
+        poseGroup.visible = state.showPoses;
+        helperGroup.visible = true;
+
+        const current = state.frames[state.frameIndex];
+        frameValue.textContent = String(state.frameIndex);
+        confValue.textContent = state.confThreshold.toFixed(2);
+        sizeValue.textContent = state.pointSize.toFixed(1);
+        frameBadge.textContent = `src ${current.sourceFrame}`;
+        const label = state.viewMode === "single" ? `Frame ${state.frameIndex}` : state.viewMode === "accum" ? `Frames 0-${state.frameIndex}` : "All frames";
+        status.textContent = `${label}: ${total.toLocaleString()} points shown, floor z=0`;
+        updateViewButtons();
+      }
+
+      function setViewMode(mode) {
+        state.viewMode = mode;
+        updatePoints();
+      }
+
+      function updateViewButtons() {
+        singleBtn.classList.toggle("active", state.viewMode === "single");
+        accumBtn.classList.toggle("active", state.viewMode === "accum");
+        allBtn.classList.toggle("active", state.viewMode === "all");
+      }
+
+      frameInput.addEventListener("input", () => {
+        state.frameIndex = Number(frameInput.value);
+        updatePoints();
+      });
+      confInput.addEventListener("input", () => {
+        state.confThreshold = Number(confInput.value);
+        updatePoints();
+      });
+      sizeInput.addEventListener("input", () => {
+        state.pointSize = Number(sizeInput.value);
+        updatePoints();
+      });
+      singleBtn.addEventListener("click", () => {
+        setViewMode("single");
+      });
+      accumBtn.addEventListener("click", () => {
+        setViewMode("accum");
+      });
+      allBtn.addEventListener("click", () => {
+        setViewMode("all");
+      });
+      posesBtn.addEventListener("click", () => {
+        state.showPoses = !state.showPoses;
+        posesBtn.classList.toggle("active", state.showPoses);
+        updatePoints();
+      });
+
+      window.addEventListener("resize", () => {
+        const aspect = window.innerWidth / window.innerHeight;
+        const height = camera.top - camera.bottom;
+        camera.left = -height * aspect * 0.5;
+        camera.right = height * aspect * 0.5;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+
+      function animate() {
+        controls.update();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+
+      loadData().catch((error) => {
+        console.error(error);
+        status.textContent = error.message;
+      });
+      animate();
+    </script>
+  </body>
+</html>
