@@ -560,6 +560,59 @@
   font-size: 0.92rem;
 }
 
+.dark .profile-data-toolbar,
+.dark .profile-data-filter-group > span,
+.dark .profile-data-year-separator,
+.dark .profile-data-meta,
+.dark .profile-data-course-korean,
+.dark .profile-data-status,
+.dark .profile-data-grid-personal_projects .profile-data-meta {
+  color: #c8cad4;
+}
+
+.dark .profile-data-card,
+.dark .profile-data-summary,
+.dark .profile-data-filter-buttons,
+.dark .profile-data-table th,
+.dark .profile-data-table td {
+  border-color: rgba(248, 248, 242, 0.16);
+}
+
+.dark .profile-data-card {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.dark .profile-data-card h3,
+.dark .profile-data-meta b,
+.dark .profile-data-summary > div > strong,
+.dark .profile-data-summary span b,
+.dark .profile-data-summary-chip b,
+.dark .profile-data-table th,
+.dark .profile-data-grid-awards .profile-data-meta:first-child {
+  color: #f8f8f2;
+}
+
+.dark .profile-data-filter-button {
+  border-color: rgba(248, 248, 242, 0.16);
+  color: #f8f8f2;
+}
+
+.dark .profile-data-filter-button:not(.is-active):hover,
+.dark .profile-data-filter-button:not(.is-active):focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dark .profile-data-summary span,
+.dark .profile-data-summary-chip {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(248, 248, 242, 0.16);
+  color: #c8cad4;
+}
+
+.dark .profile-data-year-separator::after {
+  background: rgba(248, 248, 242, 0.16);
+}
+
 @media (max-width: 640px) {
   .profile-data-toolbar {
     align-items: flex-start;
