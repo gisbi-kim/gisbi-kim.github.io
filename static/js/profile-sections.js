@@ -547,15 +547,26 @@
     document.querySelectorAll("section.home-section[id] .section-heading :is(h1, h2, h3)").forEach((heading) => {
       const section = heading.closest("section.home-section[id]");
       if (!section) return;
-      heading.setAttribute("role", "button");
-      heading.setAttribute("tabindex", "0");
-      heading.setAttribute("title", "Copy section link and update URL");
-      heading.addEventListener("click", () => copySectionUri(section));
-      heading.addEventListener("keydown", (event) => {
-        if (event.key !== "Enter" && event.key !== " ") return;
+      if (heading.querySelector(".section-copy-link")) return;
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "section-copy-link";
+      button.setAttribute("aria-label", `Copy link to ${heading.textContent.trim()}`);
+      button.setAttribute("title", "Copy section link");
+      button.textContent = "#";
+      button.addEventListener("click", (event) => {
         event.preventDefault();
+        event.stopPropagation();
         copySectionUri(section);
       });
+      button.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        event.stopPropagation();
+        copySectionUri(section);
+      });
+      heading.appendChild(button);
     });
   }
 

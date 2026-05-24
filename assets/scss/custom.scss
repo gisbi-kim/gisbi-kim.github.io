@@ -20,8 +20,37 @@
   min-width: 0;
 }
 
-.home-section[id] .section-heading h1 {
+.home-section[id] .section-heading :is(h1, h2, h3) {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.45rem;
+  justify-content: center;
+}
+
+.section-copy-link {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  color: var(--bs-secondary-color, #64748b);
   cursor: pointer;
+  display: inline-flex;
+  font-size: 0.72em;
+  font-weight: 700;
+  height: 1.45em;
+  justify-content: center;
+  line-height: 1;
+  opacity: 0.45;
+  padding: 0 0.18em;
+  transform: translateY(0.02em);
+}
+
+.section-copy-link:hover,
+.section-copy-link:focus-visible {
+  background: var(--bs-light, #f1f5f9);
+  color: var(--bs-primary, #1565c0);
+  opacity: 1;
+  outline: none;
 }
 
 .profile-data-more-link {
