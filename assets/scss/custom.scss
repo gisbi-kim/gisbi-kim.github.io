@@ -20,7 +20,8 @@
   min-width: 0;
 }
 
-.home-section[id] .section-heading :is(h1, h2, h3) {
+.home-section[id] .section-heading :is(h1, h2, h3),
+#about .col-lg-8 > h1 {
   align-items: center;
   display: inline-flex;
   gap: 0.45rem;

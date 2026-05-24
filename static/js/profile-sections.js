@@ -641,7 +641,7 @@
   }
 
   function initSectionHeadingCopy() {
-    document.querySelectorAll("section.home-section[id] .section-heading :is(h1, h2, h3)").forEach((heading) => {
+    document.querySelectorAll("section.home-section[id] .section-heading :is(h1, h2, h3), #about .col-lg-8 > h1").forEach((heading) => {
       const section = heading.closest("section.home-section[id]");
       if (!section) return;
       if (heading.querySelector(".section-copy-link")) return;
