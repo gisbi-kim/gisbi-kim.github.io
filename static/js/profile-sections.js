@@ -133,6 +133,10 @@
       .replace(
         /\bYounghun Cho\b/g,
         '<a href="https://dudgnsrj.github.io/" target="_blank" rel="noopener">Younghun Cho</a>'
+      )
+      .replace(
+        /\bTae-Hyuk Kwon\b/g,
+        '<a href="https://kwon.kaist.ac.kr/" target="_blank" rel="noopener">Tae-Hyuk Kwon</a>'
       );
   }
 
@@ -142,8 +146,14 @@
     return `<a class="profile-data-publication-figure" href="${escapeHtml(figure)}" target="_blank" rel="noopener"><img src="${escapeHtml(figure)}" alt="${escapeHtml(alt)}" loading="lazy"></a>`;
   }
 
+  function cardFigure(row, fallback, label) {
+    const figure = String(row.Figure || fallback).trim();
+    const alt = `Figure for ${String(row.Project || row.Title || label).trim()}`;
+    return `<a class="profile-data-publication-figure" href="${escapeHtml(figure)}" target="_blank" rel="noopener"><img src="${escapeHtml(figure)}" alt="${escapeHtml(alt)}" loading="lazy"></a>`;
+  }
+
   function titleColumn(columns) {
-    return columns.find((column) => ["Title", "Course"].includes(column)) || columns[0];
+    return columns.find((column) => ["Project", "Title", "Course"].includes(column)) || columns[0];
   }
 
   function metaColumns(columns, primary) {
@@ -212,7 +222,9 @@
   }
 
   function talkType(row) {
-    if (/(KRoC|ICEIC|Conference|Summer School)/i.test(String(row["Event/Session"] || ""))) return "Conference";
+    const talkContext = `${row["Event/Session"] || ""} ${row["Invitation From"] || ""}`;
+    if (/(KRoC|ICEIC|Conference|Summer School|Award Session)/i.test(talkContext)) return "Conference";
+    if (/Hyundai Motor Company|Mobile Robotics Team/i.test(`${row["Host / Venue"] || ""} ${row["Invitation From"] || ""}`)) return "Industry";
     if (/Daegu's Innovation, Moving Towards a Robot and Future Mobility City/i.test(String(row.Title || ""))) return "Public Sector";
     if (/^Prof\./i.test(String(row["Invitation From"] || "").trim())) return "University";
     if (/^Dr\./i.test(String(row["Invitation From"] || "").trim())) return "Research Institute";
@@ -220,7 +232,11 @@
   }
 
   function applyTalkFilters(rows, filters) {
-    return !filters.talkType || filters.talkType === "all" ? rows : rows.filter((row) => talkType(row) === filters.talkType);
+    return rows.filter((row) => {
+      const matchesType = !filters.talkType || filters.talkType === "all" || talkType(row) === filters.talkType;
+      const matchesYear = !filters.talkYear || filters.talkYear === "all" || rowYear({ title: "Invited Talks" }, row) === filters.talkYear;
+      return matchesType && matchesYear;
+    });
   }
 
   function renderSegmentedFilter(key, group, label, options, activeValue) {
@@ -262,10 +278,13 @@
   }
 
   function renderTalkFilters(key, rows, filters) {
-    const preferred = ["University", "Research Institute", "Public Sector", "Conference", "Other"];
+    const preferred = ["Conference", "University", "Research Institute", "Industry", "Public Sector", "Other"];
     const present = new Set(rows.map(talkType));
     const options = [{ value: "all", label: "All" }, ...preferred.filter((type) => present.has(type)).map((type) => ({ value: type, label: type }))];
+    const years = Array.from(new Set(rows.map((row) => rowYear({ title: "Invited Talks" }, row)).filter(Boolean))).sort((a, b) => Number(b) - Number(a));
+    const yearOptions = [{ value: "all", label: "All" }, ...years.map((year) => ({ value: year, label: year }))];
     return `<div class="profile-data-filters" aria-label="Invited talk filters">
+      ${renderSegmentedFilter(key, "talkYear", "Year", yearOptions, filters.talkYear || "all")}
       ${renderSegmentedFilter(key, "talkType", "Type", options, filters.talkType || "all")}
     </div>`;
   }
@@ -359,9 +378,30 @@
     </div>`;
   }
 
+  function renderFundedSummary(rows) {
+    const currentRows = rows.filter((row) => String(row.Status || "").trim() === "Current");
+    const totals = currentRows.reduce(
+      (acc, row) => {
+        const role = String(row.Role || "");
+        const piMatch = role.match(/(\d+)\s*책/);
+        const coMatch = role.match(/(\d+)\s*공/);
+        const pi = piMatch ? Number(piMatch[1]) : 0;
+        const co = coMatch ? Number(coMatch[1]) : 0;
+        acc.pi += pi;
+        acc.co += pi + co;
+        return acc;
+      },
+      { pi: 0, co: 0 }
+    );
+    return `<div class="profile-data-summary profile-data-summary-funded" aria-label="Current funded project summary">
+      <div><strong>Current</strong><span class="profile-data-summary-chip"><b>${totals.pi}책</b>${totals.co}공</span></div>
+    </div>`;
+  }
+
   function rowYear(section, row) {
     if (section.title === "Publications/Patents") return publicationYear(row);
     if (section.title === "Teaching") return String(row.Year || "").trim();
+    if (section.title === "Funded Projects") return String(row.Status || "").trim();
     const date = section.title === "Essays" ? row["Published Date"] : row.Date;
     const match = String(date || "").match(/\d{4}/);
     return match ? match[0] : "";
@@ -377,10 +417,13 @@
     const isTeachingSection = section.title === "Teaching";
     const isEssaysSection = section.title === "Essays";
     const isPersonalProjectsSection = section.title === "Personal Projects";
-    const showYearSeparators = ["Publications/Patents", "Invited Talks", "Awards", "Academic Service", "Teaching", "Essays"].includes(section.title);
+    const isFundedProjectsSection = section.title === "Funded Projects";
+    const showYearSeparators = ["Publications/Patents", "Invited Talks", "Awards", "Academic Service", "Teaching", "Essays", "Funded Projects"].includes(section.title);
     const metas = metaColumns(columns, primary).filter((column) => {
       if (isPublicationSection && ["Types", "Category"].includes(column)) return false;
       if (isEssaysSection && column === "Tags") return false;
+      if (isFundedProjectsSection && column === "Status") return false;
+      if (isFundedProjectsSection && column === "Figure") return false;
       return true;
     });
     let previousYear = "";
@@ -426,6 +469,11 @@
             ? '<span class="profile-data-badge profile-data-badge-government">Public Sector</span>'
             : "";
         const conferenceBadge = currentTalkType === "Conference" ? '<span class="profile-data-badge profile-data-badge-conference">Conference</span>' : "";
+        const industryBadge = currentTalkType === "Industry" ? '<span class="profile-data-badge profile-data-badge-industry">Industry</span>' : "";
+        const fundedStatusBadge =
+          isFundedProjectsSection && row.Status
+            ? `<span class="profile-data-badge profile-data-badge-funded-${String(row.Status).toLowerCase()}">${escapeHtml(String(row.Status))}</span>`
+            : "";
         const isMainTeaching =
           isTeachingSection &&
           /(Advancded mobile system|Introduction to Artificial Intelligence)/i.test(String(row.Course || ""));
@@ -434,7 +482,7 @@
             ? `<span class="profile-data-badge profile-data-badge-code">${renderValue("Code", row.Code)}</span>`
             : "";
         const mainTeachingBadge = isMainTeaching ? '<span class="profile-data-badge profile-data-badge-main">Main</span>' : "";
-        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${talksBadge}${researchInstituteBadge}${governmentBadge}${conferenceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
+        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${teachingCodeBadge}${mainTeachingBadge}`;
         const metaHtml = metas
           .filter((column) => row[column] && !(isTeachingSection && column === "Code"))
           .map((column) => {
@@ -470,7 +518,12 @@
           )
           .join(", ");
         const actionsBlock = actionHtml ? `<div class="profile-data-action">${actionHtml}</div>` : "";
-        const cardClass = `profile-data-card${isPublicationSection ? " profile-data-card-publication" : ""}${isMainTeaching ? " profile-data-card-main" : ""}`;
+        const hasCardFigure = isPublicationSection || isFundedProjectsSection;
+        const fundedStatusClass =
+          isFundedProjectsSection && row.Status
+            ? ` profile-data-card-funded-${String(row.Status).toLowerCase()}`
+            : "";
+        const cardClass = `profile-data-card${hasCardFigure ? " profile-data-card-publication" : ""}${fundedStatusClass}${isMainTeaching ? " profile-data-card-main" : ""}`;
         const titleValue = isTeachingSection && primary === "Course" ? renderTeachingCourse(row[primary]) : renderValue(primary, row[primary]);
         const titleRow = primary ? `<div class="profile-data-title-row">${badgeHtml}<h3>${titleValue}</h3></div>` : "";
         const contentBlock = `<div class="profile-data-publication-body">
@@ -481,6 +534,7 @@
         return `${separator}<article class="${cardClass}">
           ${contentBlock}
           ${isPublicationSection ? publicationFigure(row) : ""}
+          ${isFundedProjectsSection ? cardFigure(row, "/images/publication-dummy.svg", "funded project") : ""}
         </article>`;
       })
       .join("");
@@ -525,6 +579,7 @@
       </div>
       ${key === "publications" ? renderPublicationFilters(key, filters) : ""}
       ${key === "publications" ? renderPublicationSummary(key, summaryRows, filters) : ""}
+      ${key === "funded_projects" ? renderFundedSummary(baseRows) : ""}
       ${key === "talks" ? renderTalkFilters(key, baseRows, filters) : ""}
       ${key === "essays" ? renderEssayFilters(key, baseRows, filters) : ""}
       ${view === "table" ? renderTable(renderedSection) : `<div class="profile-data-grid profile-data-grid-${escapeHtml(key)}">${renderCards(renderedSection)}</div>`}

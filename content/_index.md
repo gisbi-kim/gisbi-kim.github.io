@@ -35,6 +35,16 @@ sections:
     design:
       columns: '1'
 
+
+  - block: markdown
+    id: funded-projects
+    content:
+      title: Funded Projects
+      text: |
+        <div class="profile-data" data-profile-section="funded_projects" data-profile-view="cards"></div>
+    design:
+      columns: '1'
+
   - block: markdown
     id: talks
     content:

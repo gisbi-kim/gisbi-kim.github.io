@@ -207,6 +207,10 @@
   grid-template-columns: 1fr;
 }
 
+.profile-data-grid-funded_projects {
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+
 .profile-data-grid-awards .profile-data-meta:first-child {
   color: var(--bs-body-color, #1f2937);
   flex-basis: 100%;
@@ -287,6 +291,11 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: minmax(0, 7fr) minmax(12rem, 3fr);
+}
+
+.profile-data-card-funded-current {
+  background: #fff;
+  grid-column: 1 / -1;
 }
 
 .profile-data-publication-body {
@@ -401,6 +410,24 @@
   background: #f6eeee;
   border-color: #e2c1c1;
   color: #7a3030;
+}
+
+.profile-data-badge-industry {
+  background: #edf2f7;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+.profile-data-badge-funded-current {
+  background: #e8f5ee;
+  border-color: #b8dfca;
+  color: #246143;
+}
+
+.profile-data-badge-funded-completed {
+  background: #f1f3f5;
+  border-color: #d3d8df;
+  color: #4b5563;
 }
 
 .profile-data-badge-main {
@@ -533,6 +560,7 @@
   .profile-data-grid-essays,
   .profile-data-grid-teaching,
   .profile-data-grid-talks,
+  .profile-data-grid-funded_projects,
   .profile-data-grid-personal_projects {
     grid-template-columns: 1fr;
   }

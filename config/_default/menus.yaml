@@ -8,6 +8,9 @@ main:
   - name: Awards
     url: '#awards'
     weight: 32
+  - name: Funding
+    url: '#funded-projects'
+    weight: 25
   - name: Service
     url: '#academic-service'
     weight: 35

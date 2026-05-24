@@ -359,7 +359,7 @@
           "Date": "2026.03.24",
           "Event/Session": "Invited Talk",
           "Host / Venue": "ETRI, Daegu-Gyeongbuk Regional Research Division",
-          "Invitation From": "Dr. Nam Seung Woo",
+          "Invitation From": "Dr. Nam Seung Woo, Intelligent Robot System Research Section, ETRI",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "",
           "Event Link": ""
@@ -375,7 +375,7 @@
         },
         {
           "Date": "2026.02.05",
-          "Event/Session": "Early-career Researcher Award Session",
+          "Event/Session": "Early-career Researcher Award Session, KRoC 2026",
           "Host / Venue": "Pyeongchang, South Korea",
           "Invitation From": "KRoC Organization Committee",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
@@ -431,7 +431,7 @@
           "Date": "2025.12.08",
           "Event/Session": "Invited Talk, Dept. of Industrial Machinery DX, KIMM",
           "Host / Venue": "Daejeon, South Korea",
-          "Invitation From": "Dr. Younghun Cho",
+          "Invitation From": "Dr. Younghun Cho, Industrial Machinery DX Research Lab, KIMM",
           "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
           "Slide Link": "",
           "Event Link": ""
@@ -446,6 +446,15 @@
           "Event Link": ""
         },
         {
+          "Date": "2025.08.15",
+          "Event/Session": "AI Robotics KR Conference: Human and AI Robotics Together",
+          "Host / Venue": "MARU180, Seoul, South Korea",
+          "Invitation From": "Juwon Kim, AI Robotics KR",
+          "Title": "Generative AI for Mobile Robot Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
           "Date": "2025.07.18",
           "Event/Session": "2025 IEIE Joint Summer School on Image Understanding and Image Processing",
           "Host / Venue": "Chung-Ang University, Seoul, South Korea",
@@ -453,6 +462,24 @@
           "Title": "Generative AI for Mobile Robot Navigation",
           "Slide Link": "",
           "Event Link": "https://www.theieie.org/events/?part=03&c_id=949"
+        },
+        {
+          "Date": "2025.06.13",
+          "Event/Session": "SLAM & Perception Seminar",
+          "Host / Venue": "Hyundai Motor Company Uiwang Research Institute, Uiwang, South Korea",
+          "Invitation From": "Tae Young Kim, Mobile Robotics Team, Hyundai Motor Company",
+          "Title": "Lessons from Translating Research into Products and Services",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.05.28",
+          "Event/Session": "ETRI Daegu-Gyeongbuk Regional Research Division Mid- to Long-term Research Roadmap Meeting",
+          "Host / Venue": "Hotel Susung, Daegu, South Korea",
+          "Invitation From": "Dr. Hanul Jung, Mobility AI Convergence Research Section, ETRI Daegu-Gyeongbuk Regional Research Division",
+          "Title": "Spatial AI, from the 2000s to 2025: The Evolution of Spatial Intelligence and the Future of Robotics",
+          "Slide Link": "",
+          "Event Link": ""
         },
         {
           "Date": "EOL",
@@ -553,6 +580,101 @@
           "Event": "HEAI Workshop, IROS 2025",
           "Event Link": "https://heai-iros25-workshop.github.io/",
           "Note": ""
+        }
+      ]
+    },
+    "funded_projects": {
+      "title": "Funded Projects",
+      "columns": [
+        "Status",
+        "Project",
+        "Role",
+        "Period",
+        "Funding Source",
+        "Program",
+        "Title",
+        "Figure"
+      ],
+      "rows": [
+        {
+          "Status": "Current",
+          "Project": "Industry Project 2026-1 (Confidential)",
+          "Role": "PI (0책)",
+          "Period": "2026.04 - 2027.03",
+          "Funding Source": "Industry-funded",
+          "Program": "Industry-academic technical service",
+          "Title": "Mapping and Localization in Factory Environments",
+          "Figure": "/images/funded-projects/industry-project-2026-1-confidential.png"
+        },
+        {
+          "Status": "Current",
+          "Project": "AIMS: Active Interaction & Memory-augmented Spatial Intelligence",
+          "Role": "PI (1책)",
+          "Period": "2026.03 - 2030.02",
+          "Funding Source": "Ministry of Science and ICT",
+          "Program": "Early-career Researcher Program, Type B, Basic Research Program 2026",
+          "Title": "AIMS: Memory-Augmented Spatial Intelligence for Heterogeneous Autonomous Mobility Systems Understanding and Interacting with Implicit Human Instructions",
+          "Figure": "/images/funded-projects/aims.png"
+        },
+        {
+          "Status": "Current",
+          "Project": "Glocal Lab",
+          "Role": "참여 (1공)",
+          "Period": "2025.09 - 2028.08 (+6y)",
+          "Funding Source": "Ministry of Education",
+          "Program": "Glocal Lab Program, Academic Research Support Program for Science and Engineering 2025",
+          "Title": "TransHuman Robotics Research Center, Robotics and Mechatronics Research Institute of DGIST",
+          "Figure": "/images/funded-projects/glocal-lab.png"
+        },
+        {
+          "Status": "Current",
+          "Project": "InnoCORE",
+          "Role": "참여 (0공)",
+          "Period": "2025.07 - 2027.12 (+3y)",
+          "Funding Source": "Ministry of Science and ICT",
+          "Program": "",
+          "Title": "DGIST team on Bio-Embodied Physical AI",
+          "Figure": "/images/funded-projects/innocore.png"
+        },
+        {
+          "Status": "Current",
+          "Project": "AI Star Fellowship",
+          "Role": "참여 (0공)",
+          "Period": "2025 - 2030",
+          "Funding Source": "Ministry of Science and ICT",
+          "Program": "",
+          "Title": "Human-centered Symbiotic Embodied AI Systems",
+          "Figure": "/images/funded-projects/ai-star-fellowship.png"
+        },
+        {
+          "Status": "Current",
+          "Project": "Start-up",
+          "Role": "PI (0책)",
+          "Period": "2025.01 - 2028.12",
+          "Funding Source": "DGIST",
+          "Program": "",
+          "Title": "Self-evolving Robot-Web Navigation Intelligence",
+          "Figure": "/images/funded-projects/start-up.png"
+        },
+        {
+          "Status": "Completed",
+          "Project": "P2P",
+          "Role": "참여 (1공)",
+          "Period": "2025.09 - 2026.03",
+          "Funding Source": "Ministry of Trade, Industry and Energy",
+          "Program": "Autonomous Driving Technology Development Innovation Program, Korea Evaluation Institute of Industrial Technology",
+          "Title": "Development of a Lv.4 passenger-van autonomous driving vehicle platform for point-to-point mobility in designated areas",
+          "Figure": "/images/funded-projects/p2p.png"
+        },
+        {
+          "Status": "Completed",
+          "Project": "N-HRHR",
+          "Role": "참여 (0공)",
+          "Period": "2025.07 - 2025.12",
+          "Funding Source": "DGIST",
+          "Program": "",
+          "Title": "Exploring human-robot collaborative coexistence in the era of large-scale robots",
+          "Figure": "/images/funded-projects/n-hrhr.png"
         }
       ]
     },
