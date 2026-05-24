@@ -26,14 +26,14 @@ prior 와 likelihood 로부터 closed form 으로 유도됨을 살펴보았다.
 
 $$
 \begin{equation}
-  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left( \text{mean: } \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}_0^{-1} \textbf{m}_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \\
-  \ \text{covariance: } \left(\textbf{P}_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) \tag{eq.1}\label{eq:1}
+  p(\textbf{x} | \textbf{z}) = \mathcal{N} \left( \text{mean: } \left(\textbf{P}\_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \left( \textbf{P}\_0^{-1} \textbf{m}\_0 + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{z} \right), \\
+  \ \text{covariance: } \left(\textbf{P}\_0^{-1} + \frac{1}{\sigma^2}\textbf{H}^{T}\textbf{H} \right)^{-1} \right) \tag{eq.1}\label{eq:1}
 \end{equation}
 $$
 
 이 식은 batch estimation 이었다고 할 수 있다.  
-- 즉 measurement ($\textbf{z} = \textbf{z}_{1:k}$) 들이 한번에 모두 주어져있고,  
-- 우리가 알고싶은 state $\textbf{x}$ 에 대한 초기 mean $\textbf{m}_0$, covariance $\textbf{P}_0$ 가 initial value 로써 주어지는 상황이었다. 
+- 즉 measurement ($\textbf{z} = \textbf{z}\_{1:k}$) 들이 한번에 모두 주어져있고,  
+- 우리가 알고싶은 state $\textbf{x}$ 에 대한 초기 mean $\textbf{m}\_0$, covariance $\textbf{P}\_0$ 가 initial value 로써 주어지는 상황이었다. 
 
 이번 포스팅에서는 이것을 recursive version 으로 바꾸어 볼 것이다. 
 
@@ -47,23 +47,23 @@ $$
 각각 $\textbf{m}\_{t-1}$, $\textbf{P}\_{t-1}$ 였다고 하자.  
 
 그리고 지금은 time$=t$ 가 되어서,  
-새로운 measurement $z_t$ 가 하나 들어온 상황이다.  
+새로운 measurement $z\_t$ 가 하나 들어온 상황이다.  
 (꼭 딱 하나일 필요는 없지만 편의상 하나라고 해보자)
 
 
 그러면 위의 식 \eqref{eq:1} 에서,  
 time$=t-1$의 posterior 가 다음 턴 time$=t$의 prior 로 쓰이기 때문에,  
-- $\textbf{P}_0$ 자리에 $\textbf{P}\_{t-1}$ 라고 말만 다시 바꿔달면 된다. 
-- $\textbf{m}_0$ 자리에 $\textbf{m}\_{t-1}$ 라고 말만 다시 바꿔달면 된다. 
-- measurement $\textbf{z}$ 자리에 $z_{t}$ 라고 말만 다시 쓰면 된다.
-- 그리고 measurement 의 jacobian 인 $\textbf{H}$는 현재 턴에 새로 들어온 measurement 의 것이므로 위의 식에서 $\textbf{H}$ 를 $\textbf{H}_{t}$ 라고 써주면 말이 된다. 
+- $\textbf{P}\_0$ 자리에 $\textbf{P}\_{t-1}$ 라고 말만 다시 바꿔달면 된다. 
+- $\textbf{m}\_0$ 자리에 $\textbf{m}\_{t-1}$ 라고 말만 다시 바꿔달면 된다. 
+- measurement $\textbf{z}$ 자리에 $z\_{t}$ 라고 말만 다시 쓰면 된다.
+- 그리고 measurement 의 jacobian 인 $\textbf{H}$는 현재 턴에 새로 들어온 measurement 의 것이므로 위의 식에서 $\textbf{H}$ 를 $\textbf{H}\_{t}$ 라고 써주면 말이 된다. 
 
 그러면 식은 다음과 같다:
 
 $$
 \begin{align}
-  p(\textbf{x}_{t} | z_t) = \mathcal{N} \left(  \text{mean: } \left(\textbf{P}_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}\textbf{H}_{t} \right)^{-1} \left( \textbf{P}_{t-1}^{-1} \textbf{m}_{t-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}z_t \right), \\
-   \text{covariance: } \left(\textbf{P}_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}\textbf{H}_{t} \right)^{-1} \right) \tag{eq.2}\label{eq:2}
+  p(\textbf{x}\_{t} | z\_t) = \mathcal{N} \left(  \text{mean: } \left(\textbf{P}\_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}\textbf{H}\_{t} \right)^{-1} \left( \textbf{P}\_{t-1}^{-1} \textbf{m}\_{t-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}z\_t \right), \\
+   \text{covariance: } \left(\textbf{P}\_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}\textbf{H}\_{t} \right)^{-1} \right) \tag{eq.2}\label{eq:2}
 \end{align}
 $$
 
@@ -83,14 +83,14 @@ $$
 재밌는게 나올 수 있다. 
 
 위의 recursive 식에서 posterior (즉, update 된) 의 covariance 가  
-$\left(\textbf{P}\_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}\textbf{H}\_{t} \right)^{-1}$ 였다. 
+$\left(\textbf{P}\_{t-1}^{-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}\textbf{H}\_{t} \right)^{-1}$ 였다. 
 
 지금 measurement 의 noise 를 scalar 라고 가정해서 식이 저런건데  
 사실은 이렇게 써져있는 거라고 머릿속에서 식의 생김새를 생각해주자
 
 $$
 \begin{equation}
-    \textbf{P}_{t} = \left(\textbf{P}_{t-1}^{-1} + \textbf{H}_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}_{t} \right)^{-1}
+    \textbf{P}\_{t} = \left(\textbf{P}\_{t-1}^{-1} + \textbf{H}\_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}\_{t} \right)^{-1}
     \tag{eq.3}\label{eq:3}
 \end{equation}
 $$
@@ -116,9 +116,9 @@ $$
 
 $$
 \begin{equation}
-    \textbf{A} = \textbf{P}_{t-1}^{-1} \\ 
+    \textbf{A} = \textbf{P}\_{t-1}^{-1} \\ 
     \textbf{B} = \sigma^{-2}\textbf{I} \\ 
-    \textbf{C} = \textbf{H}_{t}^{T}
+    \textbf{C} = \textbf{H}\_{t}^{T}
 \end{equation}
 $$
 
@@ -126,8 +126,8 @@ $$
 
 $$
 \begin{align}
-    \textbf{P}_{t} &= \left(\textbf{P}_{t-1}^{-1} + \textbf{H}_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}_{t} \right)^{-1} \\
-    &= \textbf{P}_{t-1} - \textbf{P}_{t-1}\textbf{H}_{t}^{T} \left(  \textbf{H}_{t} \textbf{P}_{t-1} \textbf{H}_{t}^{T} + \sigma^{2}  \right)^{-1} \textbf{H}_{t}\textbf{P}_{t-1} \tag{eq.5}\label{eq:5}
+    \textbf{P}\_{t} &= \left(\textbf{P}\_{t-1}^{-1} + \textbf{H}\_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}\_{t} \right)^{-1} \\
+    &= \textbf{P}\_{t-1} - \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} \left(  \textbf{H}\_{t} \textbf{P}\_{t-1} \textbf{H}\_{t}^{T} + \sigma^{2}  \right)^{-1} \textbf{H}\_{t}\textbf{P}\_{t-1} \tag{eq.5}\label{eq:5}
 \end{align}
 $$
 
@@ -145,11 +145,11 @@ $$
 
 $$
 \begin{align}
-    \textbf{P}_{t} &= \left(\textbf{P}_{t-1}^{-1} + \textbf{H}_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}_{t} \right)^{-1} \\
-    &= \textbf{P}_{t-1} - \underbrace{ \textbf{P}_{t-1}\textbf{H}_{t}^{T} \left( \underbrace{ \textbf{H}_{t} \textbf{P}_{t-1} \textbf{H}_{t}^{T} + \sigma^{2} }_{\textbf{S}_t} \right)^{-1} }_{\textbf{K}_t} \textbf{H}_{t}\textbf{P}_{t-1}  \\
-    &= \textbf{P}_{t-1} - \textbf{K}_t \textbf{S}_t  \textbf{K}_t^{T} \  \text{ // or } \\ 
-    &= \textbf{P}_{t-1} - \textbf{K}_t \textbf{H}_t \textbf{P}_{t-1} \  \text{ // seems more frequently used form} \\ 
-    &= ( \textbf{I} - \textbf{K}_t \textbf{H}_t)  \textbf{P}_{t-1} 
+    \textbf{P}\_{t} &= \left(\textbf{P}\_{t-1}^{-1} + \textbf{H}\_{t}^{T}(\sigma^{-2}\textbf{I})\textbf{H}\_{t} \right)^{-1} \\
+    &= \textbf{P}\_{t-1} - \underbrace{ \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} \left( \underbrace{ \textbf{H}\_{t} \textbf{P}\_{t-1} \textbf{H}\_{t}^{T} + \sigma^{2} }\_{\textbf{S}\_t} \right)^{-1} }\_{\textbf{K}\_t} \textbf{H}\_{t}\textbf{P}\_{t-1}  \\
+    &= \textbf{P}\_{t-1} - \textbf{K}\_t \textbf{S}\_t  \textbf{K}\_t^{T} \  \text{ // or } \\ 
+    &= \textbf{P}\_{t-1} - \textbf{K}\_t \textbf{H}\_t \textbf{P}\_{t-1} \  \text{ // seems more frequently used form} \\ 
+    &= ( \textbf{I} - \textbf{K}\_t \textbf{H}\_t)  \textbf{P}\_{t-1} 
     \tag{eq.6}\label{eq:6}
 \end{align}
 $$
@@ -166,11 +166,11 @@ mean 에 대한 update 식도 좀 더 다듬어 보자.
 
 $$
 \begin{align}
-\textbf{m}_{t} &= \textbf{P}_t \left( \textbf{P}_{t-1}^{-1}\textbf{m}_{t-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}z_t \right) \\ 
-    &= ( \textbf{I} - \textbf{K}_t \textbf{H}_t)  \textbf{P}_{t-1}  \left( \textbf{P}_{t-1}^{-1}\textbf{m}_{t-1} + \frac{1}{\sigma^2}\textbf{H}_{t}^{T}z_t \right) \\ 
-    &= ( \textbf{I} - \textbf{K}_t \textbf{H}_t)  \left( \textbf{P}_{t-1}\textbf{P}_{t-1}^{-1}\textbf{m}_{t-1} + \textbf{P}_{t-1}\frac{1}{\sigma^2}\textbf{H}_{t}^{T}z_t \right) \\ 
-    &= ( \textbf{I} - \textbf{K}_t \textbf{H}_t)  \left( \textbf{m}_{t-1} + \frac{1}{\sigma^2}\textbf{P}_{t-1}\textbf{H}_{t}^{T} z_t \right) \\
-    &= \textbf{m}_{t-1} - \textbf{K}_t \textbf{H}_t \textbf{m}_{t-1} + \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}_t \textbf{H}_t) (\textbf{P}_{t-1}\textbf{H}_{t}^{T}) z_t
+\textbf{m}\_{t} &= \textbf{P}\_t \left( \textbf{P}\_{t-1}^{-1}\textbf{m}\_{t-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}z\_t \right) \\ 
+    &= ( \textbf{I} - \textbf{K}\_t \textbf{H}\_t)  \textbf{P}\_{t-1}  \left( \textbf{P}\_{t-1}^{-1}\textbf{m}\_{t-1} + \frac{1}{\sigma^2}\textbf{H}\_{t}^{T}z\_t \right) \\ 
+    &= ( \textbf{I} - \textbf{K}\_t \textbf{H}\_t)  \left( \textbf{P}\_{t-1}\textbf{P}\_{t-1}^{-1}\textbf{m}\_{t-1} + \textbf{P}\_{t-1}\frac{1}{\sigma^2}\textbf{H}\_{t}^{T}z\_t \right) \\ 
+    &= ( \textbf{I} - \textbf{K}\_t \textbf{H}\_t)  \left( \textbf{m}\_{t-1} + \frac{1}{\sigma^2}\textbf{P}\_{t-1}\textbf{H}\_{t}^{T} z\_t \right) \\
+    &= \textbf{m}\_{t-1} - \textbf{K}\_t \textbf{H}\_t \textbf{m}\_{t-1} + \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}\_t \textbf{H}\_t) (\textbf{P}\_{t-1}\textbf{H}\_{t}^{T}) z\_t
     \tag{eq.7}\label{eq:7}
 \end{align}
 $$
@@ -179,7 +179,7 @@ $$
 
 $$
 \begin{align}
-    \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}_t \textbf{H}_t) (\textbf{P}_{t-1}\textbf{H}_{t}^{T}) = \textbf{K}_t
+    \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}\_t \textbf{H}\_t) (\textbf{P}\_{t-1}\textbf{H}\_{t}^{T}) = \textbf{K}\_t
     \tag{eq.8}\label{eq:8}
 \end{align}
 $$ 
@@ -189,24 +189,24 @@ $$
 
 $$
 \begin{align}
-    \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}_t \textbf{H}_t) (\textbf{P}_{t-1}\textbf{H}_{t}^{T}) &= \textbf{K}_t \\
-    ( \textbf{I} - \textbf{K}_t \textbf{H}_t) (\textbf{P}_{t-1}\textbf{H}_{t}^{T}) &= \sigma^{2}\textbf{K}_t \\ 
-    \textbf{P}_{t-1}\textbf{H}_{t}^{T} - \textbf{K}_t \textbf{H}_t \textbf{P}_{t-1}\textbf{H}_{t}^{T} &= \sigma^{2}\textbf{K}_t \\ 
-    \textbf{P}_{t-1}\textbf{H}_{t}^{T} &= \textbf{K}_t \textbf{H}_t \textbf{P}_{t-1}\textbf{H}_{t}^{T} + \sigma^{2}\textbf{K}_t \\ 
-    \textbf{P}_{t-1}\textbf{H}_{t}^{T} &= \textbf{K}_t \left( \textbf{H}_t \textbf{P}_{t-1}\textbf{H}_{t}^{T} + \sigma^{2} \right) \\ 
-    \textbf{P}_{t-1}\textbf{H}_{t}^{T} &= \textbf{K}_t \textbf{S}_t \\ 
-    \textbf{P}_{t-1}\textbf{H}_{t}^{T}\textbf{S}_t^{-1} &= \textbf{K}_t    
+    \frac{1}{\sigma^{2}}( \textbf{I} - \textbf{K}\_t \textbf{H}\_t) (\textbf{P}\_{t-1}\textbf{H}\_{t}^{T}) &= \textbf{K}\_t \\
+    ( \textbf{I} - \textbf{K}\_t \textbf{H}\_t) (\textbf{P}\_{t-1}\textbf{H}\_{t}^{T}) &= \sigma^{2}\textbf{K}\_t \\ 
+    \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} - \textbf{K}\_t \textbf{H}\_t \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} &= \sigma^{2}\textbf{K}\_t \\ 
+    \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} &= \textbf{K}\_t \textbf{H}\_t \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} + \sigma^{2}\textbf{K}\_t \\ 
+    \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} &= \textbf{K}\_t \left( \textbf{H}\_t \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} + \sigma^{2} \right) \\ 
+    \textbf{P}\_{t-1}\textbf{H}\_{t}^{T} &= \textbf{K}\_t \textbf{S}\_t \\ 
+    \textbf{P}\_{t-1}\textbf{H}\_{t}^{T}\textbf{S}\_t^{-1} &= \textbf{K}\_t    
 \end{align}
 $$
 
-마지막 줄은 $\textbf{K}_t$의 정의였으므로 자명하고 따라서 성립한다. 
+마지막 줄은 $\textbf{K}\_t$의 정의였으므로 자명하고 따라서 성립한다. 
 
 암튼 그래서 \eqref{eq:8} 을 \eqref{eq:7} 에 대입하면, 
 
 $$
 \begin{align}
-\textbf{m}_{t} &= \textbf{m}_{t-1} - \textbf{K}_t \textbf{H}_t \textbf{m}_{t-1} + \textbf{K}_t z_t \\
-    &= \textbf{m}_{t-1} + \textbf{K}_t \left( z_t - \textbf{H}_t \textbf{m}_{t-1} \right)
+\textbf{m}\_{t} &= \textbf{m}\_{t-1} - \textbf{K}\_t \textbf{H}\_t \textbf{m}\_{t-1} + \textbf{K}\_t z\_t \\
+    &= \textbf{m}\_{t-1} + \textbf{K}\_t \left( z\_t - \textbf{H}\_t \textbf{m}\_{t-1} \right)
     \tag{eq.9}\label{eq:9} 
 \end{align}
 $$
@@ -223,7 +223,7 @@ $$
 </figure>
 <span> </span>
 
-4, 5, 6 번째 줄이 우리가 방금 유도한 $\textbf{K}_t$, $\textbf{m}_t$, $\textbf{P}_t$ 와 생김새가 같음을 알 수 있다!
+4, 5, 6 번째 줄이 우리가 방금 유도한 $\textbf{K}\_t$, $\textbf{m}\_t$, $\textbf{P}\_t$ 와 생김새가 같음을 알 수 있다!
 
 그렇다면 <a href="#kf"> 위의 slide </a> 에서 2, 3번째 줄은 뭘까?  
 - 바로 Kalman filter 에서 prediction step 이라 불리는 부분이다. 
@@ -263,8 +263,8 @@ mean update 식을 다시 보면,
 
 $$
 \begin{align}
-\textbf{m}_{t} &= \textbf{m}_{t-1} - \textbf{K}_t \textbf{H}_t \textbf{m}_{t-1} + \textbf{K}_t z_t \\
-    &= \textbf{m}_{t-1} + \textbf{K}_t \left( z_t - \textbf{H}_t \textbf{m}_{t-1} \right)
+\textbf{m}\_{t} &= \textbf{m}\_{t-1} - \textbf{K}\_t \textbf{H}\_t \textbf{m}\_{t-1} + \textbf{K}\_t z\_t \\
+    &= \textbf{m}\_{t-1} + \textbf{K}\_t \left( z\_t - \textbf{H}\_t \textbf{m}\_{t-1} \right)
 \end{align}
 $$
 
@@ -277,8 +277,8 @@ $\textbf{H}\_t \textbf{m}\_{t-1}$ 가 보이는데,
 
 $$
 \begin{align}
-\textbf{m}_{t} &= \textbf{m}_{t-1} - \textbf{K}_t \textbf{H}_t \textbf{m}_{t-1} + \textbf{K}_t z_t \\
-    &= \textbf{m}_{t-1} + \textbf{K}_t \left( z_t - \hat{z_{t}} \right)
+\textbf{m}\_{t} &= \textbf{m}\_{t-1} - \textbf{K}\_t \textbf{H}\_t \textbf{m}\_{t-1} + \textbf{K}\_t z\_t \\
+    &= \textbf{m}\_{t-1} + \textbf{K}\_t \left( z\_t - \hat{z\_{t}} \right)
 \end{align}
 $$
 

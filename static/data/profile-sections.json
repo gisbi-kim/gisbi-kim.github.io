@@ -1,0 +1,851 @@
+{
+  "updatedAt": "2026-05-24T03:00:00+00:00",
+  "sections": {
+    "publications": {
+      "title": "Publications/Patents",
+      "source": "https://docs.google.com/spreadsheets/d/1llgG9WcpRqQPqnEssBBPod2qq9l4lC4UWN0OnIQyqow/edit?gid=0#gid=0",
+      "columns": [
+        "Year",
+        "Types",
+        "Category",
+        "Venue/Book Title",
+        "Title",
+        "Authors",
+        "Journal Info",
+        "Collaboration",
+        "Download Link",
+        "Website"
+      ],
+      "rows": [
+        {
+          "Year": "2026",
+          "Types": "International",
+          "Category": "Book Chap.",
+          "Venue/Book Title": "SLAM Handbook (From Localization and Mapping to Spatial Intelligence)",
+          "Title": "Chapter 8: LiDAR SLAM",
+          "Authors": "Jens Behley, Maurice Fallon, Shibo Zhao, Giseop Kim, Ji Zhang, Fu Zhang, Ayoung Kim",
+          "Download Link": "https://github.com/SLAM-Handbook-contributors/slam-handbook-public-release",
+          "Collaboration": "",
+          "Website": "",
+          "Figure": "/images/publications/chapter-8-lidar-slam.png",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2026",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "23rd IFAC World Congress",
+          "Title": "What Matters for Real-World Long-Horizon Robot Navigation?: An Experimental Study of Implicit Goals and Sparse Memory",
+          "Authors": "Bokeon Suh*, Hyoseok Ju, Giseop Kim†",
+          "Download Link": "",
+          "Collaboration": "",
+          "Figure": "/images/publications/what-matters-long-horizon-robot-navigation.png",
+          "Website": "",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2026",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "Robotics: Science and Systems (RSS)",
+          "Title": "Learning Point Cloud Geometry as a Statistical Manifold: Theory and Practice",
+          "Authors": "Jinwoo Lee*, Jiwoo Kim*, WooJae Shin, Giseop Kim, Hyondong Oh†",
+          "Download Link": "https://arxiv.org/abs/2605.10456",
+          "Collaboration": "KAIST",
+          "Figure": "/images/publications/learning-point-cloud-geometry-statistical-manifold.png",
+          "Website": "",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2026",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "IEEE International Conference \non Robotics and Automation (ICRA)",
+          "Title": "Have We Mastered Scale in Deep Monocular Visual SLAM? The ScaleMaster Dataset and Benchmark",
+          "Authors": "Hyoseok Ju*, Bokeon Suh, Giseop Kim†",
+          "Download Link": "https://arxiv.org/abs/2602.18174",
+          "Collaboration": "",
+          "Figure": "/images/publications/have-we-mastered-scale-scalemaster.png",
+          "Website": "https://scalemaster-dataset.github.io/",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2026",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "International Conference \non Learning Representations (ICLR)",
+          "Title": "Inlier-Centric Post-Training Quantization for Object Detection Models",
+          "Authors": "Minsu Kim*, Dongyeun Lee, Jaemyung Yu, Jiwan Hur, Giseop Kim, Junmo Kim†",
+          "Download Link": "https://arxiv.org/abs/2602.03472",
+          "Collaboration": "KAIST",
+          "Figure": "/images/publications/inlier-centric-post-training-quantization.png",
+          "Website": "",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "RUBIK 기반 18개 image matcher의 geometrical 강건성 및 속도-정확도 Pareto Frontier 분석",
+          "Authors": "김현우*, 김기섭†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/rubik-image-matcher-robustness-pareto.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "자율주행 VLA 모델 Alpamayo 1.5의 실내 환경 거동과 네비게이션 지시 응답",
+          "Authors": "이아윤*, 김기섭†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/alpamayo-vla-indoor-navigation-instructions.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "평면도 기반 포인트−언어 그라운디드 네비게이션",
+          "Authors": "이아윤*, 김기섭†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/floorplan-point-language-grounded-navigation.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "랑데부 브리핑: VLM 기반 의미 인식 멀티로봇 협력 탐사 기법",
+          "Authors": "이아윤*, 윤하경*, 박상혁*, 이민규*, 김기섭†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/rendezvous-briefing-vlm-multirobot-exploration.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "시각-언어 모델을 활용한 미학습 환경에서의 자율주행 방법에 관한 연구",
+          "Authors": "김현동*, 장재원, 김지후, 육성훈, 박준혁, 김기섭†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/vision-language-unseen-autonomous-driving.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "ICROS",
+          "Title": "루빅스 큐브 메커니즘 기반 바퀴 전환형 이동 로봇",
+          "Authors": "육성훈*, 김지후, 장재원, 김현동, 김기섭, 박준혁†",
+          "Journal Info": "",
+          "Collaboration": "",
+          "Download Link": "",
+          "Website": "",
+          "Figure": "/images/publications/rubiks-cube-wheel-transforming-mobile-robot.png"
+        },
+        {
+          "Year": "2026",
+          "Types": "Domestic",
+          "Category": "Journal",
+          "Venue/Book Title": "한국자동차공학회 논문집",
+          "Title": "VLM 시대의 목표 객체 탐색을 위한 지식 융합 전략 서베이",
+          "Authors": "서보건*, 김지선, 손준우, 박명옥, 김기섭†",
+          "Download Link": "http://journal.ksae.org/_common/do.php?a=current&b=21&bidx=4298&aidx=47641",
+          "Collaboration": "",
+          "Figure": "/images/publications/vlm-target-object-search-knowledge-fusion-survey.png",
+          "Website": "",
+          "Journal Info": "Vol. 34, No. 1, pp. 119-131; ISSN 1225-6382; DOI 10.7467/KSAE.2026.34.1.119"
+        },
+        {
+          "Year": "2025 추계",
+          "Types": "Domestic",
+          "Category": "Conference",
+          "Venue/Book Title": "대한전자공학회 학술대회",
+          "Title": "도심환경에서의 변화에 강인한 LiDAR 위치인식 기법",
+          "Authors": "김기섭*†, 박명옥, 손준우",
+          "Download Link": "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE12551179",
+          "Collaboration": "",
+          "Website": "",
+          "Figure": "/images/publications/robust-lidar-localization-urban-changes.png",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2025",
+          "Types": "International",
+          "Category": "Journal",
+          "Venue/Book Title": "IEEE Robotics and Automation Letters (RA-L)",
+          "Title": "LAMP: Implicit Language Map for Robot Navigation",
+          "Authors": "Sibaek Lee*, Hyeonwoo Yu, Giseop Kim, Sunwook Choi†",
+          "Download Link": "https://arxiv.org/abs/2602.11862",
+          "Collaboration": "SKKU, NAVER LABS",
+          "Figure": "/images/publications/lamp-implicit-language-map.png",
+          "Website": "https://lab-of-ai-and-robotics.github.io/LAMP/",
+          "Journal Info": "Vol. 10, No. 12, pp. 12365-12372; ISSN 2377-3766; DOI 10.1109/LRA.2025.3619820"
+        },
+        {
+          "Year": "2025",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "IEEE/CVF International Conference \non Computer Vision (ICCV)",
+          "Title": "2D Gaussian Splatting-based Sparse-view Transparent Object Depth Reconstruction via Physics Simulation for Scene Update",
+          "Authors": "Jeongyun Kim*, Seunghoon Jeong*, Giseop Kim, Myung-Hwan Jeon, Eunji Jun, Ayoung Kim†",
+          "Download Link": "https://arxiv.org/abs/2507.11069",
+          "Collaboration": "SNU",
+          "Website": "https://jeongyun0609.github.io/TRAN-D/",
+          "Figure": "/images/publications/2d-gaussian-splatting-transparent-object-depth.png",
+          "Journal Info": ""
+        },
+        {
+          "Year": "2025",
+          "Types": "International",
+          "Category": "Conference",
+          "Venue/Book Title": "IEEE International Conference \non Robotics and Automation (ICRA)",
+          "Title": "Ephemerality meets LiDAR-based Lifelong Mapping",
+          "Authors": "Hyeonjae Gil*, Dongjae Lee*, Giseop Kim, Ayoung Kim†",
+          "Download Link": "https://arxiv.org/abs/2502.13452",
+          "Collaboration": "SNU",
+          "Website": "https://github.com/dongjae0107/ELite",
+          "Figure": "/images/publications/ephemerality-meets-lidar-lifelong-mapping.png",
+          "Journal Info": ""
+        },
+        {
+          "Year": "EOL",
+          "Types": "",
+          "Category": "",
+          "Venue/Book Title": "",
+          "Title": "",
+          "Authors": "",
+          "Download Link": "",
+          "Collaboration": "",
+          "Website": "",
+          "Journal Info": ""
+        }
+      ]
+    },
+    "talks": {
+      "title": "Invited Talks",
+      "source": "https://docs.google.com/spreadsheets/d/1IMAH9483sktm1k30Z_7phFRiy5stcVT6u2kbW4Re6rU/edit?gid=0#gid=0",
+      "columns": [
+        "Date",
+        "Event/Session",
+        "Host / Venue",
+        "Invitation From",
+        "Title",
+        "Slide Link",
+        "Event Link"
+      ],
+      "rows": [
+        {
+          "Date": "2026.05.28",
+          "Event/Session": "Invited Talk",
+          "Host / Venue": "Ewha Womans University",
+          "Invitation From": "Prof. Daeun Song",
+          "Title": "3D Perception, Language, and AI for Human-robot Interactive Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.04.02",
+          "Event/Session": "Invited Talk",
+          "Host / Venue": "Hanyang Univ (ERICA)",
+          "Invitation From": "Prof. Wansoo Kim",
+          "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.03.24",
+          "Event/Session": "Invited Talk",
+          "Host / Venue": "ETRI, Daegu-Gyeongbuk Regional Research Division",
+          "Invitation From": "Dr. Nam Seung Woo",
+          "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.02.06",
+          "Event/Session": "Spatial AI Tutorial Organizer & Speaker, KRoC 2026",
+          "Host / Venue": "Pyeongchang, South Korea",
+          "Invitation From": "Prof. Sunglok Choi",
+          "Title": "IMU Basics and Inertial Aided Navigation",
+          "Slide Link": "http://dropbox.com/scl/fi/1f8outhp6bywypygxbsn5/20260206-Kroc-2026-IMU-Basics-and-Inertial-Aided-Navigation.pptx?rlkey=qpyqft9cgxx5vzkccb6x4pp0x&dl=0",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.02.05",
+          "Event/Session": "Graduate Student Seminar",
+          "Host / Venue": "Pyeongchang, South Korea",
+          "Invitation From": "KRoC Organization Committee",
+          "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
+          "Slide Link": "https://www.dropbox.com/scl/fi/6ccku80b4dlmgexg7y3e8/20260205-Kroc-2026-Giseop-Kim-sinjin.pptx?rlkey=3x0mtdfwjbu47l7cbk2w30fhk&e=1&dl=0",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.02.05",
+          "Event/Session": "Special Session 3: AI-based Autonomous Systems, KRoC 2026",
+          "Host / Venue": "Pyeongchang, South Korea",
+          "Invitation From": "Prof. Hyeonwoo Yu",
+          "Title": "CoT/Scene-graph/and Recent Paradigms for Mobile Robot Navigation: A Short Survey and Real-World Lessons",
+          "Slide Link": "https://www.dropbox.com/scl/fi/hhu6kb2utuommt3jfagcw/20260205-Kroc-2026-Giseop-Kim-TA3-Special-session.pptx?rlkey=31k2j9bnfrgptxmhkt2pb161a&e=1&dl=0",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.02.02",
+          "Event/Session": "Invited Talk",
+          "Host / Venue": "Daegu, South Korea",
+          "Invitation From": "Dalseo-gu Office Monthly Meeting Special Lecture",
+          "Title": "Daegu's Innovation, Moving Towards a Robot and Future Mobility City",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2026.01.19",
+          "Event/Session": "Invited Tutorial, ICEIC 2026",
+          "Host / Venue": "Macau, China",
+          "Invitation From": "ICEIC Organization Committee",
+          "Title": "An Invitation to 3D Vision, Spatial AI, and Physical AI",
+          "Slide Link": "https://www.dropbox.com/scl/fi/2aw69i4tv6ai6soddxbyu/20260118-slam-tutorial-iceic-giseop-kim.pptx?rlkey=txily56tuzntvnxlt99r5whtb&e=1&dl=0",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.12.10",
+          "Event/Session": "Invited Talk, Department of Intelligent Robotics, SKKU",
+          "Host / Venue": "Suwon, South Korea",
+          "Invitation From": "Prof. Hyeonwoo Yu",
+          "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.12.09",
+          "Event/Session": "Invited Talk, Department of Civil and Environmental Engineering, KAIST",
+          "Host / Venue": "Daejeon, South Korea",
+          "Invitation From": "Prof. Tae-Hyuk Kwon",
+          "Title": "Robotics and Spatial AI for Construction",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.12.08",
+          "Event/Session": "Invited Talk, Dept. of Industrial Machinery DX, KIMM",
+          "Host / Venue": "Daejeon, South Korea",
+          "Invitation From": "Dr. Younghun Cho",
+          "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.10.30",
+          "Event/Session": "Invited Talk, 2025 Fall Conference of The Korean Fiber Society",
+          "Host / Venue": "Busan, South Korea",
+          "Invitation From": "Prof. Bong Hoon Kim",
+          "Title": "Physical AI for Smart Factory (Subtitle: Humanoid, Sensing, Spatial Intelligence)",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
+          "Date": "2025.07.18",
+          "Event/Session": "2025 IEIE Joint Summer School on Image Understanding and Image Processing",
+          "Host / Venue": "Chung-Ang University, Seoul, South Korea",
+          "Invitation From": "IEIE AI Signal Processing Society / Image Understanding Research Group / Image Processing Research Group",
+          "Title": "Generative AI for Mobile Robot Navigation",
+          "Slide Link": "",
+          "Event Link": "https://www.theieie.org/events/?part=03&c_id=949"
+        },
+        {
+          "Date": "EOL",
+          "Event/Session": "",
+          "Host / Venue": "",
+          "Invitation From": "",
+          "Title": "",
+          "Slide Link": "",
+          "Event Link": ""
+        }
+      ]
+    },
+    "teaching": {
+      "title": "Teaching",
+      "source": "https://docs.google.com/spreadsheets/d/1HVrS1Vh9fEC6k8Jm2okt9LzbeGS8vWSdmC6orGq1Udk/edit?gid=0#gid=0",
+      "columns": [
+        "Year",
+        "Semester",
+        "Code",
+        "Course",
+        "TA",
+        "Lecture Material Links"
+      ],
+      "rows": [
+        {
+          "Year": "2026",
+          "Semester": "Spring",
+          "Code": "RT604",
+          "Course": "Advancded mobile system (고등 모빌리티공학)",
+          "TA": "Abdalla Hisham",
+          "Lecture Material Links": "https://github.com/team-aprl/lecture-RT604-public"
+        },
+        {
+          "Year": "2026",
+          "Semester": "Spring",
+          "Code": "MECH301",
+          "Course": "Robots for Human (인간과 공학(공))",
+          "TA": "",
+          "Lecture Material Links": ""
+        },
+        {
+          "Year": "2025",
+          "Semester": "Fall",
+          "Code": "MECH307",
+          "Course": "Introduction to Artificial Intelligence (인공지능개론)",
+          "TA": "Bokeon Suh, Jiseon Kim",
+          "Lecture Material Links": "https://github.com/team-aprl/mech307-introduction-to-ai/tree/main"
+        },
+        {
+          "Year": "2025",
+          "Semester": "Fall",
+          "Code": "AT603",
+          "Course": "Introduction to Mobility Engineering (모빌리티공학)",
+          "TA": "",
+          "Lecture Material Links": ""
+        },
+        {
+          "Year": "2025",
+          "Semester": "Spring",
+          "Code": "BE203",
+          "Course": "Creative mechanical design (창의기계설계)",
+          "TA": "Choongil Ahn, Jiwung Kwon",
+          "Lecture Material Links": "https://www.dropbox.com/scl/fo/bk4o548e54624uxr2zdpb/ADoHQr3MP1EkBJ49cWd7pbI?rlkey=w4l9zrw0pzbrz953d483hvd8b&dl=0"
+        }
+      ]
+    },
+    "awards": {
+      "title": "Awards",
+      "columns": [
+        "Award",
+        "Recipient",
+        "Event",
+        "Event Link",
+        "Date",
+        "Note"
+      ],
+      "rows": [
+        {
+          "Date": "2026.07",
+          "Award": "Early-career Researcher Award",
+          "Recipient": "Giseop Kim",
+          "Event": "ICROS 2026",
+          "Event Link": "",
+          "Note": ""
+        },
+        {
+          "Date": "2026.02",
+          "Award": "Early-career Researcher Award",
+          "Recipient": "Giseop Kim",
+          "Event": "KRoC 2026",
+          "Event Link": "",
+          "Note": ""
+        },
+        {
+          "Date": "2025.10",
+          "Award": "Best Poster Award",
+          "Recipient": "Jiseon Kim (MS student of APRL)",
+          "Event": "HEAI Workshop, IROS 2025",
+          "Event Link": "https://heai-iros25-workshop.github.io/",
+          "Note": ""
+        }
+      ]
+    },
+    "academic_service": {
+      "title": "Academic Service",
+      "columns": [
+        "Date",
+        "Venue",
+        "Role",
+        "Event",
+        "Title",
+        "Tutorial Site",
+        "Explorer",
+        "Website"
+      ],
+      "rows": [
+        {
+          "Date": "2026.10",
+          "Venue": "IROS 2026",
+          "Role": "Workshop Organizer",
+          "Event": "",
+          "Title": "Second Workshop on Human-aware Embodied AI",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://heai-iros26-workshop.github.io/"
+        },
+        {
+          "Date": "2026.10",
+          "Venue": "IROS 2026",
+          "Role": "Workshop Organizer",
+          "Event": "",
+          "Title": "Long-Term Perception for Human-Centric Autonomy (LTP): Towards Undo for the Physical World",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://mit-spark.github.io/Longterm-Perception-WS/"
+        },
+        {
+          "Date": "2026.07",
+          "Venue": "ICROS 2026",
+          "Role": "Organizing Committee",
+          "Event": "",
+          "Title": "ICROS 2026 organization committee",
+          "Tutorial Site": "",
+          "Explorer": "https://gisbi-kim.github.io/icros2026-explorer/",
+          "Website": ""
+        },
+        {
+          "Date": "2026.02",
+          "Venue": "KRoC 2026",
+          "Role": "Tutorial Organizer",
+          "Event": "",
+          "Title": "SLAM tutorial organizer",
+          "Tutorial Site": "https://sites.google.com/view/kroc26-spatial-ai-tutorial/home",
+          "Explorer": "",
+          "Website": ""
+        }
+      ]
+    },
+    "personal_projects": {
+      "title": "Personal Projects",
+      "columns": [
+        "Title",
+        "Description",
+        "Link"
+      ],
+      "rows": [
+        {
+          "Title": "Conference Explorers",
+          "Description": "Interactive conference-paper explorers for browsing robotics and AI research landscapes.",
+          "Link": "https://gisbi-kim.github.io/conference-explorers/"
+        }
+      ]
+    },
+    "essays": {
+      "title": "Essays",
+      "source": "https://docs.google.com/spreadsheets/d/1K6xR-CiUZex9eF2j6FrT3dTzzGVsKckb9X4mz2fB0ck/edit?gid=0#gid=0",
+      "columns": [
+        "Published Date",
+        "Title",
+        "Tags",
+        "Link"
+      ],
+      "rows": [
+        {
+          "Published Date": "2026.05.16",
+          "Title": "연구주제 선정: 교수와 학생의 카카오톡 질답",
+          "Tags": "Research, Advice",
+          "Link": "https://gisbi-kim.github.io/research-agenda-design-talk/"
+        },
+        {
+          "Published Date": "2026.05.16",
+          "Title": "조교수에서 독립 PI로: 10년 분기별 점검표",
+          "Tags": "Advice, Career",
+          "Link": "https://gisbi-kim.github.io/assistant-professor-to-independent-pi-10y/"
+        },
+        {
+          "Published Date": "2026.05.10",
+          "Title": "대학원생 선발을 위한 행동면접 기반 연구역량 평가 가이드라인",
+          "Tags": "Advice, Research",
+          "Link": "https://gisbi-kim.github.io/graduate-recruiting-guide/"
+        },
+        {
+          "Published Date": "2026.05.10",
+          "Title": "논문을 깊고 빠르게 읽는 13가지 질문",
+          "Tags": "Study, Advice",
+          "Link": "https://gisbi-kim.github.io/paper-reading-13-questions/"
+        },
+        {
+          "Published Date": "2026.05.10",
+          "Title": "AI 시대의 4가지 진짜 역량",
+          "Tags": "AI, Advice",
+          "Link": "https://gisbi-kim.github.io/ai-collaboration-capabilities/"
+        },
+        {
+          "Published Date": "2026.05.01",
+          "Title": "Motivation ≠ Novelty",
+          "Tags": "Research, Advice",
+          "Link": "https://gisbi-kim.github.io/motivation-is-not-novelty/"
+        },
+        {
+          "Published Date": "2026.04.19",
+          "Title": "Alpamayo를 VLA Unified Survey 2026 관점에서 해부하기",
+          "Tags": "AI, Study",
+          "Link": "https://gisbi-kim.github.io/alpamayo-anatomy-vla-survey-2026/"
+        },
+        {
+          "Published Date": "2026.04.18",
+          "Title": "RoboPaper Atlas Project",
+          "Tags": "Research, Study",
+          "Link": "https://gisbi-kim.github.io/robopaper-atlas"
+        },
+        {
+          "Published Date": "2026.04.11",
+          "Title": "VLA 통합 서베이 (2024-2026)",
+          "Tags": "Survey, AI",
+          "Link": "https://gisbi-kim.github.io/vla-unified-survey-2024-2026/"
+        },
+        {
+          "Published Date": "2026.04.11",
+          "Title": "VLM · VLA · Nav2 Pragmatic Compositions",
+          "Tags": "AI, Research",
+          "Link": "https://gisbi-kim.github.io/pragmatic_vlm_vla_nav2_compositions/"
+        },
+        {
+          "Published Date": "2026.04.11",
+          "Title": "Vibed VLA Book",
+          "Tags": "AI, Study",
+          "Link": "https://gisbi-kim.github.io/vibed-vla-book/"
+        },
+        {
+          "Published Date": "2026.04.08",
+          "Title": "[기계저널 2026년 4월호] 공간 지능을 위한 시각-언어 내비게이션과 SLAM의 융합",
+          "Tags": "Survey, Research",
+          "Link": "https://www.dropbox.com/scl/fi/5yqmjopt9c0fc9jbad2yg/202604_p36-42.pdf?rlkey=1tuzxh52ifh7xycp5dnqb52fb&dl=0"
+        },
+        {
+          "Published Date": "2026.03.27",
+          "Title": "어떤 논문을 써야 하는가",
+          "Tags": "Research, Advice",
+          "Link": "https://gisbi-kim.github.io/what-paper-to-write/"
+        },
+        {
+          "Published Date": "2026.03.19",
+          "Title": "지능 비용 제로 시대, 인간에게 남는 훈련들",
+          "Tags": "AI, Reflection",
+          "Link": "https://gisbi-kim.github.io/intelligence-cost-zero/"
+        },
+        {
+          "Published Date": "2024.08.24",
+          "Title": "From-scratched Pose-graph SLAM Tutorial: 1편",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2024/08/24/rot-avg1.html"
+        },
+        {
+          "Published Date": "2024.05.25",
+          "Title": "연구길의 초입에서",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2024/05/25/entering-research.html"
+        },
+        {
+          "Published Date": "2024.05.25",
+          "Title": "R2LIVE Reprojection Error Jacobian 유도해보기",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2024/05/25/reprojection-jacobian-r2live.html"
+        },
+        {
+          "Published Date": "2024.04.09",
+          "Title": "박사과정을 하면서 도움이 되었던 마인드 5가지",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2024/04/09/for-the-qualification.html"
+        },
+        {
+          "Published Date": "2024.01.01",
+          "Title": "C++17 execution 실습 1편: 빌드부터 실행까지 (Feat. oneTBB and g++-11)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2024/01/01/cpp17-tbb.html"
+        },
+        {
+          "Published Date": "2023.12.24",
+          "Title": "신년 계획 세우는 법 세우는 법",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2023/12/24/meta-making-plan.html"
+        },
+        {
+          "Published Date": "2023.12.16",
+          "Title": "A nano Lie theory: 1편 (개념 편)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2023/12/16/nano-lie-theory.html"
+        },
+        {
+          "Published Date": "2023.12.10",
+          "Title": "CUDA 프로그래밍: Thrust 실습 2편 (Feat. godbolt)",
+          "Tags": "Study, Advice",
+          "Link": "https://gsk1m.github.io/productivity/2023/12/10/thrust-practice-2.html"
+        },
+        {
+          "Published Date": "2023.10.19",
+          "Title": "구독자와 인용 1k 달성!",
+          "Tags": "Reflection, Career",
+          "Link": "https://gsk1m.github.io/daily/2023/10/19/1k.html"
+        },
+        {
+          "Published Date": "2023.10.02",
+          "Title": "학계에서 고-투 브랜드가 되는 법",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2023/10/02/being-goto-brand-in-academia.html"
+        },
+        {
+          "Published Date": "2023.06.23",
+          "Title": "Row-major, Column-major, 그리고 컴파일러 최적화",
+          "Tags": "Study, Advice",
+          "Link": "https://gsk1m.github.io/productivity/2023/06/23/rowcolfunc.html"
+        },
+        {
+          "Published Date": "2023.05.19",
+          "Title": "2023년 상반기 프로그래밍 책 추천 3권",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2023/05/19/2023-spring-programming-books.html"
+        },
+        {
+          "Published Date": "2023.04.08",
+          "Title": "CUDA 프로그래밍: Thrust 실습 1편",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2023/04/08/thrust-practice-1.html"
+        },
+        {
+          "Published Date": "2023.02.28",
+          "Title": "Robotics 최신 학계 소식 받아보기 (Feat. robotics-worldwide)",
+          "Tags": "Advice, Reflection",
+          "Link": "https://gsk1m.github.io/productivity/2023/02/28/robotics-worldwide.html"
+        },
+        {
+          "Published Date": "2023.01.09",
+          "Title": "IMU와 LiDAR를 퓨전해야 하는 이유 2 (Feat. PyPose and Open3D)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2023/01/09/imu-lidar-fusion2.html"
+        },
+        {
+          "Published Date": "2023.01.01",
+          "Title": "IMU와 LiDAR를 퓨전해야 하는 이유 1 (Feat. PyPose)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2023/01/01/imu-lidar-fusion1.html"
+        },
+        {
+          "Published Date": "2022.11.26",
+          "Title": "FAST-LIO가 말 그대로 Fast 한 이유",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/11/26/fastlio-gain.html"
+        },
+        {
+          "Published Date": "2022.11.12",
+          "Title": "Robotics Engineer 로서 자주하는 생각들",
+          "Tags": "Career, Reflection",
+          "Link": "https://gsk1m.github.io/daily/2022/11/12/robotics-engineer.html"
+        },
+        {
+          "Published Date": "2022.10.28",
+          "Title": "IROS 2022 참석 후기",
+          "Tags": "Travel, Reflection",
+          "Link": "https://gsk1m.github.io/daily/2022/10/28/iros-post1.html"
+        },
+        {
+          "Published Date": "2022.10.09",
+          "Title": "Nerf 실습 (Feat. Nerfstudio)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/10/09/nerfstudio-example1.html"
+        },
+        {
+          "Published Date": "2022.09.23",
+          "Title": "Error-state Kalman Filter 이야기 (Feat. On-manifold Optimization)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/09/23/kf-tutorial10.html"
+        },
+        {
+          "Published Date": "2022.09.01",
+          "Title": "[SymForce Tutorial 4편] Robust Optimization Tutorial",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/09/01/robust-opt-tutorial1.html"
+        },
+        {
+          "Published Date": "2022.07.31",
+          "Title": "[SymForce Tutorial 3편] Pose-graph Optimization 실습 (Toy Example)",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/07/31/pgo-toy.html"
+        },
+        {
+          "Published Date": "2022.07.22",
+          "Title": "[SymForce Tutorial 2편] Sim(3) 최적화에 대해 알아보고 구현해보자",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/07/22/sim3-tutorial.html"
+        },
+        {
+          "Published Date": "2022.07.09",
+          "Title": "[SymForce Tutorial 1편] Nonlinear ICP 밑바닥부터 구현해보기",
+          "Tags": "Study, Research",
+          "Link": "https://gsk1m.github.io/slam/2022/07/09/symforce_icp.html"
+        },
+        {
+          "Published Date": "2022.03.05",
+          "Title": "Gauss-Newton Opt == IEKF update ?",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/gn-iekf-same/"
+        },
+        {
+          "Published Date": "2021.10.03",
+          "Title": "SLAM Back-end 공부자료 5개 추천",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/slam-textbooks/"
+        },
+        {
+          "Published Date": "2021.05.31",
+          "Title": "ICRA 2021 Radar in Robotics Workshop 요약",
+          "Tags": "Research, Study",
+          "Link": "https://gisbi-kim.github.io/post/icra21-radar-ws/"
+        },
+        {
+          "Published Date": "2021.05.30",
+          "Title": "Radar Odometry Results on MulRan dataset",
+          "Tags": "Research, Study",
+          "Link": "https://gisbi-kim.github.io/post/yeti-radar-odom-mulran1/"
+        },
+        {
+          "Published Date": "2021.05.17",
+          "Title": "Scan Context-based LiDAR Pose-graph SLAM [구현]",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/sclidarslam/"
+        },
+        {
+          "Published Date": "2021.04.27",
+          "Title": "Filter-based VIO [1편] — MSCKF 계열 history 정리",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/msckf-history/"
+        },
+        {
+          "Published Date": "2021.03.09",
+          "Title": "Bayesian Filtering [1편] — posterior 의 mean, covariance 구하기",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/bayesfiltering-1/"
+        },
+        {
+          "Published Date": "2021.03.09",
+          "Title": "Bayesian Filtering [2편] — Recursive estimation 의 시작 (칼만필터 유도)",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/bayesfiltering-2/"
+        },
+        {
+          "Published Date": "2021.03.04",
+          "Title": "SLAM back-end [1편] — SLAM은 Ax=b 를 푸는 것이다",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/slambackend-1/"
+        },
+        {
+          "Published Date": "2021.03.02",
+          "Title": "SLAM의 뿌리를 찾아서",
+          "Tags": "Study, Research",
+          "Link": "https://gisbi-kim.github.io/post/slam-root/"
+        }
+      ]
+    }
+  }
+}

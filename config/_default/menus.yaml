@@ -1,18 +1,24 @@
 main:
-  - name: Home
-    url: '#about'
-    weight: 10
   - name: Publications
     url: '#publications'
     weight: 20
   - name: Talks
     url: '#talks'
     weight: 30
+  - name: Awards
+    url: '#awards'
+    weight: 32
+  - name: Service
+    url: '#academic-service'
+    weight: 35
   - name: Teaching
     url: '#teaching'
     weight: 40
+  - name: Projects
+    url: '#personal-projects'
+    weight: 45
   - name: Essays
-    url: '#essays'
+    url: /essays/
     weight: 50
   - name: CV
     url: https://drive.google.com/drive/folders/1_0XFI8jedwYIr4QIIQ17cvAXhwOPRSrd
