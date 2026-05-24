@@ -517,14 +517,19 @@
   }
 
   function copySectionUri(section) {
-    const url = `${window.location.origin}${window.location.pathname.replace(/\/$/, "") || "/"}#${section.id}`;
+    const url = new URL(window.location.href);
+    url.hash = section.id;
+    const sectionUrl = url.toString();
+    if (window.location.hash !== `#${section.id}`) {
+      window.history.pushState(null, "", `#${section.id}`);
+    }
     if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(url).catch(() => {});
+      navigator.clipboard.writeText(sectionUrl).catch(() => {});
       return;
     }
 
     const textarea = document.createElement("textarea");
-    textarea.value = url;
+    textarea.value = sectionUrl;
     textarea.setAttribute("readonly", "");
     textarea.style.position = "fixed";
     textarea.style.opacity = "0";
@@ -539,12 +544,12 @@
   }
 
   function initSectionHeadingCopy() {
-    document.querySelectorAll("section.home-section[id] .section-heading h1").forEach((heading) => {
+    document.querySelectorAll("section.home-section[id] .section-heading :is(h1, h2, h3)").forEach((heading) => {
       const section = heading.closest("section.home-section[id]");
       if (!section) return;
       heading.setAttribute("role", "button");
       heading.setAttribute("tabindex", "0");
-      heading.setAttribute("title", "Copy section link");
+      heading.setAttribute("title", "Copy section link and update URL");
       heading.addEventListener("click", () => copySectionUri(section));
       heading.addEventListener("keydown", (event) => {
         if (event.key !== "Enter" && event.key !== " ") return;
