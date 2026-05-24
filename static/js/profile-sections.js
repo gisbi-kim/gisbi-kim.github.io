@@ -21,6 +21,7 @@
       { value: "all", label: "All" },
       { value: "Journal", label: "Journal" },
       { value: "Conference", label: "Conference" },
+      { value: "Workshop", label: "Workshop" },
       { value: "Book", label: "Book" },
     ],
     aprl: [
@@ -281,6 +282,8 @@
     if (text.includes("International Conference on Intelligent Robots and Systems")) return "IROS";
     if (text.includes("International Conference on Computer Vision")) return "ICCV";
     if (text.includes("International Conference on Learning Representations")) return "ICLR";
+    if (text.includes("ICRA 2026 WS")) return "ICRA WS";
+    if (text.includes("IROS 2025 WS")) return "IROS WS";
     if (text.includes("SLAM Handbook")) return "SLAM Handbook";
     return text;
   }
