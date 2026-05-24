@@ -37,13 +37,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "1st Workshop on Perceptual Challenges for Planetary Exploration, ICRA 2026 WS",
           "Title": "Simulation for Planetary Robotic Perception: A Concise Survey of Capabilities and Gaps",
-          "Authors": "Hoyun Kim*, Giseop Kim?",
+          "Authors": "Hoyun Kim*, Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "",
           "Note": "non-archival",
           "Download Link": "",
           "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Figure": "/images/publications/simulation-planetary-robotic-perception-survey.png"
         },
         {
           "Year": "2026",
@@ -51,13 +51,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "MM-SpatialAI Workshop, ICRA 2026 WS",
           "Title": "Towards Lifelong Outdoor Magnetic-Aware SLAM: A Multi-Modal Day-and-Night Geomagnetic Dataset",
-          "Authors": "Bibhutibhusan Nayak*, Hyoseok Ju*, Giseop Kim?",
+          "Authors": "Bibhutibhusan Nayak*, Hyoseok Ju*, Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "",
           "Note": "non-archival",
           "Download Link": "",
-          "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Website": "https://xingxingzuo.github.io/MM-SpatialAI/",
+          "Figure": "/images/publications/lifelong-outdoor-magnetic-aware-slam.png"
         },
         {
           "Year": "2026",
@@ -65,13 +65,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "MM-SpatialAI Workshop, ICRA 2026 WS",
           "Title": "Two-Stage Hint–Object Alignment for Text-to-PointCloud Localization",
-          "Authors": "Doeon Kim*, Giseop Kim?",
+          "Authors": "Doeon Kim*, Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "",
           "Note": "non-archival",
           "Download Link": "",
-          "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Website": "https://xingxingzuo.github.io/MM-SpatialAI/",
+          "Figure": "/images/publications/two-stage-hint-object-alignment-text-pointcloud.png"
         },
         {
           "Year": "2026",
@@ -235,13 +235,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "Human-aware Embodied AI (HEAI), IROS 2025 WS",
           "Title": "Towards Human-Like Instruction Navigation in Real-World",
-          "Authors": "Jiseon Kim*, Daeun Song, Bokeon Suh, Hyoseok Ju, Yumin Lee, Xuesu Xiao, and Giseop Kim?",
+          "Authors": "Jiseon Kim*, Daeun Song, Bokeon Suh, Hyoseok Ju, Yumin Lee, Xuesu Xiao, and Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "George Mason University",
           "Note": "non-archival; Best Poster Award",
           "Download Link": "",
-          "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Website": "https://heai-iros25-workshop.github.io/",
+          "Figure": "/images/publications/human-like-instruction-navigation-real-world.png"
         },
         {
           "Year": "2025",
@@ -249,13 +249,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "Human-aware Embodied AI (HEAI), IROS 2025 WS",
           "Title": "Where to Fuse in the VLM Era: A Survey on Integrating Knowledge into Object Goal Navigation",
-          "Authors": "Bokeon Suh*, Jiseon Kim, Giseop Kim?",
+          "Authors": "Bokeon Suh*, Jiseon Kim, Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "",
           "Note": "non-archival",
           "Download Link": "",
-          "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Website": "https://heai-iros25-workshop.github.io/",
+          "Figure": "/images/publications/where-to-fuse-vlm-object-goal-navigation.png"
         },
         {
           "Year": "2025",
@@ -263,13 +263,13 @@
           "Category": "Workshop",
           "Venue/Book Title": "The 15th Workshop on Planning, Perception and Navigation for Intelligent Vehicles (PPNIV), IROS 2025 WS",
           "Title": "Towards Scale-consistent Deep Monocular Visual SLAM in Indoor Environments: A Dataset and Benchmark",
-          "Authors": "Hyoseok Ju*, Giseop Kim?",
+          "Authors": "Hyoseok Ju*, Giseop Kim†",
           "Journal Info": "",
           "Collaboration": "",
           "Note": "non-archival",
           "Download Link": "",
-          "Website": "",
-          "Figure": "/images/publication-dummy.svg"
+          "Website": "https://iros25-ppniv.github.io/",
+          "Figure": "/images/publications/scale-consistent-monocular-visual-slam-indoor.png"
         },
         {
           "Year": "2025",
