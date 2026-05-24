@@ -22,9 +22,6 @@ education:
       institution: KAIST
       year: 2017
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: mailto:gsk@dgist.ac.kr
   - icon: google-scholar
     icon_pack: ai
     link: https://scholar.google.com/citations?hl=en&user=9mKOLX8AAAAJ&view_op=list_works

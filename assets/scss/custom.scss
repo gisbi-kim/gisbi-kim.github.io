@@ -500,6 +500,27 @@
   color: inherit;
 }
 
+.profile-email-link {
+  color: var(--bs-secondary-color, #5b6472);
+  display: inline-block;
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.84rem;
+  line-height: 1.25;
+  margin-top: 0.42rem;
+  text-decoration: none;
+}
+
+.profile-email-link:hover,
+.profile-email-link:focus-visible {
+  color: var(--bs-primary, #1565c0);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.profile-scholar-fallback {
+  color: var(--bs-primary, #1565c0);
+}
+
 .profile-data-table-wrap {
   overflow-x: auto;
 }

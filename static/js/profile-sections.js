@@ -678,6 +678,24 @@
     });
   }
 
+  function initProfileEmailLink() {
+    document.querySelectorAll(".portrait-title").forEach((title) => {
+      if (title.querySelector(".profile-email-link")) return;
+      const email = document.createElement("a");
+      email.className = "profile-email-link";
+      email.href = "mailto:gsk@dgist.ac.kr";
+      email.textContent = "gsk@dgist.ac.kr";
+      title.appendChild(email);
+    });
+  }
+
+  function initScholarIconFallback() {
+    document.querySelectorAll('.network-icon a[aria-label="google-scholar"]').forEach((link) => {
+      if (link.querySelector(".profile-scholar-fallback")) return;
+      link.innerHTML = '<i class="fas fa-graduation-cap big-icon profile-scholar-fallback" aria-hidden="true"></i>';
+    });
+  }
+
   function initNavbarCleanup() {
     document.querySelectorAll("#navbar-main .nav-link").forEach((link) => {
       if (link.textContent.replace(/\s+/g, " ").trim() !== "Home") return;
@@ -693,6 +711,8 @@
     const mounts = Array.from(document.querySelectorAll("[data-profile-section]"));
     initSectionHeadingCopy();
     initProfileAffiliationLinks();
+    initProfileEmailLink();
+    initScholarIconFallback();
     initNavbarCleanup();
     if (!mounts.length) return;
 
