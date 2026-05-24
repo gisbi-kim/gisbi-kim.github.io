@@ -160,15 +160,28 @@
 
   function filtersFor(key) {
     if (!state.filters[key]) {
-      state.filters[key] = { type: key === "publications" ? "International" : "all", category: "all", aprl: "all", year: "all", venue: "all", tag: "all" };
+      state.filters[key] = {
+        type: key === "publications" ? "International" : "all",
+        category: key === "publications" ? ["Journal", "Conference", "Book"] : "all",
+        aprl: "all",
+        year: "all",
+        venue: "all",
+        tag: "all",
+      };
     }
     return state.filters[key];
+  }
+
+  function selectedCategories(filters) {
+    return Array.isArray(filters.category) ? filters.category : [];
   }
 
   function publicationBaseMatch(row, filters) {
     const typeMatch = filters.type === "all" || row.Types === filters.type;
     const category = String(row.Category || "");
-    const categoryMatch = filters.category === "all" || category.includes(filters.category);
+    const categories = selectedCategories(filters);
+    const categoryMatch =
+      filters.category === "all" || !categories.length || categories.some((selected) => category.includes(selected));
     const aprl = isAprlPublication(row);
     const aprlMatch = filters.aprl === "all" || (filters.aprl === "yes" ? aprl : !aprl);
     return typeMatch && categoryMatch && aprlMatch;
@@ -200,7 +213,7 @@
 
   function talkType(row) {
     if (/(KRoC|ICEIC|Conference|Summer School)/i.test(String(row["Event/Session"] || ""))) return "Conference";
-    if (/Daegu's Innovation, Moving Towards a Robot and Future Mobility City/i.test(String(row.Title || ""))) return "Government";
+    if (/Daegu's Innovation, Moving Towards a Robot and Future Mobility City/i.test(String(row.Title || ""))) return "Public Sector";
     if (/^Prof\./i.test(String(row["Invitation From"] || "").trim())) return "University";
     if (/^Dr\./i.test(String(row["Invitation From"] || "").trim())) return "Research Institute";
     return "Other";
@@ -221,10 +234,21 @@
     return `<div class="profile-data-filter-group"><span>${escapeHtml(label)}</span><div class="profile-data-filter-buttons">${buttons}</div></div>`;
   }
 
+  function renderMultiSelectFilter(key, group, label, options, activeValue) {
+    const values = Array.isArray(activeValue) ? activeValue : [];
+    const buttons = options
+      .map((option) => {
+        const active = option.value === "all" ? activeValue === "all" : activeValue !== "all" && values.includes(option.value);
+        return `<button class="profile-data-filter-button${active ? " is-active" : ""}" type="button" data-profile-key="${escapeHtml(key)}" data-profile-filter="${escapeHtml(group)}" data-profile-filter-value="${escapeHtml(option.value)}" data-profile-filter-multi="true" aria-pressed="${active ? "true" : "false"}">${escapeHtml(option.label)}</button>`;
+      })
+      .join("");
+    return `<div class="profile-data-filter-group"><span>${escapeHtml(label)}</span><div class="profile-data-filter-buttons">${buttons}</div></div>`;
+  }
+
   function renderPublicationFilters(key, filters) {
     return `<div class="profile-data-filters" aria-label="Publication filters">
       ${renderSegmentedFilter(key, "type", "Region", publicationFilters.type, filters.type)}
-      ${renderSegmentedFilter(key, "category", "Type", publicationFilters.category, filters.category)}
+      ${renderMultiSelectFilter(key, "category", "Type", publicationFilters.category, filters.category)}
       ${renderSegmentedFilter(key, "aprl", "APRL", publicationFilters.aprl, filters.aprl)}
     </div>`;
   }
@@ -238,7 +262,7 @@
   }
 
   function renderTalkFilters(key, rows, filters) {
-    const preferred = ["University", "Research Institute", "Government", "Conference", "Other"];
+    const preferred = ["University", "Research Institute", "Public Sector", "Conference", "Other"];
     const present = new Set(rows.map(talkType));
     const options = [{ value: "all", label: "All" }, ...preferred.filter((type) => present.has(type)).map((type) => ({ value: type, label: type }))];
     return `<div class="profile-data-filters" aria-label="Invited talk filters">
@@ -398,8 +422,8 @@
             ? '<span class="profile-data-badge profile-data-badge-research-institute">Research Institute</span>'
             : "";
         const governmentBadge =
-          currentTalkType === "Government"
-            ? '<span class="profile-data-badge profile-data-badge-government">Government</span>'
+          currentTalkType === "Public Sector"
+            ? '<span class="profile-data-badge profile-data-badge-government">Public Sector</span>'
             : "";
         const conferenceBadge = currentTalkType === "Conference" ? '<span class="profile-data-badge profile-data-badge-conference">Conference</span>' : "";
         const isMainTeaching =
@@ -512,7 +536,22 @@
         const group = button.getAttribute("data-profile-filter");
         const value = button.getAttribute("data-profile-filter-value");
         const currentFilters = filtersFor(filterKey);
-        currentFilters[group] = button.getAttribute("data-profile-filter-toggle") === "true" && currentFilters[group] === value ? "all" : value;
+        if (button.getAttribute("data-profile-filter-multi") === "true") {
+          if (value === "all") {
+            currentFilters[group] = "all";
+          } else {
+            const next = currentFilters[group] === "all" ? [] : [...selectedCategories(currentFilters)];
+            const index = next.indexOf(value);
+            if (index >= 0) {
+              next.splice(index, 1);
+            } else {
+              next.push(value);
+            }
+            currentFilters[group] = next.length ? next : "all";
+          }
+        } else {
+          currentFilters[group] = button.getAttribute("data-profile-filter-toggle") === "true" && currentFilters[group] === value ? "all" : value;
+        }
         renderMount(mount);
       });
     });
