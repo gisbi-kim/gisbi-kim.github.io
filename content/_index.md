@@ -29,9 +29,7 @@ sections:
     content:
       title: Publications/Patents
       text: |
-        <div class="profile-data" data-profile-section="publications" data-profile-view="cards"></div>
-
-        <p class="profile-data-more-link"><a href="/papers-before-dgist/">Papers before DGIST (at KAIST) →</a></p>
+        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/publications.html">See APRL Publications →</a></p>
     design:
       columns: '1'
 
@@ -41,7 +39,7 @@ sections:
     content:
       title: Funded Projects
       text: |
-        <div class="profile-data" data-profile-section="funded_projects" data-profile-view="cards"></div>
+        <p class="profile-data-more-link"><a href="http://localhost:8000/projects.html">See Projects →</a></p>
     design:
       columns: '1'
 
@@ -77,7 +75,7 @@ sections:
     content:
       title: Teaching
       text: |
-        <div class="profile-data" data-profile-section="teaching" data-profile-view="cards"></div>
+        <p class="profile-data-more-link"><a href="http://localhost:8000/teaching.html">See Teaching →</a></p>
     design:
       columns: '1'
 
