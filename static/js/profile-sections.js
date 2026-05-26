@@ -137,6 +137,10 @@
       .replace(
         /\bTae-Hyuk Kwon\b/g,
         '<a href="https://kwon.kaist.ac.kr/" target="_blank" rel="noopener">Tae-Hyuk Kwon</a>'
+      )
+      .replace(
+        /\bURobotics\b/g,
+        '<a href="https://urobotics.ai/" target="_blank" rel="noopener">URobotics</a>'
       );
   }
 
@@ -497,7 +501,7 @@
                 ? renderEvent(row)
               : isTeachingSection && column === "TA"
                 ? renderTeachingTa(row[column])
-                : isTalksSection && column === "Invitation From"
+                : isTalksSection && ["Host / Venue", "Invitation From"].includes(column)
                   ? renderTalkInvitation(row[column])
                 : renderValue(column, row[column]);
             return `<span class="profile-data-meta${compact}${author}${fullLine}"><b>${escapeHtml(metaLabel(column))}</b>${value}</span>`;
