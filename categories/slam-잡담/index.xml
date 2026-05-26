@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SLAM 잡담 | Giseop Kim</title><link>https://gisbi-kim.github.io/categories/slam-%EC%9E%A1%EB%8B%B4/</link><atom:link href="https://gisbi-kim.github.io/categories/slam-%EC%9E%A1%EB%8B%B4/index.xml" rel="self" type="application/rss+xml"/><description>SLAM 잡담</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 02 Mar 2021 00:00:00 +0000</lastBuildDate><image><url>https://gisbi-kim.github.io/media/icon_hu567daa2745bcf51c7054a3380349c3ad_4435_512x512_fill_catmullrom_center_3.png</url><title>SLAM 잡담</title><link>https://gisbi-kim.github.io/categories/slam-%EC%9E%A1%EB%8B%B4/</link></image><item><title>SLAM의 뿌리를 찾아서</title><link>https://gisbi-kim.github.io/post/slam-root/</link><pubDate>Tue, 02 Mar 2021 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/slam-root/</guid><description>&lt;h3 id="slam의-뿌리를-찾아서-">&lt;strong>SLAM의 뿌리&lt;/strong>를 찾아서 ...&lt;/h3>
+&lt;p>떠나봅시다. &lt;/p>
+&lt;p>NOTE: 이 글은 예전에 미디엄에 올린 &amp;lt;SLAM을 SLAM답게 만드는 건 무엇일까?: 내맘대로 SLAM 정의하기&amp;gt; 의 후속편 같은 느낌으로 적어보았습니다. &lt;/p>
+&lt;blockquote>
+&lt;p>참고: &amp;lt;SLAM을 SLAM답게 만드는 건 무엇일까?: 내맘대로 SLAM 정의하기&amp;gt;&lt;br>
+&lt;a href="http://bit.ly/define-slam-myself-1">http://bit.ly/define-slam-myself-1&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>SLAM의 본질이 어디에 있는지 파악하고&lt;br>
+하나씩 끝말잇기 하듯이&lt;br>
+그 다음 뿌리를 향해 나아가봅시다. &lt;/p>
+&lt;p>레츠고 ...&lt;/p>
+&lt;hr>
+&lt;h4 id="1">1.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 &lt;strong>&lt;em>Estimation&lt;/em>&lt;/strong> 이다.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>따라서 MLE, MAP 와 같은 이야기가 나온다. &lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>더 나아가 SLAM문제를 Gaussian noise 기반으로 probabilistic 하게 formulating 하는 건 거의 시초라고도 (이자 SLAM문제의 코어) 할 수 있다.&lt;/p>
+&lt;ul>
+&lt;li> R. C. Smith and P. Cheeseman. On the representation and estimation of spatial uncertainty. IJRR. 1986. &lt;/li>
+&lt;li> Smith, Self, and Cheesemans, Estimating Uncertain Spatial Relationships in Robotics, 1990 &lt;/li>
+&lt;li> filtering 으로 풀든 optimization으로 풀든 공통으로 해당되는 중요한 내용이다. &lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="2">2.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 &lt;strong>&lt;em>State&lt;/em>&lt;/strong> estimation 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>여기서 state란 어떤 것이든 될 수 있지만, 통상적으로 우리는 알고싶은 것은 robot 과 world (map) 의 pose (즉, position + rotation) 이다. &lt;ul>
+&lt;li> 근데 state estimation 은 1. filtering 기반, 2. optimization 기반으로 나눌 수 있는데, 특히 이 글에서는 optimization기반의 SLAM의 뿌리에 대해 찾아가보자 ... &lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>물론 velocity, bias, semantic class 등 추론하고 싶은 어떤 것도 state가 될수는 있다 (사실 state라는 것은 수학적으로 확률변수-randome variable- 이기 때문에!). &lt;/li>
+&lt;/ul>
+&lt;h4 id="3">3.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 &lt;strong>&lt;em>Optimization-based&lt;/em>&lt;/strong> state estimation 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>iteratively 해를 구하는 것이 골자. &lt;ul>
+&lt;li> 특히 SLAM은 overdetermined system (measurement 수가 variable 수보다 많음) 이기 때문에 closed form으로 해를 구할 수 없어서 iterative optimization으로 답을 구해야 한다. &lt;/li>
+&lt;/ul>&lt;/li>
+&lt;li>그래서 기본적으로 SLAM공부에 있어 (computer vision과 마찬가지로) GN, LM 등이 빠질 수 없다. &lt;/li>
+&lt;/ul>
+&lt;h4 id="4">4.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 &lt;strong>&lt;em>Nonlinear&lt;/em>&lt;/strong> optimization-based state estimation 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>센서데이터의 measurement model 이 주로 nonlinear 하기 때문&lt;/li>
+&lt;li>따라서 linearize, Jacobian 등의 말이 많이 등장한다. &lt;/li>
+&lt;li>이 정의와 같은 의미로 Factor graph-based SLAM 이다~ 라는 말도 자주 쓰인다. &lt;/li>
+&lt;/ul>
+&lt;h4 id="5">5.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 &lt;strong>&lt;em>Sparse&lt;/em>&lt;/strong> nonlinear optimization-based state estimation 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>SLAM에서는 하나의 measurement 에는 적은 수의 variable 만이 관여하기 때문. &lt;/p>
+&lt;ul>
+&lt;li> 예를 들어, 아주 많은 수의 node들이 system에 있다고 하더라도 하나의 odometry measurement는 직전 node와 현재 node 만이 관여한다. 따라서 전체 measurement block들을 쌓은 Jacobian matrix 는 매우 sparse 해진다. &lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>또한, SLAM에서는 알고싶은 state (variable) 의 개수 보다 measurement 의 수가 훨씬 많기 때문에 더 sparse 해진다. &lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>따라서 sparsity 를 잘 이용하기 위해서 variable re-ordering 같은 이야기가 나온다. 여기 5번 항목까지가 Square-root SAM 논문의 내용이라고 봐도 무방하다.&lt;/p>
+&lt;ul>
+&lt;li> Frank Dellaert, and Michael Kaess. "Square Root SAM: Simultaneous localization and mapping via square root information smoothing.", IJRR 2006&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="6">6.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation &lt;strong>&lt;em>in an incremental setting&lt;/em>&lt;/strong> &amp;nbsp; 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>센서데이터는 순차적으로 들어오기 때문에, 이전 계산 값을 이용해야 시간적으로 효율적이다. &lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>또한 SLAM은 nonlinear problem 이기 때문에 이전 계산 값을 이용해야 local minima 에 빠지는 것을 방지할 수 있어 성능적으로 효과적이다. &lt;/p>
+&lt;ul>
+&lt;li> 여기까지가 isam1 의 내용이다 (08 TRO iSAM: Incremental smoothing and mapping)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="7">7.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation in an incremental setting &lt;strong>&lt;em>by connecting between graphical model and sparse linear algebra perspective&lt;/em>&lt;/strong> &amp;nbsp; 이다.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>Squared Root SAM및 isam 까지는 실제 solver 는 선형대수적으로 풀었지만, Bayes tree기반의 isam2로 넘어올 수 있었던 것은 matrix 가 실제로 graphically 어떤 의미를 가지는 지를 (Kaess and Dellaert‬님께서) 이해하고 있었기 때문임.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Information matrix 는 그 의미가 사실 MRF이고, ... 이런 것에 대한 이야기들. &lt;/p>
+&lt;ul>
+&lt;li> 여기까지가 isam2 의 내용이다 (12 IJRR iSAM2: Incremental Smoothing and Mapping Using the Bayes Tree). 또한 Factor Graphs for Robot Perception 책에서도 잘 서술되어 있다. &lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="8">8.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation in an incremental setting by connecting between graphical model and sparse linear algebra perspective &lt;strong>&lt;em>on a manifold space&lt;/em>&lt;/strong> &amp;nbsp; 이다.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>SLAM에서 관심있는 state는 거의 pose인데 여기서 rotation 부분이 nonlinear 함. 따라서 해를 update 하는 공간을 manifold 로 삼을 필요가 있음. &lt;/li>
+&lt;/ul>
+&lt;h4 id="9">9.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation in an incremental setting by connecting between graphical model and sparse linear algebra perspective on a manifold space &lt;strong>&lt;em>by integrating multiple sensors’ data&lt;/em>&lt;/strong> &amp;nbsp; 이다.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>front-end에 관한 이야기이다. &lt;/li>
+&lt;li>SLAM은 수중, 지하, 지상, 공중 등 다양한 환경에서 로봇이 활동(navigation)하는 것에 모두 관심사가 있음. 그런데 환경의 특성마다 적합한 센서가 다르고 (수중은 Sonar센서 등) 이들을 퓨전해야 할 필요가 있음. &lt;ul>
+&lt;li> 따라서 SLAM 엔지니어는 어떤 센서가 본인의 로봇이 활동하고자 하는 환경에 적합한지 이해하고, 선정하고, 융합할 수 있어야 함. &lt;/li>
+&lt;li> 특히 카메라 센서 기반의 SLAM을 하는경우 multiple-view geometry를 공부해야 하는데 그 이유가 여기 9번에 해당하는 내용. &lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>
+&lt;h4 id="10">10.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation in an incremental setting by connecting between graphical model and sparse linear algebra perspective on a manifold space by integrating multiple sensors’ data &lt;strong>&lt;em>with robust data associations&lt;/em>&lt;/strong> &amp;nbsp; 이다.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>front-end 에서는 data association (DA) 이 아닌 것이 없다. local feature matching 부터 loop detection 까지, 결국 모든 것이 이거랑 제일 가까운 애가 누구냐? 에 대답하는 문제. &lt;/li>
+&lt;li>근데 이게 100% 정확할 수 없기 때문에 두 가지 방향에서의 노력이 요구된다. &lt;ul>
+&lt;li>먼저 그럼에도 더 실수없이 잘 할 수 있도록 더 좋은 DA를 해야하고, &lt;/li>
+&lt;li>두 번째로 DA에 실수가 있음에도 불구하고, solution이 망가지지 않도록 back-end에서 강건하게 막아줄 수 있어야 한다. MIT의 Luca Carlone 교수님이 이 분야에서 최근 많은 연구를 하고 있다. &lt;/li>
+&lt;/ul>&lt;/li>
+&lt;/ul>
+&lt;h4 id="11">11.&lt;/h4>
+&lt;blockquote>
+&lt;p>SLAM은 sparse nonlinear optimization-based state estimation in an incremental setting by connecting between graphical model and sparse linear algebra perspective on a manifold space by integrating multiple sensors’ data with robust data associations, &lt;strong>&lt;em>for multiple robots&lt;/em>&lt;/strong> &amp;nbsp; 이다. &lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>robot mission 이 결국 multi-robot 이 팀을 이루어 미션을 수행하는 경우가 많음. &lt;/li>
+&lt;li>멀티 로봇의 경우, 또 communication, coordinate 등 다양한 것들이 고려되어야 함. &lt;/li>
+&lt;/ul>
+&lt;h4 id="12-to-be-added-tba-">12. To be added (TBA) ...&lt;/h4>
+&lt;hr>
+&lt;p>대충 여기까지 와보았습니다.&lt;br>
+깊고도 넓은 SLAM의 세계!&lt;br>
+그럼 20000!&lt;/p></description></item></channel></rss>

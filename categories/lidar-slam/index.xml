@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LiDAR SLAM | Giseop Kim</title><link>https://gisbi-kim.github.io/categories/lidar-slam/</link><atom:link href="https://gisbi-kim.github.io/categories/lidar-slam/index.xml" rel="self" type="application/rss+xml"/><description>LiDAR SLAM</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate><image><url>https://gisbi-kim.github.io/media/icon_hu567daa2745bcf51c7054a3380349c3ad_4435_512x512_fill_catmullrom_center_3.png</url><title>LiDAR SLAM</title><link>https://gisbi-kim.github.io/categories/lidar-slam/</link></image><item><title>Scan Context-based LiDAR Pose-graph SLAM [구현]</title><link>https://gisbi-kim.github.io/post/sclidarslam/</link><pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/sclidarslam/</guid><description>&lt;h1 id="lidar-slam">LiDAR SLAM&lt;/h1>
+&lt;p>SLAM 이란&lt;/p>
+&lt;p>$$
+\begin{align*}
+\text{SLAM} = \text{odometry} + \text{loop closing}
+\end{align*}
+$$&lt;/p>
+&lt;p>이라고 할 수 있다.&lt;/p>
+&lt;ul>
+&lt;li>odometry 는 locally accruate 한 consecutive motion 을 예측하고&lt;/li>
+&lt;li>loop closing 은 odometry에서 누적된 error 를 smoothing 한다.
+&lt;ul>
+&lt;li>loop detection 과 pose-graph optimization 으로 구성된다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="sc-based-lidar-slam">SC-based LiDAR SLAM&lt;/h2>
+&lt;p>예전에 LiDAR SLAM을 구성하기 위해&lt;br>
+&lt;a href="https://github.com/irapkaist/scancontext" target="_blank" rel="noopener">Scan Context&lt;/a> 기반의 loop detection 을 lidar odometry 에 통합한 적이 있다.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/irapkaist/SC-LeGO-LOAM" target="_blank" rel="noopener">https://github.com/irapkaist/SC-LeGO-LOAM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/gisbi-kim/SC-LIO-SAM" target="_blank" rel="noopener">https://github.com/gisbi-kim/SC-LIO-SAM&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>처음에는 LeGO-LOAM 저자의 pose-graph optimziation 구현 (skeleton) 이 좋아서 거기에 integrate 했었는데,&lt;br>
+사용하다보니 다른 front-end 에 물렸으면 싶을 때가 종종 있다.&lt;/p>
+&lt;ul>
+&lt;li>ex. LeGO-LOAM은 range image 상에서 feature 를 찾기 때문에, roll pitch motion 이 왕왕 큰 hand-held 에서 A-LOAM보다 경험적으로 잘 안된다던지 그런 현상들을 좀 겪는다.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="sc-based-pose-graph-slam">SC-based Pose-graph SLAM&lt;/h2>
+&lt;p>그래서 loop detection 및 pose-graph optimization 부분만&lt;br>
+별도의 ros node 로 구성해보았다.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/gisbi-kim/SC-A-LOAM/blob/main/src/laserPosegraphOptimization.cpp" target="_blank" rel="noopener">laserPosegraphOptimization.cpp&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>사용자는 임의의 lidar odometry 를 실행하고,&lt;br>
+그 임의의 lidar odometry 프로그램은 time t에서의 odometry 와 point cloud topic 을 publish 시켜주기만 하면된다.&lt;/p>
+&lt;p>그럼 위의 laserPosegraphOptimization.cpp node 는 그 odometry (locally errornous한) 와 point cloud topic 을 subscribe 해서&lt;br>
+내부적으로 loop 를 찾고 pose graph optimization 을 수행한다.&lt;/p>
+&lt;ul>
+&lt;li>결과적으로는 보정된 odometry (및 path) 와 error 가 해소된 global map 을 publish 한다. Rviz 로 이를 확인할 수 있다.&lt;/li>
+&lt;/ul>
+&lt;p>laserPosegraphOptimization.cpp 모듈을 SC-PGO라고 부른다면,&lt;br>
+LiDAR SLAM의 전체 파이프라인은 아래와 같다.&lt;/p>
+&lt;figure id="scfastlio">
+&lt;img src="anypipe.png" style="width:90%">
+&lt;figcaption>
+&lt;center> &lt;a href="https://github.com/gisbi-kim/SC-A-LOAM"> Code Link &lt;/a> &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;p>이 리포지토리에서는 존재하는 open source 중 가장 간단한 lidar odometry인&lt;br>
+A-LOAM과 결합하여 바로 사용할 수 있도록 하였다.&lt;/p>
+&lt;ul>
+&lt;li>코드: &lt;a href="https://github.com/gisbi-kim/SC-A-LOAM" target="_blank" rel="noopener">SC-A-LOAM (github)&lt;/a>&lt;/li>
+&lt;li>예시:&lt;/li>
+&lt;/ul>
+&lt;figure id="scfastlio">
+&lt;img src="riverside01.png" style="width:90%">
+&lt;figcaption>
+&lt;center> &lt;a href="https://youtu.be/FwAVX5TVm04?t=303"> Youtube Link (대전 갑천)&lt;/a> &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;hr>
+&lt;h2 id="generic-and-modular">Generic and Modular&lt;/h2>
+&lt;p>하지만 SC-PGO (laserPosegraphOptimization.cpp) 는&lt;br>
+lidar odometry algorithm에 완전히 독립적인 모듈이기 때문에&lt;br>
+어떤 lidar odometry front-end 와도 결합될 수 있다.&lt;/p>
+&lt;ul>
+&lt;li>따라서 SC-based Generic (modular) Pose-graph SLAM 라고 부를 수 있겠다.&lt;/li>
+&lt;/ul>
+&lt;p>예시로, FAST-LIO라는 ESKF 기반 최신 LIO 와도 물려보았다 (아래 예시 비디오).&lt;/p>
+&lt;figure id="scfastlio">
+&lt;img src="scfastlio.png" style="width:85%">
+&lt;figcaption>
+&lt;center> &lt;a href="https://youtu.be/Fw9S6D6HozA?t=1708"> Youtube Link (including step-by-step tutorial) &lt;/a> &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+(당연한 이야기지만) odometry only 일 때 누적된 에러를 "쉽게" 보정할 수 있다 -- 사용자는 odometry 와 loop closing 의 결합에 대해 고민할 필요없이, 단순히 두 node 를 각각 실행해주는 것으로 LiDAR SLAM을 완성할 수 있다.
+&lt;ul>
+&lt;li>ps. 이 예제에서 알 수 있듯이 Scan Context 는 livox lidar (전방 70도만 봄) 에서도 잘 작동함을 알 수 있다.&lt;/li>
+&lt;li>ps 2. 또한 odometry topic 은 특성 sensor 에 dependent하지 않기 때문에 꼭 lidar odometry가 아니라 vo, wheel odometry 등 다양한 source 와도 쉽게 결합할 수 있을 것으로 생각된다.&lt;/li>
+&lt;/ul>
+&lt;!-- --- -->
+&lt;!-- ### 주석 --></description></item></channel></rss>

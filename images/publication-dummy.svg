@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Publication figure placeholder</title>
+  <desc id="desc">A placeholder diagram for publication cards.</desc>
+  <rect width="640" height="360" fill="#f5f7fa"/>
+  <path d="M0 270h640v90H0z" fill="#e8edf4"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M96 248c48-104 102-104 150 0s102 104 150 0 102-104 150 0" stroke="#7d91aa" stroke-width="12"/>
+    <path d="M112 106h158v92H112zM370 106h158v92H370z" stroke="#b7c3d0" stroke-width="10"/>
+    <path d="M270 152h100" stroke="#4c7ec4" stroke-width="12"/>
+    <path d="m348 130 28 22-28 22" stroke="#4c7ec4" stroke-width="12"/>
+  </g>
+  <circle cx="191" cy="152" r="30" fill="#d7e6fb"/>
+  <circle cx="449" cy="152" r="30" fill="#d8efe1"/>
+  <text x="320" y="318" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="30" font-weight="700">Figure placeholder</text>
+</svg>

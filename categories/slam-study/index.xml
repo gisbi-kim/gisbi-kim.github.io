@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SLAM Study | Giseop Kim</title><link>https://gisbi-kim.github.io/categories/slam-study/</link><atom:link href="https://gisbi-kim.github.io/categories/slam-study/index.xml" rel="self" type="application/rss+xml"/><description>SLAM Study</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 05 Mar 2022 00:00:00 +0000</lastBuildDate><image><url>https://gisbi-kim.github.io/media/icon_hu567daa2745bcf51c7054a3380349c3ad_4435_512x512_fill_catmullrom_center_3.png</url><title>SLAM Study</title><link>https://gisbi-kim.github.io/categories/slam-study/</link></image><item><title>Gauss-Newton Opt == IEKF update ?</title><link>https://gisbi-kim.github.io/post/gn-iekf-same/</link><pubDate>Sat, 05 Mar 2022 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/gn-iekf-same/</guid><description>&lt;h1 id="읽은-글">읽은 글&lt;/h1>
+&lt;p>SLAM 공부 블로그 글을 하나 읽고 요약/느낀점을 남깁니다&lt;/p>
+&lt;ul>
+&lt;li>IEKF and Gaussian-Newton method equivalence proof
+&lt;ul>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/447014586" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/447014586&lt;/a>&lt;/li>
+&lt;li>크롬에서 영어번역해서 보시면 됩니다. 대체로 중국어는 영어번역이 매우 깔끔한 경향이 있네요.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="배경지식1-kf">배경지식1: KF&lt;/h1>
+&lt;p>애초에 KF 가 optimal estimator 라고 불리는 이유를 생각해보면&lt;/p>
+&lt;p>KF의 태생은 least sq. 였다.&lt;/p>
+&lt;p>estimated (expected) 와 measured 의 차이의 variance 를 minimization 하는 식을 유도하고 (그런데 var 는 정의상 L2 norm 이고 따라서 least square minimisation 문제와 동치가 된 것!)&lt;/p>
+&lt;ul>
+&lt;li>ps. 유도과정에 대해서는 Kalman 의 60몇년도 그 seminal 논문을 봐도 되겠지만 개인적으로는 04 book KALMAN FILTERING AND NEURAL NETWORKS 의 챕터1 설명이 좋았었다.&lt;/li>
+&lt;/ul>
+&lt;p>이 때 Kalman Gain 이라는 치환을 통해 식을 깔끔하게 정리하고 나니&lt;/p>
+&lt;p>결과적으로 closed form 으로 KF 라는 engine 이 예쁘게 유도된 것.&lt;/p>
+&lt;ul>
+&lt;li>ps1. 사실 problem size 가 크지 않을 때 hessian 의 inverse 를 곱해서 normal equation 을 바로푸는 것처럼, least square optimization 역시 closed form 으로 바로 풀리긴 한다.&lt;/li>
+&lt;li>ps2. Matlab 에서는 $Ax=b$ 를 푸는 몇 가지 다양한 방식을 지원하는 것으로 알고 있는데, 그 중 slash operator 는 QR decomposition-based 로 푸는 것
+&lt;ul>
+&lt;li>see &lt;a href="https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/leastsquares.pdf" target="_blank" rel="noopener">here&lt;/a>&lt;/li>
+&lt;li>한 편, $|Ax-b|$ 뿐 아니라 $|x|$ 도 함께 최소화하도록 하는 regularizer 가 포함된 &lt;a href="https://kr.mathworks.com/help/matlab/ref/lsqminnorm.html" target="_blank" rel="noopener">lsqminnorm&lt;/a> 이라는 버전도 지원한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="배경지식2-iterative-nature">배경지식2: Iterative nature&lt;/h1>
+&lt;p>그런데 robot (online) state estimation 과 같이 measurement 가 시간에 따라 sequential 한 stream 으로 들어오는 경우&lt;/p>
+&lt;p>전체 measurement 를 모아뒀다가 해를 계산하는 batch solution 을 지양하게 되므로&lt;/p>
+&lt;p>iterative least square optimization 으로 보통 해를 구하게 된다.&lt;/p>
+&lt;p>이 때 iterative 라는 단어의 의미에 대해 좀 더 첨언을 하자면.&lt;/p>
+&lt;p>원래 $Ax=b$ 를 풀던 것을 $A\delta x = b$를 만족하는 optimal 한 $\delta$${x}^{*}$를 구하고, $x \leftarrow x \oplus \delta x ^{*}$ 를 통해 $x$를 업데이트해주는 것.&lt;/p>
+&lt;p>$\delta$$x^{*}$ 가 사전에 설정한 변화량 threshold 보다 작아지면 수렴한 것으로 보고 이 때의 해 $x$ 를 최종 optimal solution $x^{*}$ 로 확정한다.&lt;/p>
+&lt;ul>
+&lt;li>ps. 이 때 $\delta$$x$ 를 업데이트 하는 1. 방향, 2. 크기 를 어떻게 설정하느냐에 따라 line-search-based or trust-region based 로 나뉘며, 이들의 핵심은 1차미분을 활용하느냐, 2차미분을 활용하느냐 라고 할 수 있겠다.
+&lt;ul>
+&lt;li>2차미분 활용방식인 Newton 계열을 개선한 것이 Gauss-Newton 이고, 여기에 damping 을 더하면 LM (Levenberg–Marquardt) 가 된다.&lt;/li>
+&lt;li>이에 관해서는 다크프로그래머 님의 글이 최고 &lt;a href="https://darkpgmr.tistory.com/149" target="_blank" rel="noopener">https://darkpgmr.tistory.com/149&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>KF 에서도 이렇게 $\delta x$ 의 최적값을 구하고 nominal state 에 더해주는 (즉, $x \leftarrow x \oplus \delta x ^{*}$) 방식의 방법이 IEKF (Iterated Kalman Filter) 라고 불린다.&lt;/p>
+&lt;ul>
+&lt;li>혹은 error-state kf (ESKF) 라고도 불리는 듯.
+&lt;ul>
+&lt;li>오늘 읽은 블로그 글 저자의 iekf 에 대한 다른 블로그 글도 좋음
+&lt;ul>
+&lt;li>&lt;a href="https://cggos.github.io/map-mle-ols-gn-iekf-ekf.html#iekf" target="_blank" rel="noopener">https://cggos.github.io/map-mle-ols-gn-iekf-ekf.html#iekf&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/66646519" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/66646519&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>or 앞선 포스팅 에서 소개한 &lt;a href="{{ site.baseurl }}{% post_url 2021-10-03-slam-textbooks %}#m1"> Joan Sola 님의 자료&lt;/a> 도 이에 관한 내용.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="요약">요약&lt;/h1>
+&lt;p>암튼 오늘 읽은 글이 그 두개가 수학적으로 동치라는 것을 이야기하는 글이었다.&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://zhuanlan.zhihu.com/p/447014586" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/447014586&lt;/a>&lt;/li>
+&lt;li>대충 요약하자면 residual minimization 문제는 결국 unified state vector 에 대한 Normal distribution 을 따르는 error 가 0이 되도록 하는 것이 목적인 MLE problem 이므로,
+&lt;ul>
+&lt;li>cost = residual.transpose() * Covariance * residual 를 최소화하는 것으로 수학적인 모델링이 된다.&lt;/li>
+&lt;li>이 때 중앙의 covariance 를 어떻게 굽고 삶느냐에 따라 gauss-newton 꼴로 식이 정리되는지, IEKF 꼴로 식이 정리되는지의 차이가 날 뿐이라는 것이 결론이다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="생각해볼-점">생각해볼 점&lt;/h1>
+&lt;p>그나저나 블로그 글 마지막에 &lt;strong>Solver $\neq$ Problem Structure&lt;/strong> 라는 부분이 좋았다. 한번 생각해볼 가치가 있다.&lt;/p>
+&lt;p>지금까지 solver 로써 GN Optimization-based 와 IEKF 가 sovler 로써는 결국 같은 것을 푸는 것이라고 이야기 했다.&lt;/p>
+&lt;p>그리고 GN 계열에는 VINS-Mono (VINS-Fusion) 가 대표적 (OKVIS도 있다) 이고, IEKF 계열에는 MSCKF 가 대표적이다.&lt;/p>
+&lt;ul>
+&lt;li>둘다 인용도 많고, TRO/IJRR 에 오른 쟁쟁한 검증된 방법들이다.
+&lt;ul>
+&lt;li>MSCKF 2.0: 13 IJRR High-Precision, Consistent EKF-based Visual-Inertial Odometry&lt;/li>
+&lt;li>VINS-mono: 18 TRO Vins-mono: A robust and versatile monocular visual-inertial state estimator&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>그런데 SLAM 학계에서는 유명한 Visual SLAM: why filter? 라는 논문이 있고, 최근 VINS-Mono 같은 것이 SOTA라고 이해되면서&lt;/p>
+&lt;p>filter는 무조건 optimization-based 에 비해 안좋다, 라는 (잘못된?) 인식이 퍼져있는 듯한데,&lt;/p>
+&lt;p>그것에 대해 블로그 저자도 이야기를 하고 있다.&lt;/p>
+&lt;p>결국 최근 들어 optimization-based 성능이 좋아보이는 것은 problem structure 가 다르기 때문이라는 것.&lt;/p>
+&lt;p>“VINS-mono is better than that of MSCKF to a greater extent, not because VINS uses an optimization-based solver and MSCKF uses a filter-based sovle”&lt;/p>
+&lt;p>즉, VINS-mono 가 단순히 GN-opt 기반이어서 좋고 MSCKF가 filter-based 라서 안좋은 게 아니라,&lt;/p>
+&lt;p>VINS-mono 라는 특정 방법 자체가 MSCKF 보다 더 나은 problem structure (즉, 더 나은 system matrix, $A$) 를 가지고 있기 때문에 좋다는 것.&lt;/p>
+&lt;p>이것은 단순히 optimization 으로 풀어서 좋다기 보다 VINS-mono 라는 방법론 자체가 contribution 을 가지고 있기 때문으로 이해하는 것이 맞을 것이다.&lt;/p>
+&lt;p>그리고 (개인적인 생각으로) 엔지니어링 관점에서 추구하는 바 자체의 차이가 있다고 생각해야 할 듯하다.&lt;/p>
+&lt;p>뭔 소린가 하면,&lt;/p>
+&lt;p>Optimzation 기반 방법은 initial esatimate 을 어떻게든 아무튼 얻어서, 이것을 GN 상에서 iterative 하게 잡아가는 방식이다.&lt;/p>
+&lt;p>따라서 good correspondence 를 제공하는 front-end perception (e.g., feature matching) 등 computer vision method 에 의존하는 바가 크다.&lt;/p>
+&lt;p>그래서 VINS-mono 등 GN-Opt 류의 방법들은 bundle optimization (within a sliding window) 를 거의 포함하게 된다.&lt;/p>
+&lt;p>반면, (IE)KF 류는 motion model 을 공들여서 잘 세우고, predict and update 라는 2-step 관점에서 돌기 때문에&lt;/p>
+&lt;p>IMU fusion 에 좀 더 의도가 적합한 방법이 아닌가 하는 느낌이 든다.&lt;/p>
+&lt;ul>
+&lt;li>즉 IEKF는 proprioceptive sensor (e.g., IMU) 와 exteroceptive sensor (e.g., GNSS, Camera) 를 융합하는 엔지니어링 디자인을 선택할 때 더 적합한 듯하다.
+&lt;ul>
+&lt;li>IMU를 motion model for prediction 로 사용하고, gnss 나 camera 등을 update 용으로 사용하는.
+&lt;ul>
+&lt;li>이것 역시 SLAM 학계가 개발했다기보다는 이미 항공기 항법 연구자들에서는 IMU+GPS fusion 기반 방법이 이론적으로 잘 수립되어있었던 듯 하다.
+&lt;ul>
+&lt;li>08 book AIDED NAVIGATION - GPS with high rate sensors 라는 책이 좋았었다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>하지만 ORB-SLAM (2015) 에 오면서 camera 하나로만으로도 다할 수 있다고? 라는 점에서 (물론 03 Mono-SLAM과 08 PTAM때를 시초로 보기는 하지만 실제로 성숙한것은 15 ORB-SLAM이라고 보여지기 때문에) 학계에 쇼크를 주기는 했지만, ORB-SLAM이 실제로 산업계에서 쓸만한 속도+성능이 만족이 되나? 하면 그렇지 못할 때가 많다. fail 할 때도 많고. 결국 fail-safe 하면서도 가볍고 성능도 좋으려면 imu-fusion 을 안할 이유가 없어진다.
+&lt;ul>
+&lt;li>그래서 이후에 ORB-SLAM 의 IMU 버전도 나오긴 했지만 &amp;hellip; MSCKF 계열의 OpenVINS (2020) 가 요즘은 더 국룰이 되어가는 것 같은데 &amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>최근에 FAST-LIO (2022 RA-L) 라는 방법은 IEKF 류의 방법인데, 여러 Lidar odometry 들을 돌려본 결과 기존 다른 방법들보다 실험적으로 좋은 듯하다 (lidar 는 3d measurement 가 정밀하기 때문에 BA를 할 필요가 없는 이득을 본 것도 있겠지만).&lt;/p>
+&lt;p>같은 그룹에서 FAST-LIO 를 backbone 으로 해서 camera fusion 을 하기 위해서 visual-side 에만 local BA를 더한 R2LIVE 라는 방법을 냈는데, 이 논문은 그래서 IEKF 의 적합한 사용처 (lidar-imu odom) 와 Optimization-based solver 의 적합한 사용처 (visual map construction and this-based vo) 를 잘 이해하고 융합한 것이 아닌가 생각이 든다. 최근 본 fusion 논문들 중에 엔지니어링 설계적으로 가장 말이 되는 (가볍고 성능도 좋은) 디자인이 아닌가 싶다.&lt;/p>
+&lt;h1 id="결론">결론&lt;/h1>
+&lt;p>아무튼 IEKF 가 실제로 from scratch 로 구현하기에는 더 적합한 면이 있어서 사용하기 좋은 듯 하긴 하다.&lt;/p>
+&lt;ul>
+&lt;li>e.g.,
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/hku-mars/IKFoM" target="_blank" rel="noopener">https://github.com/hku-mars/IKFoM&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/cggos/imu_x_fusion" target="_blank" rel="noopener">https://github.com/cggos/imu_x_fusion&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>하지만 2022 년 현재 ceres 라는 강력하고 쓰기 쉬운 optimization library 가 점점 학계/업계를 삼키고 있는 듯한 느낌이 든다.&lt;/p>
+&lt;p>즉, 잘 만들어진 GN or LM-optimization 을 각자 구현하기에 어려움이 있을 수 있는데, 좋은 optimization solver 가 이제 편하게 사용가능하니&lt;/p>
+&lt;p>optimization 기반으로 state estimation 을 수행하지 않을 이유도 좀 없어지고 있는 것 같기도 하고.&lt;/p>
+&lt;p>예전에 from scratch 로 구현할 때는 Jacobian 을 analytic 하게 다 계산해서 식을 적어주고 이랬어야 되었어서&lt;/p>
+&lt;p>nonlinear measurement function 의 경우 자코비안 유도도 어렵고 한 측면이 있었지만&lt;/p>
+&lt;p>Ceres (나 tf, pytorch 도 마찬가지고) 는 auto-diff 라고 해서 계산그래프 형태로 variable 들의 Jacobian 을 자동으로 계산하기 때문에&lt;/p>
+&lt;p>실제로 사용자가 자코비안을 유도할 일이 없어졌고, 결과적으로 아무 loss term 이나 부담없이 추가할 수 있게 되었다.&lt;/p>
+&lt;ul>
+&lt;li>ps. see &lt;a href="https://wang-yimu.com/ceres-solver/" target="_blank" rel="noopener">https://wang-yimu.com/ceres-solver/&lt;/a>, and &lt;a href="https://wang-yimu.com/implement-tensorflow-pytorch-from-scratch/" target="_blank" rel="noopener">https://wang-yimu.com/implement-tensorflow-pytorch-from-scratch/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>물론 이것을 쓸만하게 잘 구현하는 것은 state estimation application 개발자 입장에서는 시간소요적이고 어려운 일이고, forward pass이냐 backward pass 냐 등 어떻게 구현하냐에 따라 성능도 달라지지만, 아무튼 이것을 이제 Ceres library 가 다 해주기 때문에 2022년 현재로써는 optimization 기반으로 떡칠? 해도 나쁘지 않지않나? 하는 학계의 흐름이 느껴진다.&lt;/p>
+&lt;p>실제로 최근 논문들을 보면 전통적인 SLAM 논문이지만 마치 최근의 deep learning 논문들처럼 final loss term = residual_1 + residual_2 + .. 이런식으로 최종 식만 적혀져있고 이것들의 Jacobian 등을 굳이 적어두지 않는 듯하다 (그냥 ceres 를 이용해서 풀었다고 적혀있다 &amp;hellip;). 옛날 논문들을 보면 거대한 system matrix 의 Jacobian 을 적기 위해 많은 공간이 할애되었던 (+독자들에게 위협을 주었던) 것을 생각하면 격세지감이다 ..&lt;/p>
+&lt;p>&lt;strong>결론&lt;/strong>:&lt;/p>
+&lt;ul>
+&lt;li>아무튼 filter-based approach 도 요구사항에 따라 (e.g., IMU fusion), 현재도 여전히 유효하다고 판단되고, 오히려 더 필요하다고 생각된다 (역시 IMU 없이는 아무래도 강인한 state estimation 는 어려워보인다)&lt;/li>
+&lt;li>반면 optimization-based approach 는 최근 Ceres 라는 library 가 널리 사용되면서 (그전에도 matlab, numpy, scipy, opencv 등에서 단순한 Ax=b 를 풀어주는 solver는 존재했지만 — 이들은 계산그래프는 아니고 대신 QR-decomposition 기반으로 알고있다, see &lt;a href="https://www.mathworks.com/content/dam/mathworks/mathworks-dot-com/moler/leastsquares.pdf" target="_blank" rel="noopener">here&lt;/a>) 좀 더 임의의 상황에 generic 하게 쓰일 수 있게 되었다.&lt;/li>
+&lt;li>따라서 + 그리고 당연히 filter-based equation 역시 그 출처는 least-square optimization 이기 때문에 최적화 공부를 또 단단하게 해야겠다 (optimization 방법론이 더 대중적으로 쓰이기도 하고).&lt;/li>
+&lt;/ul></description></item><item><title>SLAM Back-end 공부자료 5개 추천</title><link>https://gisbi-kim.github.io/post/slam-textbooks/</link><pubDate>Sun, 03 Oct 2021 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/slam-textbooks/</guid><description>&lt;h2 id="slam-문제란">SLAM 문제란?&lt;/h2>
+&lt;p>SLAM은 robot(의 시간에 따른 궤적)과 주변환경(environment)의&lt;br>
+물리적(및 의미론적) 특성값(state)들을 예측하는 작업이라 요약할 수 있다.&lt;/p>
+&lt;p>따라서 수학적으로는 하나의 vector 에 모든 state element 들을 담은 다음에&lt;br>
+최적화 (cost 최소화)과정을 통해 최적의 state 값을 예측하게 된다.&lt;/p>
+&lt;p>2000년대 초반까지 널리 쓰이던 (물론 지금도 널리 쓰이는) filtering 기반 방법과 비교&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>하여&lt;br>
+이렇게 minimization 을 통해 robot 의 궤적과 주변환경의 특성 (예: 위치, 방향)&lt;br>
+들을 예측하게 되는 계열을 편의상 modern SLAM이라고 부르고 싶다.&lt;/p>
+&lt;hr>
+&lt;h2 id="소개하는-자료의-대상-독자">소개하는 자료의 대상 독자&lt;/h2>
+&lt;p>그렇다면 이러한 optimization 기반 SLAM을 이해하기 위해서는&lt;br>
+어떤 자료로 공부를 하면 좋을까?&lt;/p>
+&lt;p>이 글에서는 다음과 같은 분들을 위한 자료들을 소개하고자 한다.&lt;/p>
+&lt;ul>
+&lt;li>SLAM open source들 (ORB-SLAM, LeGO-LOAM 등)을 몇 개 실행해보고,&lt;br>
+SLAM이 무엇인지에 대해서도 대강 느낀 바가 있지만,&lt;br>
+논문을 읽어보면 어려운 수식들에 막히는 상태&lt;/li>
+&lt;/ul>
+&lt;p>경험상 논문은 지면의 제약이 크기 때문에, (ICRA, IROS 이상 급에서는)&lt;br>
+수학적 background에 대해 독자들이 대체로 이해하고 있다고 내용을 전개하는 편이 많아서&lt;br>
+논문을 통해서 SLAM의 기본 단에 대해 이해하기는 어려웠었다.&lt;/p>
+&lt;p>흔히 하는 실수로써&lt;br>
+&amp;lsquo;SLAM 수식에서는 linera algebra 나 optimization 지식이 뭔가 많이 요구되는 것 같아 보여서&lt;br>
+관련 수학분야 교과서 (수백쪽) 를 함께 공부해야겠다&amp;rsquo;는 접근으로 공부를 하게되면&lt;br>
+실질적으로 그 책들의 모든 내용들이 SLAM에 필요한 것이 아니기 때문에 쉽게 지치기 쉽다.&lt;/p>
+&lt;p>또한 우리는 보통 SLAM의 theory 를 세계최초로 개발하고 싶다기 보다는,&lt;br>
+현재 SLAM의 역사와 최신 SLAM의 이론적 배경에 대해 &amp;lsquo;빠르게&amp;rsquo; 이해하여&lt;br>
+코드를 읽을 때 각 부분이 어떤 부분에 해당하는지 빠르게 grasp 하기 위함이기 때문에&lt;br>
+실질적으로 SLAM에 필요한 기본기만을 빠르게 다질 수 있다면 좋을 것이다.&lt;/p>
+&lt;p>이런 상황에서 논문을 읽기 전에 수학적 기본기를 다지기 위해&lt;br>
+약간은 교과서에 가까운 (70~100쪽 규모), 도움이 되었던 자료들을 소개하고자 한다.&lt;/p>
+&lt;hr>
+&lt;h2 id="modern-slam-문제를-위해-이해해야-하는-요소">(Modern) SLAM 문제를 위해 이해해야 하는 요소&lt;/h2>
+&lt;p>먼저 아래 자료들을 소개하기 전에, 왜 아래 자료들을 선정하였는지에 대해 먼저 말하고자 한다.&lt;/p>
+&lt;p>SLAM 을 이해하기 위해서는 아래 내용에 대해 이해하는 것이 요구된다.&lt;/p>
+&lt;ol>
+&lt;li>Rotation Parametrization&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>다른 학문들의 최적화문제와 달리 SLAM을 SLAM답게 만드는 것은 우리가 알고자 하는 state 가 사는 공간의 특수성에 있다. 제일 minimal 하게는 우리가 알고싶은 state는 보통 position (ex: x, y, z) 과 orientation (혹은 rotation) 이다.&lt;/li>
+&lt;li>이 때, vector 공간에 존재하는 요소에 대해 최적화하는 것은 항상 쉽다. position 은 vector space에 존재한다. 하지만 rotation 은 vector space 에 존재하지 않기 때문에 항상 문제가 된다.&lt;/li>
+&lt;li>그렇다면 이 rotation 에 대해 최적화를 하기 위해서 우리는 어떻게 해야할까? 에 대해 알아야 한다.&lt;/li>
+&lt;li>이를 위해 rotation 을 우리가 최적화 하기 적합한 형태로 표현할 수 있는데 이 과정을 parametrization (매개변수화) 이라고 한다. 그리고 그 종류에는 크게 3가지 표현법이 존재한다: angle-axis (rotation vector, rotvec 등으로도 불림), quaternion, SO(3) 이다. (Euler angles 라는 parametrization으로 값 3개를 통해 SO(3) 를 표현할 수도 있다)&lt;/li>
+&lt;li>각 parametrization의 장단점은 무엇일까? 우리는 (최적화를 위해) 어떤 parametrization 을 채택해야 할까? 이것에 대해 잘 설명하는 자료를 소개하고자 한다.&lt;/li>
+&lt;li>$\rightarrow$ 해당 자료 (* 위주로 먼저 보는 것을 추천):&lt;br>
+$ \ \ \ \ $ &lt;a href="#m1">*1. Quaternion kinematics for the error-state Kalman filter &lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>Least-Square Optimization&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>당연히 최적화를 위해서는 least square optimization 에 대해 알아야 한다.&lt;/li>
+&lt;li>하지만 기존 대학수업에서는 convex optimization 수업 등이 많은데, 이런 책을 공부한다고 해서 바로 SLAM의 최적화에 대해 이해하기는 쉽지 않을 수도 있는 것이 (도움은 물론 되겠지만), SLAM 에서 예측하고자 하는 것들에는 앞서 이야기했든 rotation 등 nonlinear 한 애들이 많이 포함되어 있으므로 전역적으로 (global) 최적인 해(solution)를 구하기는 쉽지 않다.&lt;/li>
+&lt;li>따라서 SLAM에서 optimization 이라고 표현하면 거의 항상 iterative update 를 의미한다. 즉, 현재 initial guess 가 있고, 그 state vector 의 최적 delta (변화량) 값을 예측하는 문제로 formulation 하는 것이다.&lt;/li>
+&lt;li>이 과정에서 measurement function 에 대한 Jacobian, Gauss-Newton, LM-method 등의 용어가 나온다. 이에 대한 이론적 전개와, 피부로 느낄 수 있는 자료를 소개하고자 한다.&lt;/li>
+&lt;li>$\rightarrow$ 해당 자료 (* 위주로 먼저 보는 것을 추천):&lt;br>
+$ \ \ \ \ $ &lt;a href="#m21">*2-1). From Least-Squares to ICP (ICRA 2016 SLAM tutorial)&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m3">*3. Course on SLAM&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m4">4. Factor Graphs for Robot Perception&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m5">5. Bundle Adjustment – A Modern Synthesis&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>Exploiting Sparsity&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>마지막으로 SLAM 을 가장 SLAM 답게 만들어 주는 개념은 sparsity 이다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>보통 least square optimization 이라고 하면 $Ax=b$ 를 푸는 것이고 (엄밀하게는 iterative update 를 하므로 $A \Delta x=b$ 라고 적어야 맞겠다), 이를 보통 $A$의 pseudo-inverse 를 이용해서 풀게 된다. 즉 $(A^{T} A) \Delta x = A^T b$ 를 풀게 되는데, 이 식을 normal equation 이라고 부른다. 간단하게는 최적해를 $\Delta x^{*} = (A^T A)^{-1}A^T b$ 라고 closed form으로 계산할 수 있겠다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>하지만 SLAM에서는 최적화 하고 싶은 landmark 의 수가 수천, 수십, 수백만개가 될 수도 있고, 각 포인트 하나당 최소 xyz 3개의 값을 요구한다 (rotation 이 포함될 경우 그 이상이 될 수도 있다). 그러면 우리가 풀고자 하는 시스템의 규모 (즉, $A^{T} A$ 행렬의 shape) 는 수백만 x 수백만 의 크기가 될 것이다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>그러면 이를 일단 메모리에 올리는 것이 어려울 수 있다. 그리고 이것의 inverse 를 어떻게 효율적으로 계산할 수 있을까?&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>그런데 &lt;a href="{{ site.baseurl }}{% post_url 2021-03-04-slambackend-1 %}#Axb"> SLAM back-end [1편] &lt;/a> 에서 그림으로 소개했듯이, SLAM의 state element 들 사이에는 대체로 sparse 관계만이 존재하기 때문에 (locality 라고 부른다) 결과적으로 $A$ matrix 가 sparse 함을 알 수 있다. 이를 이용하면 효율적인 iterative update 알고리즘을 고안할 수 있지 않을까? 에 대해 고민한(+정립된) 자료들을 소개하고자 한다.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>$\rightarrow$ 해당 자료 (* 위주로 먼저 보는 것을 추천):&lt;br>
+$ \ \ \ \ $ &lt;a href="#m3">3. Course on SLAM&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m4">*4. Factor Graphs for Robot Perception&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m22">*2-2). Graph-Based SLAM and Sparsity (ICRA 2016 SLAM tutorial)&lt;/a>&lt;br>
+$ \ \ \ \ $ &lt;a href="#m5">5. Bundle Adjustment – A Modern Synthesis&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>개인적으로는 위에서 소개한 순서인 1, 2-1, 3, 4, 2-2, 5 의 순서로 이해하는 편이 좋았다.&lt;/p>
+&lt;ul>
+&lt;li>하지만 어떤 것을 먼저 읽든 2회독 정도 하면서 모든 내용들이 한데 얽히는 지점을 느끼는 것이 중요하다고 생각된다.
+&lt;ul>
+&lt;li>실제로 modern SLAM 논문을 읽다보면 이들 내용이 모두 요구될 때가 많다. (ex: 2016 TRO, On-Manifold Preintegration for Real-Time Visual-Inertial Odometry)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="slam-기본기를-위한-자료들">SLAM 기본기를 위한 자료들&lt;/h2>
+&lt;!-- --- -->
+&lt;p id="m1"> &lt;/p>
+### 1. Quaternion kinematics for the error-state Kalman filter
+- &lt;a href="https://gisbi-kim.github.io/materials/study/soal17eskf.pdf" target="_blank"> Download&lt;/a>
+- Author: Joan Solà (2017)
+- 요약:
+- error-state Kalman filter 를 위한 minimal 한 rotation 표현법인 angle-axis (rotation vector 라고도 부름) 방식의 parametrization 을 소개하고, 이것과 실제 manifold 상에서의 SO(3) 표현법과의 관계 등에 대해 잘 다룬다.
+- rotation parametrization 공부를 위해서는 챕터4까지만 읽어도 무방할 것으로 생각된다.
+- 선정이유:
+- 지금까지 본 rotation parametrization 논문 중 가장 친절함.
+- 인터넷에 존재하는 다른 자료들을 더 안보고 이 것만 2-3번 반복해서 읽는 것이 더 나을 정도.
+- 실제 SLAM에서는 rotation 의 미소변화에 대한 미분값인 Jacobian 이 필요한데, Jacobian 에 대해서도 빠짐없이 다루어 줌.
+&lt;!-- --- -->
+&lt;h3 id="2-icra-2016-slam-tutorial">2. ICRA 2016 SLAM tutorial&lt;/h3>
+&lt;p id="m21"> &lt;/p>
+- 1) From Least-Squares to ICP
+- &lt;a href="https://gisbi-kim.github.io/materials/study/icra16tuto/icra16_slam_tutorial_grisetti.pdf" target="_blank"> Download&lt;/a>
+- Author: Giorgio Grisetti (2016)
+- 요약 및 선정이유:
+- LS optimization 이 쓰이는 SLAM application 중 가장 간단한 ICP (3 dimension state) 에 대해 Gause-netwon 및 LM update 에 대한 실제 octave (matlab) code 를 보여줌으로써 실제로 이론이 코드로 어떻게 구현되는지 감을 잡기 좋다.
+- 이 파이프라인 중, iterative optimization 은 J (measurement error Jacobian) 와 e (residual vector) 를 구하는 것이 핵심임을 체감할 수 있음.
+- 또한, 100쪽씩 되는 분량의 글이 아닌, 수십쪽의 슬라이드 이기 때문에 빠르게 실습해보고 감을 잡을 수 있어 좋다.
+- ps:
+- 이 실습 이후 Grisetti 님의 최신 논문 &lt;a href="https://arxiv.org/abs/2002.11051" target="_blank"> Least Squares Optimization: from Theory to Practice&lt;/a> 을 같이 읽으면 좋다. ICP외에도 projective error, BA 등 SLAM에서 주로 쓰이는 application 들에 대해서도 J, e 가 어떻게 생겼는지 소개해줌.
+&lt;p id="m22"> &lt;/p>
+- 2) Graph-Based SLAM and Sparsity
+- &lt;a href="https://gisbi-kim.github.io/materials/study/icra16tuto/icra16_slam_tutorial_stachniss.pdf" target="_blank"> Download&lt;/a>
+- Author: Cyrill Stachniss (2016)
+- 요약 및 선정이유:
+- 앞서 2-1) Grisetti 교수님의 자료에서는 small example (ICP) 만이 다루어졌는데, 만약에 state vector 가 매우크다면 Jacobian matrix 를 어떻게 운용해야 하는가? 에 대해 생각해볼 수 있음. 많은 그림을 함께 담고 있어 이해하기 좋음.
+&lt;!-- --- -->
+&lt;p id="m3"> &lt;/p>
+### 3. Course on SLAM
+- &lt;a href="https://gisbi-kim.github.io/materials/study/soal17courseslam.pdf" target="_blank"> Download&lt;/a>
+- Author: Joan Solà (2017)
+- 요약 및 선정이유:
+- 사실 SLAM에 대해 논하기 위해서는 가장 먼저는 coordinate transform[^ps2]에 대해 이야기해야 한다. 그리고 motion model, observation (measurement) model, 이런 용어들[^ps3]에 대해서도 먼저 소개해야 할 것이다. 공대 기계과 학부 2-3학년 수업이라면 아마 이런것들을 기본적으로 다 다룰 것이라 생각한다. 그래서인지 SLAM tutorial 들을 보면 이런 기초에 대해서는 다루고 있지 않지만 Sola 님의 이 자료에서는 그런것들도 빠르게 다루고 넘어가주는 것 (챕터 2-3)이 친절한 부분이다.
+- 챕터 4에서는 Grisetti 님이 소개한 iterative optimization 에 대해 친절하게 다루어준다.
+- 단, 위의 Sola 님의 자료 Quaternion kinematics ... 를 읽고 이 Course on SLAM 를 읽는 것을 추천함.
+- 심지어 챕터 5에서는 이 다음에 소개할 4. Factor Graphs for Robot Perception 의 내용도 짧게 요약하고 있다.
+- Factor Graphs for Robot Perception 를 읽기 전에 빠르게 보고가는 것도 좋을 것 같고, 아니면 4. Factor Graphs for Robot Perception (도 되게 친절하고 천천히 설명을 이어나가고 있으므로) 을 먼저 읽고 recap 차원에서 3. Course on SLAM 의 챕터 5로 돌아오는 것도 좋을 듯하다.
+- Modern Graph-based SLAM에 대해 설명하고자 하면, 이 자료 하나만 보면 될 정도로 core 들이 compact 하지만 detail하게 빠짐없이 잘 수록되어 있다고 할 수 있을 듯하다.
+&lt;!-- --- -->
+&lt;p id="m4"> &lt;/p>
+### 4. Factor Graphs for Robot Perception
+- &lt;a href="https://gisbi-kim.github.io/materials/study/Dellaert17.pdf" target="_blank"> Download&lt;/a>
+- Author: Frank Dellaert and Michael Kaess (2017)
+- 요약 및 선정이유:
+- 최근 SLAM 시스템을 직접 구현하기 위해서 대부분의 프로젝트들은 solver 로 Ceres 혹은 GTSAM을 채택하고 있다. 즉, 지금까지 이론적으로 iterative optimization 을 공부했다면, 그것을 우리가 실제로 구현하는 것은 아니고 그 solver 는 Ceres 혹은 GTSAM을 사용하는 것이 일반적이다. Frank Dellaert and Michael Kaess 는 GTSAM을 구현한 저자들로써 저자들이 어떤 철학을 가지고 efficient solver 들을 발전시켜왔는지 역사까지 함께 엿볼 수 있는 자료이다.
+- Square root SAM (2006), iSAM (2008), iSAM2 (2012) 로 이어지는 sparse least-square optimization 을 푸는 방법 발전 순서를 볼 수 있으며 이에 대해서는 다른 자료에서는 거의 언급되지 않았으므로 이 자료의 가치가 있다.
+- 특히 근본이 되는 Square root SAM 논문 내용에 대해 아주 길고 친절하게 설명이 되어 있으며 (~챕터4, ~67쪽), QR decomposition, fill-in, variable ordering 등 solver 의 computational 효율을 증진하기 위한 주요개념들이 많이 나오므로 꼭 봐두는 것이 좋다. 이 개념은 아래 5번 자료에서 소개할 Bundle adjustment 등에서도 중요한 일반적인 sparse linear algebra 개념이기 때문에 알아두면 좋다.
+- 또한 이 교과서에서는 이론 외에도 왜 square root matrix 로 풀어야만 하는가? 그것의 의미는 무엇인가? 이런거에 대해서도 (저자직강으로) 인사이트를 제공해주고 있는 점이 좋다 (&lt;a href="https://gisbi-kim.github.io/materials/study/icra16tuto/icra16_slam_tutorial_kaess.pdf" target="_blank">12 page 참고 - Efficient Incremental Smoothing, 2016 ICRA tutorial, by Michael Kaess&lt;/a>). 즉, Measurement Jacobian matrix 는 사실 factor graph 와 동치이고, information matrix 는 Markov Random Field 이며, Square Root Inf. Matrix는 Bayes Tree 이다, 라는 것.
+&lt;!-- --- -->
+&lt;p id="m5"> &lt;/p>
+### 5. Bundle Adjustment – A Modern Synthesis
+- &lt;a href="https://gisbi-kim.github.io/materials/study/Triggs99.pdf" target="_blank"> Download&lt;/a>
+- Author: Bill Triggs et al. (1999)
+- 요약 및 선정이유:
+- 그러면 지금까지 소개한 내용들이 SLAM으로 인해 2000년대 말 이후에 접어들며 발전된 것이냐? 하면 그게 아니라 이론적인 토대는 이미 다 있었다고 생각이 된다. 특히 photogrametry 나 computer vision 사람들이 풀던 SfM (structure from motion) 이라고도 불리는 bundle adjustment 라는 문제가 있다. SLAM은 종종 Sequential SfM 이라 불리기도 할 정도로 optimization 관점에서 근본을 많이 공유하고 있다.
+- 하지만 앞에서 소개한 자료들이 좀 더 이론적인 배경을 쌓기에는 좋다고 생각되어 먼저 소개하게 되었다. 이런 이론적 토대를 가지고 bundle adjustment 라는 문제를 풀 때 구체적으로 어떤 요소들을 더 고민해야 하는지에 대해 깊게 들어가기 위해 이 자료를 추천한다[^ps4].
+&lt;hr>
+&lt;h2 id="slam-기본기를-위한-자료들-1">SLAM 기본기를 위한 자료들++&lt;/h2>
+&lt;ul>
+&lt;li>지금까지 optimization 기반의 SLAM 을 위한 이론적 토대를 다지기 위한 자료들을 소개했다.
+&lt;ul>
+&lt;li>하지만 visual-inertial (2007 ICRA, MSCKF), lidar-inertial (2021 RA-L, FAST-LIO) 등 특정 센서 조합에 대해서는 filtering 기반 방법도 여전히 정확하고 가볍게 쓸 수 있어 좋은 듯하다.
+이 방법들은 error state 의 최적값을 예측하여, 현재 state 에 더해주는 식으로 현재 state 를 추정 (filtering) 하게 된다. Sola님의 1. Quaternion kinematics for the error-state Kalman filter 자료 뒷부분에 대해서 이 개념에 대해 다루기는 했지만 약간은 설명이 부족했다고 느껴진다.&lt;/li>
+&lt;li>그래서 Aided Navigation: GPS with High Rate Sensors 라는 책이 상당히 구체적으로 다루고 있는 듯한데 (대충만 훑어봄), 이 책에 대해 공부해보는 것도 좋을 것 같다.
+&lt;ul>
+&lt;li>FAST-LIO 그룹에서 공개한 &lt;a href="https://gisbi-kim.github.io/materials/study/ikfom21.pdf" target="_blank">IKFoM (Kalman Filters on Differentiable Manifolds)&lt;/a> 논문에도 Related work 이 잘 되어 있어서 함께 보고자 한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>앞서 소개한 5개의 자료들은 SLAM back-end 의 수학적 기초에 대해 다루었다고 할 수 있다.
+&lt;ul>
+&lt;li>하지만 SLAM은 특정 센서가 센서데이터를 처리하고 요약하여, 해당 센서에 맞는 measurement model 을 정의하는 것부터 시작된다. 이 부분을 front-end 라고 하고 SLAM 의 전 과정을 이해하기 위해서는 빼놓을 수 없다.&lt;/li>
+&lt;li>특히, camera 가 SLAM을 위한 가장 널리 쓰이는 센서이기 때문에 visual SLAM을 위한 front-end 에 대해 실습을 통해 공부하는 것은 중요하다.&lt;/li>
+&lt;li>이에 대해서 최근(2021년 6월)에 &lt;a href="https://github.com/gaoxiang12/slambook-en/ " target="_blank">slambook 이라는 중국어 교재의 영어번역&lt;/a> &lt;a href="https://gisbi-kim.github.io/materials/study/slambookEng21.pdf" target="_blank"> (Download) &lt;/a>이 끝났다고 한다 &lt;a href="https://www.springer.com/gp/book/9789811649387" target="_blank"> (Springer 를 통해 책이 출간되기도 했다!) &lt;/a>. Eigen, opencv 등 실제 C++ 코드를 함께 소개하고 있어 practically 좋은 듯하다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="주석">주석&lt;/h3>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>물론 Kamlan filter 의 경우, 예측값과 실측값 차이의 variance 를 최소화 하는 방향으로 업데이트 하기 때문에 (Kalman filter original 논문의 유도 참고) 그 유도 과정에서 least square optimization 이 쓰인 것이라고 이야기할수도 있다. 따라서 filtering 이냐 혹은 modern SLAM의 smoothing (전체 궤적의 state들을 혹은 많은 수의 landmark들을 함께 업데이트) 이냐 를 구분 짓는 차이는 가장 최근의 state 만을 추적할 것인지 past state history 들도 함께 최적화 할 것인지 차이로 이해할 수 있다. 물론 이 둘이 함께 쓰일 수도 있다. &lt;a href="https://github.com/gisbi-kim/FAST_LIO_SLAM" target="_blank" rel="noopener">https://github.com/gisbi-kim/FAST_LIO_SLAM&lt;/a> 참고 (가장 최근의 pose 를 추정하기 위해서는 filtering 을 활용하여 initial pose-graph 를 construct하고, 전반적인 trajectory smoothing 을 위해서는 pose-graph optimization을 활용함).&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>

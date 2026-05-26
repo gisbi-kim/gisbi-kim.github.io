@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Radar SLAM | Giseop Kim</title><link>https://gisbi-kim.github.io/categories/radar-slam/</link><atom:link href="https://gisbi-kim.github.io/categories/radar-slam/index.xml" rel="self" type="application/rss+xml"/><description>Radar SLAM</description><generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Mon, 31 May 2021 00:00:00 +0000</lastBuildDate><image><url>https://gisbi-kim.github.io/media/icon_hu567daa2745bcf51c7054a3380349c3ad_4435_512x512_fill_catmullrom_center_3.png</url><title>Radar SLAM</title><link>https://gisbi-kim.github.io/categories/radar-slam/</link></image><item><title>ICRA 2021 Radar in Robotics Workshop 요약</title><link>https://gisbi-kim.github.io/post/icra21-radar-ws/</link><pubDate>Mon, 31 May 2021 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/icra21-radar-ws/</guid><description>&lt;h1 id="icra-2021-radar-in-robotics-workshop">ICRA 2021 Radar in Robotics Workshop&lt;/h1>
+&lt;p>ICRA 21 에서 Radar ws &lt;a href="https://sites.google.com/view/radar-robotics/home" target="_blank" rel="noopener">(웹사이트)&lt;/a> 가 5월 31일에 열렸다.&lt;br>
+영국 헤리엇 왓 대학교의 Sen Wang 님과 김아영 교수님이 공동 조직하였다.&lt;br>
+라이브로 진행되어서 좋았다!&lt;/p>
+&lt;figure id="open">
+&lt;img src="open.png" style="width:80%">
+&lt;figcaption>
+&lt;center> 시작! &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;p>구성은&lt;br>
+총 4명의 연사들의 키노트,&lt;br>
+3개의 데이터셋 소개 발표,&lt;br>
+여러개의 워크샵 논문 5분발표,&lt;br>
+그리고 제일 마지막의 패널 디스커션 시간으로 구성되었다.&lt;/p>
+&lt;p>피크 때 80명 정도까지 들어온 것 같은데&lt;br>
+평소 학회 워크샵에 한방이 가득차면 100명 정도인 것을 생각하면&lt;br>
+원격 라이브임에도 사람들이 많이 찾아와준 것 같다.&lt;/p>
+&lt;p>워크샵 논문들과 비디오는 나중에 다 올라온다고 하는데&lt;br>
+일단 먼저 정리해본다.&lt;/p>
+&lt;hr>
+&lt;h2 id="keynote-1-from-benz">Keynote 1 from Benz&lt;/h2>
+&lt;p>첫번째 연사는 벤츠의 Dr. Jürgen Dickmann 였다.&lt;/p>
+&lt;p>벤츠가 레이더를 많이 사용하고 있다는 사실을 알 수 있었고&lt;br>
+또 Next Radar Challenge 에 대해 많이 이야기해주셨다.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>즉, next generation 의 radar 는 어때야 하는가?&lt;/p>
+&lt;ul>
+&lt;li>High resolution, Imaging radar 이런 단어들이 보였다.&lt;/li>
+&lt;li>high resolution radar 를 달성하기 위해서 serial radars (have roughly 200 channels) 라는 말이 나와서 뭔말인지 몰라서 연구실형에게 물어보니 대략 이런 이야기라고 한다.
+&lt;ul>
+&lt;li>milliEgo&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> 라는 논문에서 예시 사진을 하나 들고와보았다. 아래와 같이 연구자들은 TI 사의 mmwave radar (여기서는 TI AWR1843) 를 많이 쓰고 있다. 이 레이더 센서에 보면 위에 배선들이 있는데 이게 안테나라고 한다. 이게 몇개 없어서 현재의 mmwave radar 의 &lt;a href="#sparse"> point cloud 가 sparse 하다는 것&lt;/a>. 이걸 일렬로 쭉 이을 수 있으면 더 덴스한 데이터를 얻을 수 있을 것이라고 한다.&lt;/li>
+&lt;li>이 이상의 자세한 설명은 잘 몰라서 생략&amp;hellip; &lt;a href="https://www.ti.com/sensors/mmwave-radar/overview.html" target="_blank" rel="noopener">TI 공홈에 문서들&lt;/a>이 좀 있어서 이걸 읽어봐야겠다&amp;hellip;
+&lt;figure id="tiradar">
+&lt;img src="tiradar-full.png" style="width:100%">
+&lt;figcaption>
+&lt;center> Example: TI Radar &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;!-- &lt;br> -->
+&lt;figure id="sparse">
+&lt;img src="tiradar-sparse.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Example: TI Radar's sparse point cloud &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>위의 그림처럼 Radar point cloud 는 lidar 에 비해 sparse 하지만 doppler information 을 준다는 것과 foggy 환경에서도 동작할 수 있다는 것이 장점이다.&lt;/p>
+&lt;ul>
+&lt;li>현재 연구자들이 쓰는 radar 는 두 종류로 나뉘는 듯하다.
+&lt;ul>
+&lt;li>
+&lt;ol>
+&lt;li>TI radar (sparse but 3D point and doppler information is avaiable)&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>
+&lt;ol start="2">
+&lt;li>Navtech radar (dense and long-range but 2D)&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>에 대해서는 뒤에서 더 소개한다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>그리고 &lt;a href="#Scenes"> Radar Scenes Dataset &lt;/a> 홍보를 하심.
+&lt;ul>
+&lt;li>흔히 automotive 용 mmwave radar 가 sparse point cloud (and noisy) 를 제공한다고 알고있었는데, 아래 그림을 보면 거의 LiDAR 급임. 회사에서는 연구레벨보다 한참 좋은 것들이 이미 다 개발되어 있겠구나를 느꼈고, 그럼에도 데이터라도 이렇게 공개해줘서 되게 기뻤다.&lt;/li>
+&lt;li>게다가 radar point cloud 라벨링도 되어 있다고 함. 써봐야 겠다.&lt;/li>
+&lt;/ul>
+&lt;figure id="Scenes">
+&lt;img src="scenes.png" style="width:100%">
+&lt;figcaption>
+&lt;center> Radar Scenes Dataset &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="keynote-2-from-eth-zurich">Keynote 2 from ETH Zurich&lt;/h2>
+&lt;p>두번째로는 ETH Zurich의 Dr. Dengxin Dai 님이 발표를 해주셨다.&lt;/p>
+&lt;p>Depth completion by using radar data 이라던가&lt;br>
+radar 로부터 sound estimation (joint learning?) 등의 computer vision 토픽다운 연구들을 소개해주셨다.&lt;/p>
+&lt;p>하지만 나는 state estimation 에 주로 관심이 있어서&lt;br>
+여기에 대한 설명은 생략 &amp;hellip;&lt;/p>
+&lt;p>그나저나 CVPR 21에서 Vision for All Seasons WS 가 열린다고 한다. radar sensor 기반 perception의 지향점이 all-weather autonomoy 라는 큰 목표를 위한 것이니 만큼, 관심이 간다.&lt;/p>
+&lt;hr>
+&lt;h2 id="keynote-3-prof-martin-d-adams">Keynote 3 Prof. Martin D. Adams&lt;/h2>
+&lt;p>마틴 교수님은 Radar SLAM에서 이미 유명한 교과서 (아래 왼쪽 하늘색 책)의 저자이시다.&lt;/p>
+&lt;figure id="books">
+&lt;img src="books.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Radar Textbooks &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;p>SLAM 사람들이 카메라도 했다가 lidar 도 했다가&lt;br>
+radar 도 이제 좋아보여서 와 하고 몰려오는 것과 달리&lt;/p>
+&lt;p>정말 radar for robot 외길인생을 걸으신 듯한 &amp;hellip;&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>다양한 프로젝트 사진들&lt;/p>
+&lt;figure id="martin">
+&lt;img src="martin.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Prof. Martin D. Adams slide &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;/li>
+&lt;/ul>
+&lt;p>암튼 톡의 내용은 다음과 같았다.&lt;/p>
+&lt;p>(현재까지의) radar 는 sensor 특성상 false alarm 이 많을 수밖에 없는데,&lt;br>
+이는 landmark 매칭 기반의 SLAM (e.g., FastSLAM) 을 취약하게 한다.&lt;/p>
+&lt;p>물론 false alarm을 앞단에서 잘 제거해 줄 수도 있겠지만,&lt;br>
+이런게 있을 때도 어떻게 수학적으로 강건한 machinery 를 제공할 수 있을까?&lt;/p>
+&lt;p>이를 위해 마틴 교수님은 이게 state 가 Vector 기반으로 표현하지 않고,&lt;br>
+(random finite) set 으로 표현해서 해결했다고 한다 (위 그림의 두번째 책).
+RB-PHD SLAM&lt;/p>
+&lt;p>정말 멋있다는 생각을 하며 &amp;hellip;&lt;br>
+나중에 시간이 되면 읽어봐야겠다는 생각을 하고 일단 넘어감.&lt;/p>
+&lt;p>talk 의 내용과 별개로 워크샵 전반의 분위기를 잘 잡아주신 것 같다.&lt;br>
+인자한 대가 느낌. 덕분에 워크샵이 매우 훈훈한 분위기였다.&lt;/p>
+&lt;hr>
+&lt;h2 id="keynote-4-prof-tim-barfoot">Keynote 4 Prof. Tim Barfoot&lt;/h2>
+&lt;p>바로 그 책 그 교과서 state estimation for robotics 의 저자이신 바풋 교수님의 톡이었다.&lt;/p>
+&lt;p>아무래도 앞의 분들이 HW에 좀 더 가깝거나, 혹은 CV에 좀 더 가까운 이야기를 했다면,&lt;br>
+바풋 교수님은 robotics 관점에서 중요한 포인트들을 잘 짚어주셨다.&lt;/p>
+&lt;ul>
+&lt;li>There are many different types of radar sensors in robotics &amp;hellip; 라며 이야기를 시작하셨는데
+&lt;ul>
+&lt;li>아마 현재 연구들이 제목에는 같은 radar 로 찍혀 나오지만&lt;/li>
+&lt;li>사실 내용을 보면 TI radar 를 사용하는 계열과 Navtech radar 를 사용하는 논문들의 연구방법론이 좀 다른 경향을 알 수 있다.&lt;/li>
+&lt;li>Doppler 정보를 이용할 수 있느냐가 가장 큰 차이로 보인다.&lt;/li>
+&lt;li>바풋교수님의 톡은 Navtech radar 에 관한 것이었다.
+&lt;ul>
+&lt;li>크게 세 가지 내용을 소개하심.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol>
+&lt;li>Boreas 라는 dataset 을 준비하고 계신듯하다.&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>Navtech radar 기반이며 20개가 넘는 시퀀스가 있다고 한다.&lt;/li>
+&lt;li>6 month with seasonal variation, including 2 snow storms&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>Motion compensation 에 대해 이야기 하셨다.&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>현재 Navtech radar 는 4Hz 로써 sensor 가 mechanically spinning 하는 동안 로봇이 움직이기 때문에 모션보정을 해주어야 한다.&lt;/li>
+&lt;li>그런데 기존의 cen2018&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>, cen2019 논문들은 안하고 걍 하고 있었나봄&lt;/li>
+&lt;li>cen의 방법과 같은 Sparse (or feature-based) radar odometry 계열에서는
+&lt;ul>
+&lt;li>강건한 feature matching 을 위해 RANSAC이 들어가는데,&lt;/li>
+&lt;li>그냥 RANSAC보다 motion compensated RANSAC 걸 제안하고, 성능이 더 오름을 이야기 하심.
+&lt;ul>
+&lt;li>사실 motion compensated RANSAC 에 대해서는 2013 RSS 에서 이미 lidar version 에 대해 이야기한적이 있다고 한다. 그거의 radar version 인 셈인데, 아무튼 이후의 radar for state estimation 연구들은 이 논문의 motion compenstaion을 적용하지 않을 수 없을 듯.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>이 내용은 &lt;a href="https://arxiv.org/abs/2011.03512" target="_blank" rel="noopener">2021 ICRA/RAL 논문&lt;/a> 과 &lt;a href="https://github.com/keenan-burnett/yeti_radar_odometry" target="_blank" rel="noopener">코드&lt;/a> 도 공개가 되어있다.
+&lt;ul>
+&lt;li>Do We Need to Compensate for Motion Distortion and Doppler Effects in Spinning Radar Navigation?, ICRA/RAL 2021&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="3">
+&lt;li>Unsupervised feature learning
+&lt;ul>
+&lt;li>local feature matching 기반의 odometry (sparse, indirect 등으로도 불리는) 는 센서를 불문하고 결국 feature 의 질이 결과를 좌우한다.
+&lt;ul>
+&lt;li>그래서 ORB-SLAM 이후로 딥 시대가 오면서 superpoint/superglue 가 localization 은 짱을 먹고 &amp;hellip; 이런 흐름이 visual sensor 에서 증명이 되었듯이&lt;/li>
+&lt;li>radar odometry 를 위해서도 feature matching 할 때 그 feature 를 learning 할 수 없을까 이런 생각을 할 수 있다.&lt;/li>
+&lt;li>그렇다면 어떻게 학습해야 하는가?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>HERO (Hybrid Estimate Radar Odometry) 라는 방법을 제안했다고 한다. 이번 RSS 2021이라고 함.
+&lt;ul>
+&lt;li>기존의 conventional 한 factor-graph optimization 과 deep feature learning 을 잘 결합한 것으로 보이는데, 암튼 읽어봐야겠다!&lt;/li>
+&lt;li>&lt;a href="https://arxiv.org/pdf/2105.14152.pdf" target="_blank" rel="noopener">논문&lt;/a>과 &lt;a href="https://github.com/utiasASRL/hero_radar_odometry" target="_blank" rel="noopener">코드&lt;/a> 도 바로 공개되었다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;figure id="hero">
+&lt;img src="hero.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Hybrid Estimate Radar Odometry &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;ul>
+&lt;li>마지막으로 lesson 들을 이야기 해주신 것도 좋았다.
+&lt;figure id="lessons">
+&lt;img src="lessons.png" style="width:75%">
+&lt;figcaption>
+&lt;center> Lessons &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="spotlight-talks-workshop-papers">Spotlight Talks: Workshop papers&lt;/h2>
+&lt;p>온라인이라서 별로 없을 줄 알았는데&lt;br>
+생각보다 많은 사람들이 자신들의 논문을 홍보하기 위해 워크샵에 5분 논문 소개 시간을 가졌다.&lt;br>
+내가 석사신입이였다면 radar slam 이 지금시작하기에 괜찮은 토픽이라는 생각도 들었다.&lt;/p>
+&lt;p>간단하게 키워드만 요약해본다.&lt;/p>
+&lt;ul>
+&lt;li>Oxford
+&lt;ul>
+&lt;li>Radar place recognition 을 위해 Self supervised로 contrastive learning 어케 해야하는가 &amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>KAIST
+&lt;ul>
+&lt;li>Radar enhanced lidar mapping&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>저장대
+&lt;ul>
+&lt;li>RaLL (TITS)
+&lt;ul>
+&lt;li>코드도 있다&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>스웨덴 CFEAR
+&lt;ul>
+&lt;li>레이더 오도메트리&lt;/li>
+&lt;li>top k strongest 만 보고 point-to-line registration 하니까 잘됨.
+&lt;ul>
+&lt;li>scan당 200 points 정도 (cen은 900-1000개 쯤 feature point 가 존재했었음)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>속도도 당연히 빨라짐. 80Hz.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Univ of Colorado (ARPG: Autonomous Robotics and Perception Group)
+&lt;ul>
+&lt;li>AWR radar sensor&lt;/li>
+&lt;li>Radar inertial state estimation&lt;/li>
+&lt;li>(그리고 이거였는지는 모르겠는데) sparse radar 로 무려 3D occupancy mapping 을 수행하는 연구도 인상적이었다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>CMU-GPR dataset
+&lt;ul>
+&lt;li>ground-penetration radar 라는 데이터셋을 공개&lt;/li>
+&lt;li>15 traj 포함&lt;/li>
+&lt;li>indoor localization 에 좋았던듯&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>RadarScenes dataset
+&lt;ul>
+&lt;li>77GHz radar sensor&lt;/li>
+&lt;li>Res: 0.15m / 0.5-2 deg&lt;/li>
+&lt;li>radar-scenes.com&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>이중에서는 특히 CFEAR 라는 방법이 재밌었다.&lt;br>
+얘들 발표의 그림을 몇개 첨부해본다.&lt;/p>
+&lt;figure id="ws1-1">
+&lt;img src="ws1-1.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Radar Odometry comparison &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="ws1-3">
+&lt;img src="ws1-3.png" style="width:90%">
+&lt;figcaption>
+&lt;center> A scan with top k intensities &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="ws1-2">
+&lt;img src="ws1-2.png" style="width:90%">
+&lt;figcaption>
+&lt;center> CFEAR pipeline &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;hr>
+&lt;h2 id="dataset-session">Dataset session&lt;/h2>
+&lt;p>나는 dataset session 에서 발표를 가졌다. 세 데이터셋 모두 Navtech radar 에 관한 것이다.&lt;/p>
+&lt;ul>
+&lt;li>나름 초창기에 출시된 데이터셋인 MulRan, Oxford Radar RobotCar, RADIATE dataset 이렇게 세 팀이 10분동안 각각 데이터셋을 홍보하는 시간을 가졌다.
+&lt;ol>
+&lt;li>Oxford Radar RobotCar 는 Oxford RobotCar의 명성을 잇는 느낌이고 (route 도 같음)&lt;/li>
+&lt;li>RADIATE 은 objet lable 과 snow같은 극한상황에 대한 시퀀스가 포함되어있음을 위주로 어필했다.&lt;/li>
+&lt;li>나는 MulRan 에서 multiple cities, multiple loops 를 강조하며 place recognition 과 SLAM연구에 더 적합함을 어필했다.&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>그리고 MulRan 에서 함께 제안한 radar scan context 를 이용해서 기존 radar odometry 의 drift 를 해소할 수 있는 &lt;a href="https://github.com/gisbi-kim/navtech-radar-slam" target="_blank" rel="noopener">project (navtech-radar-slam)&lt;/a> 도 소개하였다.&lt;/li>
+&lt;/ul>
+&lt;figure id="example1">
+&lt;img src="example1.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Radar SLAM on MulRan dataset - KAIST 03 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="example2">
+&lt;img src="example2.png" style="width:90%">
+&lt;figcaption>
+&lt;center> Radar SLAM on MulRan dataset - Riverside 02 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;/li>
+&lt;li>바풋교수님네의 dataset 도 곧 나올거같고, Oxford 애들도 여기저기 오지를 다니는 등 추가시퀀스를 더 공개할 것 같다. 앞으로 연구하기 더 재밌는 판이 만들어질 것으로 기대된다.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="panel-discussion">Panel discussion&lt;/h2>
+&lt;p>몇 가지 기억나는 이야기들&lt;/p>
+&lt;ul>
+&lt;li>마틴 교수님?:
+&lt;ul>
+&lt;li>radar 는 (vision 쪽과는 좀 다른 거 같은게) HW 하는 사람들 signal processing 사람들 robotics 사람들 다 모여서 협업해야한다.
+&lt;ul>
+&lt;li>(roboticist 입장에서) 처음에는 data 가 좀 dirty 하다고 느낄 수 있겠지만 알고보면 재밌다&lt;/li>
+&lt;li>radar 는 가치있는 정보를 많이 주는 센서임을 알게된다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>바풋 교수님:
+&lt;ul>
+&lt;li>radar data 를 위한 (합의된) interface 가 필요하다.
+&lt;ul>
+&lt;li>예를 들어 TI radar는 sparse point cloud 를 주고 Navtech radar 는 image format 을 준다.&lt;/li>
+&lt;li>radar 는 intensity ray인가? image 인가? 사실 lidar 도 생각해보면 원래는 intensity ray 인데 top 1 (or up to 2nd) point 만을 추려서 3D point cloud 로 사용자에게 주는 것이다. 그렇게 치면 radar 도 point cloud 처럼 사용해도 무방한가? 이렇게 다들 쓰자고 약속할까? 어떻게 해야할까?&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>그리고 더 많은 공개데이터셋들이 아직도 더 필요하고, KITTI와 같이 benchmark를 구성하는 것이 중요할 것이다.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="the-end">The end&lt;/h2>
+&lt;p>그렇게 한국시각으로 새벽 1시에 워크샵이 끝이 났다. 재밌었따.&lt;/p>
+&lt;ul>
+&lt;li>radar 를 이용해서 perception and state estimation 을 하기 이전에, Radar 라는 센서를 아직 잘 모르겠다. 공부를 하자!
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/ZHOUYI1023/awesome-radar-perception" target="_blank" rel="noopener">여기 (awesome-radar-perception)&lt;/a> 에 좋은 자료들을 잘 모아둔 것 같다.&lt;/li>
+&lt;li>연구실형은 &lt;a href="https://www.ti.com/ko-kr/sensors/mmwave-radar/automotive/technical-documents.html" target="_blank" rel="noopener">TI 공식홈피의 tech docu&lt;/a> 들을 추천함&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="주석">주석&lt;/h3>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>Lu, Chris Xiaoxuan, et al. &amp;ldquo;milliEgo: single-chip mmWave radar aided egomotion estimation via deep sensor fusion.&amp;rdquo; Proceedings of the 18th Conference on Embedded Networked Sensor Systems. 2020.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>Cen, Sarah H., and Paul Newman. &amp;ldquo;Precise ego-motion estimation with millimeter-wave radar under diverse and challenging conditions.&amp;rdquo; 2018 IEEE International Conference on Robotics and Automation (ICRA). IEEE, 2018.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item><item><title>Radar Odometry Results on MulRan dataset</title><link>https://gisbi-kim.github.io/post/yeti-radar-odom-mulran1/</link><pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate><guid>https://gisbi-kim.github.io/post/yeti-radar-odom-mulran1/</guid><description>&lt;h1 id="radar">Radar&lt;/h1>
+&lt;ul>
+&lt;li>Here, the radar means Navtech radar data.
+&lt;ul>
+&lt;li>For details, see &lt;a href="https://oxford-robotics-institute.github.io/radar-robotcar-dataset/" target="_blank" rel="noopener">https://oxford-robotics-institute.github.io/radar-robotcar-dataset/&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Radar is robust to occlusions than LiDAR in urban sites.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="yeti-radar-odometry">Yeti Radar Odometry&lt;/h1>
+&lt;ul>
+&lt;li>Paper
+&lt;ul>
+&lt;li>Do We Need to Compensate for Motion Distortion and Doppler Effects in Spinning Radar Navigation? (ICRA 2021)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Code
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/keenan-burnett/yeti_radar_odometry" target="_blank" rel="noopener">https://github.com/keenan-burnett/yeti_radar_odometry&lt;/a>&lt;/li>
+&lt;li>Features
+&lt;ul>
+&lt;li>implemented cen2018, cen2019 method with motion compensation&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Requirements
+&lt;ul>
+&lt;li>need ray-wise timestamps&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="tutorial-running-yeti-on-mulran-dataset">Tutorial: running Yeti on MulRan dataset&lt;/h1>
+&lt;ul>
+&lt;li>see this video
+&lt;ul>
+&lt;li>link (TBA)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h1 id="results-on-mulran-dataset">Results on MulRan dataset&lt;/h1>
+&lt;ul>
+&lt;li>
+&lt;p>MulRan dataset&lt;/p>
+&lt;ul>
+&lt;li>MulRan: Multimodal Range Dataset for Urban Place Recognition (ICRA 2019)&lt;/li>
+&lt;li>&lt;a href="https://sites.google.com/view/mulran-pr/dataset" target="_blank" rel="noopener">https://sites.google.com/view/mulran-pr/dataset&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Methods&lt;/p>
+&lt;ul>
+&lt;li>Cen2018: Precise ego-motion estimation with millimeter-wave radar under diverse and challenging conditions (ICRA 2018)&lt;/li>
+&lt;li>Cen2019: Radar-only ego-motion estimation in difficult settings via graph matching (ICRA 2019)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Result captures &lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> &lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/p>
+&lt;ul>
+&lt;li>Left: Cen2018, Right: Cen2019&lt;/li>
+&lt;li>The trajectory color means start-blue and red-end.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;figure id="KAIST02">
+&lt;img src="KAIST02.png" style="width:110%">
+&lt;figcaption>
+&lt;center> KAIST 02 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="KAIST03">
+&lt;img src="KAIST03.png" style="width:110%">
+&lt;figcaption>
+&lt;center> KAIST 03 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="DCC01">
+&lt;img src="DCC01.png" style="width:110%">
+&lt;figcaption>
+&lt;center> DCC 01 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="DCC02">
+&lt;img src="DCC02.png" style="width:110%">
+&lt;figcaption>
+&lt;center> DCC 02 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="DCC03">
+&lt;img src="DCC03.png" style="width:110%">
+&lt;figcaption>
+&lt;center> DCC 03 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="Riverside01">
+&lt;img src="Riverside01.png" style="width:110%">
+&lt;figcaption>
+&lt;center> Riverside 01 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="Riverside02">
+&lt;img src="Riverside02.png" style="width:110%">
+&lt;figcaption>
+&lt;center> Riverside 02 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="Riverside03">
+&lt;img src="Riverside03.png" style="width:110%">
+&lt;figcaption>
+&lt;center> Riverside 03 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="Sejong02">
+&lt;img src="Sejong02.png" style="width:110%">
+&lt;figcaption>
+&lt;center> Sejong 02 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;figure id="Sejong03">
+&lt;img src="Sejong03.png" style="width:110%">
+&lt;figcaption>
+&lt;center> Sejong 03 &lt;/center>
+&lt;/figcaption>
+&lt;/figure>
+&lt;br>
+&lt;hr>
+&lt;h3 id="comments">Comments&lt;/h3>
+&lt;div class="footnotes" role="doc-endnotes">
+&lt;hr>
+&lt;ol>
+&lt;li id="fn:1">
+&lt;p>ps. for the visualiation code, see &lt;a href="https://github.com/gisbi-kim/yeti_odom_drawer" target="_blank" rel="noopener">https://github.com/gisbi-kim/yeti_odom_drawer&lt;/a>&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li id="fn:2">
+&lt;p>ps2. KAIST 01 and Sejong 01 sequences do not provide ray-wise timestamps, so the results are omitted.&amp;#160;&lt;a href="#fnref:2" class="footnote-backref" role="doc-backlink">&amp;#x21a9;&amp;#xfe0e;&lt;/a>&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/div></description></item></channel></rss>
