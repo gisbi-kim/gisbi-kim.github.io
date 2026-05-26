@@ -1,5 +1,6 @@
 name: Deploy Hugo site to Pages
 
+# Touch this file to refresh the Pages deployment when source-only data changes.
 on:
   push:
     branches: ["master"]
