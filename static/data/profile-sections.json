@@ -338,6 +338,15 @@
       ],
       "rows": [
         {
+          "Date": "2026.06.02",
+          "Event/Session": "ICRA 2026 Private Meetup",
+          "Host / Venue": "URobotics 초청",
+          "Invitation From": "URobotics 초청",
+          "Title": "What, When, and Why Visual-Language Navigation?",
+          "Slide Link": "",
+          "Event Link": ""
+        },
+        {
           "Date": "2026.05.28",
           "Event/Session": "Invited Talk",
           "Host / Venue": "Ewha Womans University",
