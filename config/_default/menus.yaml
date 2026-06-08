@@ -9,13 +9,13 @@ main:
     url: '#awards'
     weight: 32
   - name: Funding
-    url: http://localhost:8000/projects.html
+    url: https://team-aprl.github.io/projects.html
     weight: 25
   - name: Service
     url: '#academic-service'
     weight: 35
   - name: Teaching
-    url: http://localhost:8000/teaching.html
+    url: https://team-aprl.github.io/teaching.html
     weight: 40
   - name: Projects
     url: '#personal-projects'

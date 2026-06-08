@@ -39,7 +39,7 @@ sections:
     content:
       title: Funded Projects
       text: |
-        <p class="profile-data-more-link"><a href="http://localhost:8000/projects.html">See Projects →</a></p>
+        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/projects.html">See Projects →</a></p>
     design:
       columns: '1'
 
@@ -75,7 +75,7 @@ sections:
     content:
       title: Teaching
       text: |
-        <p class="profile-data-more-link"><a href="http://localhost:8000/teaching.html">See Teaching →</a></p>
+        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/teaching.html">See Teaching →</a></p>
     design:
       columns: '1'
 
