@@ -20,6 +20,9 @@ main:
   - name: Projects
     url: '#personal-projects'
     weight: 45
+  - name: Gallery
+    url: '#gallery'
+    weight: 47
   - name: Essays
     url: /essays/
     weight: 50
