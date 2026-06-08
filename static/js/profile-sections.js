@@ -71,6 +71,13 @@
     return escapeHtml(text);
   }
 
+  function renderTalkTitle(row, primary) {
+    const title = renderValue(primary, row[primary]);
+    const popupImage = String(row["Popup Image"] || "").trim();
+    if (!popupImage) return title;
+    return `<button class="profile-data-title-button" type="button" data-talk-popup-image="${escapeHtml(popupImage)}" data-talk-popup-title="${escapeHtml(row[primary])}">${title}</button>`;
+  }
+
   function renderAuthors(value) {
     return escapeHtml(value)
       .replace(/\bGiseop Kim\b/g, "<strong>Giseop Kim</strong>")
@@ -534,7 +541,12 @@
             ? ` profile-data-card-funded-${String(row.Status).toLowerCase()}`
             : "";
         const cardClass = `profile-data-card${hasCardFigure ? " profile-data-card-publication" : ""}${fundedStatusClass}${isMainTeaching ? " profile-data-card-main" : ""}`;
-        const titleValue = isTeachingSection && primary === "Course" ? renderTeachingCourse(row[primary]) : renderValue(primary, row[primary]);
+        const titleValue =
+          isTeachingSection && primary === "Course"
+            ? renderTeachingCourse(row[primary])
+            : isTalksSection && primary === "Title"
+              ? renderTalkTitle(row, primary)
+              : renderValue(primary, row[primary]);
         const titleRow = primary ? `<div class="profile-data-title-row">${badgeHtml}<h3>${titleValue}</h3></div>` : "";
         const contentBlock = `<div class="profile-data-publication-body">
             ${titleRow}
@@ -621,6 +633,51 @@
       });
     });
 
+    mount.querySelectorAll("[data-talk-popup-image]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openTalkImageModal(button.getAttribute("data-talk-popup-image"), button.getAttribute("data-talk-popup-title"));
+      });
+    });
+
+  }
+
+  function ensureTalkImageModal() {
+    let modal = document.querySelector(".talk-image-modal");
+    if (modal) return modal;
+
+    modal = document.createElement("div");
+    modal.className = "talk-image-modal";
+    modal.setAttribute("aria-hidden", "true");
+    modal.innerHTML = '<button class="talk-image-modal-backdrop" type="button" aria-label="Close talk image"></button><img class="talk-image-modal-image" alt="">';
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal || event.target.classList.contains("talk-image-modal-backdrop") || event.target.classList.contains("talk-image-modal-image")) {
+        closeTalkImageModal();
+      }
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeTalkImageModal();
+    });
+    document.body.appendChild(modal);
+    return modal;
+  }
+
+  function openTalkImageModal(src, title) {
+    if (!src) return;
+    const modal = ensureTalkImageModal();
+    const image = modal.querySelector(".talk-image-modal-image");
+    image.src = src;
+    image.alt = title || "Invited talk image";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("talk-image-modal-open");
+  }
+
+  function closeTalkImageModal() {
+    const modal = document.querySelector(".talk-image-modal");
+    if (!modal) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("talk-image-modal-open");
   }
 
   function copySectionUri(section) {

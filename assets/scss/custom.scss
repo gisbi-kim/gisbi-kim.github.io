@@ -287,6 +287,59 @@
   padding: 0.9rem 1rem;
 }
 
+.profile-data-title-button {
+  background: transparent;
+  border: 0;
+  color: var(--bs-primary, #1565c0);
+  cursor: pointer;
+  display: inline;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+}
+
+.profile-data-title-button:hover,
+.profile-data-title-button:focus-visible {
+  text-decoration: underline;
+}
+
+.talk-image-modal {
+  align-items: center;
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 1.2rem;
+  position: fixed;
+  z-index: 1100;
+}
+
+.talk-image-modal.is-open {
+  display: flex;
+}
+
+.talk-image-modal-backdrop {
+  background: rgba(0, 0, 0, 0.78);
+  border: 0;
+  cursor: zoom-out;
+  inset: 0;
+  position: absolute;
+}
+
+.talk-image-modal-image {
+  border-radius: 8px;
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.35);
+  cursor: zoom-out;
+  max-height: 88vh;
+  max-width: 92vw;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.talk-image-modal-open {
+  overflow: hidden;
+}
+
 .profile-data-card-publication {
   align-items: stretch;
   display: grid;
