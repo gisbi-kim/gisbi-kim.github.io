@@ -93,55 +93,57 @@ sections:
     content:
       title: Gallery
       text: |
-        <article class="personal-gallery-card" data-gallery-carousel>
-          <div class="personal-gallery-frame">
-            <div class="personal-gallery-track">
-              <figure class="personal-gallery-slide is-active">
-                <img src="/images/gallery/icra2026-vienna/00-1.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/00-2.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/01.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/02.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/03.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/04.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/05.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/06.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/07.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/08.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
-              <figure class="personal-gallery-slide">
-                <img src="/images/gallery/icra2026-vienna/09.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
-              </figure>
+        <div class="personal-gallery-grid">
+          <article class="personal-gallery-card" data-gallery-carousel>
+            <div class="personal-gallery-frame">
+              <div class="personal-gallery-track">
+                <figure class="personal-gallery-slide is-active">
+                  <img src="/images/gallery/icra2026-vienna/00-1.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/00-2.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/01.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/02.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/03.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/04.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/05.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/06.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/07.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/08.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+                <figure class="personal-gallery-slide">
+                  <img src="/images/gallery/icra2026-vienna/09.jpg?v=20260608" alt="ICRA 2026 in Vienna, Austria" loading="lazy">
+                </figure>
+              </div>
+              <button class="personal-gallery-button personal-gallery-button-prev" type="button" aria-label="Previous gallery image">‹</button>
+              <button class="personal-gallery-button personal-gallery-button-next" type="button" aria-label="Next gallery image">›</button>
             </div>
-            <button class="personal-gallery-button personal-gallery-button-prev" type="button" aria-label="Previous gallery image">‹</button>
-            <button class="personal-gallery-button personal-gallery-button-next" type="button" aria-label="Next gallery image">›</button>
-          </div>
-          <div class="personal-gallery-body">
-            <div>
-              <p class="personal-gallery-date">2026.06.01-05</p>
-              <p class="personal-gallery-text">At ICRA 2026 in Vienna, Austria, I met longtime friends, new friends, and inspiring robotics researchers.</p>
+            <div class="personal-gallery-body">
+              <div>
+                <p class="personal-gallery-date">2026.06.01-05</p>
+                <p class="personal-gallery-text">At ICRA 2026 in Vienna, Austria, I met longtime friends, new friends, and inspiring robotics researchers.</p>
+              </div>
+              <p class="personal-gallery-count"><span data-gallery-current>1</span> / <span data-gallery-total>11</span></p>
             </div>
-            <p class="personal-gallery-count"><span data-gallery-current>1</span> / <span data-gallery-total>11</span></p>
-          </div>
-          <div class="personal-gallery-dots" aria-label="Gallery image selector"></div>
-        </article>
+            <div class="personal-gallery-dots" aria-label="Gallery image selector"></div>
+          </article>
+        </div>
         <script src="/js/gallery-carousel.js?v=20260608-icra2026-vienna" defer></script>
     design:
       columns: '1'

@@ -496,6 +496,12 @@
   margin-top: 0.7rem;
 }
 
+.personal-gallery-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .personal-gallery-card {
   border: 1px solid var(--bs-border-color, rgba(0, 0, 0, 0.09));
   border-radius: 8px;
@@ -812,6 +818,10 @@
 
   .personal-gallery-track {
     aspect-ratio: 4 / 3;
+  }
+
+  .personal-gallery-grid {
+    grid-template-columns: 1fr;
   }
 
   .personal-gallery-body {
