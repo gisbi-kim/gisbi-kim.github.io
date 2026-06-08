@@ -94,7 +94,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js" defer></script>
+        <script src="/js/profile-sections.js?v=20260608-service-labels" defer></script>
     design:
       columns: '1'
 
