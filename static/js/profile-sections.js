@@ -482,7 +482,7 @@
             : "";
         const academicServiceBadge =
           isAcademicServiceSection && row.Category
-            ? `<span class="profile-data-badge profile-data-badge-category">${escapeHtml(String(row.Category))}</span>`
+            ? `<span class="profile-data-badge profile-data-badge-service-${String(row.Category).toLowerCase().includes("international") ? "international" : "domestic"}">${escapeHtml(String(row.Category))}</span>`
             : "";
         const isMainTeaching =
           isTeachingSection &&
