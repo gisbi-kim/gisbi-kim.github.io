@@ -422,9 +422,11 @@
     const isEssaysSection = section.title === "Essays";
     const isPersonalProjectsSection = section.title === "Personal Projects";
     const isFundedProjectsSection = section.title === "Funded Projects";
+    const isAcademicServiceSection = section.title === "Academic Service";
     const showYearSeparators = ["Publications/Patents", "Invited Talks", "Awards", "Academic Service", "Teaching", "Essays", "Funded Projects"].includes(section.title);
     const metas = metaColumns(columns, primary).filter((column) => {
       if (isPublicationSection && ["Types", "Category"].includes(column)) return false;
+      if (isAcademicServiceSection && column === "Category") return false;
       if (isEssaysSection && column === "Tags") return false;
       if (isFundedProjectsSection && column === "Status") return false;
       if (isFundedProjectsSection && column === "Figure") return false;
@@ -478,6 +480,10 @@
           isFundedProjectsSection && row.Status
             ? `<span class="profile-data-badge profile-data-badge-funded-${String(row.Status).toLowerCase()}">${escapeHtml(String(row.Status))}</span>`
             : "";
+        const academicServiceBadge =
+          isAcademicServiceSection && row.Category
+            ? `<span class="profile-data-badge profile-data-badge-category">${escapeHtml(String(row.Category))}</span>`
+            : "";
         const isMainTeaching =
           isTeachingSection &&
           /(Advancded mobile system|Introduction to Artificial Intelligence)/i.test(String(row.Course || ""));
@@ -486,7 +492,7 @@
             ? `<span class="profile-data-badge profile-data-badge-code">${renderValue("Code", row.Code)}</span>`
             : "";
         const mainTeachingBadge = isMainTeaching ? '<span class="profile-data-badge profile-data-badge-main">Main</span>' : "";
-        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${teachingCodeBadge}${mainTeachingBadge}`;
+        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${academicServiceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
         const metaHtml = metas
           .filter((column) => row[column] && !(isTeachingSection && column === "Code"))
           .map((column) => {

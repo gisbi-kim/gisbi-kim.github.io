@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-08T03:57:08+00:00",
+  "updatedAt": "2026-06-08T04:01:06+00:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -691,6 +691,7 @@
       "title": "Academic Service",
       "columns": [
         "Date",
+        "Category",
         "Venue",
         "Role",
         "Event",
@@ -702,6 +703,7 @@
       "rows": [
         {
           "Date": "2027.05",
+          "Category": "International Conf",
           "Venue": "ICRA 2027",
           "Role": "Workshops & Tutorials Committee Co-Chair",
           "Event": "",
@@ -712,6 +714,7 @@
         },
         {
           "Date": "2026.10",
+          "Category": "International Conf",
           "Venue": "IROS 2026",
           "Role": "Workshop Organizer",
           "Event": "",
@@ -722,6 +725,7 @@
         },
         {
           "Date": "2026.10",
+          "Category": "International Conf",
           "Venue": "IROS 2026",
           "Role": "Workshop Organizer",
           "Event": "",
@@ -732,6 +736,7 @@
         },
         {
           "Date": "2026.07",
+          "Category": "Domestic Conf",
           "Venue": "ICROS 2026",
           "Role": "Organizing Committee",
           "Event": "",
@@ -742,6 +747,7 @@
         },
         {
           "Date": "2026.02",
+          "Category": "Domestic Conf",
           "Venue": "KRoC 2026",
           "Role": "Tutorial Organizer",
           "Event": "",
