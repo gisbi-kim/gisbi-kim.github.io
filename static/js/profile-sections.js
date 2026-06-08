@@ -71,7 +71,7 @@
     return escapeHtml(text);
   }
 
-  function renderTalkTitle(row, primary) {
+  function renderPopupTitle(row, primary) {
     const title = renderValue(primary, row[primary]);
     const popupImage = String(row["Popup Image"] || "").trim();
     if (!popupImage) return title;
@@ -512,6 +512,8 @@
                 ? renderRecipient(row[column])
               : isAwardsSection && column === "Event"
                 ? renderEvent(row)
+              : isAwardsSection && column === "Award"
+                ? renderPopupTitle(row, column)
               : isTeachingSection && column === "TA"
                 ? renderTeachingTa(row[column])
                 : isTalksSection && ["Host / Venue", "Invitation From"].includes(column)
@@ -547,7 +549,7 @@
           isTeachingSection && primary === "Course"
             ? renderTeachingCourse(row[primary])
             : isTalksSection && primary === "Title"
-              ? renderTalkTitle(row, primary)
+              ? renderPopupTitle(row, primary)
               : renderValue(primary, row[primary]);
         const titleRow = primary ? `<div class="profile-data-title-row">${badgeHtml}<h3>${titleValue}</h3></div>` : "";
         const contentBlock = `<div class="profile-data-publication-body">
