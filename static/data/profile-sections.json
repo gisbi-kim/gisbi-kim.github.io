@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-08T03:43:06+00:00",
+  "updatedAt": "2026-06-08T03:57:08+00:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -735,7 +735,7 @@
           "Venue": "ICROS 2026",
           "Role": "Organizing Committee",
           "Event": "",
-          "Title": "ICROS 2026 organization committee",
+          "Title": "The 41st Annual Conference of the Institute of Control, Robotics, and Systems",
           "Tutorial Site": "",
           "Explorer": "https://gisbi-kim.github.io/icros2026-explorer/",
           "Website": ""
