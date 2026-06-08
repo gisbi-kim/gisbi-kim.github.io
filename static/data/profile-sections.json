@@ -565,6 +565,7 @@
         "Recipient",
         "Event",
         "Event Link",
+        "Website",
         "Date",
         "Note"
       ],
@@ -575,6 +576,7 @@
           "Recipient": "Giseop Kim",
           "Event": "ICROS 2026",
           "Event Link": "",
+          "Website": "",
           "Note": ""
         },
         {
@@ -583,6 +585,7 @@
           "Recipient": "Giseop Kim",
           "Event": "KRoC 2026",
           "Event Link": "",
+          "Website": "",
           "Note": ""
         },
         {
@@ -591,6 +594,7 @@
           "Recipient": "Jiseon Kim (MS student of APRL)",
           "Event": "HEAI Workshop, IROS 2025",
           "Event Link": "https://heai-iros25-workshop.github.io/",
+          "Website": "https://www.dropbox.com/scl/fo/dz1m3bmpiiyb2ho8xku8x/ANYZ1dryKAzS2Lg_Z_Q5aQU?rlkey=5wt0uhmzp2s4zia7p1x79ansp&e=1&dl=0",
           "Note": ""
         }
       ]
