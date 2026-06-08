@@ -740,7 +740,7 @@
     document.querySelectorAll(".portrait-title h3 a").forEach((link) => {
       if (link.textContent.replace(/\s+/g, " ").trim() !== "APRL | DGIST") return;
       link.outerHTML = [
-        '<a href="https://aprl.dgist.ac.kr" target="_blank" rel="noopener">APRL</a>',
+        '<a href="https://team-aprl.github.io/" target="_blank" rel="noopener">APRL</a>',
         '<span class="profile-affiliation-separator"> | </span>',
         '<a href="https://www.dgist.ac.kr" target="_blank" rel="noopener">DGIST</a>',
       ].join("");

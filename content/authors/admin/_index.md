@@ -9,7 +9,7 @@ interests:
   - Spatial AI & Physical AI
 organizations:
   - name: APRL | DGIST
-    url: https://aprl.dgist.ac.kr
+    url: https://team-aprl.github.io/
 education:
   courses:
     - course: PhD in Civil & Env. Eng.
@@ -36,7 +36,7 @@ status:
   icon: 🤖
 ---
 
-I am an Assistant Professor in the Department of Robotics and Mechatronics Engineering at [DGIST](https://www.dgist.ac.kr), where I lead the **Autonomy and Perceptual Robotics Lab ([APRL](https://aprl.dgist.ac.kr))**. I also hold joint appointments in the Department of Artificial Intelligence and the Mechanical Engineering Track at DGIST.
+I am an Assistant Professor in the Department of Robotics and Mechatronics Engineering at [DGIST](https://www.dgist.ac.kr), where I lead the **Autonomy and Perceptual Robotics Lab ([APRL](https://team-aprl.github.io/))**. I also hold joint appointments in the Department of Artificial Intelligence and the Mechanical Engineering Track at DGIST.
 
 Before joining DGIST, I was a Research Scientist at [NAVER LABS](https://www.naverlabs.com/) (2021--2024), working on autonomous driving and 3D vision. I received my PhD, MS, and BS from [KAIST](https://www.kaist.ac.kr), all in Civil and Environmental Engineering, under the guidance of Prof. [Ayoung Kim](https://ayoungk.github.io).
 

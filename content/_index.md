@@ -18,7 +18,7 @@ sections:
     content:
       title: Experience
       text: |
-        - **Assistant Professor**, [DGIST](https://www.dgist.ac.kr) (2024.12–) — PI of [APRL](https://aprl.dgist.ac.kr)
+        - **Assistant Professor**, [DGIST](https://www.dgist.ac.kr) (2024.12–) — PI of [APRL](https://team-aprl.github.io/)
         - **Research Scientist**, [NAVER LABS](https://www.naverlabs.com/) (2021.12–2024.12)
         - **M.S. & Ph.D.**, [KAIST](https://www.kaist.ac.kr) (2017.03–2021.08) — [IRAP Lab](https://rpm.snu.ac.kr)
     design:
