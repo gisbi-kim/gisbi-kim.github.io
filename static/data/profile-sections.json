@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-26T11:05:00+00:00",
+  "updatedAt": "2026-06-08T03:43:06+00:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -700,6 +700,16 @@
         "Website"
       ],
       "rows": [
+        {
+          "Date": "2027.05",
+          "Venue": "ICRA 2027",
+          "Role": "Workshops & Tutorials Committee Co-Chair",
+          "Event": "",
+          "Title": "IEEE International Conference on Robotics and Automation",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://2027.ieee-icra.org/about/committee/#:~:text=Workshops%20%26%20Tutorials%20Committee"
+        },
         {
           "Date": "2026.10",
           "Venue": "IROS 2026",
