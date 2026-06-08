@@ -777,6 +777,11 @@
           "Title": "Conference Explorers",
           "Description": "Interactive conference-paper explorers for browsing robotics and AI research landscapes.",
           "Link": "https://gisbi-kim.github.io/conference-explorers/"
+        },
+        {
+          "Title": "RoboPaper Atlas",
+          "Description": "A robotics-paper atlas for exploring papers, topics, and research connections.",
+          "Link": "https://gisbi-kim.github.io/robopaper-atlas/"
         }
       ]
     },
