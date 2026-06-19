@@ -338,6 +338,15 @@
       ],
       "rows": [
         {
+          "Date": "2026.09.27",
+          "Event/Session": "IROS 2026 WS (bridging-navigation)",
+          "Host / Venue": "IROS 2026",
+          "Invitation From": "Daeun Song",
+          "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
+          "Slide Link": "",
+          "Event Link": "https://bridging-navigation.github.io/website/"
+        },
+        {
           "Date": "2026.06.02",
           "Event/Session": "ICRA 2026 Private Meetup",
           "Host / Venue": "URobotics",

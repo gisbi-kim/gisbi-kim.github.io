@@ -234,7 +234,7 @@
 
   function talkType(row) {
     const talkContext = `${row["Event/Session"] || ""} ${row["Invitation From"] || ""}`;
-    if (/(KRoC|ICEIC|Conference|Summer School|Award Session)/i.test(talkContext)) return "Conference";
+    if (/(IROS|KRoC|ICEIC|Conference|Summer School|Award Session)/i.test(talkContext)) return "Conference";
     if (/Hyundai Motor Company|Mobile Robotics Team|URobotics/i.test(`${row["Host / Venue"] || ""} ${row["Invitation From"] || ""}`)) return "Industry";
     if (/Daegu's Innovation, Moving Towards a Robot and Future Mobility City/i.test(String(row.Title || ""))) return "Public Sector";
     if (/^Prof\./i.test(String(row["Invitation From"] || "").trim())) return "University";
