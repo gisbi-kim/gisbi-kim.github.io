@@ -38,7 +38,7 @@ status:
 
 I am an Assistant Professor in the Department of Robotics and Mechatronics Engineering at [DGIST](https://www.dgist.ac.kr), where I lead the **Autonomy and Perceptual Robotics Lab ([APRL](https://team-aprl.github.io/))**. I also hold joint appointments in the Department of Artificial Intelligence and the Mechanical Engineering Track at DGIST.
 
-Before joining DGIST, I was a Research Scientist at [NAVER LABS](https://www.naverlabs.com/) (2021--2024), working on autonomous driving and 3D vision. I received my PhD, MS, and BS from [KAIST](https://www.kaist.ac.kr), all in Civil and Environmental Engineering, under the guidance of Prof. [Ayoung Kim](https://ayoungk.github.io).
+Before joining DGIST, I was a Research Scientist at [NAVER LABS](https://www.naverlabs.com/) (2021--2024), working on autonomous driving and 3D vision. I received my PhD, MS, and BS from [KAIST](https://www.kaist.ac.kr), all in Civil and Environmental Engineering, under the guidance of Prof. [Ayoung Kim](https://ayoungk.github.io) and Prof. [Youngchul Kim](https://cee.kaist.ac.kr/boards/view/people_en/67/sc_category/1).
 
 My research focuses on enabling robots to perceive and navigate the real world robustly and efficiently — through SLAM, 3D reconstruction, sensor fusion, and spatial AI.
 

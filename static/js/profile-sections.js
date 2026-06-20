@@ -300,6 +300,13 @@
     </div>`;
   }
 
+  function renderTalkCollapseControls() {
+    return `<div class="profile-data-collapse-controls" aria-label="Invited talk year controls">
+      <button class="profile-data-control-button" type="button" data-profile-talk-collapse="open">Expand all</button>
+      <button class="profile-data-control-button" type="button" data-profile-talk-collapse="closed">Collapse all</button>
+    </div>`;
+  }
+
   function countBy(rows, column) {
     return rows.reduce((counts, row) => {
       const value = String(row[column] || "").trim();
@@ -439,16 +446,7 @@
       if (isFundedProjectsSection && column === "Figure") return false;
       return true;
     });
-    let previousYear = "";
-
-    return section.rows
-      .map((row) => {
-        const year = showYearSeparators ? rowYear(section, row) : "";
-        const separator =
-          showYearSeparators && year && year !== previousYear
-            ? `<div class="profile-data-year-separator"><span>${escapeHtml(year)}</span></div>`
-            : "";
-        if (year) previousYear = year;
+    function renderCard(row) {
         const publicationBadges = isPublicationSection
           ? publicationBadgeColumns
               .filter((column) => row[column])
@@ -557,11 +555,47 @@
             <div class="profile-data-meta-row">${metaHtml}</div>
             ${actionsBlock}
           </div>`;
-        return `${separator}<article class="${cardClass}">
+        return `<article class="${cardClass}">
           ${contentBlock}
           ${isPublicationSection ? publicationFigure(row) : ""}
           ${isFundedProjectsSection ? cardFigure(row, "/images/publication-dummy.svg", "funded project") : ""}
         </article>`;
+    }
+
+    if (isTalksSection) {
+      const currentYear = String(new Date().getFullYear());
+      const groupedRows = section.rows.reduce((groups, row) => {
+        const year = rowYear(section, row) || "Undated";
+        if (!groups.has(year)) groups.set(year, []);
+        groups.get(year).push(row);
+        return groups;
+      }, new Map());
+
+      return Array.from(groupedRows.entries())
+        .map(([year, rows]) => {
+          const open = year === currentYear ? " open" : "";
+          const cards = rows.map(renderCard).join("");
+          return `<details class="profile-data-year-group" data-profile-talk-year="${escapeHtml(year)}"${open}>
+            <summary>
+              <span class="profile-data-year-group-title"><span class="profile-data-year-group-arrow" aria-hidden="true"></span>${escapeHtml(year)}</span>
+              <span class="profile-data-year-group-status"><span>${rows.length} entries</span><span class="profile-data-year-group-hint"><span class="profile-data-year-group-hint-closed">Show entries</span><span class="profile-data-year-group-hint-open">Hide entries</span></span></span>
+            </summary>
+            <div class="profile-data-year-group-grid">${cards}</div>
+          </details>`;
+        })
+        .join("");
+    }
+
+    let previousYear = "";
+    return section.rows
+      .map((row) => {
+        const year = showYearSeparators ? rowYear(section, row) : "";
+        const separator =
+          showYearSeparators && year && year !== previousYear
+            ? `<div class="profile-data-year-separator"><span>${escapeHtml(year)}</span></div>`
+            : "";
+        if (year) previousYear = year;
+        return `${separator}${renderCard(row)}`;
       })
       .join("");
   }
@@ -607,6 +641,7 @@
       ${key === "publications" ? renderPublicationSummary(key, summaryRows, filters) : ""}
       ${key === "funded_projects" ? renderFundedSummary(baseRows) : ""}
       ${key === "talks" ? renderTalkFilters(key, baseRows, filters) : ""}
+      ${key === "talks" ? renderTalkCollapseControls() : ""}
       ${key === "essays" ? renderEssayFilters(key, baseRows, filters) : ""}
       ${view === "table" ? renderTable(renderedSection) : `<div class="profile-data-grid profile-data-grid-${escapeHtml(key)}">${renderCards(renderedSection)}</div>`}
     `;
@@ -634,6 +669,15 @@
           currentFilters[group] = button.getAttribute("data-profile-filter-toggle") === "true" && currentFilters[group] === value ? "all" : value;
         }
         renderMount(mount);
+      });
+    });
+
+    mount.querySelectorAll("[data-profile-talk-collapse]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const shouldOpen = button.getAttribute("data-profile-talk-collapse") === "open";
+        mount.querySelectorAll(".profile-data-year-group").forEach((group) => {
+          group.open = shouldOpen;
+        });
       });
     });
 

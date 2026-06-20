@@ -30,6 +30,7 @@ sections:
       title: Publications/Patents
       text: |
         <p class="profile-data-more-link"><a href="https://team-aprl.github.io/publications.html">See APRL Publications →</a></p>
+        <p class="profile-data-more-link"><a href="/papers-before-dgist/">Papers before DGIST (at KAIST) →</a></p>
     design:
       columns: '1'
 
@@ -154,7 +155,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js?v=20260619-talks-iros2026" defer></script>
+        <script src="/js/profile-sections.js?v=20260620-talks-collapse" defer></script>
     design:
       columns: '1'
 

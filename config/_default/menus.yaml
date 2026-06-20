@@ -1,6 +1,6 @@
 main:
   - name: Publications
-    url: https://team-aprl.github.io/publications.html
+    url: '#publications'
     weight: 20
   - name: Talks
     url: '#talks'
@@ -9,13 +9,13 @@ main:
     url: '#awards'
     weight: 32
   - name: Funding
-    url: https://team-aprl.github.io/projects.html
+    url: '#funded-projects'
     weight: 25
   - name: Service
     url: '#academic-service'
     weight: 35
   - name: Teaching
-    url: https://team-aprl.github.io/teaching.html
+    url: '#teaching'
     weight: 40
   - name: Projects
     url: '#personal-projects'
