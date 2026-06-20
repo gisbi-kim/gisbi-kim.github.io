@@ -120,7 +120,7 @@
   }
 
   function renderTalkInvitation(value) {
-    return escapeHtml(value)
+    return renderTalkConferenceLinks(value)
       .replace(
         /\bDaeun Song\b/g,
         '<a href="https://robotics.ewha.ac.kr/" target="_blank" rel="noopener">Daeun Song</a>'
@@ -151,13 +151,29 @@
       );
   }
 
+  function renderTalkConferenceLinks(value) {
+    return escapeHtml(value)
+      .replace(
+        /\bIROS 2026\b/g,
+        '<a href="https://2026.ieee-iros.org/" target="_blank" rel="noopener">IROS 2026</a>'
+      )
+      .replace(
+        /\bICRA 2026\b/g,
+        '<a href="https://2026.ieee-icra.org/" target="_blank" rel="noopener">ICRA 2026</a>'
+      )
+      .replace(
+        /\bICROS 2026\b/g,
+        '<a href="https://2026.icros.org/" target="_blank" rel="noopener">ICROS 2026</a>'
+      );
+  }
+
   function renderTalkEventSession(row) {
     const eventSession = String(row["Event/Session"] || "").trim();
     const eventLink = String(row["Event Link"] || "").trim();
     if (eventSession && eventLink && isUrl(eventLink)) {
       return `<a href="${escapeHtml(eventLink)}" target="_blank" rel="noopener">${escapeHtml(eventSession)}</a>`;
     }
-    return escapeHtml(eventSession);
+    return renderTalkConferenceLinks(eventSession);
   }
 
   function publicationFigure(row) {
@@ -527,6 +543,8 @@
                   ? renderTalkEventSession(row)
                 : isTalksSection && ["Host / Venue", "Invitation From"].includes(column)
                   ? renderTalkInvitation(row[column])
+                : isTalksSection
+                  ? renderTalkConferenceLinks(row[column])
                 : renderValue(column, row[column]);
             return `<span class="profile-data-meta${compact}${author}${fullLine}"><b>${escapeHtml(metaLabel(column))}</b>${value}</span>`;
           })
