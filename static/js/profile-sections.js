@@ -151,6 +151,15 @@
       );
   }
 
+  function renderTalkEventSession(row) {
+    const eventSession = String(row["Event/Session"] || "").trim();
+    const eventLink = String(row["Event Link"] || "").trim();
+    if (eventSession && eventLink && isUrl(eventLink)) {
+      return `<a href="${escapeHtml(eventLink)}" target="_blank" rel="noopener">${escapeHtml(eventSession)}</a>`;
+    }
+    return escapeHtml(eventSession);
+  }
+
   function publicationFigure(row) {
     const figure = String(row.Figure || "/images/publication-dummy.svg").trim();
     const alt = `Figure for ${String(row.Title || "publication").trim()}`;
@@ -514,6 +523,8 @@
                 ? renderPopupTitle(row, column)
               : isTeachingSection && column === "TA"
                 ? renderTeachingTa(row[column])
+                : isTalksSection && column === "Event/Session"
+                  ? renderTalkEventSession(row)
                 : isTalksSection && ["Host / Venue", "Invitation From"].includes(column)
                   ? renderTalkInvitation(row[column])
                 : renderValue(column, row[column]);
