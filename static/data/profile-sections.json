@@ -594,6 +594,8 @@
           "Recipient": "Giseop Kim",
           "Event": "ICROS 2026",
           "Event Link": "",
+          "Popup Image": "/images/awards/icros-2026-poster.png",
+          "Popup Trigger": "Recipient",
           "Website": "",
           "Note": ""
         },

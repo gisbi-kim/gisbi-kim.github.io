@@ -71,11 +71,21 @@
     return escapeHtml(text);
   }
 
+  function popupColumn(row, defaultColumn) {
+    const popupImage = String(row["Popup Image"] || "").trim();
+    if (!popupImage) return "";
+    return String(row["Popup Trigger"] || defaultColumn || "").trim();
+  }
+
+  function renderPopupValue(row, column, valueHtml) {
+    const popupImage = String(row["Popup Image"] || "").trim();
+    if (!popupImage) return valueHtml;
+    return `<button class="profile-data-title-button" type="button" data-talk-popup-image="${escapeHtml(popupImage)}" data-talk-popup-title="${escapeHtml(row[column])}">${valueHtml}</button>`;
+  }
+
   function renderPopupTitle(row, primary) {
     const title = renderValue(primary, row[primary]);
-    const popupImage = String(row["Popup Image"] || "").trim();
-    if (!popupImage) return title;
-    return `<button class="profile-data-title-button" type="button" data-talk-popup-image="${escapeHtml(popupImage)}" data-talk-popup-title="${escapeHtml(row[primary])}">${title}</button>`;
+    return popupColumn(row, primary) === primary ? renderPopupValue(row, primary, title) : title;
   }
 
   function renderAuthors(value) {
@@ -532,11 +542,15 @@
             const value = isPublicationSection
               ? renderPublicationMetaValue(column, row)
               : isAwardsSection && column === "Recipient"
-                ? renderRecipient(row[column])
+                ? popupColumn(row, "Award") === column
+                  ? renderPopupValue(row, column, renderRecipient(row[column]))
+                  : renderRecipient(row[column])
               : isAwardsSection && column === "Event"
                 ? renderEvent(row)
               : isAwardsSection && column === "Award"
-                ? renderPopupTitle(row, column)
+                ? popupColumn(row, "Award") === column
+                  ? renderPopupValue(row, column, renderValue(column, row[column]))
+                  : renderValue(column, row[column])
               : isTeachingSection && column === "TA"
                 ? renderTeachingTa(row[column])
                 : isTalksSection && column === "Event/Session"
