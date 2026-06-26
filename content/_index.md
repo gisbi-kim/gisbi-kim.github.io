@@ -160,7 +160,7 @@ sections:
             <div class="personal-gallery-dots" aria-label="Gallery image selector"></div>
           </article>
         </div>
-        <script src="/js/gallery-carousel.js?v=20260608-icra2026-vienna" defer></script>
+        <script src="/js/gallery-carousel.js?v=20260627-lightbox" defer></script>
     design:
       columns: '1'
 

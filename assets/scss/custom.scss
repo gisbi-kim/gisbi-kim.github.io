@@ -719,10 +719,41 @@
 }
 
 .personal-gallery-slide img {
+  cursor: zoom-in;
   display: block;
   height: 100%;
   object-fit: contain;
   width: 100%;
+}
+
+.personal-gallery-lightbox {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.82);
+  border: 0;
+  cursor: zoom-out;
+  display: none;
+  inset: 0;
+  justify-content: center;
+  padding: 1.2rem;
+  position: fixed;
+  z-index: 1100;
+}
+
+.personal-gallery-lightbox.is-open {
+  display: flex;
+}
+
+.personal-gallery-lightbox img {
+  border-radius: 8px;
+  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.35);
+  cursor: zoom-out;
+  max-height: 88vh;
+  max-width: 92vw;
+  object-fit: contain;
+}
+
+.personal-gallery-lightbox-open {
+  overflow: hidden;
 }
 
 .personal-gallery-button {
