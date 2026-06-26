@@ -99,14 +99,14 @@ sections:
             <div class="personal-gallery-frame">
               <div class="personal-gallery-track">
                 <figure class="personal-gallery-slide is-active">
-                  <img src="/images/gallery/summer-days-dgist/2026-06-26.png?v=20260626" alt="Summer days of DGIST" loading="lazy">
+                  <img src="/images/gallery/summer-days-dgist/2026-06-26.png?v=20260626" alt="Summer Days of DGIST" loading="lazy">
                 </figure>
               </div>
             </div>
             <div class="personal-gallery-body">
               <div>
                 <p class="personal-gallery-date">2026.06.26</p>
-                <p class="personal-gallery-text">summer days of DGIST</p>
+                <p class="personal-gallery-text">Summer Days of DGIST</p>
               </div>
             </div>
           </article>
