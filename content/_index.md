@@ -30,7 +30,6 @@ sections:
       title: Publications/Patents
       text: |
         <p class="profile-data-more-link"><a href="https://team-aprl.github.io/publications.html">See APRL Publications →</a></p>
-        <p class="profile-data-more-link"><a href="/papers-before-dgist/">Papers before DGIST (at KAIST) →</a></p>
     design:
       columns: '1'
 
