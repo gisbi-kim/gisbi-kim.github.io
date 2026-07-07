@@ -273,6 +273,7 @@
     if (/Hyundai Motor Company|Mobile Robotics Team|URobotics/i.test(`${row["Host / Venue"] || ""} ${row["Invitation From"] || ""}`)) return "Industry";
     if (/Daegu's Innovation, Moving Towards a Robot and Future Mobility City/i.test(String(row.Title || ""))) return "Public Sector";
     if (/^Prof\./i.test(String(row["Invitation From"] || "").trim())) return "University";
+    if (/ETRI/i.test(`${row["Host / Venue"] || ""} ${row["Invitation From"] || ""}`)) return "Research Institute";
     if (/^Dr\./i.test(String(row["Invitation From"] || "").trim())) return "Research Institute";
     return "Other";
   }
