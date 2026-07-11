@@ -127,6 +127,40 @@
   color: #fff;
 }
 
+.profile-data-filters[aria-label="Essay filters"] .profile-data-filter-group {
+  align-items: flex-start;
+  display: flex;
+  width: 100%;
+}
+
+.profile-data-filters[aria-label="Essay filters"] .profile-data-filter-group > span {
+  padding-top: 0.48rem;
+}
+
+.profile-data-filters[aria-label="Essay filters"] .profile-data-filter-buttons {
+  display: flex;
+  flex: 1 1 0;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  min-width: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.profile-data-filters[aria-label="Essay filters"] .profile-data-filter-button {
+  flex: 0 0 auto;
+  border: 1px solid var(--bs-border-color, rgba(0, 0, 0, 0.12));
+  border-radius: 999px;
+  line-height: 1.15;
+  padding: 0.42rem 0.68rem;
+  white-space: nowrap;
+}
+
+.profile-data-filters[aria-label="Essay filters"] .profile-data-filter-button:last-child {
+  border-right: 1px solid var(--bs-border-color, rgba(0, 0, 0, 0.12));
+}
+
 .profile-data-collapse-controls {
   display: flex;
   flex-wrap: wrap;
