@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T04:46:04+00:00",
+  "updatedAt": "2026-07-11T07:12:52+00:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -844,6 +844,12 @@
         "Link"
       ],
       "rows": [
+        {
+          "Published Date": "2026.07.11",
+          "Title": "로봇은 더 배워야 하는가, 더 생각해야 하는가",
+          "Tags": "Robotics, AI, VLA",
+          "Link": "https://gisbi-kim.github.io/vla-runtime-harnessing/"
+        },
         {
           "Published Date": "2026.06.28",
           "Title": "로봇공학도로서 학위과정동안 남겨야 할 것은 무엇일까?",
