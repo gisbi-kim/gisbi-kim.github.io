@@ -846,6 +846,12 @@
       "rows": [
         {
           "Published Date": "2026.07.11",
+          "Title": "로봇은 지도를 기억해야 하는가, 경험을 기억해야 하는가",
+          "Tags": "Robotics, Spatial AI, Long-Term Autonomy",
+          "Link": "https://gisbi-kim.github.io/spatial-experience-memory/"
+        },
+        {
+          "Published Date": "2026.07.11",
           "Title": "로봇은 더 배워야 하는가, 더 생각해야 하는가",
           "Tags": "Robotics, AI, VLA",
           "Link": "https://gisbi-kim.github.io/vla-runtime-harnessing/"
