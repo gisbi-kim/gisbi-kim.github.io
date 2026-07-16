@@ -23,6 +23,9 @@ main:
   - name: Gallery
     url: '#gallery'
     weight: 47
+  - name: Notes
+    url: /notes/
+    weight: 49
   - name: Essays
     url: /essays/
     weight: 50
