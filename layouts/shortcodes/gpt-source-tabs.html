@@ -1,0 +1,54 @@
+{{- $ndc := .Page.Resources.GetMatch "ndc-gpt-summary.md" -}}
+{{- $icml := .Page.Resources.GetMatch "icml-gpt-summary.md" -}}
+{{- $tabsetID := printf "gpt-source-tabs-%s" .Page.File.UniqueID -}}
+
+{{- if and $ndc $icml -}}
+<div class="gpt-source-tabs" data-gpt-source-tabs>
+  <div class="gpt-source-tabs__list" role="tablist" aria-label="두 출처에 대한 GPT 정리 원문">
+    <button
+      class="gpt-source-tabs__tab is-active"
+      id="{{ $tabsetID }}-tab-ndc"
+      type="button"
+      role="tab"
+      aria-selected="true"
+      aria-controls="{{ $tabsetID }}-panel-ndc"
+      tabindex="0"
+    >NDC 2026 정리</button>
+    <button
+      class="gpt-source-tabs__tab"
+      id="{{ $tabsetID }}-tab-icml"
+      type="button"
+      role="tab"
+      aria-selected="false"
+      aria-controls="{{ $tabsetID }}-panel-icml"
+      tabindex="-1"
+    >ICML 2026 정리</button>
+  </div>
+
+  <section
+    class="gpt-source-tabs__panel"
+    id="{{ $tabsetID }}-panel-ndc"
+    role="tabpanel"
+    aria-labelledby="{{ $tabsetID }}-tab-ndc"
+    tabindex="0"
+  >
+    <div class="gpt-source-tabs__notice">GPT 정리 원문 · NDC 2026 키노트 분석</div>
+    {{ $ndc.Content }}
+  </section>
+
+  <section
+    class="gpt-source-tabs__panel"
+    id="{{ $tabsetID }}-panel-icml"
+    role="tabpanel"
+    aria-labelledby="{{ $tabsetID }}-tab-icml"
+    tabindex="0"
+    hidden
+  >
+    <div class="gpt-source-tabs__notice">GPT 정리 원문 · ICML 2026 현장 후기 분석</div>
+    {{ $icml.Content }}
+  </section>
+</div>
+<script src="/js/gpt-source-tabs.js?v=20260716" defer></script>
+{{- else -}}
+<p><em>GPT 정리 원문 파일을 불러오지 못했습니다.</em></p>
+{{- end -}}
