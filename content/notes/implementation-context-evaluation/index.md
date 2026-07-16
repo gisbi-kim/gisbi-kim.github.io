@@ -10,6 +10,7 @@ tags:
   - Research
   - Summary
 draft: false
+math: true
 ---
 
 > **정리 메모**

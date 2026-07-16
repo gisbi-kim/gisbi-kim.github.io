@@ -14,15 +14,15 @@ AI가 코드, 이미지, 기획안, 프로토타입을 빠르게 만들어주기
 
 실제로 발표에서는 스팀 출시작이 크게 증가했지만 사용자에게 주어진 시간은 그대로이며, PC·콘솔 플레이 시간의 상당 부분이 이미 오래된 게임에 집중돼 있다는 점을 예로 들어. 즉,
 
-[
+$$
 \text{Implementation Cost} \downarrow
 \quad\Rightarrow\quad
 \text{Supply} \uparrow
 \quad\Rightarrow\quad
 \text{Attention Competition} \uparrow
-]
+$$
 
-이라는 구조야. ([[★미쳐날뛰는 프로그래머★](https://drehzr.tistory.com/entry/%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC-NDC-2026-%EA%B5%AC%ED%98%84%EC%9D%B4-%EC%89%AC%EC%9B%8C%EC%A7%80%EB%8A%94-%EC%8B%9C%EB%8C%80-%EC%9A%B0%EB%A6%AC%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9C%BC%EB%A1%9C-%EA%B2%BD%EC%9F%81%ED%95%98%EB%8A%94%EA%B0%80?utm_source=chatgpt.com)][1])
+이라는 구조야.
 
 ## 2. 앞으로의 핵심 경쟁력은 ‘맥락 자본’
 
@@ -37,9 +37,9 @@ AI가 코드, 이미지, 기획안, 프로토타입을 빠르게 만들어주기
 * 게임을 둘러싼 크리에이터와 팬들의 2차 창작
 * 특정 시점에 특정 사람들이 함께 보낸 경험
 
-이건 돈을 넣거나 프롬프트를 잘 작성한다고 단기간에 만들 수 없다는 거지. 강연에서는 **“구현의 수준이 아니라 맥락의 깊이로 경쟁해야 한다”**는 식으로 정리돼. ([[미래를 보는 창 - 전자신문](https://www.etnews.com/20260616000273?utm_source=chatgpt.com)][2])
+이건 돈을 넣거나 프롬프트를 잘 작성한다고 단기간에 만들 수 없다는 거지. 강연에서는 **“구현의 수준이 아니라 맥락의 깊이로 경쟁해야 한다”**는 식으로 정리돼.
 
-예를 들어 컬링의 규칙이나 구현이 갑자기 좋아진 게 아닌데도, 평창올림픽 당시 응원할 팀과 서사, 역전 상황, “영미”라는 공동의 기억이 생기면서 훨씬 재미있어졌다는 사례를 들어. **재미는 콘텐츠 자체뿐 아니라 그 콘텐츠를 둘러싼 맥락에서 발생한다**는 이야기야. ([[Daum](https://v.daum.net/v/20260616135402330?utm_source=chatgpt.com)][3])
+예를 들어 컬링의 규칙이나 구현이 갑자기 좋아진 게 아닌데도, 평창올림픽 당시 응원할 팀과 서사, 역전 상황, “영미”라는 공동의 기억이 생기면서 훨씬 재미있어졌다는 사례를 들어. **재미는 콘텐츠 자체뿐 아니라 그 콘텐츠를 둘러싼 맥락에서 발생한다**는 이야기야.
 
 ## 3. AI가 코드를 잘 짤수록 인간의 ‘판단 감각’이 중요해진다
 
@@ -47,7 +47,7 @@ AI가 코드, 이미지, 기획안, 프로토타입을 빠르게 만들어주기
 
 AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위쪽으로 이동한다는 주장에 가까워.
 
-[
+$$
 \text{How to implement}
 \rightarrow
 \text{What to build}
@@ -55,7 +55,7 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 \text{Why it matters}
 \rightarrow
 \text{For whom and in what context}
-]
+$$
 
 즉, 코드를 직접 얼마나 빠르게 짜느냐보다,
 
@@ -67,7 +67,7 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 
 같은 **taste, judgment, problem selection**이 더 중요해진다는 거야.
 
-강대현 대표는 AI가 코드를 대신 짜줄수록, 오랫동안 축적된 개발자의 판단 감각이 오히려 더 희소해진다고 설명해. ([[미래를 보는 창 - 전자신문](https://www.etnews.com/20260616000273?utm_source=chatgpt.com)][2])
+강대현 대표는 AI가 코드를 대신 짜줄수록, 오랫동안 축적된 개발자의 판단 감각이 오히려 더 희소해진다고 설명해.
 
 ## 4. 맥락은 단순히 쌓이는 게 아니라 ‘복리’로 성장한다
 
@@ -75,7 +75,7 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 
 게임을 한 사람이 플레이하고 끝나는 것이 아니라,
 
-[
+$$
 \text{Play}
 \rightarrow
 \text{Community Discussion}
@@ -87,11 +87,11 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 \text{New Users}
 \rightarrow
 \text{More Play}
-]
+$$
 
 처럼 게임 안팎의 활동이 서로에게 다시 투자되면 가치가 복리처럼 증가한다는 거야.
 
-축구가 150년 동안 경기, 관람, 응원, 유니폼, 게임, 커뮤니티가 서로를 강화하면서 하나의 거대한 문화가 된 것처럼, 게임도 경험이 서로 순환하는 구조를 만들어야 한다는 주장이지. ([[연합뉴스](https://www.yna.co.kr/view/AKR20260616069700017?utm_source=chatgpt.com)][4])
+축구가 150년 동안 경기, 관람, 응원, 유니폼, 게임, 커뮤니티가 서로를 강화하면서 하나의 거대한 문화가 된 것처럼, 게임도 경험이 서로 순환하는 구조를 만들어야 한다는 주장이지.
 
 발표에서 말하는 차이는 대략 다음과 같아.
 
@@ -110,11 +110,11 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 
 복리 성장에서 중요한 것은 초기 원금만이 아니라 **재투자율과 반복 속도**이기 때문이야. 작은 팀은 유저와 가까이 소통하고 의사결정을 빠르게 내릴 수 있으므로,
 
-[
+$$
 \text{Small Initial Capital}
 \times
 (1+\text{High Learning Rate})^t
-]
+$$
 
 형태로 대기업보다 빠르게 맥락을 쌓을 수 있다는 주장이지.
 
@@ -125,7 +125,7 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
 * 커뮤니티 문화를 강화하고
 * 다시 피드백받는
 
-루프를 돌린다면 충분히 경쟁할 수 있다는 거야. ([[★미쳐날뛰는 프로그래머★](https://drehzr.tistory.com/entry/%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC-NDC-2026-%EA%B5%AC%ED%98%84%EC%9D%B4-%EC%89%AC%EC%9B%8C%EC%A7%80%EB%8A%94-%EC%8B%9C%EB%8C%80-%EC%9A%B0%EB%A6%AC%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9C%BC%EB%A1%9C-%EA%B2%BD%EC%9F%81%ED%95%98%EB%8A%94%EA%B0%80?utm_source=chatgpt.com)][1])
+루프를 돌린다면 충분히 경쟁할 수 있다는 거야.
 
 ## 6. 넥슨이 말하는 두 종류의 AI
 
@@ -141,7 +141,7 @@ AI가 구현을 대신하면 인간에게 남는 역할은 다음과 같이 위�
    * 회사와 유저가 함께 축적한 운영 경험, 맥락, 관계, 기억
    * 조직마다 다른 독점적 자산
 
-결론은 첫 번째 AI를 적극적으로 쓰되, 그것만으로는 차별화할 수 없으므로 두 번째 AI를 축적해야 한다는 거야. ([[연합뉴스](https://www.yna.co.kr/view/AKR20260616069700017?utm_source=chatgpt.com)][4])
+결론은 첫 번째 AI를 적극적으로 쓰되, 그것만으로는 차별화할 수 없으므로 두 번째 AI를 축적해야 한다는 거야.
 
 ---
 
@@ -172,7 +172,7 @@ AI는 metric을 계산할 수 있지만, 그 metric이 문제의 본질을 제�
 
 논문을 매번 독립적으로 만드는 게 아니라,
 
-[
+$$
 \text{Dataset}
 \rightarrow
 \text{Benchmark}
@@ -182,7 +182,7 @@ AI는 metric을 계산할 수 있지만, 그 metric이 문제의 본질을 제�
 \text{Real Robot}
 \rightarrow
 \text{New Research Question}
-]
+$$
 
 으로 이전 연구가 다음 연구의 원금이 되게 만들어야 해.
 
@@ -192,17 +192,9 @@ ScaleMaster, LT-Mem, AIMS를 서로 독립된 과제로 놓는 것보다 **장�
 
 학생 개인에게만 노하우가 있으면 졸업할 때 사라져. 반면 실패 로그, 실험 프로토콜, 코드, 데이터, 리뷰 대응 사례, 논문 스토리텔링 원칙이 연구실 차원에서 축적되면 새로운 학생의 시작점이 계속 높아져.
 
-    [
-    K_{t+1}
-    =======
-
-    K_t
-    +
-    \text{New Knowledge}
-    --------------------
-
-    \text{Knowledge Loss}
-    ]
+$$
+K_{t+1} = K_t + \frac{\text{New Knowledge}}{\text{Knowledge Loss}}
+$$
 
 AI 시대에 좋은 연구실은 `New Knowledge`만 늘리는 곳이 아니라, `Knowledge Loss`를 최소화하는 곳이라고 볼 수 있어.
 
@@ -212,24 +204,12 @@ AI 시대에 좋은 연구실은 `New Knowledge`만 늘리는 곳이 아니라, 
 
 정확한 해석은 이거야.
 
-    [
-    \text{Competitive Advantage}
-    ============================
-
-    \text{Implementation Quality}
-    \times
-    \text{Context Depth}
-    \times
-    \text{Iteration Rate}
-    ]
+$$
+\text{Competitive Advantage} = \text{Implementation Quality} \times \text{Context Depth} \times \text{Iteration Rate}
+$$
 
 구현 품질은 이제 차별화 요소라기보다 **기본 입장권**이 되고 있어. 입장권을 얻은 뒤의 차이는 문제 선택, 취향, 사용자 이해, 역사, 커뮤니티, 빠른 학습 루프에서 발생한다는 주장이라고 보면 돼.
 
 한마디로 정리하면:
 
 > **AI 시대에는 잘 만드는 사람이 사라지는 게 아니라, 무엇을 왜 만들어야 하는지 아는 사람만 더 강해진다는 강연이야.**
-
-[1]: https://drehzr.tistory.com/entry/%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC-NDC-2026-%EA%B5%AC%ED%98%84%EC%9D%B4-%EC%89%AC%EC%9B%8C%EC%A7%80%EB%8A%94-%EC%8B%9C%EB%8C%80-%EC%9A%B0%EB%A6%AC%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9C%BC%EB%A1%9C-%EA%B2%BD%EC%9F%81%ED%95%98%EB%8A%94%EA%B0%80?utm_source=chatgpt.com "읽을거리) NDC 2026 : 구현이 쉬워지는 시대, 우리는 무엇으로 경쟁 ..."
-[2]: https://www.etnews.com/20260616000273?utm_source=chatgpt.com "강대현 넥슨코리아 대표 “AI 시대 게임 경쟁력은 '맥락의 깊이 ..."
-[3]: https://v.daum.net/v/20260616135402330?utm_source=chatgpt.com "[NDC 26] 강대현 대표 “AI 시대 경쟁력은 '맥락 자본'”"
-[4]: https://www.yna.co.kr/view/AKR20260616069700017?utm_source=chatgpt.com "[AI픽] 넥슨 \"AI 시대 승부처는 맥락\"…'축적지능' 전략 공개"
