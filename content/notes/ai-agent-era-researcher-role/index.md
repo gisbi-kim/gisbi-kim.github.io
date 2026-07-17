@@ -13,6 +13,21 @@ draft: false
 math: true
 ---
 
+## ChatGPT 분석 이후의 연구자 버전
+
+> After working all day with 20+ concurrent AI agents, I've realized a researcher's job only has a few components to it anymore:
+>
+> 하루 종일 20개가 넘는 AI agent와 동시에 연구해 보니, 이제 연구자의 일은 몇 가지로만 이루어진다는 것을 깨달았다.
+>
+> - specifying what I want to know and what evidence would count
+>   - 무엇을 알고 싶은지, 어떤 증거면 충분한지 명세하기
+> - building and connecting the infrastructure that produces comparable evidence
+>   - 데이터·코드·연산자원·평가환경을 연결해 비교 가능한 증거 생산 체계를 만들기
+> - making taste-driven choices about questions, experiments, and claims
+>   - 제시된 질문·실험·주장 중 가치 있고 믿을 만한 것을 안목으로 판별하기
+> - aligning people and agents, and taking responsibility for the final claim
+>   - 학생·공동연구자·리뷰어·연구비 제공자와 소통하고, AI agent를 정렬하며, 최종 과학적 주장에 책임지기
+
 ## 배경과 동기
 
 40년 가까이 소프트웨어 업계에서 일해 온 엔지니어이자 개발 문화 논객인 Steve Yegge는 2026년 7월 16일, 한 달 동안 하루 종일 20개가 넘는 Fable을 동시에 운용해 본 뒤 자신의 일이 이제 몇 가지로 수렴했다고 적었다.
