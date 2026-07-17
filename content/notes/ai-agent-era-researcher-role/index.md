@@ -32,6 +32,10 @@ math: true
 
 40년 가까이 소프트웨어 업계에서 일해 온 엔지니어이자 개발 문화 논객인 Steve Yegge는 2026년 7월 16일, 한 달 동안 하루 종일 20개가 넘는 Fable을 동시에 운용해 본 뒤 자신의 일이 이제 몇 가지로 수렴했다고 적었다.
 
+[![Steve Yegge가 20개 이상의 Fable을 동시에 운용한 뒤 자신의 일이 네 가지로 수렴했다고 쓴 X 게시물](steve-yegge-fables-post.png)](https://x.com/Steve_Yegge/status/2077475727327604932?s=20)
+
+*Steve Yegge의 2026년 7월 16일 X 게시물. 이미지를 누르면 원문으로 이동한다.*
+
 > After working for a month with 20+ concurrent Fables all day, I've realized my job only has a few components to it anymore:
 >
 > 한 달 동안 하루 종일 20개가 넘는 Fable을 동시에 운용해 보니, 이제 내 일은 몇 가지로만 이루어진다는 것을 깨달았다.
