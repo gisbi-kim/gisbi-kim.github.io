@@ -19,10 +19,16 @@ math: true
 
 > After working for a month with 20+ concurrent Fables all day, I've realized my job only has a few components to it anymore:
 >
+> 한 달 동안 하루 종일 20개가 넘는 Fable을 동시에 운용해 보니, 이제 내 일은 몇 가지로만 이루어진다는 것을 깨달았다.
+>
 > - asking for what I want
+>   - 내가 원하는 것을 요청하기
 > - setting up accounts and credentials
+>   - 계정과 인증 정보 설정하기
 > - taste-making choices presented to me
+>   - 제시된 선택지 가운데 좋은 것을 감식하고 선택하기
 > - communication with team and customers
+>   - 팀 및 고객과 소통하기
 
 이 관찰에서 흥미로운 점은 단순히 “AI가 코딩을 대신한다”는 데 있지 않다. 여러 agent가 구현과 실행을 병렬로 맡기 시작하면 인간의 일은 사라지기보다, **무엇을 원하는지 정의하고, 그것이 가능하도록 환경을 만들고, 수많은 결과 중 좋은 것을 판별하며, 사람들과 방향을 맞추는 상위 수준의 판단**으로 이동한다는 데 있다.
 
