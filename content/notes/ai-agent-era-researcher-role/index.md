@@ -13,20 +13,39 @@ draft: false
 math: true
 ---
 
-## ChatGPT 분석 이후의 연구자 버전
-
-> After working all day with 20+ concurrent AI agents, I've realized a researcher's job only has a few components to it anymore:
->
-> 하루 종일 20개가 넘는 AI agent와 동시에 연구해 보니, 이제 연구자의 일은 몇 가지로만 이루어진다는 것을 깨달았다.
->
-> - specifying what I want to know and what evidence would count
->   - 무엇을 알고 싶은지, 어떤 증거면 충분한지 명세하기
-> - building and connecting the infrastructure that produces comparable evidence
->   - 데이터·코드·연산자원·평가환경을 연결해 비교 가능한 증거 생산 체계를 만들기
-> - making taste-driven choices about questions, experiments, and claims
->   - 제시된 질문·실험·주장 중 가치 있고 믿을 만한 것을 안목으로 판별하기
-> - aligning people and agents, and taking responsibility for the final claim
->   - 학생·공동연구자·리뷰어·연구비 제공자와 소통하고, AI agent를 정렬하며, 최종 과학적 주장에 책임지기
+<section class="researcher-role-summary" aria-labelledby="researcher-role-summary-title">
+  <div class="researcher-role-summary__kicker">AI-NATIVE RESEARCH</div>
+  <h2 id="researcher-role-summary-title">
+    AI가 연구를 병렬화하면,<br>
+    <span>연구자의 일은 네 가지로 수렴한다</span>
+  </h2>
+  <div class="researcher-role-summary__lead">
+    <p lang="en">After working all day with 20+ concurrent AI agents, I've realized a researcher's job only has a few components to it anymore:</p>
+    <p>하루 종일 20개가 넘는 AI agent와 동시에 연구해 보니, 이제 연구자의 일은 몇 가지로만 이루어진다는 것을 깨달았다.</p>
+  </div>
+  <div class="researcher-role-grid">
+    <article class="researcher-role-card">
+      <span class="researcher-role-card__number">01</span>
+      <p class="researcher-role-card__en" lang="en">specifying what I want to know and what evidence would count</p>
+      <p class="researcher-role-card__ko">무엇을 알고 싶은지, 어떤 증거면 충분한지 명세하기</p>
+    </article>
+    <article class="researcher-role-card">
+      <span class="researcher-role-card__number">02</span>
+      <p class="researcher-role-card__en" lang="en">building and connecting the infrastructure that produces comparable evidence</p>
+      <p class="researcher-role-card__ko">데이터·코드·연산자원·평가환경을 연결해 비교 가능한 증거 생산 체계를 만들기</p>
+    </article>
+    <article class="researcher-role-card">
+      <span class="researcher-role-card__number">03</span>
+      <p class="researcher-role-card__en" lang="en">making taste-driven choices about questions, experiments, and claims</p>
+      <p class="researcher-role-card__ko">제시된 질문·실험·주장 중 가치 있고 믿을 만한 것을 안목으로 판별하기</p>
+    </article>
+    <article class="researcher-role-card">
+      <span class="researcher-role-card__number">04</span>
+      <p class="researcher-role-card__en" lang="en">aligning people and agents, and taking responsibility for the final claim</p>
+      <p class="researcher-role-card__ko">학생·공동연구자·리뷰어·연구비 제공자와 소통하고, AI agent를 정렬하며, 최종 과학적 주장에 책임지기</p>
+    </article>
+  </div>
+</section>
 
 ## 배경과 동기
 

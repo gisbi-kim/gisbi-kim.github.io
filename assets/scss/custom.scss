@@ -888,6 +888,191 @@
   min-width: max-content;
 }
 
+.researcher-role-summary {
+  background:
+    radial-gradient(circle at 94% 4%, rgba(103, 140, 255, 0.2), transparent 32%),
+    linear-gradient(145deg, #f7faff 0%, #eef4ff 52%, #f8f6ff 100%);
+  border: 1px solid rgba(60, 105, 190, 0.2);
+  border-radius: 1.35rem;
+  box-shadow: 0 1.1rem 2.8rem rgba(37, 74, 135, 0.11);
+  margin: 0.4rem 0 2.6rem;
+  overflow: hidden;
+  padding: clamp(1.35rem, 4vw, 2.45rem);
+  position: relative;
+}
+
+.researcher-role-summary::before {
+  background: linear-gradient(90deg, #2767c7, #7657d6);
+  content: "";
+  height: 0.3rem;
+  inset: 0 0 auto;
+  position: absolute;
+}
+
+.researcher-role-summary__kicker {
+  color: #3969ad;
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  margin: 0 0 0.7rem;
+}
+
+.article-style .researcher-role-summary h2 {
+  color: #17243a;
+  font-size: clamp(1.65rem, 4vw, 2.55rem);
+  font-weight: 760;
+  letter-spacing: -0.035em;
+  line-height: 1.22;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.article-style .researcher-role-summary h2 span {
+  background: linear-gradient(100deg, #215fae, #684fc0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.researcher-role-summary__lead {
+  border-left: 3px solid #4d75c6;
+  margin: 1.3rem 0 1.6rem;
+  padding: 0.05rem 0 0.05rem 1rem;
+}
+
+.article-style .researcher-role-summary__lead p {
+  margin: 0;
+}
+
+.article-style .researcher-role-summary__lead p:first-child {
+  color: #56677f;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.article-style .researcher-role-summary__lead p:last-child {
+  color: #24344d;
+  font-size: 1.04rem;
+  font-weight: 680;
+  line-height: 1.65;
+  margin-top: 0.38rem;
+  word-break: keep-all;
+}
+
+.researcher-role-grid {
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.researcher-role-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(67, 103, 167, 0.17);
+  border-radius: 0.95rem;
+  box-shadow: 0 0.35rem 1rem rgba(40, 70, 120, 0.055);
+  min-width: 0;
+  padding: 1.05rem 1.05rem 1.1rem;
+  position: relative;
+}
+
+.researcher-role-card__number {
+  align-items: center;
+  background: #e7efff;
+  border: 1px solid #c8d8f6;
+  border-radius: 999px;
+  color: #315f9f;
+  display: inline-flex;
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.68rem;
+  font-weight: 800;
+  height: 1.55rem;
+  justify-content: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.72rem;
+  width: 2.25rem;
+}
+
+.article-style .researcher-role-card__en {
+  color: #69778b;
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.77rem;
+  line-height: 1.5;
+  margin: 0 0 0.42rem;
+}
+
+.article-style .researcher-role-card__ko {
+  color: #18263b;
+  font-size: 1rem;
+  font-weight: 720;
+  letter-spacing: -0.015em;
+  line-height: 1.58;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.dark .researcher-role-summary {
+  background:
+    radial-gradient(circle at 94% 4%, rgba(111, 143, 255, 0.16), transparent 34%),
+    linear-gradient(145deg, rgba(31, 42, 61, 0.98), rgba(28, 35, 54, 0.98));
+  border-color: rgba(164, 190, 239, 0.2);
+  box-shadow: 0 1.1rem 2.8rem rgba(0, 0, 0, 0.22);
+}
+
+.dark .researcher-role-summary__kicker {
+  color: #92b9f1;
+}
+
+.dark .article-style .researcher-role-summary h2 {
+  color: #f5f7fb;
+}
+
+.dark .article-style .researcher-role-summary h2 span {
+  background: none;
+  color: #a9c9ff;
+}
+
+.dark .researcher-role-summary__lead {
+  border-left-color: #8eb2ed;
+}
+
+.dark .article-style .researcher-role-summary__lead p:first-child,
+.dark .article-style .researcher-role-card__en {
+  color: #b7c2d4;
+}
+
+.dark .article-style .researcher-role-summary__lead p:last-child,
+.dark .article-style .researcher-role-card__ko {
+  color: #f4f6fa;
+}
+
+.dark .researcher-role-card {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(183, 202, 238, 0.16);
+  box-shadow: none;
+}
+
+.dark .researcher-role-card__number {
+  background: rgba(120, 161, 230, 0.13);
+  border-color: rgba(151, 185, 239, 0.28);
+  color: #acd0ff;
+}
+
+@media (max-width: 640px) {
+  .researcher-role-summary {
+    border-radius: 1rem;
+    padding: 1.3rem 1rem 1.1rem;
+  }
+
+  .researcher-role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-style .researcher-role-summary h2 {
+    font-size: 1.65rem;
+  }
+}
+
 .profile-affiliation-separator {
   color: inherit;
 }
