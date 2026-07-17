@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-11T07:12:52+00:00",
+  "updatedAt": "2026-07-18T01:34:35+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -844,6 +844,12 @@
         "Link"
       ],
       "rows": [
+        {
+          "Published Date": "2026.07.18",
+          "Title": "로보틱스 연구라는 업을 다시 정의하다",
+          "Tags": "Robotics, Research, Reflection",
+          "Link": "https://gisbi-kim.github.io/aprl-research-vision/"
+        },
         {
           "Published Date": "2026.07.11",
           "Title": "로봇은 지도를 기억해야 하는가, 경험을 기억해야 하는가",

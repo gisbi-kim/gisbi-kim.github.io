@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Rethinking Robotics Research from First Principles | Giseop Kim</title>
+  <meta
+    name="description"
+    content="An APRL vision statement defining Persistent, Intent-Grounded, and Resilient Embodied Intelligence and the research principles behind it."
+  />
+  <meta name="author" content="Giseop Kim" />
+  <meta
+    name="keywords"
+    content="APRL, embodied intelligence, persistent robotics, intent grounding, resilient robotics, failure recovery, long-term autonomy, robotics research vision"
+  />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Rethinking Robotics Research from First Principles" />
+  <meta
+    property="og:description"
+    content="An APRL research vision that begins with the physical outcomes robots must ultimately deliver, not the names of current technologies."
+  />
+  <meta property="article:published_time" content="2026-07-18" />
+  <meta property="article:author" content="Giseop Kim" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://gisbi-kim.github.io/aprl-research-vision/en/" />
+  <link rel="alternate" hreflang="ko" href="https://gisbi-kim.github.io/aprl-research-vision/" />
+  <link rel="alternate" hreflang="en" href="https://gisbi-kim.github.io/aprl-research-vision/en/" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Rethinking Robotics Research from First Principles",
+    "alternativeHeadline": "Persistent, Intent-Grounded, and Resilient Embodied Intelligence",
+    "datePublished": "2026-07-18",
+    "dateModified": "2026-07-18",
+    "inLanguage": "en-US",
+    "author": {
+      "@type": "Person",
+      "name": "Giseop Kim",
+      "alternateName": "Giseop Kim"
+    },
+    "about": {
+      "@type": "Organization",
+      "name": "Autonomy and Perceptual Robotics Lab (APRL)"
+    }
+  }
+  </script>
+  <style>
+    :root {
+      --page: #f5f6f8;
+      --paper: #ffffff;
+      --text: #172033;
+      --muted: #596579;
+      --faint: #7b8798;
+      --line: #dce2ea;
+      --line-strong: #bac5d3;
+      --accent: #2e5bd5;
+      --accent-soft: #eef3ff;
+      --accent-2: #0c7a69;
+      --accent-2-soft: #eaf8f5;
+      --warn: #9b5a0b;
+      --warn-soft: #fff6e8;
+      --quote: #202c42;
+      --code: #f2f4f7;
+      --shadow: 0 18px 60px rgba(25, 36, 55, 0.10);
+      --radius: 20px;
+      --content: 790px;
+      --wide: 1080px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #0d1118;
+        --paper: #131923;
+        --text: #e7ecf4;
+        --muted: #aab5c6;
+        --faint: #8a96a8;
+        --line: #2a3443;
+        --line-strong: #435066;
+        --accent: #85a7ff;
+        --accent-soft: #172544;
+        --accent-2: #74d5c4;
+        --accent-2-soft: #102c29;
+        --warn: #ffc36b;
+        --warn-soft: #352715;
+        --quote: #eef3ff;
+        --code: #1b2330;
+        --shadow: none;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family:
+        Pretendard, "Noto Sans KR", "Apple SD Gothic Neo",
+        -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 18px;
+      line-height: 1.82;
+      letter-spacing: -0.015em;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+
+    .page-shell {
+      width: min(calc(100% - 32px), var(--wide));
+      margin: 32px auto 72px;
+      overflow: clip;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      position: relative;
+      padding: clamp(42px, 8vw, 92px) clamp(24px, 7vw, 86px) 54px;
+      background:
+        radial-gradient(circle at 84% 16%, rgba(46, 91, 213, .15), transparent 30%),
+        radial-gradient(circle at 8% 88%, rgba(12, 122, 105, .10), transparent 28%),
+        var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .language-switch {
+      position: absolute;
+      top: 20px;
+      right: clamp(24px, 7vw, 86px);
+      z-index: 2;
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      background: color-mix(in srgb, var(--paper) 91%, transparent);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      font-size: 0.72rem;
+      line-height: 1;
+    }
+
+    .language-switch a {
+      padding: 7px 10px;
+      color: var(--muted);
+      border-radius: 999px;
+      font-weight: 750;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .language-switch a.is-active {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .series {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      padding: 7px 12px;
+      color: var(--muted);
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      font-size: 0.77rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      letter-spacing: -0.04em;
+      text-wrap: balance;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(2.35rem, 6.4vw, 4.65rem);
+      font-weight: 850;
+    }
+
+    .title-line { display: block; }
+
+    .subtitle {
+      max-width: 820px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 560;
+      line-height: 1.62;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 20px;
+      margin-top: 34px;
+      color: var(--faint);
+      font-size: 0.86rem;
+    }
+
+    .vision-triad {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+      margin-top: 42px;
+    }
+
+    .vision-card {
+      min-width: 0;
+      padding: 20px;
+      background: color-mix(in srgb, var(--paper) 88%, var(--accent-soft));
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .vision-card:nth-child(2) {
+      background: color-mix(in srgb, var(--paper) 88%, var(--accent-2-soft));
+    }
+
+    .vision-card:nth-child(3) {
+      background: color-mix(in srgb, var(--paper) 88%, var(--warn-soft));
+    }
+
+    .vision-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .vision-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, var(--content)) 220px;
+      justify-content: center;
+      align-items: start;
+      gap: 56px;
+      padding: 52px clamp(20px, 5vw, 60px) 72px;
+    }
+
+    .content { min-width: 0; }
+
+    .toc {
+      position: sticky;
+      top: 22px;
+      max-height: calc(100vh - 44px);
+      overflow: auto;
+      padding-left: 18px;
+      border-left: 2px solid var(--line);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .toc strong {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--text);
+      font-size: 0.82rem;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .toc li { margin: 8px 0; color: var(--faint); }
+    .toc a { color: var(--muted); text-decoration: none; }
+    .toc a:hover { color: var(--accent); }
+
+    .lead {
+      margin: 0 0 34px;
+      color: var(--quote);
+      font-size: 1.13rem;
+      line-height: 1.85;
+    }
+
+    h2 {
+      margin: 82px 0 22px;
+      padding-top: 8px;
+      font-size: clamp(1.65rem, 3.2vw, 2.15rem);
+      font-weight: 820;
+    }
+
+    h3 {
+      margin: 46px 0 16px;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    p { margin: 0 0 22px; }
+    ul, ol { margin: 0 0 24px; padding-left: 1.35em; }
+    li { margin: 7px 0; }
+
+    blockquote {
+      margin: 30px 0;
+      padding: 22px 24px;
+      color: var(--quote);
+      background: var(--accent-soft);
+      border-left: 5px solid var(--accent);
+      border-radius: 0 14px 14px 0;
+      font-size: 1.06rem;
+      font-weight: 650;
+    }
+
+    .callout {
+      margin: 30px 0;
+      padding: 22px 24px;
+      background: var(--code);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .callout.green {
+      background: var(--accent-2-soft);
+      border-color: color-mix(in srgb, var(--accent-2) 35%, var(--line));
+    }
+
+    .callout.warn {
+      background: var(--warn-soft);
+      border-color: color-mix(in srgb, var(--warn) 35%, var(--line));
+    }
+
+    .callout .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--faint);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+
+    .equation {
+      margin: 28px 0;
+      padding: 20px 16px;
+      overflow-wrap: anywhere;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: clamp(.88rem, 2.1vw, 1.02rem);
+      font-weight: 650;
+      line-height: 1.75;
+      text-align: center;
+    }
+
+    .loop {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .loop span {
+      padding: 4px 8px;
+      background: var(--code);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+    }
+
+    .loop b { color: var(--accent); }
+
+    .table-wrap {
+      margin: 28px 0 34px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: 0.87rem;
+      line-height: 1.5;
+    }
+
+    th, td {
+      padding: 13px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--text);
+      background: var(--code);
+      font-size: 0.79rem;
+      letter-spacing: .01em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    .pillar {
+      margin: 30px 0;
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+    }
+
+    .pillar-head {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 13px;
+    }
+
+    .pillar-index {
+      display: inline-grid;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      place-items: center;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 50%;
+      font-size: .82rem;
+      font-weight: 850;
+    }
+
+    .pillar h3 {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .pillar p:last-child { margin-bottom: 0; }
+
+    .big-shift {
+      margin: 36px 0;
+      padding: 28px;
+      background:
+        linear-gradient(135deg, var(--accent-soft), transparent 68%),
+        var(--paper);
+      border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+      border-radius: 18px;
+    }
+
+    .before-after {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phase {
+      min-height: 142px;
+      padding: 18px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .phase strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.02rem;
+    }
+
+    .phase span {
+      color: var(--muted);
+      font-size: 0.89rem;
+    }
+
+    .pivot {
+      color: var(--accent);
+      font-size: 1.55rem;
+      font-weight: 850;
+      text-align: center;
+    }
+
+    .manifesto {
+      display: grid;
+      gap: 12px;
+      margin: 30px 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: declaration;
+    }
+
+    .manifesto li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      margin: 0;
+      padding: 18px 20px;
+      background: var(--code);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      counter-increment: declaration;
+    }
+
+    .manifesto li::before {
+      content: counter(declaration, decimal-leading-zero);
+      display: inline-grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      color: #fff;
+      background: var(--accent-2);
+      border-radius: 10px;
+      font-size: .76rem;
+      font-weight: 850;
+    }
+
+    .manifesto strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+
+    .manifesto span {
+      color: var(--muted);
+      font-size: .93rem;
+      line-height: 1.6;
+    }
+
+    .closing {
+      margin-top: 84px;
+      padding: 34px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(12, 122, 105, .15), transparent 34%),
+        var(--accent-soft);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    .closing h2 { margin: 0 0 20px; padding: 0; }
+    .closing p:last-child { margin-bottom: 0; }
+
+    .related {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .related a { font-weight: 750; }
+
+    .note {
+      color: var(--faint);
+      font-size: 0.82rem;
+    }
+
+    .footer {
+      padding: 26px clamp(24px, 7vw, 86px);
+      color: var(--faint);
+      border-top: 1px solid var(--line);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 940px) {
+      .layout { grid-template-columns: minmax(0, var(--content)); }
+      .toc { display: none; }
+    }
+
+    @media (max-width: 660px) {
+      body { font-size: 16px; line-height: 1.78; word-break: normal; }
+      .page-shell { width: 100%; margin: 0; border: 0; border-radius: 0; }
+      .hero { padding: 38px 21px 42px; }
+      .language-switch { top: 14px; right: 16px; }
+      .series { margin-top: 40px; }
+      .layout { padding: 36px 20px 58px; }
+      .vision-triad,
+      .before-after { grid-template-columns: 1fr; }
+      .pivot { transform: rotate(90deg); }
+      h2 { margin-top: 68px; }
+      blockquote { margin-left: 0; margin-right: 0; }
+      .closing { padding: 26px 21px; }
+    }
+
+    @media print {
+      body { color: #000; background: #fff; font-size: 11pt; }
+      .page-shell { width: 100%; margin: 0; border: 0; box-shadow: none; }
+      .hero { padding: 0 0 26px; }
+      .layout { display: block; padding: 28px 0; }
+      .toc { display: none; }
+      a { color: inherit; text-decoration: none; }
+      h2, h3 { break-after: avoid; }
+      .table-wrap, blockquote, .callout, .big-shift, .pillar { break-inside: avoid; }
+      .footer { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="language-switch" aria-label="Language">
+        <a href="/aprl-research-vision/" lang="ko">한국어</a>
+        <a class="is-active" href="/aprl-research-vision/en/" lang="en" aria-current="page">English</a>
+      </nav>
+      <span class="series">APRL Research Vision</span>
+      <h1>
+        <span class="title-line">Rethinking Robotics Research</span>
+        <span class="title-line">from First Principles</span>
+      </h1>
+      <p class="subtitle">
+        An APRL research vision that begins not with the names of technologies, but with the physical outcomes
+        robots must ultimately deliver: <strong>Persistent, Intent-Grounded, and Resilient Embodied Intelligence</strong>
+      </p>
+      <div class="meta">
+        <span>Giseop Kim</span>
+        <span>July 18, 2026</span>
+        <span>APRL Vision Statement</span>
+      </div>
+
+      <div class="vision-triad" aria-label="Three pillars of the APRL research vision">
+        <div class="vision-card">
+          <strong>Persistent</strong>
+          <span>Maintains actionable world understanding across time and environmental change.</span>
+        </div>
+        <div class="vision-card">
+          <strong>Intent-Grounded</strong>
+          <span>Connects robot decisions and actions to the outcomes people actually want.</span>
+        </div>
+        <div class="vision-card">
+          <strong>Resilient</strong>
+          <span>Withstands uncertainty and failure, recovers when needed, and continues the mission.</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <main class="content">
+        <article>
+          <p class="lead">
+            A laboratory vision should not be a list of the technologies it currently uses. Names such as SLAM,
+            VLA, world models, and humanoids matter, but they will be replaced, recombined, and reinterpreted.
+            What must last is an answer to <strong>why this research exists and which robot capabilities we are
+            ultimately trying to build</strong>.
+          </p>
+
+          <section id="why-redefine">
+            <h2>1. Why redefine the work of robotics research?</h2>
+
+            <p>
+              To understand a field of work, it is not enough to look at what it produces today. We must consider
+              why the field exists, the core structures through which it delivers value, and how technology,
+              society, and user expectations are changing. If the automobile industry were defined only as the
+              manufacture of four-wheeled vehicles, we would miss how electrification, software, finance, and
+              services move the real locus of competition. Robotics research faces the same risk.
+            </p>
+
+            <p>
+              Describing APRL only as a lab for autonomous navigation and world models captures part of our
+              current work, but it confines future choices to those categories. A world model is a powerful means
+              for understanding and predicting the world; it does not replace the larger problem of interpreting
+              human intent, carrying physical action through to completion, verifying the outcome, and recovering
+              from failure.
+            </p>
+
+            <div class="big-shift">
+              <div class="before-after">
+                <div class="phase">
+                  <strong>Technology-centered definition</strong>
+                  <span>The lab is identified by its current methods: SLAM, VLN, VLA, world models, or 3D representations.</span>
+                </div>
+                <div class="pivot">→</div>
+                <div class="phase">
+                  <strong>Purpose-centered definition</strong>
+                  <span>The lab is identified by the capability to turn human intent into reliable outcomes in a changing physical world.</span>
+                </div>
+              </div>
+            </div>
+
+            <blockquote>
+              A strong research vision does not merely enlarge the importance of today’s technology.
+              It declares the problem that will remain even as the technology changes.
+            </blockquote>
+          </section>
+
+          <section id="first-principles">
+            <h2>2. The purpose of robotics research from first principles</h2>
+
+            <p>
+              The first question is not “Which model should we build?” but “Why do we need robots?” Robots exist
+              so that desired physical outcomes can be achieved without a person having to observe, decide, and
+              act at every moment. We therefore define the essential work of robotics research as follows.
+            </p>
+
+            <blockquote>
+              Build intelligence that transforms human intent into reliable physical outcomes in an uncertain world.
+            </blockquote>
+
+            <div class="equation" aria-label="Closed loop of robot intelligence">
+              <div class="loop">
+                <span>Human Intent</span><b>→</b>
+                <span>World Understanding</span><b>→</b>
+                <span>Decision</span><b>→</b>
+                <span>Physical Action</span><b>→</b>
+                <span>Outcome Verification</span><b>→</b>
+                <span>Recovery</span>
+              </div>
+            </div>
+
+            <p>
+              Establishing this closed loop without continuous human intervention is the first principle of
+              robotics research. Perception accuracy, localization error, policy loss, and reconstruction quality
+              are necessary, but they are intermediate measures. The final output is the result a robot creates in
+              the real world—and how long, safely, and reliably that result can be sustained.
+            </p>
+
+            <div class="callout warn">
+              <span class="label">Intermediate metrics and final purpose</span>
+              Lower ATE matters because it should keep a robot from getting lost or colliding—not because the
+              number itself is the goal. Better action tokens matter because they should help complete the user’s
+              request—not because token accuracy is the goal. Long-term memory matters because it should prevent
+              a robot from confusing the past with the present in a changing world—not because storing more is the goal.
+            </div>
+          </section>
+
+          <section id="three-pillars">
+            <h2>3. Three pillars of APRL research</h2>
+
+            <p>
+              We turn this purpose into three enduring capabilities. These pillars sit above any particular model
+              or platform, and they are not independent tasks. Persistent world understanding provides evidence
+              for interpreting intent; intent-grounded action requires outcome verification; and resilience feeds
+              the evidence from recovery back into the robot’s memory of the world.
+            </p>
+
+            <div class="pillar">
+              <div class="pillar-head">
+                <span class="pillar-index">A</span>
+                <h3>Persistent — understand the world across time</h3>
+              </div>
+              <p>
+                A robot must do more than process the current frame. It must continually judge where it is, what
+                exists around it, and what has changed. It should distinguish movement, disappearance, and
+                reappearance of the same object; reason about observation confidence and memory validity; and make
+                one robot’s verified experience a useful prior for another.
+              </p>
+              <p>
+                At APRL, SLAM, multi-session mapping, long-term memory, heterogeneous map alignment, and multi-robot
+                spatial experience all serve one problem: <strong>reliably maintaining the world state needed for
+                action over time</strong>.
+              </p>
+            </div>
+
+            <div class="pillar">
+              <div class="pillar-head">
+                <span class="pillar-index">B</span>
+                <h3>Intent-Grounded — connect action to what people actually want</h3>
+              </div>
+              <p>
+                People do not command robots with waypoints and joint trajectories. They communicate intent
+                through incomplete language, gestures, and context: “Wait over there,” “Come back in a little
+                while,” or “Check where that chair used to be.” A robot must distinguish move, wait, resume, and
+                terminate; identify referents and temporal conditions; and ask when the instruction is ambiguous.
+              </p>
+              <p>
+                At APRL, VLN, implicit-instruction reasoning, language–gesture grounding, and interactive
+                clarification are not merely routes to a higher benchmark score. They address the problem of
+                <strong>turning human intent into a physically executable specification</strong>.
+              </p>
+            </div>
+
+            <div class="pillar">
+              <div class="pillar-head">
+                <span class="pillar-index">C</span>
+                <h3>Resilient — continue the mission through uncertainty and failure</h3>
+              </div>
+              <p>
+                <strong>The physical world is never fully observed.</strong> Sensors have blind spots and noise,
+                while moving objects and changing illumination can make the same place appear different. A robot
+                must always infer the state of the world and make decisions from incomplete information.
+              </p>
+              <p>
+                <strong>Actions carry real costs.</strong> A language model can regenerate an incorrect sentence,
+                but a robot that moves incorrectly can collide, damage objects, or endanger people. Physical
+                actions are partly irreversible.
+              </p>
+              <p>
+                These two conditions make it insufficient to promise that every failure will be prevented. A robot
+                must detect when it is wrong or uncertain, gather more evidence, stop and ask when necessary,
+                replan, revise its memory, and continue the mission.
+              </p>
+              <p>
+                Resilience is broader than robustness that tries to prevent error altogether. It includes the
+                capacity to tolerate degraded performance, reassess state, and recover when needed.
+                <strong>Treating verification and recovery as first-class design problems alongside perception,
+                planning, and action</strong> separates a demonstration from a deployable robot.
+              </p>
+            </div>
+          </section>
+
+          <section id="means-and-purpose">
+            <h2>4. Technologies are means, not identity</h2>
+
+            <p>
+              This vision does not discard APRL’s existing expertise. It asks a stricter question: what role must
+              each technology play in the full closed loop? Technology names may change, but the following roles remain.
+            </p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Current research means</th>
+                    <th>Role within the vision</th>
+                    <th>Question it must ultimately answer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>SLAM·Mapping</strong></td>
+                    <td>Maintain the spatial state required for action over time.</td>
+                    <td>Does this map reduce real mission failures?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Long-term Memory</strong></td>
+                    <td>Distinguish current state, history, and evidence of change.</td>
+                    <td>Can the robot question stale memory and retrieve only relevant experience?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>VLN·VLM·VLA</strong></td>
+                    <td>Connect human intent and environmental context to executable action.</td>
+                    <td>Can it detect ambiguity and complete what was actually requested?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>World Models</strong></td>
+                    <td>Predict action outcomes and compare alternatives and risks.</td>
+                    <td>Does prediction improve decisions and verification at runtime?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Multi-robot Systems</strong></td>
+                    <td>Turn one robot’s verified experience into another robot’s prior.</td>
+                    <td>Does sharing produce more behavioral value than communication and compute cost?</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Humanoid·Manipulation</strong></td>
+                    <td>Expand the range of physical outcomes intelligence can produce.</td>
+                    <td>Does intent grounding and safety persist across embodiments?</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="callout green">
+              <span class="label">APRL perspective</span>
+              A world model is not the destination that defines the lab’s future. It is one of several means for
+              connecting persistent world understanding, intent-grounded action, and resilience. Larger models and
+              new representations will not eliminate the need for these three capabilities.
+            </div>
+          </section>
+
+          <section id="research-priority">
+            <h2>5. What counts as a major research problem?</h2>
+
+            <p>
+              First-principles thinking must be followed by a sense of priority. This does not mean that small
+              technical advances are unimportant. It means they must be connected to a larger purpose and shown to
+              change what the robot can reliably do.
+            </p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Research result</th>
+                    <th>First-principles assessment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>ATE improves from 3 cm to 2 cm</td>
+                    <td>A limited improvement if mission success and safety remain unchanged.</td>
+                  </tr>
+                  <tr>
+                    <td>Slightly larger error, but detects localization failure and recovers automatically</td>
+                    <td>A major improvement because it directly increases long-term operability.</td>
+                  </tr>
+                  <tr>
+                    <td>VLA success rises 5% on a constrained benchmark</td>
+                    <td>Incomplete until the gain is tested under environmental change and failure.</td>
+                  </tr>
+                  <tr>
+                    <td>Stops under uncertainty and asks the right question</td>
+                    <td>A core capability that can reduce the frequency and cost of human intervention.</td>
+                  </tr>
+                  <tr>
+                    <td>Visually refined 3D reconstruction</td>
+                    <td>Potentially secondary if it does not change planning, verification, or interaction.</td>
+                  </tr>
+                  <tr>
+                    <td>Remembers changed objects and separates past from present</td>
+                    <td>A foundation for persistent autonomy and reliability.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="equation">
+              Research Value ≈
+              (Reduced Human Intervention × Deployment Impact × Generality)
+              ÷ (System Complexity × Deployment Cost)
+            </div>
+
+            <p>
+              A paper is not the final purpose either. It is a means for discovering an important failure mode,
+              formalizing the right problem, and leaving reusable principles and methods of verification. A new
+              network block may disappear with the next backbone, while a clear failure condition, evaluation
+              protocol, recovery mechanism, or deployment principle can endure.
+            </p>
+          </section>
+
+          <section id="why-now">
+            <h2>6. Why this vision now?</h2>
+
+            <p>
+              The external conditions of robotics are changing. Foundation models lower the entry cost of
+              perception and reasoning, while open-vocabulary perception and multi-session mapping broaden the
+              scope of long-term world understanding. At the same time, evaluation is moving from single sessions
+              and average performance toward lifelong operation, real-world deployment, human-centered
+              interaction, robustness, and safety.
+            </p>
+
+            <p>
+              This shift is not only a race to build larger models. Even as models grow, long-term identity
+              consistency, uncertainty-aware memory updates, interaction timing, physical execution semantics,
+              active verification, and safety-critical recovery remain. Privacy and data-retention constraints
+              also create new design questions about what a robot should remember and when it should forget.
+            </p>
+
+            <div class="callout warn">
+              <span class="label">A durable research question</span>
+              We should ask: “Will the novelty disappear when a larger foundation model arrives?” Research should
+              target real failures and operational bottlenecks that remain even when the backbone changes.
+            </div>
+          </section>
+
+          <section id="selection-questions">
+            <h2>7. First-principles questions for choosing research topics</h2>
+
+            <p>
+              When evaluating a new idea, we ask the following questions before asking about novelty. If these six
+              questions have no clear answers, there may be a model, but the research problem is not yet well defined.
+            </p>
+
+            <ol class="manifesto">
+              <li>
+                <div>
+                  <strong>The failure</strong>
+                  <span>In which real situations does the robot fail, and why does that failure matter?</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Human intervention</strong>
+                  <span>Which observation, decision, recovery, or exception handling is a person doing today?</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Necessary information</strong>
+                  <span>What is the minimum information and memory actually needed to complete the mission?</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Self-awareness of failure</strong>
+                  <span>How does the robot know that it is wrong or uncertain, and what should it do next?</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Evaluation</strong>
+                  <span>If the research succeeds, which real failures and human interventions will decrease?</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>Generality</strong>
+                  <span>Will the problem remain when the backbone, foundation model, or embodiment changes?</span>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section id="declaration">
+            <h2>8. APRL Research Vision declaration</h2>
+
+            <ol class="manifesto">
+              <li>
+                <div>
+                  <strong>We begin with physical outcomes, not technology names.</strong>
+                  <span>We connect models and metrics to mission success, safety, and operational continuity.</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>We make robot understanding persist through time and change.</strong>
+                  <span>We reason jointly about current observations, past experience, evidence of change, and uncertainty.</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>We ground action in what people actually intend.</strong>
+                  <span>We turn language, gesture, context, and feedback into physically executable meaning.</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>We treat failure as a normal system state, not an exception.</strong>
+                  <span>We design uncertainty detection, verification, clarification, replanning, and recovery from the start.</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>We evaluate reduced human intervention, not benchmark scores alone.</strong>
+                  <span>We measure how long, accurately, and safely a robot can sustain a physical mission.</span>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <strong>We create knowledge that outlives the next model.</strong>
+                  <span>We leave reusable principles, systems, data, benchmarks, and evaluation protocols.</span>
+                </div>
+              </li>
+            </ol>
+          </section>
+
+          <section class="closing" id="conclusion">
+            <h2>The central conclusion</h2>
+            <p>
+              From first principles, APRL is not competing with the model in another paper. The real competitor is
+              the current mode of operation in which people repeatedly update maps, interpret ambiguous commands,
+              detect failures, restart robots, report environmental changes, and handle exceptions.
+            </p>
+            <blockquote>
+              APRL advances Persistent, Intent-Grounded, and Resilient Embodied Intelligence—enabling robots
+              to understand changing worlds, interpret human intent, and act reliably with minimal human intervention.
+            </blockquote>
+            <p>
+              The most fundamental performance measure is therefore <strong>how long, accurately, and safely a
+              robot can complete physical missions without continuous human intervention</strong>. SLAM, VLA,
+              world models, memory, and embodied AI are means toward that point. Papers and benchmarks are
+              intermediate evidence that we are genuinely moving closer to it.
+            </p>
+          </section>
+
+          <div class="related">
+            <strong>Related APRL essays</strong>
+            <ul>
+              <li>
+                <a href="https://gisbi-kim.github.io/spatial-experience-memory/">
+                  Should Robots Remember Maps, or Should They Remember Experiences? →
+                </a>
+              </li>
+              <li>
+                <a href="https://gisbi-kim.github.io/vla-runtime-harnessing/">
+                  Should Robots Learn More, or Should They Think More? →
+                </a>
+              </li>
+              <li>
+                <a href="https://team-aprl.github.io/research.html">
+                  APRL Research →
+                </a>
+              </li>
+            </ul>
+            <p class="note">
+              This essay is a vision statement for APRL’s long-term research direction. It does not claim that
+              these three capabilities have already been achieved; it defines the purpose toward which individual
+              research efforts and evaluations should converge.
+            </p>
+          </div>
+        </article>
+      </main>
+
+      <nav class="toc" aria-label="Table of contents">
+        <strong>Contents</strong>
+        <ol>
+          <li><a href="#why-redefine">Why redefine the field?</a></li>
+          <li><a href="#first-principles">First principles</a></li>
+          <li><a href="#three-pillars">Three research pillars</a></li>
+          <li><a href="#means-and-purpose">Technologies and purpose</a></li>
+          <li><a href="#research-priority">Research priorities</a></li>
+          <li><a href="#why-now">Why now?</a></li>
+          <li><a href="#selection-questions">Selection questions</a></li>
+          <li><a href="#declaration">APRL declaration</a></li>
+          <li><a href="#conclusion">Conclusion</a></li>
+        </ol>
+      </nav>
+    </div>
+
+    <footer class="footer">
+      © 2026 Giseop Kim · APRL Research Vision · Standalone essay for personal publication
+    </footer>
+  </div>
+</body>
+</html>
