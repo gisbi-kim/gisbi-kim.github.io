@@ -888,6 +888,292 @@
   min-width: max-content;
 }
 
+.sun-tzu-primer {
+  --sun-tzu-ink: #17202a;
+  --sun-tzu-muted: #5c6672;
+  --sun-tzu-paper: #f8f5ee;
+  --sun-tzu-line: rgba(33, 43, 54, 0.14);
+  --sun-tzu-red: #b04432;
+  background:
+    radial-gradient(circle at 96% 2%, rgba(176, 68, 50, 0.11), transparent 28%),
+    linear-gradient(150deg, #fbfaf6 0%, var(--sun-tzu-paper) 58%, #f4efe5 100%);
+  border: 1px solid rgba(84, 70, 50, 0.18);
+  border-radius: 1.35rem;
+  box-shadow: 0 1.15rem 3rem rgba(54, 45, 33, 0.1);
+  color: var(--sun-tzu-ink);
+  margin: 1.65rem 0 2.6rem;
+  overflow: hidden;
+  padding: clamp(1.35rem, 4vw, 2.5rem);
+  position: relative;
+}
+
+.sun-tzu-primer::before {
+  background: linear-gradient(90deg, #20272f 0%, #20272f 70%, var(--sun-tzu-red) 70%);
+  content: "";
+  height: 0.32rem;
+  inset: 0 0 auto;
+  position: absolute;
+}
+
+.sun-tzu-primer__header {
+  max-width: 47rem;
+}
+
+.article-style .sun-tzu-primer__kicker {
+  color: var(--sun-tzu-red);
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  margin: 0 0 0.72rem;
+}
+
+.article-style .sun-tzu-primer h2 {
+  color: var(--sun-tzu-ink);
+  font-size: clamp(1.65rem, 4vw, 2.5rem);
+  font-weight: 780;
+  letter-spacing: -0.04em;
+  line-height: 1.2;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.article-style .sun-tzu-primer h2 span {
+  color: var(--sun-tzu-red);
+}
+
+.article-style .sun-tzu-primer__intro {
+  color: #3f4852;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 1.1rem 0 0;
+  word-break: keep-all;
+}
+
+.sun-tzu-primer__principles {
+  display: grid;
+  gap: 0.78rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.55rem;
+}
+
+.sun-tzu-principle {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid var(--sun-tzu-line);
+  border-radius: 0.9rem;
+  min-width: 0;
+  padding: 1rem 1.05rem 1.08rem;
+}
+
+.sun-tzu-principle--lead {
+  background: #20272f;
+  border-color: #20272f;
+  color: #fff;
+  grid-column: 1 / -1;
+}
+
+.sun-tzu-principle__label {
+  color: var(--sun-tzu-red);
+  display: block;
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  margin-bottom: 0.46rem;
+}
+
+.sun-tzu-principle--lead .sun-tzu-principle__label {
+  color: #ec9a89;
+}
+
+.article-style .sun-tzu-principle h3 {
+  color: inherit;
+  font-size: 1.07rem;
+  font-weight: 760;
+  margin: 0 0 0.45rem;
+}
+
+.article-style .sun-tzu-principle h3 small,
+.article-style .sun-tzu-chapter-grid small {
+  color: #8a7c6b;
+  font-size: 0.72em;
+  font-weight: 560;
+}
+
+.article-style .sun-tzu-principle--lead h3 small {
+  color: #c9c2b8;
+}
+
+.article-style .sun-tzu-principle p {
+  color: var(--sun-tzu-muted);
+  font-size: 0.86rem;
+  line-height: 1.62;
+  margin: 0;
+  word-break: keep-all;
+}
+
+.article-style .sun-tzu-principle--lead p {
+  color: #e4e1dc;
+}
+
+.sun-tzu-primer__chapters {
+  border-top: 1px solid var(--sun-tzu-line);
+  margin-top: 1.45rem;
+  padding-top: 1.35rem;
+}
+
+.sun-tzu-primer__section-heading {
+  align-items: baseline;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.sun-tzu-primer__section-heading > span {
+  color: var(--sun-tzu-red);
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.article-style .sun-tzu-primer__section-heading h3 {
+  color: var(--sun-tzu-ink);
+  font-size: 1rem;
+  font-weight: 740;
+  margin: 0;
+  text-align: right;
+}
+
+.article-style .sun-tzu-chapter-grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.article-style .sun-tzu-chapter-grid li {
+  align-items: flex-start;
+  border-top: 1px solid var(--sun-tzu-line);
+  display: grid;
+  gap: 0.66rem;
+  grid-template-columns: 1.65rem minmax(0, 1fr);
+  min-width: 0;
+  padding: 0.72rem 0.65rem 0.72rem 0;
+}
+
+.article-style .sun-tzu-chapter-grid li:nth-child(even) {
+  padding-left: 0.85rem;
+}
+
+.sun-tzu-chapter-grid__number {
+  color: var(--sun-tzu-red);
+  font-family: var(--bs-font-monospace, "Roboto Mono", monospace);
+  font-size: 0.67rem;
+  font-weight: 800;
+  padding-top: 0.18rem;
+}
+
+.article-style .sun-tzu-chapter-grid strong {
+  color: var(--sun-tzu-ink);
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.article-style .sun-tzu-chapter-grid p {
+  color: var(--sun-tzu-muted);
+  font-size: 0.77rem;
+  line-height: 1.48;
+  margin: 0.18rem 0 0;
+  word-break: keep-all;
+}
+
+.sun-tzu-primer__source {
+  background: rgba(31, 38, 45, 0.055);
+  border-radius: 0.75rem;
+  margin-top: 1.2rem;
+  padding: 0.8rem 0.9rem;
+}
+
+.article-style .sun-tzu-primer__source p {
+  color: #5f615f;
+  font-size: 0.74rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.article-style .sun-tzu-primer__source p + p {
+  margin-top: 0.2rem;
+}
+
+.dark .sun-tzu-primer {
+  --sun-tzu-ink: #f4efe7;
+  --sun-tzu-muted: #c8c2b8;
+  --sun-tzu-paper: #252729;
+  --sun-tzu-line: rgba(240, 229, 211, 0.14);
+  background:
+    radial-gradient(circle at 96% 2%, rgba(210, 102, 82, 0.11), transparent 30%),
+    linear-gradient(150deg, #292b2d 0%, #222426 100%);
+  border-color: rgba(240, 229, 211, 0.16);
+  box-shadow: 0 1.15rem 3rem rgba(0, 0, 0, 0.2);
+}
+
+.dark .article-style .sun-tzu-primer__intro {
+  color: #d6d0c7;
+}
+
+.dark .sun-tzu-principle {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.dark .sun-tzu-principle--lead {
+  background: #17191b;
+}
+
+.dark .article-style .sun-tzu-principle h3 small,
+.dark .article-style .sun-tzu-chapter-grid small {
+  color: #bdb3a6;
+}
+
+.dark .sun-tzu-primer__source {
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.dark .article-style .sun-tzu-primer__source p {
+  color: #bdb7ae;
+}
+
+@media (max-width: 640px) {
+  .sun-tzu-primer {
+    border-radius: 1rem;
+    padding: 1.3rem 1rem 1.1rem;
+  }
+
+  .sun-tzu-primer__principles,
+  .article-style .sun-tzu-chapter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-style .sun-tzu-chapter-grid li:nth-child(even) {
+    padding-left: 0;
+  }
+
+  .sun-tzu-primer__section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .article-style .sun-tzu-primer__section-heading h3 {
+    text-align: left;
+  }
+}
+
 .researcher-role-summary {
   background:
     radial-gradient(circle at 94% 4%, rgba(103, 140, 255, 0.2), transparent 32%),

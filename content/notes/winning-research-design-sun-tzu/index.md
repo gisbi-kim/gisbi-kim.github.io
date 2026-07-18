@@ -17,6 +17,70 @@ math: true
 
 > **세계 최고 수준의 논문은 실험을 열심히 해서 우연히 이기는 것이 아니라, 시작하기 전에 이길 수밖에 없는 연구 구도를 설계한 결과다.**
 
+<section class="sun-tzu-primer" aria-labelledby="sun-tzu-primer-title">
+  <header class="sun-tzu-primer__header">
+    <p class="sun-tzu-primer__kicker">READING MAP · REFRAMED FOR RESEARCH</p>
+    <h2 id="sun-tzu-primer-title">
+      손자병법의 뼈대부터<br>
+      <span>연구 전략의 언어로 다시 읽기</span>
+    </h2>
+    <p class="sun-tzu-primer__intro">
+      손자병법은 무작정 싸우는 법보다 <strong>싸우기 전에 조건을 계산하고, 비용을 통제하며, 유리한 형세를 만드는 법</strong>에 가깝다.
+      이 글은 그 구조를 연구의 문제 선택·증거 설계·팀 운영으로 옮겨 읽는다.
+    </p>
+  </header>
+
+  <div class="sun-tzu-primer__principles" aria-label="손자병법의 핵심 개념">
+    <article class="sun-tzu-principle sun-tzu-principle--lead">
+      <span class="sun-tzu-principle__label">먼저 이겨 놓고 싸운다</span>
+      <h3>선승이후구전 <small lang="zh-Hant">先勝以後求戰</small></h3>
+      <p>승리는 전투 순간보다 준비 과정에서 결정된다. 연구에서는 실험 전에 문제의 중요성, 차별적 자원, 반박하기 어려운 증거 구조를 먼저 갖추는 원칙이다.</p>
+    </article>
+    <article class="sun-tzu-principle">
+      <span class="sun-tzu-principle__label">판단의 다섯 축</span>
+      <h3>오사 <small lang="zh-Hant">五事</small></h3>
+      <p><strong>도·천·지·장·법</strong>, 즉 명분과 정렬, 타이밍, 전장, 지휘, 규율을 함께 본다. 한 요소의 강점보다 다섯 조건의 결합이 승산을 만든다.</p>
+    </article>
+    <article class="sun-tzu-principle">
+      <span class="sun-tzu-principle__label">시작했으면 빠르게 배운다</span>
+      <h3>속전속결 <small lang="zh-Hant">速戰速決</small></h3>
+      <p>장기전의 소모를 경계하는 관점이다. 연구에서는 큰 시스템을 오래 만들기보다 결정적 불확실성을 작은 실험으로 먼저 제거한다.</p>
+    </article>
+    <article class="sun-tzu-principle">
+      <span class="sun-tzu-principle__label">전쟁은 자원의 문제다</span>
+      <h3>비용·자원·정치</h3>
+      <p>목표만큼 물적 조건과 자원 운용, 이후의 경제적 파장까지 살핀다. 연구에서도 계산 자원·시간·인력·데이터의 소모가 주장에 비례하는지 계속 점검해야 한다.</p>
+    </article>
+  </div>
+
+  <div class="sun-tzu-primer__chapters">
+    <div class="sun-tzu-primer__section-heading">
+      <span>13 CHAPTERS</span>
+      <h3>열세 편이 만드는 하나의 전략 흐름</h3>
+    </div>
+    <ol class="sun-tzu-chapter-grid">
+      <li><span class="sun-tzu-chapter-grid__number">01</span><div><strong>시계 <small lang="zh-Hant">始計</small></strong><p>시작 전에 조건과 승산을 계산한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">02</span><div><strong>작전 <small lang="zh-Hant">作戰</small></strong><p>지연과 소모를 줄여 결정을 앞당긴다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">03</span><div><strong>모공 <small lang="zh-Hant">謀攻</small></strong><p>정면 대결보다 판의 규칙을 바꾼다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">04</span><div><strong>군형 <small lang="zh-Hant">軍形</small></strong><p>먼저 패배하지 않을 구조를 만든다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">05</span><div><strong>병세 <small lang="zh-Hant">兵勢</small></strong><p>개인이 아닌 집단의 기세를 만든다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">06</span><div><strong>허실 <small lang="zh-Hant">虛實</small></strong><p>강한 곳을 피해 비어 있는 곳을 선점한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">07</span><div><strong>군쟁 <small lang="zh-Hant">軍爭</small></strong><p>우회와 기동으로 주도권을 확보한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">08</span><div><strong>구변 <small lang="zh-Hant">九變</small></strong><p>상황 변화에 맞춰 수단을 조정한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">09</span><div><strong>행군 <small lang="zh-Hant">行軍</small></strong><p>진행 과정의 신호와 위험을 읽는다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">10</span><div><strong>지형 <small lang="zh-Hant">地形</small></strong><p>자신·상대·환경의 조건을 함께 파악한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">11</span><div><strong>구지 <small lang="zh-Hant">九地</small></strong><p>국면에 따라 사람과 자원을 다르게 결집한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">12</span><div><strong>화공 <small lang="zh-Hant">火攻</small></strong><p>강력한 도구를 목적과 통제 아래 사용한다.</p></div></li>
+      <li><span class="sun-tzu-chapter-grid__number">13</span><div><strong>용간 <small lang="zh-Hant">用間</small></strong><p>정보를 모아 불확실성을 줄인다.</p></div></li>
+    </ol>
+  </div>
+
+  <footer class="sun-tzu-primer__source">
+    <p><strong>출처</strong> 손무 지음, 박병영 옮김, 《손자병법》.</p>
+    <p>위 개념과 13편 구성은 이 책을 바탕으로 요약했으며, 문장은 연구 맥락에 맞게 재구성했다. 책의 원문이나 지면을 전재한 것이 아니다.</p>
+  </footer>
+</section>
+
 연구에서의 승리는 단순히 성능표의 1등이 아니야.
 
 * 문제 자체가 중요하고
