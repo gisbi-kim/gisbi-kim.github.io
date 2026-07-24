@@ -12,7 +12,6 @@ tags:
   - Verification
 draft: false
 type: essays
-math: true
 url: "/ai-verification-for-robotics/"
 ---
 
@@ -172,17 +171,7 @@ AI는 일반적으로 정답이 하나로 고정되지 않거나, 의미 해석�
 
 가장 유망한 시스템 구조는 다음과 같다.
 
-$$
-\text{AI Proposal}
-\rightarrow
-\text{Geometric and Physical Verification}
-\rightarrow
-\text{Planning}
-\rightarrow
-\text{Execution}
-\rightarrow
-\text{Runtime Monitoring}
-$$
+> **AI Proposal → Geometric and Physical Verification → Planning → Execution → Runtime Monitoring**
 
 여기서 가장 중요한 원칙은 다음이다.
 
@@ -270,11 +259,7 @@ VLN에서도 instruction quality나 language metric만으로는 충분하지 않
 
 특히 `좋은 instruction을 생성했다`와 `로봇이 실제로 목적지에 도달했다`는 서로 다른 주장이다.
 
-$$
-\text{Instruction Quality}
-\neq
-\text{Navigation Success}
-$$
+> **Instruction Quality ≠ Navigation Success**
 
 따라서 instruction generation 연구도 실제 execution까지 닫힌 평가가 필요하다.
 
@@ -346,17 +331,7 @@ AI 경진대회에서는 같은 입력을 세 번 넣었을 때 같은 결과가
 
 특히 외부 foundation model API를 사용하는 경우 재현성은 다음 요소들의 결합으로 봐야 한다.
 
-$$
-\text{Reproducibility}
-=
-\text{Input Provenance}
-+
-\text{Model Provenance}
-+
-\text{Prompt Provenance}
-+
-\text{Execution Provenance}
-$$
+> **Reproducibility = Input Provenance + Model Provenance + Prompt Provenance + Execution Provenance**
 
 논문에 모델 이름만 적는 것으로는 부족하다.
 
@@ -572,15 +547,7 @@ geometry, physics, map, memory, sensor evidence를 이용해 제안의 타당성
 
 이를 하나의 구조로 정리하면 다음과 같다.
 
-$$
-\text{Generative Intelligence}
-+
-\text{Deterministic Verification}
-+
-\text{Physical Execution}
-+
-\text{Reproducible Evidence}
-$$
+> **Generative Intelligence + Deterministic Verification + Physical Execution + Reproducible Evidence**
 
 ---
 
