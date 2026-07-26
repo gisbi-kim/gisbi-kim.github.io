@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.07.26",
+      "Title": "증명 소화불량에서 데모 소화불량으로",
+      "Tags": "AI, Mathematics, Physical AI, Robotics, Research",
+      "Link": "https://gisbi-kim.github.io/tao-ai-math-for-physical-ai/"
+    },
+    {
+      "Published Date": "2026.07.26",
       "Title": "모두가 AI를 배워야 하지만, 모두가 AI를 전공할 필요는 없다",
       "Tags": "AI, Education, Policy, Systems",
       "Link": "https://gisbi-kim.github.io/ai-university-redesign/"
@@ -39,7 +45,7 @@
         });
     }
 
-    data.updatedAt = "2026-07-26T13:18:06+09:00";
+    data.updatedAt = "2026-07-26T15:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
