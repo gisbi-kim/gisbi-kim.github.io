@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-18T01:34:35+09:00",
+  "updatedAt": "2026-07-26T14:09:56+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -831,6 +831,11 @@
           "Title": "RoboPaper Atlas",
           "Description": "A robotics-paper atlas for exploring papers, topics, and research connections.",
           "Link": "https://gisbi-kim.github.io/robopaper-atlas/"
+        },
+        {
+          "Title": "2026 하반기 Physical AI 동향",
+          "Description": "A Korean trend report on Physical AI through July 2026, focused on closed-loop systems that verify outcomes and recover from failure.",
+          "Link": "https://gisbi-kim.github.io/physical-ai-trends-2026/physical-ai-trends-2026.pdf"
         }
       ]
     },

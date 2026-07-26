@@ -575,7 +575,9 @@
                 : isAwardsSection && column === "Website"
                   ? "Materials"
                 : isPersonalProjectsSection && column === "Link"
-                  ? "Website"
+                  ? /\.pdf(?:$|[?#])/i.test(String(row[column]))
+                    ? "PDF"
+                    : "Website"
                   : ""
             )
           )
