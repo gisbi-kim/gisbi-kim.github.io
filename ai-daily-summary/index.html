@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="APRL AI News Brief archive with full-text search and source filters.">
+  <meta name="theme-color" content="#0b0e13">
+  <title>AI Signal Archive · APRL</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0e13;
+      --panel: #10151d;
+      --panel-2: #141b25;
+      --ink: #edf3f8;
+      --muted: #8d99a8;
+      --line: #263141;
+      --accent: #81f7c5;
+      --accent-2: #78a9ff;
+      --warn: #ffcb6b;
+      --max: 1480px;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 12% -10%, rgba(120,169,255,.12), transparent 33rem),
+        radial-gradient(circle at 93% 0%, rgba(129,247,197,.09), transparent 30rem),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+    .shell {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 72px;
+    }
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: start;
+      padding: 26px 28px;
+      border: 1px solid var(--line);
+      background: rgba(16,21,29,.82);
+      backdrop-filter: blur(18px);
+      border-radius: 24px;
+      box-shadow: 0 24px 80px rgba(0,0,0,.28);
+    }
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font: 700 12px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 820;
+    }
+    .dek {
+      margin: 16px 0 0;
+      max-width: 800px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .status {
+      min-width: 210px;
+      padding: 15px 17px;
+      border: 1px solid var(--line);
+      background: rgba(11,14,19,.72);
+      border-radius: 14px;
+    }
+    .status strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 24px;
+      letter-spacing: -.03em;
+    }
+    .status span {
+      color: var(--muted);
+      font: 600 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .control-panel {
+      position: sticky;
+      top: 10px;
+      z-index: 10;
+      margin: 18px 0 24px;
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) 220px auto;
+      gap: 10px;
+      padding: 11px;
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      background: rgba(11,14,19,.88);
+      backdrop-filter: blur(18px);
+    }
+    .search-wrap { position: relative; }
+    .search-wrap::before {
+      content: "⌕";
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-52%);
+      color: var(--accent);
+      font-size: 22px;
+    }
+    input, select, .toggle {
+      width: 100%;
+      min-height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--panel);
+      color: var(--ink);
+      outline: none;
+    }
+    input { padding: 0 16px 0 43px; }
+    select { padding: 0 38px 0 14px; }
+    input:focus, select:focus, .toggle:focus-visible {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 3px rgba(120,169,255,.12);
+    }
+    .toggle {
+      width: auto;
+      padding: 0 16px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .toggle[data-active="true"] {
+      color: #08120e;
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .summary-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .metric {
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(16,21,29,.7);
+    }
+    .metric b { display: block; font-size: 24px; letter-spacing: -.03em; }
+    .metric span {
+      color: var(--muted);
+      font: 600 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .archive {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 24px;
+    }
+    .rail {
+      position: relative;
+      color: var(--muted);
+      font: 700 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .rail::after {
+      content: "";
+      position: absolute;
+      top: 40px;
+      right: 7px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(var(--accent), var(--line) 18%, transparent);
+    }
+    .rail-label {
+      position: sticky;
+      top: 90px;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      margin-left: auto;
+      padding-right: 2px;
+    }
+    .digests { min-width: 0; }
+    .digest {
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(16,21,29,.74);
+      overflow: hidden;
+      box-shadow: 0 14px 42px rgba(0,0,0,.16);
+      scroll-margin-top: 92px;
+    }
+    .digest-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      padding: 19px 21px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(115deg, rgba(120,169,255,.08), transparent 30%),
+        rgba(20,27,37,.78);
+    }
+    .digest-kicker {
+      color: var(--accent);
+      font: 700 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .digest h2 {
+      margin: 4px 0 0;
+      font-size: clamp(21px, 3vw, 31px);
+      line-height: 1.15;
+      letter-spacing: -.035em;
+    }
+    .digest-meta {
+      text-align: right;
+      color: var(--muted);
+      font: 650 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: nowrap;
+    }
+    .items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .item {
+      position: relative;
+      min-width: 0;
+      padding: 21px;
+      border-bottom: 1px solid var(--line);
+    }
+    .item:nth-child(odd) { border-right: 1px solid var(--line); }
+    .item:last-child, .item:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+    .item-number {
+      display: inline-grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--accent);
+      background: var(--bg);
+      font: 800 11px ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .item h3 {
+      margin: 13px 0 5px;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: -.018em;
+    }
+    .source {
+      margin: 0 0 13px;
+      color: var(--accent-2);
+      font: 700 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .04em;
+    }
+    .summary {
+      margin: 0;
+      color: #cad4de;
+      font-size: 14px;
+    }
+    .why {
+      margin: 15px 0 0;
+      padding: 12px 13px;
+      border-left: 2px solid var(--accent);
+      background: rgba(129,247,197,.055);
+      color: #dce7e2;
+      font-size: 13px;
+    }
+    .why b { color: var(--accent); }
+    .summary a, .why a {
+      color: var(--accent-2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(120,169,255,.38);
+    }
+    .summary a:hover, .why a:hover { border-color: currentColor; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 15px;
+    }
+    .tag {
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      color: var(--muted);
+      background: rgba(11,14,19,.5);
+      font: 650 10px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .conclusion {
+      padding: 16px 21px 18px;
+      border-top: 1px solid var(--line);
+      background: rgba(129,247,197,.045);
+      color: #d9e5df;
+      font-size: 14px;
+    }
+    .conclusion b { color: var(--accent); }
+    .raw {
+      display: none;
+      margin: 0;
+      padding: 22px;
+      overflow-x: auto;
+      color: #c8d1da;
+      background: #080b0f;
+      font: 12px/1.7 ui-monospace, SFMono-Regular, Menlo, monospace;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .raw-mode .items, .raw-mode .conclusion { display: none; }
+    .raw-mode .raw { display: block; }
+    .empty, .error {
+      padding: 70px 24px;
+      text-align: center;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+    }
+    .error { color: #ff9d9d; }
+    footer {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    footer a { color: var(--accent-2); text-decoration: none; }
+    mark {
+      color: #08120e;
+      background: var(--warn);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+    @media (max-width: 900px) {
+      .topbar { grid-template-columns: 1fr; }
+      .status { min-width: 0; }
+      .control-panel { grid-template-columns: 1fr 1fr; }
+      .search-wrap { grid-column: 1 / -1; }
+      .summary-strip { grid-template-columns: 1fr 1fr; }
+      .archive { grid-template-columns: 1fr; }
+      .rail { display: none; }
+    }
+    @media (max-width: 680px) {
+      .shell { width: min(100% - 18px, var(--max)); padding-top: 9px; }
+      .topbar { padding: 22px 18px; border-radius: 18px; }
+      .control-panel { position: static; grid-template-columns: 1fr; }
+      .search-wrap { grid-column: auto; }
+      .summary-strip { grid-template-columns: 1fr 1fr; }
+      .digest-header { grid-template-columns: 1fr; }
+      .digest-meta { text-align: left; }
+      .items { grid-template-columns: 1fr; }
+      .item:nth-child(odd) { border-right: 0; }
+      .item:nth-last-child(2):nth-child(odd) { border-bottom: 1px solid var(--line); }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">APRL / Continuous Intelligence Log</p>
+        <h1>AI Signal<br>Archive</h1>
+        <p class="dek">Slack의 AI News Brief를 원문 그대로 축적하고, 논문·모델·시스템·로보틱스 신호를 한 화면에서 검색하는 공개 아카이브.</p>
+      </div>
+      <aside class="status" aria-live="polite">
+        <span>Archive status</span>
+        <strong id="statusText">Loading…</strong>
+        <span id="lastUpdated">database sync</span>
+      </aside>
+    </header>
+
+    <section class="control-panel" aria-label="Archive controls">
+      <label class="search-wrap">
+        <input id="searchInput" type="search" autocomplete="off" placeholder="제목, 본문, 출처, 키워드 검색…" aria-label="뉴스 검색">
+      </label>
+      <select id="sourceFilter" aria-label="출처 필터">
+        <option value="">모든 출처</option>
+      </select>
+      <button id="rawToggle" class="toggle" type="button" data-active="false">원문 보기</button>
+    </section>
+
+    <section class="summary-strip" aria-label="Archive summary">
+      <div class="metric"><b id="digestCount">—</b><span>Briefs</span></div>
+      <div class="metric"><b id="itemCount">—</b><span>Signals</span></div>
+      <div class="metric"><b id="sourceCount">—</b><span>Sources</span></div>
+      <div class="metric"><b id="matchCount">—</b><span>Visible</span></div>
+    </section>
+
+    <section class="archive">
+      <aside class="rail"><div class="rail-label">Newest signals first · KST</div></aside>
+      <div id="digestList" class="digests"><div class="empty">데이터베이스를 불러오는 중이야.</div></div>
+    </section>
+
+    <footer>
+      <span>Static JSON archive · public GitHub Pages</span>
+      <span><a href="data/digests.json">Raw database</a> · <a href="https://github.com/gisbi-kim/gisbi-kim.github.io/tree/master/ai-daily-summary">Source</a></span>
+    </footer>
+  </main>
+
+<script>
+(() => {
+  "use strict";
+
+  const state = {
+    db: null,
+    parsed: [],
+    query: "",
+    source: "",
+    raw: false
+  };
+
+  const els = {
+    list: document.getElementById("digestList"),
+    search: document.getElementById("searchInput"),
+    source: document.getElementById("sourceFilter"),
+    raw: document.getElementById("rawToggle"),
+    status: document.getElementById("statusText"),
+    updated: document.getElementById("lastUpdated"),
+    digestCount: document.getElementById("digestCount"),
+    itemCount: document.getElementById("itemCount"),
+    sourceCount: document.getElementById("sourceCount"),
+    matchCount: document.getElementById("matchCount")
+  };
+
+  const escapeHtml = (value) => String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+  const stripEmphasis = (value) => String(value ?? "")
+    .trim()
+    .replace(/^([*_])([\s\S]*)\1$/, "$2");
+
+  const stripSlack = (value) => String(value ?? "")
+    .replace(/<([^>|]+)\|([^>]+)>/g, "$2")
+    .replace(/<([^>]+)>/g, "$1")
+    .replace(/[*_`]/g, "");
+
+  const renderInline = (value) => {
+    const links = [];
+    let text = String(value ?? "").replace(/<([^>|]+)\|([^>]+)>/g, (_, url, label) => {
+      const key = `@@LINK_${links.length}@@`;
+      links.push({ key, url, label });
+      return key;
+    });
+    text = text.replace(/<((?:https?:\/\/)[^>]+)>/g, (_, url) => {
+      const key = `@@LINK_${links.length}@@`;
+      links.push({ key, url, label: url });
+      return key;
+    });
+    let html = escapeHtml(text)
+      .replace(/`([^`]+)`/g, "<code>$1</code>")
+      .replace(/\*([^*]+)\*/g, "<strong>$1</strong>")
+      .replace(/_([^_]+)_/g, "<em>$1</em>");
+    for (const link of links) {
+      const anchor = `<a href="${escapeHtml(link.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(link.label)}</a>`;
+      html = html.replace(link.key, anchor);
+    }
+    return html;
+  };
+
+  const topicRules = [
+    ["Robotics", /\brobot|로봇|manipulation|navigation|embodied|physical ai|arm\b/i],
+    ["VLA/VLM", /\bvla\b|\bvlm\b|vision-language|multimodal/i],
+    ["SLAM/3D", /\bslam\b|3d|depth|pose|loop closure|mapping/i],
+    ["Agents", /\bagent|tool|workflow|self-play|planning|memory/i],
+    ["Tactile", /tactile|촉각|contact|force|slip/i],
+    ["Evaluation", /benchmark|evaluation|judge|metric|검증|평가|success rate/i],
+    ["Data", /dataset|data |데이터|demonstration|trajectory/i],
+    ["Systems", /latency|inference|throughput|hardware|quantization|distributed|cache/i],
+    ["Security", /security|sandbox|intrusion|exploit|secret|privilege/i]
+  ];
+
+  const inferTags = (item) => {
+    const haystack = `${item.title} ${item.source} ${item.summary} ${item.why}`;
+    return topicRules.filter(([, rx]) => rx.test(haystack)).map(([name]) => name).slice(0, 4);
+  };
+
+  function parseDigest(record) {
+    const lines = String(record.raw_text ?? "").split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+    const headerLine = lines.find(x => /AI News Brief\s+—/.test(x)) || "";
+    const header = stripEmphasis(headerLine);
+    const items = [];
+    let current = null;
+    let conclusion = "";
+
+    for (const line of lines) {
+      const itemMatch = line.match(/^(\d+)\.\s+([*_])(.+?)\2\s+—\s+(.+)$/);
+      const whyMatch = line.match(/^([*_])왜 중요:\1\s*(.+)$/);
+      const conclusionMatch = line.match(/^([*_])한 줄 결론:\1\s*(.+)$/);
+
+      if (itemMatch) {
+        if (current) items.push(current);
+        current = {
+          number: Number(itemMatch[1]),
+          title: itemMatch[3],
+          source: stripEmphasis(itemMatch[4]),
+          summaryLines: [],
+          why: ""
+        };
+      } else if (whyMatch && current) {
+        current.why = whyMatch[2];
+      } else if (conclusionMatch) {
+        if (current) {
+          items.push(current);
+          current = null;
+        }
+        conclusion = conclusionMatch[2];
+      } else if (line !== headerLine && current) {
+        current.summaryLines.push(line);
+      }
+    }
+    if (current) items.push(current);
+
+    const normalizedItems = items.map(item => {
+      const normalized = {
+        number: item.number,
+        title: item.title,
+        source: item.source,
+        summary: item.summaryLines.join(" "),
+        why: item.why
+      };
+      normalized.tags = inferTags(normalized);
+      normalized.searchText = stripSlack(
+        `${normalized.title} ${normalized.source} ${normalized.summary} ${normalized.why} ${normalized.tags.join(" ")}`
+      ).toLocaleLowerCase("ko-KR");
+      return normalized;
+    });
+
+    return {
+      ...record,
+      header,
+      conclusion,
+      items: normalizedItems,
+      searchText: stripSlack(`${header} ${conclusion} ${record.raw_text}`).toLocaleLowerCase("ko-KR")
+    };
+  }
+
+  const highlight = (html, query) => {
+    if (!query) return html;
+    const safe = query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (!safe) return html;
+    return html.replace(new RegExp(`(${safe})`, "gi"), "<mark>$1</mark>");
+  };
+
+  const formatDate = (iso) => {
+    const date = new Date(iso);
+    return new Intl.DateTimeFormat("ko-KR", {
+      timeZone: "Asia/Seoul",
+      year: "numeric", month: "2-digit", day: "2-digit",
+      hour: "2-digit", minute: "2-digit", hour12: false
+    }).format(date);
+  };
+
+  const collectSources = (parsed) => {
+    const set = new Set();
+    parsed.forEach(d => d.items.forEach(i => {
+      i.source.split(/\s*\/\s*/).forEach(s => set.add(s.trim()));
+    }));
+    return [...set].filter(Boolean).sort((a, b) => a.localeCompare(b, "en"));
+  };
+
+  const matchesSource = (item, source) => !source ||
+    item.source.split(/\s*\/\s*/).map(x => x.trim()).includes(source);
+
+  function render() {
+    const query = state.query.trim().toLocaleLowerCase("ko-KR");
+    let visibleItems = 0;
+
+    const digests = state.parsed.map(digest => {
+      const items = digest.items.filter(item =>
+        (!query || item.searchText.includes(query)) && matchesSource(item, state.source)
+      );
+      visibleItems += items.length;
+      return { ...digest, visibleItems: items };
+    }).filter(d => d.visibleItems.length || (!query && !state.source && d.items.length === 0));
+
+    els.matchCount.textContent = visibleItems.toLocaleString("ko-KR");
+
+    if (!digests.length) {
+      els.list.innerHTML = '<div class="empty">조건에 맞는 뉴스가 없어. 검색어나 출처 필터를 바꿔봐.</div>';
+      return;
+    }
+
+    const q = escapeHtml(state.query.trim());
+    els.list.innerHTML = digests.map(digest => {
+      const itemHtml = digest.visibleItems.map(item => {
+        const title = highlight(escapeHtml(item.title), q);
+        const source = highlight(escapeHtml(item.source), q);
+        const summary = renderInline(item.summary);
+        const why = renderInline(item.why);
+        const tags = item.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("");
+        return `
+          <article class="item">
+            <span class="item-number">${item.number}</span>
+            <h3>${title}</h3>
+            <p class="source">${source}</p>
+            <p class="summary">${summary}</p>
+            <p class="why"><b>왜 중요:</b> ${why}</p>
+            <div class="tags">${tags}</div>
+          </article>`;
+      }).join("");
+
+      return `
+        <section class="digest${state.raw ? " raw-mode" : ""}" id="${escapeHtml(digest.id)}">
+          <header class="digest-header">
+            <div>
+              <div class="digest-kicker">AI News Brief · ${digest.visibleItems.length} signals</div>
+              <h2>${escapeHtml(digest.header.replace(/^AI News Brief\s+—\s*/, ""))}</h2>
+            </div>
+            <div class="digest-meta">${formatDate(digest.published_at)}<br>KST · ${escapeHtml(digest.id)}</div>
+          </header>
+          <div class="items">${itemHtml}</div>
+          <div class="conclusion"><b>한 줄 결론:</b> ${renderInline(digest.conclusion)}</div>
+          <pre class="raw">${escapeHtml(digest.raw_text)}</pre>
+        </section>`;
+    }).join("");
+  }
+
+  async function init() {
+    try {
+      const response = await fetch("data/digests.json", { cache: "no-store" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      state.db = await response.json();
+      state.parsed = [...(state.db.digests || [])]
+        .sort((a, b) => new Date(b.published_at) - new Date(a.published_at))
+        .map(parseDigest);
+
+      const sources = collectSources(state.parsed);
+      els.source.innerHTML += sources.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
+
+      const totalItems = state.parsed.reduce((sum, d) => sum + d.items.length, 0);
+      els.status.textContent = "ONLINE";
+      els.updated.textContent = `updated ${formatDate(state.db.updated_at)} KST`;
+      els.digestCount.textContent = state.parsed.length.toLocaleString("ko-KR");
+      els.itemCount.textContent = totalItems.toLocaleString("ko-KR");
+      els.sourceCount.textContent = sources.length.toLocaleString("ko-KR");
+      render();
+
+      const hash = decodeURIComponent(location.hash.slice(1));
+      if (hash) document.getElementById(hash)?.scrollIntoView();
+    } catch (error) {
+      console.error(error);
+      els.status.textContent = "ERROR";
+      els.updated.textContent = "database unavailable";
+      els.list.innerHTML = `<div class="error">데이터베이스를 불러오지 못했어: ${escapeHtml(error.message)}</div>`;
+    }
+  }
+
+  els.search.addEventListener("input", event => {
+    state.query = event.target.value;
+    render();
+  });
+  els.source.addEventListener("change", event => {
+    state.source = event.target.value;
+    render();
+  });
+  els.raw.addEventListener("click", () => {
+    state.raw = !state.raw;
+    els.raw.dataset.active = String(state.raw);
+    els.raw.textContent = state.raw ? "카드 보기" : "원문 보기";
+    render();
+  });
+
+  init();
+})();
+</script>
+</body>
+</html>
