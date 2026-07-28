@@ -12,7 +12,7 @@ tags:
   - Software Engineering
   - Summary
 draft: false
-math: true
+math: false
 ---
 
 > **정리 메모**
@@ -59,14 +59,29 @@ Claude Code 코드베이스의 약 80%가 최근 몇 달 안에 작성됐으며,
 
 하네스는 필요하지만, 하네스 자체를 영구적인 지능으로 착각하면 안 된다는 것이다.
 
-$$
-\begin{aligned}
-\text{System Capability}
-&= \text{Base Model Capability} \\
-&\quad + \text{Harness Gain} \\
-&\quad - \text{Harness Complexity}
-\end{aligned}
-$$
+<div class="my-4 p-3 p-md-4 border rounded-3" style="background: var(--bs-tertiary-bg, rgba(127,127,127,.08));" role="figure" aria-label="System capability equals base model capability plus harness gain minus harness complexity">
+  <div class="d-flex flex-column flex-lg-row align-items-stretch align-items-lg-center justify-content-center gap-2 gap-lg-3">
+    <div class="flex-fill p-3 text-center border rounded-3 shadow-sm" style="background: var(--bs-body-bg); min-width: 10rem;">
+      <div class="small text-muted mb-1">Result</div>
+      <strong>System Capability</strong>
+    </div>
+    <div class="fs-3 fw-semibold text-center px-1" aria-hidden="true">=</div>
+    <div class="flex-fill p-3 text-center border rounded-3 shadow-sm" style="background: var(--bs-body-bg); min-width: 10rem;">
+      <div class="small text-muted mb-1">Foundation</div>
+      <strong>Base Model Capability</strong>
+    </div>
+    <div class="fs-3 fw-semibold text-center px-1" aria-hidden="true">+</div>
+    <div class="flex-fill p-3 text-center border rounded-3 shadow-sm" style="background: var(--bs-body-bg); min-width: 10rem;">
+      <div class="small text-muted mb-1">Added value</div>
+      <strong>Harness Gain</strong>
+    </div>
+    <div class="fs-3 fw-semibold text-center px-1" aria-hidden="true">−</div>
+    <div class="flex-fill p-3 text-center border rounded-3 shadow-sm" style="background: var(--bs-body-bg); min-width: 10rem;">
+      <div class="small text-muted mb-1">Overhead</div>
+      <strong>Harness Complexity</strong>
+    </div>
+  </div>
+</div>
 
 현재는 하네스가 20%의 성능을 올릴 수 있어도, 모델이 한 세대 좋아지면 그 하네스가 오히려 성능과 유연성을 제한할 수 있다.
 
@@ -165,22 +180,73 @@ Anthropic 내부에서는 Agent SDK를 이용해 다음 단계들을 자동화�
 
 이건 생성팀–검증팀 하네스보다 한 단계 발전한 구조다.
 
-```text
-Human intent
-    ↓
-Planning agent
-    ↓
-Task decomposition
-    ↓
-┌───────────────┬───────────────┬───────────────┐
-│ Implementation│ Log analysis  │ Test design   │
-│ agent         │ agent         │ agent         │
-└───────────────┴───────────────┴───────────────┘
-    ↓
-Integration / review agent
-    ↓
-Human approval or automated deployment
-```
+<div class="my-4 p-3 p-md-4 border rounded-3" style="background: var(--bs-tertiary-bg, rgba(127,127,127,.08));" role="figure" aria-label="Multi-agent engineering workflow">
+  <div class="d-flex flex-column align-items-center gap-2">
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;">
+      <div class="card-body py-3">
+        <div class="small text-muted mb-1">Input</div>
+        <strong>Human intent</strong>
+      </div>
+    </div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;">
+      <div class="card-body py-3">
+        <div class="small text-muted mb-1">Reasoning</div>
+        <strong>Planning agent</strong>
+      </div>
+    </div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;">
+      <div class="card-body py-3">
+        <div class="small text-muted mb-1">Orchestration</div>
+        <strong>Task decomposition</strong>
+      </div>
+    </div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="w-100" style="max-width: 62rem;">
+      <div class="row g-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <div class="card-body py-3">
+              <div class="small text-muted mb-1">Build</div>
+              <strong>Implementation agent</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <div class="card-body py-3">
+              <div class="small text-muted mb-1">Investigate</div>
+              <strong>Log-analysis agent</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card h-100 shadow-sm text-center">
+            <div class="card-body py-3">
+              <div class="small text-muted mb-1">Verify</div>
+              <strong>Test-design agent</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;">
+      <div class="card-body py-3">
+        <div class="small text-muted mb-1">Synthesis</div>
+        <strong>Integration / review agent</strong>
+      </div>
+    </div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;">
+      <div class="card-body py-3">
+        <div class="small text-muted mb-1">Decision</div>
+        <strong>Human approval or automated deployment</strong>
+      </div>
+    </div>
+  </div>
+</div>
 
 중요한 것은 에이전트 수가 아니라, **에이전트가 독립적인 증거와 가설을 생성하도록 만드는 것**이다. 같은 프롬프트를 열 번 실행하는 것은 진정한 병렬 검증이 아니라 correlated sampling일 수 있다.
 
@@ -242,12 +308,21 @@ Anthropic에서는 이미 PM, 디자이너, 엔지니어링 매니저, 재무 �
 
 영상의 주장대로라면 미래에는 다음 구분이 약해진다.
 
-```text
-PM ─┐
-Designer ─┼─> Product Builder
-Engineer ─┤
-Analyst ──┘
-```
+<div class="my-4 p-3 p-md-4 border rounded-3" style="background: var(--bs-tertiary-bg, rgba(127,127,127,.08));" role="figure" aria-label="Roles converging into the product builder role">
+  <div class="row g-3 justify-content-center">
+    <div class="col-6 col-md-3"><div class="card h-100 shadow-sm text-center"><div class="card-body py-3"><strong>PM</strong></div></div></div>
+    <div class="col-6 col-md-3"><div class="card h-100 shadow-sm text-center"><div class="card-body py-3"><strong>Designer</strong></div></div></div>
+    <div class="col-6 col-md-3"><div class="card h-100 shadow-sm text-center"><div class="card-body py-3"><strong>Engineer</strong></div></div></div>
+    <div class="col-6 col-md-3"><div class="card h-100 shadow-sm text-center"><div class="card-body py-3"><strong>Analyst</strong></div></div></div>
+  </div>
+  <div class="text-center fs-4 my-2" aria-hidden="true">↓</div>
+  <div class="card shadow-sm text-center mx-auto" style="max-width: 32rem;">
+    <div class="card-body py-3">
+      <div class="small text-muted mb-1">Converging role</div>
+      <strong>Product Builder</strong>
+    </div>
+  </div>
+</div>
 
 반면 다음 두 부류의 가치는 커진다.
 
@@ -297,15 +372,15 @@ Boris가 사람을 볼 때 중요하게 여기는 질문은 “네가 틀렸던 
 
 이제 병목이 다음으로 이동한다.
 
-$$
-\text{Problem Selection}
-\rightarrow
-\text{Specification}
-\rightarrow
-\text{Verification}
-\rightarrow
-\text{Deployment Judgment}
-$$
+<div class="my-4 d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-center gap-2" role="figure" aria-label="The engineering bottleneck moves from problem selection to deployment judgment">
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>Problem Selection</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>Specification</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>Verification</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>Deployment Judgment</strong></div>
+</div>
 
 즉 **무엇을 만들지, 제대로 만들어졌는지 어떻게 검증할지가 더 중요해진다.**
 
@@ -313,9 +388,17 @@ $$
 
 Anthropic의 강점은 “엄청 복잡한 멀티에이전트 프레임워크”라기보다:
 
-```text
-사용 → 실패 관찰 → 규칙/도구 추가 → 다시 사용 → 불필요해지면 삭제
-```
+<div class="my-4 d-flex flex-column flex-md-row align-items-stretch align-items-md-center justify-content-center gap-2" role="figure" aria-label="Harness engineering feedback loop">
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>사용</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>실패 관찰</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>규칙·도구 추가</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>다시 사용</strong></div>
+  <div class="fs-4 text-center"><span class="d-none d-md-inline" aria-hidden="true">→</span><span class="d-md-none" aria-hidden="true">↓</span></div>
+  <div class="flex-fill p-3 border rounded-3 text-center shadow-sm"><strong>불필요해지면 삭제</strong></div>
+</div>
 
 라는 짧은 폐루프다.
 
@@ -354,23 +437,25 @@ Anthropic의 강점은 “엄청 복잡한 멀티에이전트 프레임워크”
 
 예를 들면:
 
-```text
-Idea Agent
-   ↓
-Prior-art / Novelty Agent
-   ↓
-Method Designer
-   ↓
-Implementation Agents
-   ↓
-Independent Verification Agents
-   ↓
-Experiment Auditor
-   ↓
-Paper Claim–Evidence Checker
-   ↓
-Professor Decision
-```
+<div class="my-4 p-3 p-md-4 border rounded-3" style="background: var(--bs-tertiary-bg, rgba(127,127,127,.08));" role="figure" aria-label="Verifiable AI-native research workflow">
+  <div class="d-flex flex-column align-items-center gap-2">
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Idea Agent</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Prior-art / Novelty Agent</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Method Designer</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Implementation Agents</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Independent Verification Agents</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Experiment Auditor</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><strong>Paper Claim–Evidence Checker</strong></div></div>
+    <div class="fs-4" aria-hidden="true">↓</div>
+    <div class="card shadow-sm w-100 text-center" style="max-width: 38rem;"><div class="card-body py-3"><div class="small text-muted mb-1">Final authority</div><strong>Professor Decision</strong></div></div>
+  </div>
+</div>
 
 결국 이 영상은 “코딩이 끝났다”는 선언보다는,
 
