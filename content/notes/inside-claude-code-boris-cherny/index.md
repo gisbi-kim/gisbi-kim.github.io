@@ -59,15 +59,14 @@ Claude Code 코드베이스의 약 80%가 최근 몇 달 안에 작성됐으며,
 
 하네스는 필요하지만, 하네스 자체를 영구적인 지능으로 착각하면 안 된다는 것이다.
 
-\[
+$$
+\begin{aligned}
 \text{System Capability}
-=
-\text{Base Model Capability}
-+
-\text{Harness Gain}
--
-\text{Harness Complexity}
-\]
+&= \text{Base Model Capability} \\
+&\quad + \text{Harness Gain} \\
+&\quad - \text{Harness Complexity}
+\end{aligned}
+$$
 
 현재는 하네스가 20%의 성능을 올릴 수 있어도, 모델이 한 세대 좋아지면 그 하네스가 오히려 성능과 유연성을 제한할 수 있다.
 
@@ -298,7 +297,7 @@ Boris가 사람을 볼 때 중요하게 여기는 질문은 “네가 틀렸던 
 
 이제 병목이 다음으로 이동한다.
 
-\[
+$$
 \text{Problem Selection}
 \rightarrow
 \text{Specification}
@@ -306,7 +305,7 @@ Boris가 사람을 볼 때 중요하게 여기는 질문은 “네가 틀렸던 
 \text{Verification}
 \rightarrow
 \text{Deployment Judgment}
-\]
+$$
 
 즉 **무엇을 만들지, 제대로 만들어졌는지 어떻게 검증할지가 더 중요해진다.**
 
