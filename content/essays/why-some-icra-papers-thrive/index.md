@@ -33,7 +33,13 @@ ICRA나 CVPR에 채택됐다는 것은 최소한 그 시점의 연구 공동체�
 
 그래서 “논문이 잘됐다”는 것을 하나의 숫자로 정의해서는 안 된다고 봐. 적어도 몇 가지 서로 다른 종류의 성공을 구분해야 해.
 
-첫 번째는 **recognition**, 즉 얼마나 널리 알려지고 인용됐는가야. 두 번째는 **adoption**, 실제로 다른 연구자들이 그 방법·코드·데이터를 가져다 사용했는가야. 세 번째는 **generativity**, 그 논문이 새로운 후속 연구와 연구 질문을 얼마나 많이 만들어냈는가야. 네 번째는 **durability**, 몇 년간의 유행을 넘어 계속 살아남았는가야. 마지막으로 **breadth**도 중요해. 한 연구실이나 좁은 subcommunity에서만 소비된 것이 아니라 다른 task, 다른 분야, 산업으로까지 확산됐는지를 봐야 해.
+<ul class="essay-dimensions" aria-label="논문 성공의 다섯 차원">
+  <li><strong>recognition</strong><span>얼마나 널리 알려지고 인용됐는가</span></li>
+  <li><strong>adoption</strong><span>실제로 다른 연구자들이 그 방법·코드·데이터를 가져다 사용했는가</span></li>
+  <li><strong>generativity</strong><span>그 논문이 새로운 후속 연구와 연구 질문을 얼마나 많이 만들어냈는가</span></li>
+  <li><strong>durability</strong><span>몇 년간의 유행을 넘어 계속 살아남았는가</span></li>
+  <li><strong>breadth</strong><span>한 연구실이나 좁은 subcommunity에 머물지 않고 다른 task, 다른 분야, 산업으로까지 확산됐는가</span></li>
+</ul>
 
 이 관점에서 보면 높은 citation을 받은 논문이라고 모두 같은 방식으로 성공한 것이 아니야. 어떤 논문은 발표 직후 폭발적으로 주목받지만 몇 년 뒤 거의 사라지는 **short-lived hype**일 수 있어. 어떤 논문은 처음에는 조용하지만, 기반 기술이 성숙하면서 점점 중요해지는 **slow-burn foundational paper**일 수 있고, 어떤 논문은 방법 자체보다 dataset이나 benchmark를 통해 생태계의 인프라가 되기도 해.
 
