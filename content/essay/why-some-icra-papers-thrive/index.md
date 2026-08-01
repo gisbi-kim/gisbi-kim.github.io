@@ -52,7 +52,8 @@ ICRA나 CVPR에 채택됐다는 것은 최소한 그 시점의 연구 공동체�
 
 $$
 \begin{aligned}
-\text{Long-term Generativity} = f\bigl(&\text{Scientific Fitness}, \\\\
+\text{Long-term Generativity} &= f\bigl( \\\\
+&\text{Scientific Fitness}, \\\\
 &\text{Buildability}, \\\\
 &\text{Conceptual Compressibility}, \\\\
 &\text{Ecological Timing}, \\\\
