@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.08.02",
+      "Title": "연구실경영학 — 승률을 설계하는 연구실",
+      "Tags": "Research, Lab Management, Strategy",
+      "Link": "https://gisbi-kim.github.io/lab-management-designing-win-rate/"
+    },
+    {
+      "Published Date": "2026.08.02",
       "Title": "손안에 든 새 한마리가 숲속에 있는 두마리보다 낫다",
       "Tags": "Research, Lab Management, Strategy",
       "Link": "https://gisbi-kim.github.io/bird-in-hand-lab-management/"
@@ -57,7 +63,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-02T00:00:00+09:00";
+    data.updatedAt = "2026-08-02T00:45:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
