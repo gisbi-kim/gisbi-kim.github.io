@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.02",
+      "Title": "손안에 든 새 한마리가 숲속에 있는 두마리보다 낫다",
+      "Tags": "Research, Lab Management, Strategy",
+      "Link": "https://gisbi-kim.github.io/bird-in-hand-lab-management/"
+    },
+    {
       "Published Date": "2026.08.01",
       "Title": "다 같은 icra 에 오는 논문들이 왜 어떤 논문은 대성하고 어떤 것은 안 될까?",
       "Tags": "Research, ICRA, CVPR, Academic Impact",
@@ -51,7 +57,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-01T12:00:00+09:00";
+    data.updatedAt = "2026-08-02T00:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
