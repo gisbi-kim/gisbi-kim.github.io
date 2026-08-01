@@ -53,7 +53,6 @@ $$
 $$
 \text{Research Return}
 ======================
-
 \text{논문 성과}
 +\text{재사용 가능한 자산}
 +\text{후속 연구 옵션}
@@ -68,7 +67,6 @@ $$
 $$
 \text{Research ROIC}
 ====================
-
 \frac{
 \text{현재 성과}
 +\text{축적된 연구자산}
@@ -255,7 +253,6 @@ $$
 \boxed{
 \text{Ideal Research Topic}
 ===========================
-
 \text{Expected ROIC}
 \times
 \text{Reinvestment Runway}
