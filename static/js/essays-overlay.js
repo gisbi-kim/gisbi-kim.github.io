@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.08.02",
+      "Title": "이상적인 연구주제란?",
+      "Tags": "Research, Lab Management, Strategy, ROIC",
+      "Link": "https://gisbi-kim.github.io/ideal-research-topic-roic/"
+    },
+    {
+      "Published Date": "2026.08.02",
       "Title": "연구실경영학 — 승률을 설계하는 연구실",
       "Tags": "Research, Lab Management, Strategy",
       "Link": "https://gisbi-kim.github.io/lab-management-designing-win-rate/"
@@ -63,7 +69,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-02T00:45:00+09:00";
+    data.updatedAt = "2026-08-02T00:52:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
