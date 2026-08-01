@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.01",
+      "Title": "다 같은 icra 에 오는 논문들이 왜 어떤 논문은 대성하고 어떤 것은 안 될까?",
+      "Tags": "Research, ICRA, CVPR, Academic Impact",
+      "Link": "https://gisbi-kim.github.io/why-some-icra-papers-thrive/"
+    },
+    {
       "Published Date": "2026.07.26",
       "Title": "증명 소화불량에서 데모 소화불량으로",
       "Tags": "AI, Mathematics, Physical AI, Robotics, Research",
@@ -45,7 +51,7 @@
         });
     }
 
-    data.updatedAt = "2026-07-26T15:00:00+09:00";
+    data.updatedAt = "2026-08-01T12:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
