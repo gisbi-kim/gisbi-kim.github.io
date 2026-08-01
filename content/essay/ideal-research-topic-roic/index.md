@@ -52,7 +52,7 @@ $$
 
 $$
 \text{Research Return}
-=
+\mathrel{=}
 \text{논문 성과}
 +\text{재사용 가능한 자산}
 +\text{후속 연구 옵션}
@@ -66,7 +66,7 @@ $$
 
 $$
 \text{Research ROIC}
-=
+\mathrel{=}
 \frac{
 \text{현재 성과}
 +\text{축적된 연구자산}
@@ -252,7 +252,7 @@ ROIC를 단기적으로 계산하면 쉬운 논문을 반복하는 쪽으로 왜
 $$
 \boxed{
 \text{Ideal Research Topic}
-=
+\mathrel{=}
 \text{Expected ROIC}
 \times
 \text{Reinvestment Runway}
