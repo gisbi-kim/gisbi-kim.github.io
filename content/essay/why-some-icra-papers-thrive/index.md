@@ -12,7 +12,6 @@ tags:
   - Academic Impact
 draft: false
 type: essays
-math: true
 url: "/why-some-icra-papers-thrive/"
 ---
 
@@ -56,17 +55,14 @@ ICRA나 CVPR에 채택됐다는 것은 최소한 그 시점의 연구 공동체�
 
 이 관점에서 논문의 장기적 성공은 대략 다음 요소들의 결합으로 이해할 수 있어.
 
-$$
-\begin{aligned}
-&\text{Long-term Generativity} \\\\
-&= f\bigl( \\\\
-&\text{Scientific Fitness}, \\\\
-&\text{Buildability}, \\\\
-&\text{Conceptual Compressibility}, \\\\
-&\text{Ecological Timing}, \\\\
-&\text{Social Amplification}\bigr)
-\end{aligned}
-$$
+<div class="essay-generativity-statement" role="group" aria-label="Long-term Generativity is proportional to Scientific Fitness times Buildability times Conceptual Compressibility times Ecological Timing times Social Amplification">
+  <span class="essay-generativity-lead"><strong>Long-term Generativity</strong><span aria-hidden="true">∝</span></span>
+  <span class="essay-generativity-factor">Scientific Fitness</span>
+  <span class="essay-generativity-factor">× Buildability</span>
+  <span class="essay-generativity-factor">× Conceptual Compressibility</span>
+  <span class="essay-generativity-factor">× Ecological Timing</span>
+  <span class="essay-generativity-factor">× Social Amplification</span>
+</div>
 
 각 요소는 따로 작동하기보다 서로를 증폭하거나 약화시켜.
 
