@@ -5,7 +5,7 @@
       "Published Date": "2026.08.02",
       "Title": "APRL의 연구 프로그램과 Situated Spatial Intelligence",
       "Tags": "Robotics, Spatial AI, APRL, Embodied AI",
-      "Link": "/situated-spatial-intelligence/"
+      "Link": "https://gisbi-kim.github.io/situated-spatial-intelligence/"
     },
     {
       "Published Date": "2026.08.02",
