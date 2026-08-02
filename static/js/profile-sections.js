@@ -49,6 +49,26 @@
     return /^https?:\/\//i.test(String(value || "").trim());
   }
 
+  function isInternalPath(value) {
+    return /^\//.test(String(value || "").trim());
+  }
+
+  function isLocalPreview() {
+    const host = String(window.location && window.location.hostname ? window.location.hostname : "").toLowerCase();
+    return host === "127.0.0.1" || host === "localhost" || host === "0.0.0.0";
+  }
+
+  function localPreviewHref(value) {
+    const text = String(value || "").trim();
+    if (!isUrl(text) || !isLocalPreview()) return text;
+    try {
+      const url = new URL(text);
+      return url.hostname === "gisbi-kim.github.io" ? url.pathname + url.search + url.hash : text;
+    } catch (_error) {
+      return text;
+    }
+  }
+
   function hostLabel(value) {
     try {
       return new URL(value).hostname.replace(/^www\./, "");
@@ -60,13 +80,15 @@
   function renderValue(column, value, labelOverride) {
     if (!value) return "";
     const text = String(value).trim();
-    if (linkColumns.has(column) && isUrl(text)) {
+    const href = localPreviewHref(text);
+    const linkTarget = isUrl(href) ? ' target="_blank" rel="noopener"' : "";
+    if (linkColumns.has(column) && (isUrl(text) || isInternalPath(text))) {
       const host = hostLabel(text);
       const label = labelOverride || linkLabels[column] || (host.includes("dropbox.com") ? "Material" : `Open ${host}`);
-      return `<a class="profile-data-link" href="${escapeHtml(text)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
+      return `<a class="profile-data-link" href="${escapeHtml(href)}"${linkTarget}>${escapeHtml(label)}</a>`;
     }
     if (isUrl(text)) {
-      return `<a href="${escapeHtml(text)}" target="_blank" rel="noopener">${escapeHtml(text)}</a>`;
+      return `<a href="${escapeHtml(href)}"${linkTarget}>${escapeHtml(text)}</a>`;
     }
     return escapeHtml(text);
   }

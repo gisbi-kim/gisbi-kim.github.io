@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.08.02",
+      "Title": "APRL의 연구 프로그램과 Situated Spatial Intelligence",
+      "Tags": "Robotics, Spatial AI, APRL, Embodied AI",
+      "Link": "/situated-spatial-intelligence/"
+    },
+    {
+      "Published Date": "2026.08.02",
       "Title": "첫 1,000회의 인용",
       "Tags": "Research, Academic Impact, Citations, Strategy",
       "Link": "https://gisbi-kim.github.io/first-1000-citations/"
@@ -75,7 +81,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-02T01:29:00+09:00";
+    data.updatedAt = "2026-08-03T00:21:28+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
