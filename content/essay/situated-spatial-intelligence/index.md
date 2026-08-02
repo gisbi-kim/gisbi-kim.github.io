@@ -15,6 +15,10 @@ type: essays
 url: "/situated-spatial-intelligence/"
 ---
 
+<figure class="ssi-hero">
+  <img src="/images/essays/situated-spatial-intelligence-cycle.png" alt="APRL의 Situated Spatial Intelligence 폐루프: Model Space, Ground Reality, Remember Change, Share Understanding, Execute Intent" width="1672" height="941" loading="eager" fetchpriority="high">
+</figure>
+
 <nav class="ssi-language-switch" aria-label="언어 선택">
   <a class="is-active" href="/situated-spatial-intelligence/" lang="ko" aria-current="page">한국어</a>
   <a href="/situated-spatial-intelligence/en/" lang="en">English</a>
