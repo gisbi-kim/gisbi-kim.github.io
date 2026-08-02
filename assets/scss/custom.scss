@@ -1863,6 +1863,18 @@
   border-top-color: rgba(203, 213, 225, 0.18);
 }
 
+.article-style .ssi-hero {
+  margin: 0 0 0.85rem;
+}
+
+.article-style .ssi-hero img {
+  border-radius: 0.55rem;
+  display: block;
+  height: auto;
+  margin: 0;
+  width: 100%;
+}
+
 .article-style .ssi-language-switch {
   display: flex;
   gap: 0.1rem;

@@ -18,6 +18,10 @@ build:
   render: always
 ---
 
+<figure class="ssi-hero">
+  <img src="/images/essays/situated-spatial-intelligence-cycle.png" alt="The APRL Situated Spatial Intelligence loop: Model Space, Ground Reality, Remember Change, Share Understanding, and Execute Intent" width="1672" height="941" loading="eager" fetchpriority="high">
+</figure>
+
 <nav class="ssi-language-switch" aria-label="Language">
   <a href="/situated-spatial-intelligence/" lang="ko">한국어</a>
   <a class="is-active" href="/situated-spatial-intelligence/en/" lang="en" aria-current="page">English</a>
