@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.05",
+      "Title": "논문을 쓰는 사람에서 연구 시스템을 만드는 사람으로",
+      "Tags": "Research, Academic Career, Systems, AI",
+      "Link": "https://gisbi-kim.github.io/from-paper-writer-to-research-system-builder/"
+    },
+    {
       "Published Date": "2026.08.02",
       "Title": "APRL의 연구 프로그램과 Situated Spatial Intelligence",
       "Tags": "Robotics, Spatial AI, APRL, Embodied AI",
@@ -81,7 +87,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-03T00:21:28+09:00";
+    data.updatedAt = "2026-08-05T20:19:49+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
