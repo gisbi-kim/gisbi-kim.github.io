@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.13",
+      "Title": "연구실 소통 지도 — 설득하고, 가르치고, 설명하는 법",
+      "Tags": "Research, Communication, Mentoring, Lab Management",
+      "Link": "https://gisbi-kim.github.io/research-communication-guide/"
+    },
+    {
       "Published Date": "2026.08.05",
       "Title": "논문을 쓰는 사람에서 연구 시스템을 만드는 사람으로",
       "Tags": "Research, Academic Career, Systems, AI",
