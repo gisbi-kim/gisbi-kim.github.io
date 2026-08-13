@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>무엇이 되고 싶은가보다, 어떤 문제를 풀고 싶은가</title>
+  <style>
+    :root{
+      --bg:#f4f2ed;
+      --paper:#fffdf8;
+      --text:#20252b;
+      --muted:#66707a;
+      --line:#ddd8cf;
+      --accent:#263548;
+      --accent-soft:#edf1f5;
+      --warm:#f4eee3;
+      --quote:#f7f7f4;
+      --max:980px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at top left, rgba(255,255,255,.9), transparent 35%),
+        var(--bg);
+      color:var(--text);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height:1.82;
+      letter-spacing:-0.018em;
+    }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 36px));
+      margin:0 auto;
+    }
+
+    header{
+      padding:82px 0 54px;
+      border-bottom:1px solid var(--line);
+    }
+
+    .eyebrow{
+      font-size:.84rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    h1{
+      margin:0;
+      max-width:900px;
+      font-size:clamp(2.2rem, 5vw, 4.4rem);
+      line-height:1.08;
+      letter-spacing:-.05em;
+      font-weight:800;
+    }
+
+    .hero-quote{
+      margin-top:34px;
+      padding:24px 26px;
+      border-left:4px solid var(--accent);
+      background:var(--paper);
+      border-radius:10px;
+      font-size:1.18rem;
+      box-shadow:0 10px 30px rgba(31,35,40,.04);
+    }
+
+    main{
+      padding:46px 0 88px;
+    }
+
+    section{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:36px;
+      margin:0 0 24px;
+      box-shadow:0 8px 24px rgba(31,35,40,.035);
+    }
+
+    section.intro{
+      background:transparent;
+      border:none;
+      box-shadow:none;
+      padding:0 6px 18px;
+    }
+
+    h2{
+      margin:0 0 18px;
+      font-size:1.62rem;
+      line-height:1.28;
+      letter-spacing:-.035em;
+    }
+
+    p{
+      margin:12px 0 0;
+      font-size:1.03rem;
+    }
+
+    strong{
+      font-weight:780;
+    }
+
+    .quote{
+      margin:20px 0;
+      padding:18px 20px;
+      background:var(--quote);
+      border-left:3px solid var(--accent);
+      border-radius:0 10px 10px 0;
+      font-size:1.04rem;
+    }
+
+    .highlight{
+      margin:24px 0 8px;
+      padding:22px 24px;
+      background:var(--accent-soft);
+      border-radius:12px;
+      font-weight:760;
+      font-size:1.08rem;
+    }
+
+    .warm{
+      background:var(--warm);
+    }
+
+    .divider{
+      width:48px;
+      height:3px;
+      background:var(--accent);
+      border-radius:3px;
+      margin:28px 0 20px;
+    }
+
+    .questions{
+      margin-top:18px;
+      display:grid;
+      gap:12px;
+    }
+
+    .question{
+      padding:16px 18px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:10px;
+    }
+
+    footer{
+      padding:30px 0 58px;
+      color:var(--muted);
+      font-size:.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:760px){
+      header{padding:52px 0 36px}
+      main{padding-top:28px}
+      section{padding:24px}
+      .hero-quote{font-size:1.05rem}
+      p{font-size:1rem}
+    }
+
+    @media print{
+      body{background:#fff}
+      .wrap{width:100%; max-width:none; padding:0 16mm}
+      header{padding-top:24px}
+      section{box-shadow:none; break-inside:avoid}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">A Guide to Problems, Research, and Education</div>
+      <h1>무엇이 되고 싶은가보다,<br>어떤 문제를 풀고 싶은가</h1>
+      <div class="hero-quote">
+        아이들에게 커서 무엇이 되고 싶은지 묻지 말고,<br>
+        어떤 문제를 해결하고 싶은지 물어라.
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="intro">
+      <p>이 문장을 보면 꽤 많은 생각이 든다.</p>
+
+      <p>우리는 어릴 때부터 너무 자주 이런 질문을 받는다.</p>
+
+      <div class="quote">“커서 뭐가 되고 싶니?”</div>
+
+      <p>의사, 과학자, 교수, 엔지니어, 사업가.</p>
+
+      <p>나쁜 질문은 아니다.<br>
+      직업을 상상해보는 것은 필요하다.</p>
+
+      <p>그런데 이 질문에는 한 가지 문제가 있다.</p>
+
+      <div class="highlight">
+        사람에게 너무 일찍 ‘명사’를 고르게 한다.
+      </div>
+
+      <p>나는 의사가 될 것이다.<br>
+      나는 교수가 될 것이다.<br>
+      나는 로봇공학자가 될 것이다.</p>
+
+      <p>그 순간부터 사람은 자기도 모르게 그 직업이 가진 이미지와 경로를 따라가기 시작한다.</p>
+
+      <p>하지만 실제 삶은 명사보다 훨씬 많이 변한다.</p>
+
+      <p>10년 전에는 없던 직업이 생기고,<br>
+      유망하던 기술이 사라지고,<br>
+      한 사람이 평생 한 직업만 갖는 시대도 점점 지나가고 있다.</p>
+
+      <p>그래서 나는 오히려 이런 질문이 더 중요하다고 생각한다.</p>
+
+      <div class="quote">
+        <strong>“너는 세상에서 어떤 문제가 그냥 지나치기 어렵니?”</strong>
+      </div>
+    </section>
+
+    <section>
+      <h2>1. 직업은 답이고, 문제는 질문이다</h2>
+
+      <p>“무엇이 되고 싶은가?”라고 물으면 답을 고르게 된다.</p>
+
+      <p>“어떤 문제를 풀고 싶은가?”라고 물으면 세상을 관찰하게 된다.</p>
+
+      <p>이 차이가 꽤 크다.</p>
+
+      <p>예를 들어 어떤 학생이</p>
+
+      <div class="quote">“저는 로봇 연구자가 되고 싶습니다.”</div>
+
+      <p>라고 한다고 해보자.</p>
+
+      <p>나는 아마 한 번 더 물어볼 것 같다.</p>
+
+      <div class="quote">“그래서 로봇으로 어떤 문제를 풀고 싶은데?”</div>
+
+      <p>그 학생이</p>
+
+      <div class="quote">“사람이 들어가기 위험한 곳에 대신 들어가는 로봇을 만들고 싶습니다.”</div>
+
+      <p>라고 하면 이야기가 달라진다.</p>
+
+      <p>이제 중심에 있는 것은 <strong>로봇</strong>이 아니다.</p>
+
+      <p><strong>위험한 환경에서 사람이 일을 해야 한다는 문제</strong>가 중심에 온다.</p>
+
+      <p>그러면 로봇은 그 문제를 푸는 여러 수단 중 하나가 된다.</p>
+
+      <p>어쩌면 로봇보다 새로운 센서가 답일 수도 있고,<br>
+      원격조작이 답일 수도 있고,<br>
+      AI가 답일 수도 있고,<br>
+      아예 작업 프로세스를 바꾸는 것이 답일 수도 있다.</p>
+
+      <p>이게 중요하다.</p>
+
+      <div class="highlight">
+        문제를 중심에 두면 방법을 바꿀 자유가 생긴다.
+      </div>
+
+      <p>반대로 직업이나 기술을 중심에 두면<br>
+      세상이 바뀌어도 그 도구를 계속 지키려고 하게 된다.</p>
+    </section>
+
+    <section>
+      <h2>2. 연구자에게는 더더욱 그렇다</h2>
+
+      <p>연구자들은 종종 자신의 정체성을 기술로 설명한다.</p>
+
+      <div class="quote">
+        “저는 SLAM을 합니다.”<br>
+        “저는 computer vision을 합니다.”<br>
+        “저는 reinforcement learning을 합니다.”<br>
+        “저는 humanoid를 합니다.”
+      </div>
+
+      <p>물론 편리한 설명이다.</p>
+
+      <p>그런데 연구를 오래 하다 보면 이것도 약간 위험해진다.</p>
+
+      <p>어느 순간부터</p>
+
+      <div class="highlight">
+        문제를 풀기 위해 기술을 쓰는 것이 아니라,<br>
+        내가 가진 기술을 쓰기 위해 문제를 찾기 시작할 수 있기 때문이다.
+      </div>
+
+      <p>SLAM 연구자니까 모든 문제를 localization 문제로 보고,<br>
+      VLM 연구자니까 모든 문제를 language 문제로 보고,<br>
+      RL 연구자니까 모든 문제를 policy learning 문제로 보는 식이다.</p>
+
+      <p>이런 현상을 연구자라면 한 번쯤은 스스로 경계해야 한다.</p>
+
+      <p>그래서 나는 연구자에게도 주기적으로 이런 질문이 필요하다고 생각한다.</p>
+
+      <div class="quote">
+        “나는 무슨 연구를 하는 사람인가?”
+      </div>
+
+      <p>보다</p>
+
+      <div class="quote">
+        <strong>“나는 어떤 문제를 오랫동안 해결하고 싶은 사람인가?”</strong>
+      </div>
+
+      <p>를 묻는 것이다.</p>
+
+      <p>이 질문에 답할 수 있으면 기술이 바뀌어도 연구의 방향은 쉽게 흔들리지 않는다.</p>
+    </section>
+
+    <section>
+      <h2>3. 좋은 연구자는 기술에 충성하지 않고 문제에 충성한다</h2>
+
+      <p>내가 아주 좋아하는 연구자의 모습 중 하나가 있다.</p>
+
+      <p>자기가 오래 해온 방법을 버릴 수 있는 사람이다.</p>
+
+      <p>몇 년 동안 point cloud를 연구했어도<br>
+      문제를 더 잘 풀 수 있다면 image foundation model을 가져오고,</p>
+
+      <p>몇 년 동안 classical optimization을 연구했어도<br>
+      learning이 더 적합하다면 learning을 쓰고,</p>
+
+      <p>반대로 모두가 end-to-end learning을 이야기할 때<br>
+      문제의 구조상 geometry가 중요하다면 다시 geometry를 꺼내오는 사람.</p>
+
+      <p>이건 유행을 따라가는 것과는 다르다.</p>
+
+      <p>중심이 명확하기 때문이다.</p>
+
+      <div class="highlight">
+        문제가 고정되어 있고, 방법은 움직인다.
+      </div>
+
+      <p>좋은 연구자는 어떤 알고리즘의 팬이 아니라<br>
+      어떤 문제의 집요한 관찰자에 가깝다.</p>
+
+      <p>그래서 학생에게도</p>
+
+      <div class="quote">“어떤 기술을 공부하고 싶니?”</div>
+
+      <p>라는 질문과 함께</p>
+
+      <div class="quote">
+        <strong>“그 기술이 없어져도 네가 계속 관심을 가질 문제는 뭐니?”</strong>
+      </div>
+
+      <p>를 물어볼 필요가 있다.</p>
+
+      <p>이 질문에 답하기 어려운 것은 아주 정상이다.</p>
+
+      <p>오히려 그 답을 찾아가는 과정 자체가 연구자 훈련이라고 생각한다.</p>
+    </section>
+
+    <section>
+      <h2>4. 그런데 “문제를 풀고 싶다”만으로도 부족하다</h2>
+
+      <p>여기서 한 가지 조심해야 한다.</p>
+
+      <div class="quote">
+        “나는 기후문제를 해결하고 싶다.”<br>
+        “나는 장애인을 돕고 싶다.”<br>
+        “나는 로봇으로 사람의 삶을 개선하고 싶다.”
+      </div>
+
+      <p>좋은 이야기지만 너무 크다.</p>
+
+      <p>연구에서 중요한 것은 문제의식만이 아니다.</p>
+
+      <div class="highlight">
+        문제를 점점 더 정확하게 표현하는 능력이다.
+      </div>
+
+      <p>처음에는</p>
+
+      <div class="quote">“위험한 환경에서 사람이 일하지 않게 하고 싶다.”</div>
+
+      <p>정도로 시작할 수 있다.</p>
+
+      <p>그러다 공부를 하다 보면</p>
+
+      <div class="quote">
+        “시야가 제한되고 GPS가 없는 산업현장에서<br>
+        이동로봇이 장시간 자신의 위치를 안정적으로 추정하지 못한다.”
+      </div>
+
+      <p>처럼 좁아진다.</p>
+
+      <p>더 공부하면</p>
+
+      <div class="quote">
+        “장시간 운용에서 반복 구조와 환경 변화 때문에<br>
+        place recognition의 false positive가 누적된다.”
+      </div>
+
+      <p>정도로 더 날카로워질 수도 있다.</p>
+
+      <p>이 과정이 연구다.</p>
+
+      <div class="highlight warm">
+        큰 문제의식에서 시작해서,<br>
+        내가 실제로 공격할 수 있는 작은 문제로 내려가는 것.
+      </div>
+
+      <p>그러니까 학생에게 “어떤 문제를 풀고 싶니?”라고 묻는 것은<br>
+      거창한 사회문제를 하나 고르라는 뜻이 아니다.</p>
+
+      <p>오히려</p>
+
+      <div class="questions">
+        <div class="question">“너는 어떤 현상을 보면 이상하다고 느끼니?”</div>
+        <div class="question">“어떤 실패를 보면 그냥 넘어가기 어렵니?”</div>
+        <div class="question">“어떤 비효율을 보면 고치고 싶니?”</div>
+      </div>
+
+      <p>이런 질문에서 시작하면 된다.</p>
+    </section>
+
+    <section>
+      <h2>5. 학생에게는 “정답”보다 “문제 감각”을 키워줘야 한다</h2>
+
+      <p>학생 지도에서도 이 생각은 꽤 중요하다.</p>
+
+      <p>교수가 학생에게 주제를 줄 수는 있다.</p>
+
+      <div class="quote">
+        “이 논문 읽어봐.”<br>
+        “이 baseline을 개선해봐.”<br>
+        “이 dataset에서 이 문제를 해봐.”
+      </div>
+
+      <p>석사 초반에는 오히려 그런 지도가 필요하다.</p>
+
+      <p>그런데 계속 교수만 문제를 정의해주면<br>
+      학생은 아주 좋은 <strong>문제 해결자</strong>는 될 수 있어도<br>
+      좋은 <strong>문제 발견자</strong>가 되기는 어렵다.</p>
+
+      <p>그래서 어느 시점부터는 질문이 바뀌어야 한다.</p>
+
+      <div class="questions">
+        <div class="question">“결과가 왜 이렇게 나왔다고 생각해?”</div>
+        <div class="question">“지금 방법의 가장 이상한 failure가 뭐야?”</div>
+        <div class="question">“이 논문에서 저자들이 당연하다고 가정했는데 사실 이상한 부분은 없어?”</div>
+        <div class="question">“실제 로봇에 올리면 가장 먼저 어디서 깨질 것 같아?”</div>
+      </div>
+
+      <p>이런 질문은 당장 논문 한 편의 생산성을 조금 떨어뜨릴 수도 있다.</p>
+
+      <p>하지만 장기적으로는 학생에게 훨씬 중요한 능력을 만든다.</p>
+
+      <div class="highlight">문제를 보는 눈이다.</div>
+
+      <p>연구자는 답을 잘 찾는 사람인 동시에<br>
+      남들이 아직 질문하지 않은 것을 이상하게 보는 사람이어야 한다.</p>
+    </section>
+
+    <section>
+      <h2>6. 후배 연구자에게도 비슷한 말을 해주고 싶다</h2>
+
+      <p>교수가 되고 나면 또 다른 함정이 생긴다.</p>
+
+      <p>논문, 과제, 학생, 평가를 계속 처리하다 보면<br>
+      연구가 점점 프로젝트 목록이 된다.</p>
+
+      <div class="quote">
+        ICRA 하나.<br>
+        T-RO 하나.<br>
+        과제 하나.<br>
+        학생 주제 하나.
+      </div>
+
+      <p>각각 열심히 하는데<br>
+      몇 년 지나 돌아보면 서로 연결되지 않을 수도 있다.</p>
+
+      <p>그래서 가끔은 논문 목록이 아니라 문제 목록을 적어보는 것이 좋다.</p>
+
+      <div class="questions">
+        <div class="question">내가 지난 5년 동안 반복해서 본 문제는 무엇이었나?</div>
+        <div class="question">내 논문들 사이에 기술 이름을 지우고 나면 계속 등장하는 질문은 무엇인가?</div>
+        <div class="question">앞으로 10년 동안 기술이 완전히 바뀌어도 여전히 중요할 것 같은 문제는 무엇인가?</div>
+      </div>
+
+      <p>이 질문에 답이 조금씩 생기면<br>
+      연구실의 방향도 달라진다.</p>
+
+      <p>학생 주제가 각각 흩어진 프로젝트가 아니라<br>
+      하나의 큰 질문을 여러 방향에서 공격하는 일이 되기 시작한다.</p>
+    </section>
+
+    <section>
+      <h2>7. 진로를 결정할 때도 직함보다 문제를 보자</h2>
+
+      <p>이건 연구자에게만 해당하는 이야기는 아니다.</p>
+
+      <p>직업을 고를 때도</p>
+
+      <div class="quote">
+        “어떤 회사에 가고 싶은가?”<br>
+        “교수가 될 것인가 기업에 갈 것인가?”
+      </div>
+
+      <p>도 중요하지만,</p>
+
+      <p>그보다 먼저</p>
+
+      <div class="quote">
+        <strong>“나는 어떤 종류의 문제를 풀 때 오래 몰입할 수 있는가?”</strong>
+      </div>
+
+      <p>를 생각해볼 만하다.</p>
+
+      <p>사람 문제를 좋아하는지,<br>
+      기술 문제를 좋아하는지,</p>
+
+      <p>아직 세상에 없는 것을 만드는 것을 좋아하는지,<br>
+      이미 있는 것을 안정적으로 운영하는 것을 좋아하는지,</p>
+
+      <p>빠르게 결과가 나오는 문제를 좋아하는지,<br>
+      몇 년씩 파고드는 문제를 좋아하는지.</p>
+
+      <p>이것을 알면 직업 선택이 조금 쉬워진다.</p>
+
+      <p>반대로 직업 이름부터 정하면<br>
+      그 직업 안에서 내가 좋아하지 않는 문제를 계속 풀게 될 수도 있다.</p>
+    </section>
+
+    <section>
+      <h2>8. 아이에게는 이렇게 물어보고 싶다</h2>
+
+      <p>그래서 아이에게</p>
+
+      <div class="quote">“커서 뭐가 되고 싶어?”</div>
+
+      <p>라는 질문을 하지 말자는 이야기는<br>
+      그 질문을 금지하자는 뜻이 아니다.</p>
+
+      <p>그 질문에서 <strong>한 번 더 들어가자는 뜻</strong>이라고 생각한다.</p>
+
+      <div class="quote">
+        “의사가 되고 싶어.”<br><br>
+        <strong>“사람 몸에서 어떤 게 제일 신기해?”</strong>
+      </div>
+
+      <div class="quote">
+        “과학자가 되고 싶어.”<br><br>
+        <strong>“요즘 세상에서 뭐가 제일 궁금해?”</strong>
+      </div>
+
+      <div class="quote">
+        “로봇 만드는 사람이 되고 싶어.”<br><br>
+        <strong>“로봇이 사람 대신 뭘 해줬으면 좋겠어?”</strong>
+      </div>
+
+      <div class="quote">
+        “아직 모르겠어.”<br><br>
+        <strong>“요즘 네가 불편하다고 생각하는 건 뭐야?”</strong>
+      </div>
+
+      <p>이런 질문을 계속 받는 아이는<br>
+      직업 목록을 외우는 대신 세상을 관찰하기 시작할 것이다.</p>
+
+      <p>그리고 아마 이것이 교육의 중요한 역할 중 하나일 것이다.</p>
+
+      <div class="highlight warm">
+        아이에게 답을 빨리 고르게 하는 것이 아니라,<br>
+        좋은 질문을 오래 품게 해주는 것.
+      </div>
+    </section>
+
+    <section>
+      <h2>9. 연구실에서는 이 질문으로 바꿔보자</h2>
+
+      <p>학생에게</p>
+
+      <div class="quote">“다음 논문 뭐 할래?”</div>
+
+      <p>보다</p>
+
+      <div class="quote"><strong>“요즘 네가 제일 이상하다고 느끼는 failure가 뭐야?”</strong></div>
+
+      <p>라고 물어볼 수 있다.</p>
+
+      <p>“무슨 분야를 하고 싶어?”</p>
+
+      <p>보다</p>
+
+      <div class="quote"><strong>“어떤 문제가 해결되면 정말 뿌듯할 것 같아?”</strong></div>
+
+      <p>라고 물어볼 수 있다.</p>
+
+      <p>“이 기술 공부해.”</p>
+
+      <p>보다</p>
+
+      <div class="quote"><strong>“이 문제를 풀려면 무엇을 새로 배워야 할까?”</strong></div>
+
+      <p>라고 물어볼 수 있다.</p>
+
+      <p>작은 차이 같지만 방향이 완전히 다르다.</p>
+
+      <p>앞의 질문은 사람을 분야 안으로 넣고,<br>
+      뒤의 질문은 사람으로 하여금 필요한 분야를 스스로 찾게 한다.</p>
+    </section>
+
+    <section>
+      <h2>마지막으로 남기고 싶은 말</h2>
+
+      <p>나는 결국 교육도 연구도<br>
+      사람에게 정답을 많이 주는 일이 아니라<br>
+      <strong>오래 갈 질문 하나를 만들어주는 일</strong>에 가깝다고 생각한다.</p>
+
+      <p>직업은 바뀔 수 있다.<br>
+      연구 분야도 바뀔 수 있다.<br>
+      기술은 훨씬 더 빨리 바뀐다.</p>
+
+      <p>하지만</p>
+
+      <div class="quote">
+        <strong>“나는 이런 문제를 그냥 지나치기 어렵다.”</strong>
+      </div>
+
+      <p>라는 감각은 한 사람의 삶을 꽤 오래 끌고 갈 수 있다.</p>
+
+      <p>그래서 아이에게도, 학생에게도, 그리고 나 자신에게도<br>
+      가끔 이렇게 물어보면 좋겠다.</p>
+
+      <div class="quote">
+        <strong>나는 무엇이 되고 싶은가?</strong>
+      </div>
+
+      <p>보다 한 걸음 더 들어가서,</p>
+
+      <div class="quote">
+        <strong>나는 어떤 문제를 해결하는 사람이 되고 싶은가?</strong>
+      </div>
+
+      <p>그리고 연구자라면 한 번 더.</p>
+
+      <div class="highlight">
+        내가 지금 쓰는 기술이 내일 사라져도,<br>
+        나는 여전히 이 문제를 풀고 싶은가?
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    문제를 중심에 두는 교육과 연구에 대한 메모
+  </footer>
+</body>
+</html>

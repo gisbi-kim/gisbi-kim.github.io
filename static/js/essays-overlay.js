@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.08.13",
+      "Title": "무엇이 되고 싶은가보다, 어떤 문제를 풀고 싶은가",
+      "Tags": "Research, Problem Solving, Academic Career, Strategy",
+      "Link": "https://gisbi-kim.github.io/problem-first-guide/"
+    },
+    {
+      "Published Date": "2026.08.13",
       "Title": "연구실 소통 지도 — 설득하고, 가르치고, 설명하는 법",
       "Tags": "Research, Communication, Mentoring, Lab Management",
       "Link": "https://gisbi-kim.github.io/research-communication-guide/"
