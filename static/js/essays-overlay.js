@@ -3,6 +3,12 @@
   const essays = [
     {
       "Published Date": "2026.08.14",
+      "Title": "AI 시대, 좋은 로봇 연구자를 가르는 것은 취향이다",
+      "Tags": "AI, Robotics, Research, Research Strategy",
+      "Link": "https://gisbi-kim.github.io/robotics-research-taste/"
+    },
+    {
+      "Published Date": "2026.08.14",
       "Title": "교수는 매일 무슨 일을 하는가",
       "Tags": "Research, Academia, Lab Management, Leadership",
       "Link": "https://gisbi-kim.github.io/professors-real-work/"

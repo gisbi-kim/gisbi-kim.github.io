@@ -5,5 +5,5 @@ type: page
 ---
 
 <div class="profile-data" data-profile-section="essays" data-profile-view="cards"></div>
-<script src="/js/essays-overlay.js?v=20260814a"></script>
+<script src="/js/essays-overlay.js?v=20260814b"></script>
 <script src="/js/profile-sections.js" defer></script>
