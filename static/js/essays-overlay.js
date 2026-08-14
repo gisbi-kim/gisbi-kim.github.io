@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.14",
+      "Title": "교수는 매일 무슨 일을 하는가",
+      "Tags": "Research, Academia, Lab Management, Leadership",
+      "Link": "https://gisbi-kim.github.io/professors-real-work/"
+    },
+    {
       "Published Date": "2026.08.13",
       "Title": "무엇이 되고 싶은가보다, 어떤 문제를 풀고 싶은가",
       "Tags": "Research, Problem Solving, Academic Career, Strategy",
