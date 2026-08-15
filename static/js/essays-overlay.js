@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.15",
+      "Title": "한쪽은 문장이고, 다른 쪽은 서명이다",
+      "Tags": "AI, Authorship, Responsibility, Philosophy",
+      "Link": "https://gisbi-kim.github.io/human-owned-authorship/"
+    },
+    {
       "Published Date": "2026.08.14",
       "Title": "AI 시대, 좋은 로봇 연구자를 가르는 것은 취향이다",
       "Tags": "AI, Robotics, Research, Research Strategy",
@@ -111,7 +117,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-05T20:19:49+09:00";
+    data.updatedAt = "2026-08-15T00:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
