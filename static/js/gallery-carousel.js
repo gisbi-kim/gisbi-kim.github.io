@@ -1,4 +1,5 @@
 (function () {
+  const AUTOPLAY_INTERVAL_MS = 2000;
   const carouselControllers = new WeakMap();
   let lightbox;
   let lightboxImage;
@@ -17,6 +18,7 @@
 
   function closeLightbox() {
     if (!lightbox || !lightbox.classList.contains("is-open")) return;
+    const carouselController = carouselControllers.get(lightboxCarousel);
     lightbox.classList.remove("is-open");
     lightbox.setAttribute("aria-hidden", "true");
     lightboxImage.removeAttribute("src");
@@ -24,6 +26,7 @@
     lightboxCarousel = null;
     document.body.classList.remove("personal-gallery-lightbox-open");
     previousFocus?.focus();
+    carouselController?.resume("lightbox");
   }
 
   function showLightboxImage(index) {
@@ -96,6 +99,7 @@
       : [image];
     const clickedIndex = lightboxImages.indexOf(image);
     previousFocus = document.activeElement;
+    carouselControllers.get(lightboxCarousel)?.pause("lightbox");
     showLightboxImage(clickedIndex >= 0 ? clickedIndex : 0);
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
@@ -111,6 +115,8 @@
     const prev = root.querySelector(".personal-gallery-button-prev");
     const next = root.querySelector(".personal-gallery-button-next");
     let active = 0;
+    let autoplayTimer;
+    const pauseReasons = new Set();
 
     if (!slides.length) return;
     if (total) total.textContent = String(slides.length);
@@ -120,7 +126,7 @@
       button.type = "button";
       button.className = "personal-gallery-dot";
       button.setAttribute("aria-label", `Show gallery image ${index + 1}`);
-      button.addEventListener("click", () => show(index));
+      button.addEventListener("click", () => select(index));
       dotsWrap?.appendChild(button);
       return button;
     });
@@ -137,15 +143,55 @@
       if (current) current.textContent = String(active + 1);
     }
 
-    prev?.addEventListener("click", () => show(active - 1));
-    next?.addEventListener("click", () => show(active + 1));
+    function clearAutoplay() {
+      if (!autoplayTimer) return;
+      window.clearInterval(autoplayTimer);
+      autoplayTimer = undefined;
+    }
+
+    function startAutoplay() {
+      clearAutoplay();
+      if (slides.length < 2 || pauseReasons.size || document.hidden) return;
+      autoplayTimer = window.setInterval(() => show(active + 1), AUTOPLAY_INTERVAL_MS);
+    }
+
+    function pause(reason) {
+      pauseReasons.add(reason);
+      clearAutoplay();
+    }
+
+    function resume(reason) {
+      pauseReasons.delete(reason);
+      startAutoplay();
+    }
+
+    function select(index) {
+      show(index);
+      startAutoplay();
+    }
+
+    prev?.addEventListener("click", () => select(active - 1));
+    next?.addEventListener("click", () => select(active + 1));
     root.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") show(active - 1);
-      if (event.key === "ArrowRight") show(active + 1);
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        select(active - 1);
+      }
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        select(active + 1);
+      }
+    });
+    root.addEventListener("mouseenter", () => pause("hover"));
+    root.addEventListener("mouseleave", () => resume("hover"));
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) pause("visibility");
+      else resume("visibility");
     });
     root.tabIndex = 0;
-    show(0);
-    carouselControllers.set(root, { show });
+    show(Math.floor(Math.random() * slides.length));
+    carouselControllers.set(root, { pause, resume, show });
+    startAutoplay();
   }
 
   function init() {

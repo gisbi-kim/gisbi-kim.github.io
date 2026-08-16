@@ -156,7 +156,7 @@ sections:
             <div class="personal-gallery-dots" aria-label="Gallery image selector"></div>
           </article>
         </div>
-        <script src="/js/gallery-carousel.js?v=20260816-lightbox-nav" defer></script>
+        <script src="/js/gallery-carousel.js?v=20260816-autoplay-random" defer></script>
     design:
       columns: '1'
 
