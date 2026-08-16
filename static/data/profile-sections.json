@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-26T14:09:56+09:00",
+  "updatedAt": "2026-08-16T16:19:29+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -822,6 +822,11 @@
         "Link"
       ],
       "rows": [
+        {
+          "Title": "Robotics Venue Guides",
+          "Description": "Korean student guides to major robotics conferences, journals, and magazines—explaining each venue's role, research culture, and publication fit.",
+          "Link": "https://gisbi-kim.github.io/robotics-venue-guides-kr/"
+        },
         {
           "Title": "Conference Explorers",
           "Description": "Interactive conference-paper explorers for browsing robotics and AI research landscapes.",
