@@ -23,8 +23,11 @@ build:
 </figure>
 
 <nav class="ssi-language-switch" aria-label="Language">
-  <a href="/situated-spatial-intelligence/" lang="ko">한국어</a>
-  <a class="is-active" href="/situated-spatial-intelligence/en/" lang="en" aria-current="page">English</a>
+  <span class="ssi-language-switch__label">🌐 Language / 언어</span>
+  <span class="ssi-language-switch__options">
+    <a href="/situated-spatial-intelligence/" lang="ko">한국어</a>
+    <a class="is-active" href="/situated-spatial-intelligence/en/" lang="en" aria-current="page">English</a>
+  </span>
 </nav>
 
 Spatial intelligence is more than building a map or estimating a robot's location. For a robot to work with people over long periods in the real world, it must understand the structure of space and know whether that understanding can be trusted outside the laboratory. It must also remember how the world changes, share its spatial understanding with people, and turn agreed intent into physical action.
