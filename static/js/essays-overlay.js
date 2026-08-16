@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.16",
+      "Title": "Taste, Productization, and Shipping",
+      "Tags": "AI, Product Sense, Productization, Shipping",
+      "Link": "https://gisbi-kim.github.io/taste-productization-shipping/"
+    },
+    {
       "Published Date": "2026.08.15",
       "Title": "한쪽은 문장이고, 다른 쪽은 서명이다",
       "Tags": "AI, Authorship, Responsibility, Philosophy",
@@ -117,7 +123,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-15T00:00:00+09:00";
+    data.updatedAt = "2026-08-16T00:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
