@@ -888,10 +888,77 @@
 .personal-gallery-lightbox img {
   border-radius: 8px;
   box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.35);
-  cursor: zoom-out;
+  cursor: default;
   max-height: 88vh;
-  max-width: 92vw;
+  max-width: calc(100vw - 10rem);
   object-fit: contain;
+}
+
+.personal-gallery-lightbox-button,
+.personal-gallery-lightbox-close {
+  align-items: center;
+  background: rgba(17, 24, 39, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  position: absolute;
+  z-index: 1;
+}
+
+.personal-gallery-lightbox-button {
+  font-size: 2rem;
+  height: 3rem;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+}
+
+.personal-gallery-lightbox-button:hover,
+.personal-gallery-lightbox-button:focus-visible,
+.personal-gallery-lightbox-close:hover,
+.personal-gallery-lightbox-close:focus-visible {
+  background: rgba(21, 101, 192, 0.96);
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.personal-gallery-lightbox-button-prev {
+  left: 1.25rem;
+}
+
+.personal-gallery-lightbox-button-next {
+  right: 1.25rem;
+}
+
+.personal-gallery-lightbox-close {
+  font-size: 1.5rem;
+  height: 2.5rem;
+  right: 1.25rem;
+  top: 1.25rem;
+  width: 2.5rem;
+}
+
+.personal-gallery-lightbox-count {
+  background: rgba(17, 24, 39, 0.78);
+  border-radius: 999px;
+  bottom: 1.25rem;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 700;
+  left: 50%;
+  margin: 0;
+  padding: 0.38rem 0.72rem;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.personal-gallery-lightbox-button[hidden],
+.personal-gallery-lightbox-count[hidden] {
+  display: none;
 }
 
 .personal-gallery-lightbox-open {
@@ -1778,6 +1845,37 @@
   .personal-gallery-button {
     height: 2rem;
     width: 2rem;
+  }
+
+  .personal-gallery-lightbox {
+    padding: 0.75rem;
+  }
+
+  .personal-gallery-lightbox img {
+    max-height: 82vh;
+    max-width: calc(100vw - 1.5rem);
+  }
+
+  .personal-gallery-lightbox-button {
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .personal-gallery-lightbox-button-prev {
+    left: 0.5rem;
+  }
+
+  .personal-gallery-lightbox-button-next {
+    right: 0.5rem;
+  }
+
+  .personal-gallery-lightbox-close {
+    right: 0.65rem;
+    top: 0.65rem;
+  }
+
+  .personal-gallery-lightbox-count {
+    bottom: 0.75rem;
   }
 }
 
