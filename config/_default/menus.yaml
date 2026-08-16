@@ -1,5 +1,5 @@
 main:
-  - name: Publications
+  - name: Publications/Projects/Teaching
     url: '#publications'
     weight: 20
   - name: Talks
@@ -8,15 +8,9 @@ main:
   - name: Awards
     url: '#awards'
     weight: 32
-  - name: Funding
-    url: '#funded-projects'
-    weight: 25
   - name: Service
     url: '#academic-service'
     weight: 35
-  - name: Teaching
-    url: '#teaching'
-    weight: 40
   - name: Projects
     url: '#personal-projects'
     weight: 45
