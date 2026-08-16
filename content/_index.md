@@ -27,7 +27,7 @@ sections:
   - block: markdown
     id: publications
     content:
-      title: Publications/Projects/Teaching
+      title: 'Research & Teaching'
       text: |
         <nav class="profile-quick-links" aria-label="APRL publications, funded projects, and teaching">
           <a class="profile-quick-link" href="https://team-aprl.github.io/publications.html" target="_blank" rel="noopener noreferrer">
