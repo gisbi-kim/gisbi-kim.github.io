@@ -3,10 +3,49 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 시대, 좋은 로봇 연구자를 가르는 것은 취향이다</title>
 <style>
-:root{--ink:#16151b;--bg:#f4f0e9;--violet:#4b3a78;--lime:#d6f263;--line:#cfc7b9;--paper:#fffdf9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif KR","Nanum Myeongjo",serif;line-height:1.92;letter-spacing:-.016em}.hero{background:var(--violet);color:#fff;padding:clamp(58px,10vw,132px) 24px 88px}.hero>div,main,footer{width:min(820px,calc(100% - 40px));margin:auto}.kicker{font:700 12px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--lime);margin:0 0 22px}h1{max-width:760px;margin:0;font-size:clamp(2.35rem,6.6vw,5rem);line-height:1.07;letter-spacing:-.065em;word-break:keep-all}.dek{max-width:620px;margin:26px 0 0;color:#e7e0fb;font-size:clamp(1.08rem,2.2vw,1.34rem);line-height:1.65}.tag{display:inline-block;margin-top:38px;padding:7px 11px;background:var(--lime);color:var(--violet);font:700 11px system-ui,sans-serif;letter-spacing:.06em}main{margin-top:-34px;background:var(--paper);box-shadow:0 18px 48px #2a1d421c;padding:clamp(30px,6vw,70px)}.source{margin:0 0 44px;padding:18px 20px;border:1px solid var(--line);border-radius:4px;background:#faf7f0;color:#56535a;font:14px/1.75 system-ui,sans-serif}.essay{margin:0;white-space:pre-wrap;font:inherit;font-size:clamp(16.5px,1.8vw,18px);line-height:1.92;overflow-wrap:anywhere}footer{padding:28px 0 56px;color:#6b6571;font:12px system-ui,sans-serif}@media(max-width:560px){.hero>div,main,footer{width:min(100% - 28px,820px)}.hero{padding-left:14px;padding-right:14px;padding-bottom:64px}main{padding:26px 20px}.source{font-size:13px}}
+:root{--ink:#172033;--muted:#657083;--accent:#1f66b1;--accent-soft:#eaf2fb;--bg:#eef1f5;--paper:#fff;--line:#dce3eb;--shadow:0 13px 34px rgba(31,43,60,.07)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;line-height:1.78;letter-spacing:-.018em}
+.hero,main,footer{width:min(860px,calc(100% - 40px));margin-inline:auto}
+.hero{margin-top:24px;padding:clamp(42px,7vw,72px) clamp(28px,7vw,66px) clamp(36px,6vw,58px);background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}
+.hero-inner{max-width:720px}
+.kicker{margin:0 0 22px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+h1{max-width:720px;margin:0;font-size:clamp(2.25rem,6vw,4.35rem);font-weight:760;line-height:1.11;letter-spacing:-.058em;word-break:keep-all}
+.dek{max-width:650px;margin:24px 0 0;color:var(--muted);font-size:clamp(1.02rem,2vw,1.22rem);line-height:1.7;word-break:keep-all}
+.tag{display:inline-flex;margin-top:32px;padding:7px 11px;border:1px solid #bdd2ea;border-radius:999px;background:var(--accent-soft);color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.06em}
+main{margin-top:22px}
+.source,.paper{background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow)}
+.source{margin:0 0 22px;padding:20px 24px;color:var(--muted);font-size:13.5px;line-height:1.75}
+.essay{margin:0;padding:clamp(32px,6vw,54px);white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);font:inherit;font-size:17px;line-height:1.9;overflow-wrap:anywhere}
+.reader{display:grid;gap:22px}
+.reader[hidden],.essay[hidden]{display:none}
+.paper{position:relative;padding:clamp(34px,6vw,56px) clamp(26px,7vw,62px) clamp(38px,6vw,60px);overflow:hidden}
+.paper::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;background:var(--accent);opacity:.72}
+.paper h2{max-width:680px;margin:0 0 30px;color:var(--ink);font-size:clamp(1.6rem,3.6vw,2.2rem);font-weight:760;line-height:1.35;letter-spacing:-.04em;word-break:keep-all}
+.paper h2::before{display:block;margin-bottom:12px;color:var(--accent);font-size:11px;font-weight:800;letter-spacing:.12em;content:"CHAPTER " counter(chapter,decimal-leading-zero)}
+.reader{counter-reset:chapter}
+.paper:not(.intro){counter-increment:chapter}
+.paper.intro::before{background:#93a4b8}
+.paper.intro p:first-child{margin-top:0;font-size:clamp(1.08rem,2vw,1.19rem);font-weight:650;color:#314057}
+.paper h3{margin:36px 0 14px;padding-top:2px;color:var(--accent);font-size:1.08rem;font-weight:760;line-height:1.55;word-break:keep-all}
+.paper p{margin:0 0 22px;font-size:clamp(16px,1.8vw,17.5px);line-height:1.9;white-space:pre-line;overflow-wrap:anywhere}
+.paper p:last-child,.paper ul:last-child,.paper .text-table:last-child{margin-bottom:0}
+.paper ul{margin:0 0 26px;padding:20px 24px 20px 43px;border-radius:6px;background:#f5f8fc;color:#344157}
+.paper li{margin:8px 0;padding-left:3px;line-height:1.72}
+.paper li::marker{color:var(--accent)}
+.text-table{margin:8px 0 28px;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-size:14px}
+.text-row{display:grid;grid-template-columns:minmax(90px,.72fr) minmax(0,1.4fr) minmax(0,1.4fr);border-top:1px solid var(--line)}
+.text-row:first-child{border-top:0;background:#f1f5fa;color:#344157;font-weight:750}
+.text-cell{padding:12px 14px;border-left:1px solid var(--line);line-height:1.55;white-space:pre-line}
+.text-cell:first-child{border-left:0}
+footer{padding:28px 0 52px;color:#788395;font-size:12px}
+@media(max-width:620px){.hero,main,footer{width:min(100% - 24px,860px)}.hero{margin-top:12px;padding:38px 25px 34px}.tag{margin-top:26px}.source{padding:17px 18px}.reader{gap:14px}.paper{padding:32px 24px 37px}.paper h2{margin-bottom:24px}.paper h3{margin-top:30px}.text-row{display:block;padding:10px 14px}.text-cell{display:block;padding:3px 0;border:0}.text-row:first-child{display:none}}
+@media(prefers-color-scheme:dark){:root{--ink:#e8edf4;--muted:#9ba7b7;--accent:#8bb9ef;--accent-soft:#172b43;--bg:#0c1015;--paper:#12171e;--line:#29313b;--shadow:0 13px 34px rgba(0,0,0,.2)}.tag{border-color:#31577d}.paper.intro p:first-child{color:#d4dce7}.paper ul,.text-row:first-child{background:#171e27;color:#c9d3df}}
+@media print{body{background:#fff}.hero,.source,.paper{box-shadow:none}.reader{display:block}.paper{break-inside:avoid;margin-top:18px}}
 </style>
-<header class="hero"><div><p class="kicker">Essay · Robotics &amp; AI</p><h1>AI 시대, 좋은 로봇 연구자를 가르는 것은 취향이다</h1><p class="dek">더 많이 구현하는 능력보다 무엇을 구현하고 어떻게 증명할지 판단하는 능력</p><span class="tag">RESEARCH TASTE</span></div></header>
-<main><p class="source">«이 글은 Pratik Bhavsar의 "“How to Be a 30x AI Engineer with a Taste”" (https://pakodas.substack.com/p/how-to-be-a-30x-ai-engineer-with-a-taste)(2026년 2월 19일)에서 제시한 핵심 개념—취향을 내부 평가 함수로 보는 관점, 인식·나침반·비전이라는 세 형태, 그리고 문제 선택·아키텍처·품질 판단·사용자 공감·커뮤니케이션이라는 다섯 영역—을 로봇공학 연구에 맞게 각색한 글이야. 원문의 ‘30배 엔지니어’라는 표현은 연구자의 가치를 단순한 생산성 배수로 환산하기 어렵다는 점에서 사용하지 않았어.»</p><pre class="essay">AI가 코드를 쓰고, 논문을 요약하고, 실험 파이프라인을 만들고, 시뮬레이션 환경을 구성하는 속도가 빠르게 높아지고 있어.
+<header class="hero"><div class="hero-inner"><p class="kicker">Essay · Robotics &amp; AI</p><h1>AI 시대, 좋은 로봇 연구자를 가르는 것은 취향이다</h1><p class="dek">더 많이 구현하는 능력보다 무엇을 구현하고 어떻게 증명할지 판단하는 능력</p><span class="tag">RESEARCH TASTE</span></div></header>
+<main><aside class="source">«이 글은 Pratik Bhavsar의 "“How to Be a 30x AI Engineer with a Taste”" (https://pakodas.substack.com/p/how-to-be-a-30x-ai-engineer-with-a-taste)(2026년 2월 19일)에서 제시한 핵심 개념—취향을 내부 평가 함수로 보는 관점, 인식·나침반·비전이라는 세 형태, 그리고 문제 선택·아키텍처·품질 판단·사용자 공감·커뮤니케이션이라는 다섯 영역—을 로봇공학 연구에 맞게 각색한 글이야. 원문의 ‘30배 엔지니어’라는 표현은 연구자의 가치를 단순한 생산성 배수로 환산하기 어렵다는 점에서 사용하지 않았어.»</aside><pre class="essay" id="essay-source">AI가 코드를 쓰고, 논문을 요약하고, 실험 파이프라인을 만들고, 시뮬레이션 환경을 구성하는 속도가 빠르게 높아지고 있어.
 
 예전에는 새로운 아이디어가 있어도 구현에 몇 달이 걸렸어. ROS 노드를 만들고, 데이터 로더를 작성하고, 베이스라인을 재현하고, 실험 스크립트를 정리하는 것만으로도 학생 한 명의 상당한 시간이 들어갔지. 이제는 이런 작업의 많은 부분을 AI의 도움으로 훨씬 빠르게 처리할 수 있어.
 
@@ -464,6 +503,105 @@ AI가 로봇 연구자의 일을 모두 대신하지는 않을 거야. 하지만
 
 결국 좋은 로봇 연구자는 가장 많은 실험을 수행하는 사람이 아니야.
 
-어떤 질문이 실제 로봇의 한 시간을 사용할 가치가 있는지 아는 사람이야.</pre></main><footer>© Giseop Kim · Essays</footer>
-</html>
+어떤 질문이 실제 로봇의 한 시간을 사용할 가치가 있는지 아는 사람이야.</pre><article class="reader" id="essay-reader" hidden></article></main><footer>© Giseop Kim · Essays</footer>
+<script>
+(() => {
+  const source = document.getElementById("essay-source");
+  const reader = document.getElementById("essay-reader");
+  if (!source || !reader) return;
 
+  const chapters = new Set([
+    "연구자의 취향은 단순한 선호가 아니다",
+    "연구자의 취향은 세 가지 형태로 나타나.",
+    "로봇 연구에서 취향이 가장 큰 가치를 만드는 다섯 영역",
+    "취향이 있는 연구와 없는 연구",
+    "로봇 연구자의 취향을 기르는 90일 훈련",
+    "취향을 빠르게 훈련하는 다섯 가지 프로젝트",
+    "지도교수는 취향을 말로만 전수하면 안 된다",
+    "취향에 관한 불편한 진실",
+    "AI가 구현을 가져갈수록 연구자의 판단은 더 선명하게 드러난다"
+  ]);
+  const subheads = new Set([
+    "1. 인식으로서의 취향: 좋은 연구와 불안한 연구를 알아보는 능력",
+    "2. 나침반으로서의 취향: 다음에 무엇을 해야 하는지 아는 능력",
+    "3. 비전으로서의 취향: 다음 유행이 아니라 다음 병목을 보는 능력",
+    "1. 문제 선택",
+    "2. 시스템과 실험의 아키텍처",
+    "3. 증거와 품질 판단",
+    "4. 현실과 사용자에 대한 공감",
+    "5. 커뮤니케이션과 연구의 서사",
+    "첫 번째 달: 좋은 연구를 알아보는 능력",
+    "두 번째 달: 다음 실험을 고르는 능력",
+    "세 번째 달: 미래의 연구 방향을 설계하는 능력",
+    "1. 공정한 재현 실험",
+    "2. 실패 지도 만들기",
+    "3. 벤치마크의 사각지대 찾기",
+    "4. 독립 사용자가 쓰는 48시간 로봇 시스템",
+    "5. 관점을 바꾸는 짧은 연구 글"
+  ]);
+
+  const makePaper = (intro = false) => {
+    const section = document.createElement("section");
+    section.className = `paper${intro ? " intro" : ""}`;
+    reader.append(section);
+    return section;
+  };
+  let paper = makePaper(true);
+
+  source.textContent.replace(/\r\n/g, "\n").trim().split(/\n{2,}/).forEach((block) => {
+    if (chapters.has(block)) {
+      paper = makePaper();
+      const heading = document.createElement("h2");
+      heading.textContent = block;
+      paper.append(heading);
+      return;
+    }
+    if (subheads.has(block)) {
+      const heading = document.createElement("h3");
+      heading.textContent = block;
+      paper.append(heading);
+      return;
+    }
+
+    const lines = block.split("\n");
+    if (lines.length > 1 && lines.every((line) => line.startsWith("- "))) {
+      const list = document.createElement("ul");
+      lines.forEach((line) => {
+        const item = document.createElement("li");
+        item.textContent = line.slice(2);
+        list.append(item);
+      });
+      paper.append(list);
+      return;
+    }
+    if (lines.length > 1 && lines.every((line) => line.includes("|"))) {
+      const table = document.createElement("div");
+      table.className = "text-table";
+      table.setAttribute("role", "table");
+      lines.forEach((line) => {
+        const row = document.createElement("div");
+        row.className = "text-row";
+        row.setAttribute("role", "row");
+        line.split("|").forEach((value) => {
+          const cell = document.createElement("div");
+          cell.className = "text-cell";
+          cell.setAttribute("role", "cell");
+          cell.textContent = value.trim();
+          row.append(cell);
+        });
+        table.append(row);
+      });
+      paper.append(table);
+      return;
+    }
+
+    const paragraph = document.createElement("p");
+    paragraph.textContent = block;
+    paper.append(paragraph);
+  });
+
+  source.hidden = true;
+  reader.hidden = false;
+})();
+</script>
+</html>
