@@ -27,19 +27,25 @@ sections:
   - block: markdown
     id: publications
     content:
-      title: Publications/Patents
+      title: APRL Quick Links
       text: |
-        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/publications.html">See APRL Publications →</a></p>
-    design:
-      columns: '1'
-
-
-  - block: markdown
-    id: funded-projects
-    content:
-      title: Funded Projects
-      text: |
-        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/projects.html">See Projects →</a></p>
+        <nav class="profile-quick-links" aria-label="APRL publications, funded projects, and teaching">
+          <a class="profile-quick-link" href="https://team-aprl.github.io/publications.html" target="_blank" rel="noopener noreferrer">
+            <span class="profile-quick-link-index">01</span>
+            <span class="profile-quick-link-copy"><strong>Publications/Patents</strong><span>Research output</span></span>
+            <span class="profile-quick-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="profile-quick-link" id="funded-projects" href="https://team-aprl.github.io/projects.html" target="_blank" rel="noopener noreferrer">
+            <span class="profile-quick-link-index">02</span>
+            <span class="profile-quick-link-copy"><strong>Funded Projects</strong><span>Research funding</span></span>
+            <span class="profile-quick-link-arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="profile-quick-link" id="teaching" href="https://team-aprl.github.io/teaching.html" target="_blank" rel="noopener noreferrer">
+            <span class="profile-quick-link-index">03</span>
+            <span class="profile-quick-link-copy"><strong>Teaching</strong><span>Courses and materials</span></span>
+            <span class="profile-quick-link-arrow" aria-hidden="true">↗</span>
+          </a>
+        </nav>
     design:
       columns: '1'
 
@@ -67,15 +73,6 @@ sections:
       title: Academic Service
       text: |
         <div class="profile-data" data-profile-section="academic_service" data-profile-view="cards"></div>
-    design:
-      columns: '1'
-
-  - block: markdown
-    id: teaching
-    content:
-      title: Teaching
-      text: |
-        <p class="profile-data-more-link"><a href="https://team-aprl.github.io/teaching.html">See Teaching →</a></p>
     design:
       columns: '1'
 
