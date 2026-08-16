@@ -19,11 +19,8 @@ build:
 ---
 
 <nav class="ssi-language-switch" aria-label="언어 선택">
-  <span class="ssi-language-switch__label">🌐 언어 / Language</span>
-  <span class="ssi-language-switch__options">
-    <a class="is-active" href="/situated-spatial-intelligence/" lang="ko" aria-current="page">한국어</a>
-    <a href="/situated-spatial-intelligence/en/" lang="en">English</a>
-  </span>
+  <a class="is-active" href="/situated-spatial-intelligence/" lang="ko" aria-current="page">한국어</a>
+  <a href="/situated-spatial-intelligence/en/" lang="en">English</a>
 </nav>
 
 공간지능은 단순히 지도를 만들거나 자신의 위치를 추정하는 능력이 아니다. 로봇이 현실에서 사람과 함께 지속적으로 작동하려면 먼저 공간의 구조를 올바르게 파악하고, 그 이해가 실제 환경에서도 믿을 만한지 검증해야 한다. 또한 변화하는 세계를 기억하고, 자신의 공간적 이해를 사람과 공유하며, 합의된 의도를 실제 행동으로 옮길 수 있어야 한다.
@@ -269,3 +266,5 @@ LSA와 DSI가 결합하면 로봇들은 경험과 실패를 각자 쌓는 데 �
 공간지능은 지도 안에서 완성되지 않는다. 공간의 구조를 이해하고, 현실을 경험하고, 그 경험을 기억하며, 사람과 서로의 이해를 맞추고, 행동의 결과를 다시 받아들이는 폐루프 안에서 완성된다.
 
 **Situated Spatial Intelligence는 그 완성된 폐루프를 향한 APRL의 연구 프로그램이다.**
+
+<script defer src="/js/ssi-paper-sections.js"></script>

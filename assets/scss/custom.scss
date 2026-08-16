@@ -2150,104 +2150,39 @@
 }
 
 .article-style .ssi-language-switch {
-  align-items: center;
-  background: linear-gradient(135deg, rgba(219, 234, 254, 0.9), rgba(239, 246, 255, 0.96));
-  border: 1px solid rgba(37, 99, 235, 0.28);
-  border-radius: 0.85rem;
-  box-shadow: 0 0.4rem 1.1rem rgba(30, 64, 175, 0.1);
   display: flex;
-  gap: 0.7rem;
-  justify-content: space-between;
-  margin: 0 0 1.45rem auto;
-  padding: 0.42rem;
-  width: fit-content;
-}
-
-.article-style .ssi-language-switch__label {
-  color: #1e3a5f;
-  font-size: 0.82rem;
-  font-weight: 750;
-  letter-spacing: 0.01em;
-  padding-left: 0.45rem;
-  white-space: nowrap;
-}
-
-.article-style .ssi-language-switch__options {
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(37, 99, 235, 0.14);
-  border-radius: 0.62rem;
-  display: flex;
-  gap: 0.16rem;
-  padding: 0.16rem;
+  gap: 0.1rem;
+  justify-content: flex-end;
+  margin: 0 0 1.1rem;
 }
 
 .article-style .ssi-language-switch a {
   border: 1px solid transparent;
-  border-radius: 0.48rem;
-  color: #334155;
-  display: inline-flex;
-  font-size: 0.86rem;
-  font-weight: 700;
-  justify-content: center;
-  line-height: 1.1;
-  min-height: 2.35rem;
-  min-width: 4.6rem;
-  padding: 0.67rem 0.85rem;
+  border-radius: 999px;
+  color: #64748b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0.4rem 0.62rem;
   text-decoration: none;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
   white-space: nowrap;
 }
 
-.article-style .ssi-language-switch a:hover,
-.article-style .ssi-language-switch a:focus-visible {
-  background: rgba(37, 99, 235, 0.1);
-  border-color: rgba(37, 99, 235, 0.22);
-  color: #1d4ed8;
-}
-
-.article-style .ssi-language-switch a:focus-visible {
-  outline: 3px solid rgba(37, 99, 235, 0.3);
-  outline-offset: 2px;
-}
-
 .article-style .ssi-language-switch a.is-active {
-  background: #1565c0;
-  border-color: #1565c0;
-  box-shadow: 0 0.22rem 0.55rem rgba(21, 101, 192, 0.25);
-  color: #fff;
-}
-
-.dark .article-style .ssi-language-switch {
-  background: linear-gradient(135deg, rgba(30, 64, 175, 0.22), rgba(15, 23, 42, 0.88));
-  border-color: rgba(96, 165, 250, 0.38);
-  box-shadow: 0 0.4rem 1.1rem rgba(0, 0, 0, 0.2);
-}
-
-.dark .article-style .ssi-language-switch__label {
-  color: #dbeafe;
-}
-
-.dark .article-style .ssi-language-switch__options {
-  background: rgba(15, 23, 42, 0.62);
-  border-color: rgba(96, 165, 250, 0.18);
+  background: rgba(100, 116, 139, 0.08);
+  border-color: rgba(100, 116, 139, 0.16);
+  color: #334155;
 }
 
 .dark .article-style .ssi-language-switch a {
   border-color: transparent;
-  color: #cbd5e1;
-}
-
-.dark .article-style .ssi-language-switch a:hover,
-.dark .article-style .ssi-language-switch a:focus-visible {
-  background: rgba(96, 165, 250, 0.14);
-  border-color: rgba(96, 165, 250, 0.28);
-  color: #eff6ff;
+  color: #94a3b8;
 }
 
 .dark .article-style .ssi-language-switch a.is-active {
-  background: #60a5fa;
-  border-color: #60a5fa;
-  color: #0f172a;
+  background: rgba(203, 213, 225, 0.09);
+  border-color: rgba(203, 213, 225, 0.16);
+  color: #e2e8f0;
 }
 
 .article-style blockquote.ssi-emphasis,
@@ -2350,17 +2285,7 @@
 
 @media (max-width: 640px) {
   .article-style .ssi-language-switch {
-    margin-bottom: 1.35rem;
-    width: 100%;
-  }
-
-  .article-style .ssi-language-switch__options {
-    flex: 1;
-  }
-
-  .article-style .ssi-language-switch a {
-    flex: 1;
-    min-width: 0;
+    margin-bottom: 1.15rem;
   }
 
   .article-style .ssi-section-divider {
@@ -2427,5 +2352,216 @@
 @media (max-width: 640px) {
   .article-style .ssi-pillar-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Situated Spatial Intelligence: paper-separated chapter layout. */
+body.ssi-paper-page,
+body.ssi-paper-page .page-body {
+  background: #eef1f4;
+}
+
+body.ssi-paper-page .article {
+  padding-bottom: 2rem;
+}
+
+body.ssi-paper-page .article-container {
+  max-width: 860px;
+}
+
+body.ssi-paper-page .article-container.pt-3 {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  box-shadow: 0 8px 24px rgba(30, 41, 59, 0.055);
+  margin-top: 1.5rem;
+  padding: 3.25rem 3.1rem 2.6rem !important;
+}
+
+body.ssi-paper-page .article-container.pt-3 h1 {
+  color: #27313d;
+  font-size: clamp(2.2rem, 5vw, 3.45rem);
+  font-weight: 780;
+  letter-spacing: -0.045em;
+  line-height: 1.18;
+}
+
+body.ssi-paper-page .article-container.pt-3 .page-subtitle {
+  color: #566476;
+  font-size: clamp(1rem, 1.8vw, 1.18rem);
+  line-height: 1.7;
+  margin-top: 1.1rem;
+}
+
+body.ssi-paper-page .article-container.pt-3 .article-metadata {
+  color: #748195;
+  font-size: 0.8rem;
+  margin-top: 1.3rem;
+}
+
+body.ssi-paper-page .article-container:not(.pt-3) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body.ssi-paper-page .article-style {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+body.ssi-paper-page .article-style .ssi-sheet {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+  box-shadow: 0 8px 24px rgba(30, 41, 59, 0.055);
+  margin: 0;
+  padding: 2.65rem 3.1rem 3rem;
+}
+
+body.ssi-paper-page .article-style .ssi-sheet > h2:first-child {
+  color: #27313d;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 730;
+  letter-spacing: -0.035em;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body.ssi-paper-page .article-style .ssi-sheet > h3 {
+  color: #27313d;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+body.ssi-paper-page .article-style .ssi-hero {
+  margin-top: 0;
+}
+
+body.ssi-paper-page .article-style .ssi-hero img {
+  border-radius: 5px;
+}
+
+body.ssi-paper-page .article-style .ssi-language-switch {
+  gap: 0.4rem;
+  margin: 1rem 0 1.45rem;
+}
+
+body.ssi-paper-page .article-style .ssi-language-switch a {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 999px;
+  box-shadow: 0 2px 7px rgba(30, 41, 59, 0.08);
+  color: #475569;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.55rem 0.82rem;
+}
+
+body.ssi-paper-page .article-style .ssi-language-switch a.is-active {
+  background: #1565c0;
+  border-color: #1565c0;
+  box-shadow: 0 4px 12px rgba(21, 101, 192, 0.22);
+  color: #fff;
+}
+
+body.ssi-paper-page .article-style .ssi-language-switch a:hover {
+  border-color: #1565c0;
+  color: #1565c0;
+}
+
+body.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
+  color: #fff;
+}
+
+body.ssi-paper-page .article-style .ssi-section-divider {
+  display: none;
+}
+
+body.ssi-paper-page .article-style blockquote.ssi-emphasis,
+body.ssi-paper-page .article-style .ssi-note,
+body.ssi-paper-page .article-style .ssi-pillar-grid li {
+  border-radius: 5px;
+}
+
+body.dark.ssi-paper-page,
+body.dark.ssi-paper-page .page-body {
+  background: #0b0e12;
+}
+
+body.dark.ssi-paper-page .article-container.pt-3,
+body.dark.ssi-paper-page .article-style .ssi-sheet {
+  background: #101419;
+  border-color: #29313b;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+body.dark.ssi-paper-page .article-container.pt-3 h1,
+body.dark.ssi-paper-page .article-style .ssi-sheet > h2:first-child,
+body.dark.ssi-paper-page .article-style .ssi-sheet > h3 {
+  color: #e5e9ef;
+}
+
+body.dark.ssi-paper-page .article-container.pt-3 .page-subtitle {
+  color: #b2bcc9;
+}
+
+body.dark.ssi-paper-page .article-container.pt-3 .article-metadata {
+  color: #8f9baa;
+}
+
+body.dark.ssi-paper-page .article-style .ssi-language-switch a {
+  background: #171d25;
+  border-color: #3b4654;
+  color: #cbd5e1;
+}
+
+body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active {
+  background: #8ab4f8;
+  border-color: #8ab4f8;
+  color: #101419;
+}
+
+body.dark.ssi-paper-page .article-style .ssi-language-switch a:hover {
+  border-color: #8ab4f8;
+  color: #8ab4f8;
+}
+
+body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
+  color: #101419;
+}
+
+@media (max-width: 640px) {
+  body.ssi-paper-page .article-container.pt-3,
+  body.ssi-paper-page .article-container:not(.pt-3) {
+    width: calc(100% - 24px);
+  }
+
+  body.ssi-paper-page .article-container.pt-3 {
+    margin-top: 12px;
+    padding: 2.6rem 1.5rem 2rem !important;
+  }
+
+  body.ssi-paper-page .article-style {
+    gap: 14px;
+    margin-top: 14px;
+  }
+
+  body.ssi-paper-page .article-style .ssi-sheet {
+    padding: 1.9rem 1.5rem 2.2rem;
+  }
+}
+
+@media print {
+  body.ssi-paper-page,
+  body.ssi-paper-page .page-body {
+    background: #fff;
+  }
+
+  body.ssi-paper-page .article-container.pt-3,
+  body.ssi-paper-page .article-style .ssi-sheet {
+    border: 0;
+    box-shadow: none;
   }
 }
