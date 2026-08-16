@@ -1,5 +1,5 @@
 main:
-  - name: Publications/Projects/Teaching
+  - name: 'Research & Teaching'
     url: '#publications'
     weight: 20
   - name: Talks
