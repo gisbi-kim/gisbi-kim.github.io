@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="연구를 주도하는 명명의 힘—보이지 않던 현상을 가시화하고, 프레임을 재구성하며, 독립적인 사유의 좌표계를 만드는 일에 대하여.">
+  <meta name="author" content="Giseop Kim">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:title" content="이름을 붙이는 사람이 연구를 주도한다">
+  <meta property="og:description" content="아직 이름 없는 현상을 발견하고 학계가 함께 사고할 수 있는 언어로 만드는 일.">
+  <meta property="og:url" content="https://gisbi-kim.github.io/naming-leads-research/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="이름을 붙이는 사람이 연구를 주도한다">
+  <meta name="twitter:description" content="명명은 독립적 사유와 창조의 행위다.">
+  <link rel="canonical" href="https://gisbi-kim.github.io/naming-leads-research/">
+  <title>이름을 붙이는 사람이 연구를 주도한다 | Giseop Kim</title>
+  <style>
+    :root{
+      --paper:#f4f1e9;
+      --sheet:#fffdf8;
+      --ink:#171914;
+      --muted:#66685f;
+      --rule:#d8d2c4;
+      --accent:#bd3c22;
+      --accent-dark:#7f2616;
+      --accent-soft:#f6e3db;
+      --green:#263f34;
+      --max:760px;
+      --wide:1180px;
+      --serif:"Noto Serif KR","Nanum Myeongjo","Batang",serif;
+      --sans:"Pretendard Variable","Pretendard","Noto Sans KR",system-ui,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;overflow-x:hidden;
+      background:var(--paper);
+      color:var(--ink);
+      font-family:var(--serif);
+      line-height:1.95;
+      letter-spacing:-.018em;
+      word-break:keep-all;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}
+    .progress{position:fixed;inset:0 auto auto 0;width:0;height:3px;background:var(--accent);z-index:50}
+    .sitebar{
+      position:sticky;top:0;z-index:30;
+      border-bottom:1px solid rgba(216,210,196,.86);
+      background:rgba(244,241,233,.92);
+      backdrop-filter:blur(16px);
+    }
+    .sitebar__inner{
+      width:min(calc(100% - 40px),var(--wide));height:62px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      font:650 13px/1 var(--sans);letter-spacing:.01em;
+    }
+    .brand{text-decoration:none}
+    .nav{display:flex;gap:20px;color:var(--muted)}
+    .nav a{text-decoration:none}
+    .nav a:hover{color:var(--accent)}
+    .hero{
+      position:relative;overflow:hidden;
+      border-bottom:1px solid var(--ink);
+      min-height:calc(100vh - 62px);
+      display:grid;align-items:end;
+    }
+    .hero::before{
+      content:"命名";position:absolute;right:-.04em;top:-.16em;z-index:-1;
+      color:#e7e1d5;font:900 clamp(9rem,31vw,27rem)/1 var(--serif);
+      letter-spacing:-.14em;white-space:nowrap;
+    }
+    .hero__inner{
+      width:min(calc(100% - 48px),var(--wide));margin:auto;padding:108px 0 76px;
+      display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:72px;align-items:end;
+    }
+    .eyebrow{
+      margin:0 0 28px;color:var(--accent);
+      font:800 12px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;
+    }
+    h1{
+      max-width:900px;margin:0;
+      font-size:clamp(3.4rem,7.6vw,7.2rem);line-height:1.03;
+      letter-spacing:-.075em;font-weight:800;
+    }
+    .deck{
+      max-width:760px;margin:32px 0 0;
+      font-size:clamp(1.18rem,2.1vw,1.62rem);line-height:1.65;color:#3c4038;
+    }
+    .hero__side{
+      border-top:1px solid var(--ink);padding-top:16px;
+      font:13px/1.8 var(--sans);color:var(--muted);
+    }
+    .hero__side strong{display:block;color:var(--ink);font-size:12px;letter-spacing:.12em}
+    .hero__mark{
+      margin-top:34px;display:flex;align-items:center;gap:12px;
+      color:var(--accent);font:italic 1rem/1 var(--serif);
+    }
+    .hero__mark::after{content:"";width:min(180px,28vw);height:1px;background:var(--accent)}
+    .thesis-strip{background:var(--green);color:#f8f4e9}
+    .thesis-strip__inner{
+      width:min(calc(100% - 40px),1020px);margin:auto;padding:42px 0;
+      display:grid;grid-template-columns:160px 1fr;gap:42px;align-items:start;
+    }
+    .thesis-strip__label{
+      padding-top:7px;color:#d9b7a9;
+      font:800 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;
+    }
+    .thesis-strip p{margin:0;font-size:clamp(1.25rem,2.3vw,1.72rem);line-height:1.65;letter-spacing:-.035em}
+    .layout{
+      width:min(calc(100% - 48px),var(--wide));margin:auto;
+      display:grid;grid-template-columns:220px minmax(0,var(--max));gap:clamp(52px,8vw,120px);
+      justify-content:center;padding:108px 0 150px;
+    }
+    .rail{align-self:start;position:sticky;top:94px;font:12px/1.6 var(--sans);color:var(--muted)}
+    .rail__label{display:block;margin-bottom:16px;color:var(--accent);font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+    .rail nav{border-left:1px solid var(--rule);padding-left:16px}
+    .rail a{display:block;margin:0 0 12px;text-decoration:none}
+    .rail a:hover,.rail a[aria-current="true"]{color:var(--accent)}
+    .article{min-width:0;font-size:18px}
+    .article>p{margin:0 0 1.55em}
+    .article .lead{font-size:1.2em;line-height:1.85;color:#30332d}
+    .article h2{
+      margin:6.4rem 0 2rem;padding-top:1.45rem;border-top:1px solid var(--ink);
+      font-size:clamp(2rem,4vw,3.15rem);line-height:1.25;letter-spacing:-.055em;
+    }
+    .article h2::before{
+      content:attr(data-index);display:block;margin-bottom:14px;
+      color:var(--accent);font:800 10px/1 var(--sans);letter-spacing:.17em;
+    }
+    .article h3{
+      margin:3.7rem 0 1.25rem;font-size:1.42rem;line-height:1.45;letter-spacing:-.035em;
+    }
+    .article strong{font-weight:800;color:var(--accent-dark)}
+    .article hr{width:58px;margin:5rem 0;border:0;border-top:5px solid var(--accent)}
+    .article blockquote{
+      position:relative;margin:2.8rem 0;padding:1.7rem 1.9rem;
+      border:1px solid var(--ink);background:var(--sheet);
+      font-size:1.12em;line-height:1.75;letter-spacing:-.025em;
+      box-shadow:7px 7px 0 var(--accent-soft);
+    }
+    .article blockquote::before{
+      content:"OBSERVATION";position:absolute;top:-8px;left:16px;padding:0 8px;
+      background:var(--sheet);color:var(--accent);
+      font:800 9px/1 var(--sans);letter-spacing:.14em;
+    }
+    .article blockquote p{margin:.55em 0}
+    .article ul,.article ol{margin:0 0 1.7em;padding-left:1.3em}
+    .article li{margin:.42em 0;padding-left:.35em}
+    .article table{
+      width:100%;margin:2.8rem 0;border-collapse:collapse;background:var(--sheet);
+      font:14px/1.6 var(--sans);word-break:normal;
+    }
+    .article th,.article td{padding:13px 14px;border:1px solid var(--rule);text-align:left}
+    .article th{background:var(--green);color:white;font-weight:700}
+    .equation{
+      overflow-x:auto;margin:2.8rem 0;padding:24px;border:1px solid var(--rule);
+      background:var(--sheet);text-align:center;white-space:nowrap;
+      font:1.28rem/1.8 Georgia,"Times New Roman",serif;
+    }
+    .equation .math-expression{display:inline-block}
+    .equation .math-expression i{font-style:italic}
+    .equation .math-expression sub{font-size:.72em;vertical-align:-.3em}
+    .equation .math-expression sup{font-size:.68em;vertical-align:.65em;margin-left:.04em}
+    .concept-chain{
+      width:100%;margin:3rem 0;padding:28px 22px;
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr) auto) minmax(0,1fr);align-items:center;gap:10px;
+      border-block:1px solid var(--rule);background:rgba(255,253,248,.55);
+      font:700 clamp(9px,1.6vw,13px)/1.2 var(--sans);letter-spacing:.01em;
+    }
+    .concept-chain span{
+      min-width:0;padding:10px 4px;border:1px solid var(--rule);border-radius:999px;background:var(--sheet);text-align:center;white-space:nowrap;
+    }
+    .concept-chain span.is-key{border-color:var(--accent);background:var(--accent);color:white}
+    .concept-chain i{color:var(--accent);font-style:normal}
+    .concept-chain.compact{font-size:clamp(9px,1.5vw,12px)}
+    .stage-contrast{
+      margin:2.4rem 0 3rem;display:grid;grid-template-columns:1fr 1fr;
+      border:1px solid var(--rule);background:var(--sheet);
+    }
+    .stage-contrast__item{padding:22px 24px}
+    .stage-contrast__item+ .stage-contrast__item{border-left:1px solid var(--rule)}
+    .stage-contrast__label{
+      display:block;margin-bottom:9px;color:var(--accent);
+      font:800 11px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;
+    }
+    .stage-contrast p{margin:0;font-size:15px;line-height:1.75}
+    .stage-contrast__bridge{
+      grid-column:1/-1;padding:18px 24px!important;border-top:1px solid var(--rule);
+      background:var(--accent-soft);color:#4e2a21;font-weight:700;
+    }
+    .references{
+      margin-top:6.5rem;padding:32px;border:1px solid var(--rule);background:rgba(255,253,248,.6);
+    }
+    .article h2:last-of-type{font-size:1.65rem}
+    .page-footer{
+      border-top:1px solid var(--ink);padding:28px 0 44px;
+      font:12px/1.7 var(--sans);color:var(--muted);
+    }
+    .page-footer__inner{
+      width:min(calc(100% - 40px),var(--wide));margin:auto;
+      display:flex;justify-content:space-between;gap:24px;
+    }
+    .page-footer a{color:var(--accent);text-decoration:none}
+    @media(max-width:860px){
+      .hero{min-height:auto}
+      .hero__inner{grid-template-columns:1fr;gap:52px;padding:110px 0 56px}
+      .hero__side{max-width:320px}
+      .thesis-strip__inner{grid-template-columns:1fr;gap:12px}
+      .layout{grid-template-columns:1fr;width:min(calc(100% - 36px),var(--max));padding-top:70px}
+      .rail{display:none}
+      .concept-chain{margin-inline:0}
+    }
+    @media(max-width:540px){
+      .sitebar__inner{width:calc(100% - 28px)}
+      .nav{gap:13px}
+      .nav a:first-child{display:none}
+      .hero__inner{width:calc(100% - 30px);padding-top:82px}
+      h1{font-size:clamp(3rem,16vw,4.7rem)}
+      .layout{width:calc(100% - 28px)}
+      .article{font-size:16.5px}
+      .article blockquote{padding:1.45rem 1.15rem}
+      .concept-chain{gap:5px;padding-inline:8px}
+      .concept-chain span{padding:8px 2px}
+      .stage-contrast{grid-template-columns:1fr}
+      .stage-contrast__item+ .stage-contrast__item{border-left:0;border-top:1px solid var(--rule)}
+      .page-footer__inner{display:block}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header class="sitebar">
+    <div class="sitebar__inner">
+      <a class="brand" href="/">Giseop Kim</a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+        <a href="/essays/">Essays</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__inner">
+      <div>
+        <p class="eyebrow">Essay · Research · Naming · Independent Thought</p>
+        <h1>이름을 붙이는 사람이<br>연구를 주도한다</h1>
+        <p class="deck">아직 하나의 문제로 인식되지 않은 현상을 먼저 포착하고,<br>학계가 함께 사고할 수 있는 언어로 만드는 일.</p>
+        <div class="hero__mark">Giseop Kim</div>
+      </div>
+      <div class="hero__side">
+        <strong>CONCEPT RECORD</strong>
+        Observation에서 Concept으로<br>
+        추격에서 선도로<br>
+        2026. 08. 22.
+      </div>
+    </div>
+  </section>
+
+  <section class="thesis-strip" aria-label="글의 핵심 명제">
+    <div class="thesis-strip__inner">
+      <div class="thesis-strip__label">Central thesis</div>
+      <p>새로운 것을 포착하는 사람은 기존 개념을 반복하는 게 아니라, 그것에 새 이름을 붙인다. <strong>명명(命名)이 독립적 사유와 창조의 행위다.</strong></p>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="rail">
+      <span class="rail__label">Contents</span>
+      <nav id="contents" aria-label="글 목차"></nav>
+    </aside>
+    <main>
+      <article class="article" id="article">
+<p class="lead">연구를 하다 보면 우리는 자꾸 <strong>설명을 잘하는 것</strong>에 집중한다. 기존 논문을 잘 읽고, 어떤 문제가 있는지 정리하고, 기존 방법과 우리의 방법이 어떻게 다른지를 설명한다. 물론 모두 중요하다. 그러나 이것만으로는 연구를 따라가는 것과 연구를 주도하는 것의 차이를 만들기 어렵다.</p>
+<p>연구를 주도하려면 한 단계 더 나아가야 한다. 다른 사람들이 이미 정의해 놓은 문제를 더 잘 해결하는 것뿐 아니라, <strong>아직 사람들이 하나의 문제로 인식하지 못한 현상을 먼저 포착해야 한다. 그리고 그 현상에 이름을 붙여야 한다.</strong></p>
+<p>이 생각은 철학자 <strong>최진석 서강대학교 명예교수</strong>가 오랫동안 강조해 온 ‘추격에서 선도로’, 그리고 ‘새 말 새 몸짓’이라는 문제의식과 맞닿아 있다.</p>
+<p>철학자 최진석은 『탁월한 사유의 시선』에서 철학적 삶의 전개를 <strong>부정(否定), 선도(先導), 독립(獨立), 진인(眞人)</strong>이라는 네 단계로 설명한다. 여기서 선도는 이미 존재하는 것을 능숙하게 따라가는 능력이 아니라 <strong>새로운 것을 만들어 앞서 이끄는 것</strong>이며, 독립은 남이 만들어 놓은 사고의 체계에 자신을 맞추는 것이 아니라 스스로 서는 것이다. 책의 구성에서도 ‘선도’ 아래에 <strong>“새로 만들다”</strong>, ‘독립’ 이후에는 <strong>“훈고의 기풍에서 창의의 기풍으로의 이동”</strong>이라는 문제를 배치한다.</p>
+<p>그가 말하는 창의는 따라서 기존 지식을 더 많이 축적하는 것과는 다르다. 이미 만들어진 언어와 개념을 얼마나 정확히 반복하는가가 아니라, <strong>아직 기존 언어로는 충분히 포착되지 않는 현실을 스스로 보고 그것을 새로운 개념으로 표현할 수 있는가</strong>의 문제다.</p>
+<p>이 문제의식은 철학자 최진석이 2019년 「새 말, 새 몸짓」이라는 글에서 한층 더 직접적으로 드러난다. 그는 한국 사회가 ‘따라 하기’로 도달할 수 있는 높이에는 한계가 있다고 지적하면서,</p>
+<blockquote>
+<p><strong>“낡은 문법과 결별하여 새로운 문법으로 무장하고 새로운 태도를 가져야만 한다.”</strong></p>
+</blockquote>
+<p>고 쓴다.</p>
+<p>여기서 말하는 ‘새 말’은 단순히 신조어를 만들어내라는 뜻으로 읽어서는 안 된다. 기존의 말은 기존의 세계관과 구분법을 담고 있다. 따라서 새로운 현상을 기존의 언어로만 설명한다면, 겉으로는 새로운 대상을 연구하면서도 실제로는 <strong>과거가 만들어 놓은 사고의 틀 안에서만 그것을 바라볼 가능성</strong>이 있다.</p>
+<p>바로 이 지점에서 연구와 명명의 관계가 생긴다.</p>
+<p>철학자 최진석의 이러한 사유를 <strong>연구의 언어로 옮겨 표현하면</strong>, 나는 다음과 같이 말하고 싶다.</p>
+<p><strong>새로운 것을 포착하는 사람은 기존 개념을 반복하는 게 아니라, 그것에 새 이름을 붙인다. 즉 명명(命名)이 독립적 사유와 창조의 행위다.</strong></p>
+<p>이 문장은 철학자 최진석의 특정 문장을 그대로 옮긴 직접 인용이 아니다. 그의 『탁월한 사유의 시선』에서 말하는 <strong>선도와 독립</strong>, 그리고 「새 말, 새 몸짓」에서 말하는 <strong>기존 문법과의 결별과 새로운 문법의 형성</strong>을 연구의 문제로 옮겨 온 것이다.</p>
+<p>여기서 ‘이름을 붙인다’는 것은 그럴듯한 영어 단어를 하나 만들어 논문에 붙이는 일이 아니다. 여러 실험과 현상 속에서 반복적으로 나타나지만 아직 하나의 문제로 묶이지 않은 공통 구조를 찾아내고, <strong>그 구조의 본질을 가장 정확하게 드러내는 개념을 만드는 일</strong>이다.</p>
+<p>그래서 나는 연구를 이렇게 생각하고 싶다.</p>
+<p><strong>연구는 이미 있는 현상을 잘 설명하는 데서 끝나는 게 아니라, 아직 제대로 이름 붙여지지 않은 현상을 발견하고 거기에 정확한 이름을 붙이는 일이다. 이름을 붙이는 순간 그것은 하나의 연구 문제와 개념이 된다.</strong></p>
+<p>이 문장에서 중요한 것은 ‘멋진 이름’이 아니다.</p>
+<p>중요한 것은 <strong>이름을 붙이는 순간 우리의 인식에 어떤 변화가 일어나는가</strong>다.</p>
+<p>명명에는 적어도 세 가지 힘이 있다.</p>
+<hr>
+<h2>1. 명명은 보이지 않던 존재를 가시화한다</h2>
+<p>이름이 없다고 해서 현상이 존재하지 않는 것은 아니다.</p>
+<p>현상은 이미 반복해서 일어나고 있을 수 있다. 여러 연구자가 비슷한 실패를 관찰했을 수도 있고, 여러 논문의 failure case에 동일한 패턴이 숨어 있을 수도 있다.</p>
+<p>하지만 그것에 공통된 이름이 없으면 각각은 서로 다른 anecdote처럼 흩어진다.</p>
+<blockquote>
+<p>“여기서는 이런 문제가 생겼다.”</p>
+<p>“저 benchmark에서는 이런 failure가 있었다.”</p>
+<p>“긴 sequence에서는 성능이 이상하게 떨어진다.”</p>
+</blockquote>
+<p>라고 각각 설명될 뿐이다.</p>
+<p>이때 누군가가 그 현상의 공통 구조를 발견하고 이름을 붙이면 상황이 달라진다.</p>
+<p><strong>그전부터 존재하던 것이 비로소 연구자들의 시야에 하나의 연구 대상으로 나타난다.</strong></p>
+<p>시인 김춘수의 「꽃」에서 이름을 불러주는 행위가 단순히 사물에 label을 하나 붙이는 일이 아니라 그 존재를 새로운 관계 속에 드러내는 행위로 묘사되는 것처럼, 연구에서의 명명도 비슷한 역할을 한다.</p>
+<p>이름이 생기면 비로소 질문할 수 있다.</p>
+<ul>
+<li>이 현상은 얼마나 자주 발생하는가?</li>
+<li>어떤 조건에서 심해지는가?</li>
+<li>어떤 기존 방법들이 이 문제를 가지고 있는가?</li>
+<li>어떻게 측정할 수 있는가?</li>
+<li>이것을 해결하려면 어떤 새로운 시스템이 필요한가?</li>
+</ul>
+<p>즉,</p>
+<div class="concept-chain" aria-label="연구 개념화 과정"><span>Observation</span><i>→</i><span class="is-key">Naming</span><i>→</i><span>Definition</span><i>→</i><span>Measurement</span><i>→</i><span>Method</span></div>
+<p>라는 연구의 연쇄가 시작된다.</p>
+<h3>Temporal Amnesia: 흩어진 실패를 하나의 연구문제로 만들기</h3>
+<p>우리의 LT-Mem 연구를 생각해보자.</p>
+<p>시간이 지나면서 환경이 변하면 기존 mapping system은 새로운 상태로 map을 갱신한다. 과거의 object state가 삭제되거나 overwrite되는 경우가 많다. Semantic memory system은 과거 observation을 저장하기도 하지만, 여러 session에 걸쳐 <strong>동일한 physical object의 identity를 지속적으로 연결하면서 그 object가 어떻게 변화했는지</strong>를 보존하지 못하는 경우가 있다.</p>
+<p>이것을 단순히 설명하면 이렇게 말할 수 있다.</p>
+<blockquote>
+<p>기존 시스템은 환경 변화가 발생할 때 과거 object state를 충분히 보존하지 못한다.</p>
+</blockquote>
+<p>틀린 말은 아니다.</p>
+<p>그러나 이것은 아직 <strong>현상의 설명</strong>이다.</p>
+<p>우리는 이 공통된 문제를 <strong>Temporal Amnesia</strong>라고 불렀다.</p>
+<p>이름을 붙이는 순간 연구의 중심이 달라진다.</p>
+<p>문제는 단순히 데이터를 적게 저장하는 것이 아니다. Memory capacity의 문제도 아니다. 핵심은</p>
+<blockquote>
+<p><strong>동일한 physical object가 시간에 따라 어떻게 변화해 왔는지를 연결하는 coherent history가 사라진다.</strong></p>
+</blockquote>
+<p>는 것이다.</p>
+<p>그러면 과거에는 독립적으로 보이던</p>
+<ul>
+<li>object identity loss</li>
+<li>historical state overwrite</li>
+<li>cross-session inconsistency</li>
+<li>change history loss</li>
+</ul>
+<p>같은 현상들이 <strong>Temporal Amnesia라는 하나의 문제의 서로 다른 manifestation</strong>으로 다시 보이기 시작한다.</p>
+<p>이것이 명명의 첫 번째 힘이다.</p>
+<p><strong>존재를 가시화한다.</strong></p>
+<hr>
+<h2>2. 명명은 기존 현상을 다른 프레임으로 재구성한다</h2>
+<p>좋은 이름은 이미 보이던 현상을 짧게 부르기 위한 약어가 아니다.</p>
+<p><strong>같은 현상을 전혀 다른 관점에서 보도록 만든다.</strong></p>
+<p>따라서 좋은 명명에는 때때로 작은 패러다임의 전환이 포함된다.</p>
+<p>연구에서도 좋은 key term은 단순히</p>
+<blockquote>
+<p>“이 현상을 이렇게 부르자.”</p>
+</blockquote>
+<p>에서 끝나지 않는다.</p>
+<p>사실은</p>
+<blockquote>
+<p><strong>“이 현상을 이렇게 보아야 한다.”</strong></p>
+</blockquote>
+<p>라는 새로운 frame을 제안하는 것이다.</p>
+<h3>Runtime Reasoning Budget Allocation: reasoning을 성능이 아니라 자원으로 바라보기</h3>
+<p>요즘 reasoning model이나 VLM을 로봇에 적용하면 한 가지 뚜렷한 trade-off가 나타난다.</p>
+<p>어려운 상황에서는 오래 reasoning하게 하면 더 좋은 판단을 할 수 있다. 하지만 모든 순간에 긴 reasoning을 수행하면 computation과 latency가 너무 커진다.</p>
+<p>반대로 항상 짧게 reasoning하면 쉬운 상황에서는 충분하지만 어려운 순간에 실패할 수 있다.</p>
+<p>이것을 단순히 설명하면</p>
+<blockquote>
+<p>상황이 어려울 때 reasoning을 더 많이 하자.</p>
+</blockquote>
+<p>가 된다.</p>
+<p>하지만 이 현상을 <strong>Runtime Reasoning Budget Allocation</strong>이라는 문제로 바라보는 순간 frame이 달라진다.</p>
+<p>Reasoning을 단순히</p>
+<blockquote>
+<p>많이 하면 성능이 좋아지는 것</p>
+</blockquote>
+<p>으로 보지 않고,</p>
+<blockquote>
+<p><strong>mission 동안 제한되어 있으며 전략적으로 배분해야 하는 computational resource</strong></p>
+</blockquote>
+<p>로 보기 시작한다.</p>
+<p>그러면 질문이 완전히 달라진다.</p>
+<p>기존의 질문이</p>
+<blockquote>
+<p>Reasoning을 많이 할 것인가, 적게 할 것인가?</p>
+</blockquote>
+<p>였다면 새로운 질문은</p>
+<blockquote>
+<p><strong>제한된 reasoning budget을 mission 성공을 위해 언제, 어디에, 얼마나 allocation해야 하는가?</strong></p>
+</blockquote>
+<p>가 된다.</p>
+<p>그러면 자연스럽게 다음 연구문제가 생긴다.</p>
+<ul>
+<li>어떤 state에서 추가 reasoning이 필요한가?</li>
+<li>uncertainty가 reasoning escalation을 trigger해야 하는가?</li>
+<li>instruction complexity로 reasoning depth를 결정할 수 있는가?</li>
+<li>현재 판단의 failure risk를 사전에 추정할 수 있는가?</li>
+<li>1초의 추가 inference와 10초의 추가 inference는 각각 얼마의 expected utility를 가지는가?</li>
+<li>전체 mission budget을 시간적으로 어떻게 배분해야 하는가?</li>
+<li>현재 할당된 계산량으로 부족하다면 agent가 스스로 추가 reasoning budget을 요청할 수 있는가?</li>
+</ul>
+<p>이름 하나가 연구를 단순히 요약한 것이 아니다.</p>
+<p><strong>문제를 바라보는 좌표축 자체를 바꿨다.</strong></p>
+<p>이것이 명명의 두 번째 힘이다.</p>
+<p><strong>프레임을 재정의한다.</strong></p>
+<hr>
+<h2>3. 이름 없는 현상을 발견했을 때 한 번 더 멈춰야 한다</h2>
+<p>최근 본 long-horizon VLN 연구도 좋은 사례다.</p>
+<p>긴 instruction을 VLM에게 주면 여러 failure가 나타난다.</p>
+<ul>
+<li>instruction의 일부를 빠뜨린다.</li>
+<li>이미 무엇을 수행했는지 잊는다.</li>
+<li>중요한 intermediate step을 건너뛴다.</li>
+<li>아직 끝나지 않았는데 task가 끝났다고 판단한다.</li>
+<li>진행 상황을 hallucinate한다.</li>
+</ul>
+<p>논문에서는 이를 <strong>progress forgetting</strong>, <strong>progress omission</strong>, instruction/key-step omission, incorrect task-completion judgment 같은 표현으로 각각 설명한다.</p>
+<p>그리고 실제로 instruction을 subtask로 분해하고 progress를 명시적으로 관리하면 긴 instruction에서 성공률이 크게 좋아진다.</p>
+<p>논문을 읽는 사람은 여기서 보통 이렇게 생각하고 지나갈 수 있다.</p>
+<blockquote>
+<p>“긴 instruction에서는 VLM이 잘 잊어버리는구나. 그래서 decomposition이 필요하구나.”</p>
+</blockquote>
+<p>하지만 연구자는 여기서 한 번 더 멈출 필요가 있다.</p>
+<p><strong>왜 이 failure들이 함께 나타나는가?</strong></p>
+<p>더 중요한 질문은 이것이다.</p>
+<blockquote>
+<p><strong>이것들은 정말 서로 다른 문제인가? 아니면 아직 이름 붙여지지 않은 하나의 공통된 failure mode가 서로 다른 모습으로 드러난 것인가?</strong></p>
+</blockquote>
+<p>예를 들어</p>
+<ul>
+<li>instruction forgetting</li>
+<li>progress forgetting</li>
+<li>step omission</li>
+<li>premature stopping</li>
+</ul>
+<p>이 모두 agent가 원래 instruction이 요구하는 task state와 자신이 현재 믿고 있는 task state 사이의 alignment를 점차 잃어버린 결과라면, 이것을 단순히 “forgetting”이라고 부르는 것으로 충분할까?</p>
+<p>가령 이 현상을 <strong>Instruction-State Drift</strong>라고 명명한다고 생각해보자.</p>
+<p>그러면 문제는</p>
+<blockquote>
+<p>“VLM이 긴 instruction을 가끔 잊는다.”</p>
+</blockquote>
+<p>가 아니라,</p>
+<blockquote>
+<p><strong>long-horizon execution이 진행되면서 intended instruction state와 agent가 internally 추정하는 task state 사이의 divergence가 누적되는 현상</strong></p>
+</blockquote>
+<p>으로 재정의된다.</p>
+<p>그 순간 서로 다른 것처럼 보이던 failure들이 하나의 축 위에 놓인다.</p>
+<p>Instruction 일부를 잊는 것도 drift일 수 있다.</p>
+<p>완료한 subgoal을 다시 수행하는 것도 drift일 수 있다.</p>
+<p>아직 수행하지 않은 subgoal을 완료했다고 믿는 것도 drift일 수 있다.</p>
+<p>Premature STOP 역시 극단적인 task-state drift의 결과일 수 있다.</p>
+<p>물론 실제 연구에서는 먼저 이 failure들이 정말 동일한 latent cause를 공유하는지 검증해야 한다.</p>
+<p><strong>이름을 붙였다고 현상이 사실이 되는 것은 아니다.</strong></p>
+<p>하지만 바로 그렇기 때문에 명명이 연구적이다.</p>
+<p>정확한 이름을 붙이려고 시도하는 순간 반드시 질문하게 된다.</p>
+<blockquote>
+<p>정확히 어떤 현상을 하나로 묶을 것인가?</p>
+<p>무엇을 포함하고 무엇을 제외할 것인가?</p>
+<p>같은 원인에서 발생한다는 증거가 있는가?</p>
+<p>기존의 forgetting이나 hallucination과 무엇이 다른가?</p>
+<p>어떻게 측정할 것인가?</p>
+</blockquote>
+<p>예를 들어 실제로 Instruction-State Drift를 연구문제로 제안한다면,</p>
+<div class="equation" role="math" aria-label="D sub t equals d of S sub t intended and S sub t agent">
+  <span class="math-expression"><i>D</i><sub>t</sub> = <i>d</i>(<i>S</i><sub>t</sub><sup>intended</sup>, <i>S</i><sub>t</sub><sup>agent</sup>)</span>
+</div>
+
+<p>와 같은 quantity를 정의할 수 있다.</p>
+<p>시간 (t)에서 instruction이 요구하는 실제 progress state와 agent가 internally 추정하고 있는 progress state 사이의 차이를 측정하는 것이다.</p>
+<p>그러면 연구가 달라진다.</p>
+<p>기존에는 최종 SR이나 SPL만 측정했다면 이제는</p>
+<ul>
+<li>drift가 언제 시작되는가,</li>
+<li>instruction length에 따라 어떻게 누적되는가,</li>
+<li>subgoal의 개수와 어떤 관계가 있는가,</li>
+<li>어떤 clause type에서 drift가 많이 발생하는가,</li>
+<li>decomposition이 drift growth를 실제로 줄이는가,</li>
+<li>explicit progress memory가 drift를 억제하는가</li>
+</ul>
+<p>를 분석할 수 있다.</p>
+<p><strong>이름을 붙임으로써 이전에는 없던 측정 대상이 생긴 것이다.</strong></p>
+<p>이것이 연구다.</p>
+<hr>
+<h2>4. 명명은 사유의 주체성을 확보하는 행위다</h2>
+<p>명명의 세 번째 힘은 더 근본적이다.</p>
+<p>철학자 최진석이 『탁월한 사유의 시선』에서 <strong>선도와 독립</strong>을 별개의 핵심 단계로 강조하는 이유를 연구의 관점에서 생각해볼 필요가 있다.</p>
+<p>우리가 항상 남들이 만들어 놓은 용어로만 문제를 설명한다면, 결국 <strong>남이 만들어 놓은 사고의 좌표계 안에서 연구하게 된다.</strong></p>
+<p>어떤 분야가 이미</p>
+<ul>
+<li>localization</li>
+<li>mapping</li>
+<li>reasoning</li>
+<li>memory</li>
+<li>planning</li>
+</ul>
+<p>이라는 category로 나뉘어 있다고 하자.</p>
+<p>우리는 흔히 새로운 연구를 시작하면서도</p>
+<blockquote>
+<p>“우리 연구는 이 중 어디에 속하지?”</p>
+</blockquote>
+<p>부터 생각한다.</p>
+<p>하지만 정말 새로운 현상은 기존 category 하나에 깔끔하게 들어맞지 않는 경우가 많다.</p>
+<p>Temporal Amnesia는 mapping 문제인가?</p>
+<p>Memory 문제인가?</p>
+<p>Object association 문제인가?</p>
+<p>Lifelong robotics 문제인가?</p>
+<p>사실 그 경계에 걸쳐 있다.</p>
+<p>Runtime Reasoning Budget Allocation도 마찬가지다.</p>
+<p>Inference acceleration인가?</p>
+<p>Planning인가?</p>
+<p>Metareasoning인가?</p>
+<p>Resource allocation인가?</p>
+<p>Embodied AI인가?</p>
+<p>기존 용어만 사용하면 우리의 문제를 이미 존재하는 taxonomy 어딘가에 집어넣어야 한다.</p>
+<p>하지만 새로운 이름을 붙이는 순간 방향이 반대가 된다.</p>
+<p><strong>우리가 기존 taxonomy 속으로 들어가는 것이 아니라, 기존의 여러 연구를 우리가 제안한 새로운 axis 위에서 다시 배열하기 시작한다.</strong></p>
+<p>이것이 연구에서의 <strong>선도</strong>다.</p>
+<p>그리고 남이 만든 문제의식과 언어만을 반복하지 않고, 우리가 관찰한 세계를 우리 스스로 개념화하는 것이 <strong>사유의 독립</strong>이다.</p>
+<p>철학자 최진석이 「새 말, 새 몸짓」에서 기존의 ‘따라 하기’를 넘어 <strong>“새로운 문법”</strong>을 요구했던 문제의식을 연구에 적용한다면, 바로 이런 의미로 이해할 수 있다.</p>
+<hr>
+<h2>이름을 선점한다는 것은 단어를 선점한다는 뜻이 아니다</h2>
+<p>여기서 ‘선점’이라는 표현도 정확히 이해해야 한다.</p>
+<p>누군가 먼저 영어 단어 하나를 만들었다고 해서 연구영역을 소유하는 것은 아니다.</p>
+<p>중요한 것은 <strong>개념적 선점</strong>이다.</p>
+<p>어떤 현상을 처음 명확하게 포착하고,</p>
+<p>그 경계를 정의하고,</p>
+<p>그 이름을 제안하고,</p>
+<p>그 존재를 실험으로 보여주고,</p>
+<p>그것을 측정할 metric이나 benchmark를 만들면,</p>
+<p>그 이후 다른 연구자들이 같은 문제를 이야기할 때 그 연구가 하나의 reference point가 된다.</p>
+<p>따라서 key term을 <strong>주도하고, 선점하고, 명확화한다</strong>는 것은 branding의 문제가 아니다.</p>
+<p><strong>학계에서 무엇을 하나의 독립적인 문제로 볼 것인가를 제안하는 intellectual leadership의 문제다.</strong></p>
+<hr>
+<h2>Catchy name과 scientific concept은 다르다</h2>
+<p>여기서 가장 조심해야 할 점도 있다.</p>
+<p><strong>이름을 붙이는 것만으로 연구가 되는 것은 아니다.</strong></p>
+<p>멋있는 단어를 만드는 것은 쉽다.</p>
+<p>Temporal Amnesia, Spatial Hallucination, Semantic Drift 같은 표현은 얼마든지 만들어낼 수 있다.</p>
+<p>그러나 반복되는 현상을 관찰하지 못하고, 기존 개념과 구분되는 경계를 정의할 수 없으며, 그 발생과 심각성을 측정할 수도 없다면 이는 scientific concept이라기보다 marketing phrase에 가깝다.</p>
+<p>그래서 새로운 key term은 다음과 같은 하나의 연쇄 안에서 만들어져야 한다.</p>
+<div class="concept-chain compact" aria-label="연구 개념화 과정—정의 단계 강조"><span>Observation</span><i>→</i><span>Naming</span><i>→</i><span class="is-key">Definition</span><i>→</i><span>Measurement</span><i>→</i><span>Method</span></div>
+<h3>Observation</h3>
+<p>서로 흩어진 사례들에서 같은 현상이 반복된다는 정량적·정성적 관찰이 있는가? 이러한 관찰이 그 현상의 존재를 뒷받침하는 <strong>Evidence</strong>가 된다.</p>
+<h3>Naming</h3>
+<p>현상의 본질을 가장 잘 압축하는 이름은 무엇인가?</p>
+<h3>Definition</h3>
+<p>정확히 어떤 상태를 그 현상이라고 부르며, 무엇을 포함하고 제외하는가?</p>
+<h3>Measurement</h3>
+<p>그 현상이 얼마나 자주, 얼마나 심하게 발생하는지를 재는 <strong>Metric</strong>을 정의할 수 있는가? 그리고 그 측정 결과가 실제 mission performance나 기존 system의 한계에 어떤 <strong>Consequence</strong>를 만드는지 설명할 수 있는가?</p>
+<div class="stage-contrast" aria-label="Observation과 Measurement의 차이">
+  <div class="stage-contrast__item">
+    <span class="stage-contrast__label">Observation · 현상 포착</span>
+    <p><strong>무엇이 일어나고 있는가?</strong> 서로 다른 failure case들에서 같은 구조가 반복되는지 살핀다. Instruction-State Drift의 경우 instruction forgetting, step omission, premature stopping이 모두 intended task state와 agent가 믿는 task state의 어긋남에서 나타나는지 관찰한다.</p>
+  </div>
+  <div class="stage-contrast__item">
+    <span class="stage-contrast__label">Measurement · 현상 수치화</span>
+    <p><strong>얼마나, 언제, 어떤 조건에서 일어나는가?</strong> 정의된 현상을 비교 가능한 값으로 바꾼다. 예를 들어 <i>D</i><sub>t</sub>로 시점별 drift의 크기와 증가 속도를 측정하고, instruction length나 subgoal 수에 따른 차이를 분석한다.</p>
+  </div>
+  <p class="stage-contrast__bridge">Observation 없이 Measurement를 시작하면 잘못 포착한 대상을 정밀하게 잴 수 있고, Measurement 없이 Observation에 머물면 중요한 발견도 anecdote로 흩어진다.</p>
+</div>
+<p>여기에 현상을 설명하거나 해결하는 원리와 방법까지 제안할 수 있다면,</p>
+<div class="concept-chain compact" aria-label="연구 개념화 과정—방법 단계 강조"><span>Observation</span><i>→</i><span>Naming</span><i>→</i><span>Definition</span><i>→</i><span>Measurement</span><i>→</i><span class="is-key">Method</span></div>
+<p>Observation에서 Method까지 이어지는 완전한 연구 구조로 발전한다.</p>
+<p>여기까지 연결되어야 새로운 용어가 하나의 <strong>scientific concept</strong>가 된다.</p>
+<hr>
+<h2>Key term은 논문의 마지막에 만드는 것이 아니다</h2>
+<p>그래서 나는 학생들이 key term을 논문 writing 단계에서 만드는 것으로 생각하지 않았으면 한다.</p>
+<p>실험이 다 끝난 뒤 abstract를 멋있게 쓰기 위해 붙이는 단어가 아니다.</p>
+<p>좋은 key term은 오히려 연구를 시작할 때부터 계속 고민해야 한다.</p>
+<p>실험에서 이상한 현상이 반복해서 나타난다면,</p>
+<blockquote>
+<p><strong>이것은 이미 알려진 어떤 문제의 단순한 사례인가?</strong></p>
+</blockquote>
+<p>를 먼저 물어야 한다.</p>
+<p>그렇지 않다면,</p>
+<blockquote>
+<p><strong>여러 failure를 관통하는 하나의 공통 구조가 있는가?</strong></p>
+</blockquote>
+<p>를 물어야 한다.</p>
+<p>그리고 공통 구조가 있다면,</p>
+<blockquote>
+<p><strong>그것을 무엇이라고 부르는 것이 가장 정확한가?</strong></p>
+</blockquote>
+<p>를 고민해야 한다.</p>
+<p>때로는 좋은 이름을 찾지 못한다는 사실 자체가 중요한 신호다.</p>
+<p><strong>우리가 아직 그 문제의 본질을 정확하게 이해하지 못했다는 뜻일 수도 있기 때문이다.</strong></p>
+<p>정확한 명명은 정확한 abstraction을 요구한다.</p>
+<hr>
+<h2>설명하는 연구자와 이름 붙이는 연구자</h2>
+<p>기존 연구를 정확히 이해하고 잘 설명하는 능력은 연구자의 기본기다.</p>
+<p>이미 정의된 문제를 더 잘 해결하는 것 역시 훌륭한 연구다.</p>
+<p>그러나 연구를 선도하려면 때때로 그보다 앞의 단계로 나아가야 한다.</p>
+<p><strong>아직 무엇이 문제인지조차 명확하지 않은 곳에서 반복되는 현상을 찾아내야 한다.</strong></p>
+<p>그리고 그것을 기존 언어로 길게 설명하는 데서 멈추지 않고,</p>
+<p><strong>그 현상의 본질을 드러내는 우리의 언어를 만들어야 한다.</strong></p>
+<p>Temporal Amnesia가 그렇다.</p>
+<p>Runtime Reasoning Budget Allocation이 그렇다.</p>
+<p>그리고 long-horizon instruction에서 반복해서 나타나는 instruction forgetting, progress forgetting, step omission, hallucinated progress, premature termination 역시 어쩌면 아직 더 정확한 하나의 이름을 기다리고 있는 현상일 수 있다.</p>
+<p>그래서 논문을 읽거나 실험 결과를 볼 때 학생들이 한 가지 질문을 더 했으면 한다.</p>
+<blockquote>
+<p><strong>“이 현상을 기존 단어로 설명하는 것으로 충분한가?”</strong></p>
+</blockquote>
+<p>충분하지 않다면,</p>
+<blockquote>
+<p><strong>“정확히 무엇이 무너지고 있는가?”</strong></p>
+</blockquote>
+<p>를 물어야 한다.</p>
+<p>그리고 마지막으로,</p>
+<blockquote>
+<p><strong>“아직 이름이 없다면, 우리가 처음 이름 붙일 수 있는 것은 무엇인가?”</strong></p>
+</blockquote>
+<p>라고 물어야 한다.</p>
+<p>명명은 단순히 설명을 압축하는 일이 아니다.</p>
+<p><strong>이름이 없어서 서로 흩어져 있던 현상을 하나의 존재로 가시화하는 일이다.</strong></p>
+<p><strong>이미 알고 있던 현상을 새로운 관점에서 다시 보게 만드는 프레임의 전환이다.</strong></p>
+<p>그리고 무엇보다,</p>
+<p><strong>남이 만들어 놓은 개념으로만 세계를 설명하는 데서 벗어나, 우리가 무엇을 중요한 문제로 볼 것인지를 스스로 선언하는 사유의 주체성이다.</strong></p>
+<p>철학자 최진석의 『탁월한 사유의 시선』이 강조하는 <strong>선도와 독립</strong>, 그리고 「새 말, 새 몸짓」에서 제기한 <strong>낡은 문법과의 결별과 새로운 문법의 필요성</strong>을 연구자의 언어로 옮기면 결국 여기에 닿는다.</p>
+<p><strong>새로운 것을 포착하는 사람은 기존 개념을 반복하는 게 아니라, 그것에 새 이름을 붙인다. 즉 명명(命名)이 독립적 사유와 창조의 행위다.</strong></p>
+<p>그리고 연구자의 입장에서 나는 여기에 한 문장을 더 붙이고 싶다.</p>
+<p><strong>연구는 이미 있는 현상을 잘 설명하는 데서 끝나는 게 아니라, 아직 제대로 이름 붙여지지 않은 현상을 발견하고 거기에 정확한 이름을 붙이는 일이다. 이름을 붙이는 순간 그것은 하나의 연구 문제와 개념이 된다.</strong></p>
+<p>좋은 연구는 항상 새로운 답을 내놓는 데서 시작되는 것이 아니다.</p>
+<p>때로는 그보다 먼저,</p>
+<p><strong>아직 이름 없는 문제를 발견하고, 그것을 학계가 앞으로 함께 사고할 수 있는 언어로 만드는 데서 시작된다.</strong></p>
+<hr>
+<h2>참고한 철학자 최진석의 글과 저서</h2>
+<ul>
+<li>최진석, 『탁월한 사유의 시선』 — <strong>부정(否定)·선도(先導)·독립(獨立)·진인(眞人)</strong>을 중심으로 철학과 주체적 사유의 문제를 전개한다.</li>
+<li>최진석, 「새 말, 새 몸짓」, 《매일신문》, 2019. 4. 22. — ‘따라 하기’의 한계를 넘어 낡은 문법과 결별하고 새로운 문법과 태도를 만들어야 한다는 문제의식을 제시한다.</li>
+</ul>
+
+
+      </article>
+    </main>
+  </div>
+
+  <footer class="page-footer">
+    <div class="page-footer__inner">
+      <span>© 2026 Giseop Kim · Essays</span>
+      <a href="/essays/">모든 에세이 보기 →</a>
+    </div>
+  </footer>
+
+  <script>
+    const headings=[...document.querySelectorAll('.article h2')];
+    headings.forEach((heading,index)=>{
+      heading.id='section-'+(index+1);
+      heading.dataset.index='SECTION '+String(index+1).padStart(2,'0');
+      const link=document.createElement('a');
+      link.href='#'+heading.id;
+      link.textContent=heading.textContent;
+      document.querySelector('#contents').appendChild(link);
+    });
+    const links=[...document.querySelectorAll('#contents a')];
+    if('IntersectionObserver' in window){
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            links.forEach(link=>link.removeAttribute('aria-current'));
+            const active=links.find(link=>link.hash==='#'+entry.target.id);
+            if(active) active.setAttribute('aria-current','true');
+          }
+        });
+      },{rootMargin:'-16% 0px -70%'});
+      headings.forEach(heading=>observer.observe(heading));
+    }
+    const updateProgress=()=>{
+      const root=document.documentElement;
+      const distance=root.scrollHeight-root.clientHeight;
+      document.querySelector('.progress').style.width=(distance?100*root.scrollTop/distance:0)+'%';
+    };
+    addEventListener('scroll',updateProgress,{passive:true});
+    updateProgress();
+  </script>
+</body>
+</html>

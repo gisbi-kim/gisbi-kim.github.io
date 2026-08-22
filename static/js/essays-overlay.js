@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.08.22",
+      "Title": "이름을 붙이는 사람이 연구를 주도한다",
+      "Tags": "Research, Naming, Philosophy, Scientific Concepts",
+      "Link": "https://gisbi-kim.github.io/naming-leads-research/"
+    },
+    {
       "Published Date": "2026.08.16",
       "Title": "Taste, Productization, and Shipping",
       "Tags": "AI, Product Sense, Productization, Shipping",
@@ -123,7 +129,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-16T00:00:00+09:00";
+    data.updatedAt = "2026-08-22T00:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");
