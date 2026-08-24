@@ -11,6 +11,6 @@ tags:
   - Agent
   - Software Engineering
   - Dialogue Map
-external_link: "https://claude-code-field-notes.giseopkim.chatgpt.site"
+external_link: "https://gisbi-kim.github.io/claude-code-field-notes/"
 draft: false
 ---
