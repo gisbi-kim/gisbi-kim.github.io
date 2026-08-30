@@ -586,26 +586,177 @@
 }
 
 .talk-image-modal-backdrop {
-  background: rgba(0, 0, 0, 0.78);
+  background: rgba(2, 6, 12, 0.86);
   border: 0;
   cursor: zoom-out;
   inset: 0;
   position: absolute;
 }
 
+.talk-image-modal-dialog {
+  background: #111820;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.48);
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.75rem;
+  position: relative;
+  max-width: 1200px;
+  width: 94vw;
+  z-index: 1;
+}
+
+.talk-image-modal-stage {
+  align-items: center;
+  background: #05080c;
+  border-radius: 10px;
+  display: flex;
+  height: 78vh;
+  max-height: 56rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
 .talk-image-modal-image {
-  border-radius: 8px;
-  box-shadow: 0 1.2rem 3rem rgba(0, 0, 0, 0.35);
-  cursor: zoom-out;
-  max-height: 88vh;
-  max-width: 92vw;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
   object-fit: contain;
   position: relative;
+  width: 100%;
   z-index: 1;
+}
+
+.talk-image-modal-button,
+.talk-image-modal-close {
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background: rgba(6, 10, 16, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+  z-index: 3;
+}
+
+.talk-image-modal-button {
+  border-radius: 50%;
+  font-size: 2rem;
+  height: 3rem;
+  line-height: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+}
+
+.talk-image-modal-button:hover,
+.talk-image-modal-button:focus-visible,
+.talk-image-modal-close:hover,
+.talk-image-modal-close:focus-visible {
+  background: rgba(21, 101, 192, 0.92);
+  border-color: rgba(255, 255, 255, 0.75);
+  outline: none;
+}
+
+.talk-image-modal-button-prev {
+  left: 1rem;
+}
+
+.talk-image-modal-button-next {
+  right: 1rem;
+}
+
+.talk-image-modal-close {
+  border-radius: 50%;
+  font-size: 1.6rem;
+  height: 2.6rem;
+  right: 1.25rem;
+  top: 1.25rem;
+  width: 2.6rem;
+}
+
+.talk-image-modal-footer {
+  align-items: center;
+  color: rgba(255, 255, 255, 0.82);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  min-height: 1.4rem;
+  padding: 0 0.25rem;
+}
+
+.talk-image-modal-count {
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+}
+
+.talk-image-modal-dots {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.talk-image-modal-dot {
+  background: rgba(255, 255, 255, 0.32);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 0.48rem;
+  padding: 0;
+  transition: background 160ms ease, width 160ms ease;
+  width: 0.48rem;
+}
+
+.talk-image-modal-dot.is-active {
+  background: #8dbdff;
+  width: 1.35rem;
 }
 
 .talk-image-modal-open {
   overflow: hidden;
+}
+
+@media (max-width: 640px) {
+  .talk-image-modal {
+    padding: 0.5rem;
+  }
+
+  .talk-image-modal-dialog {
+    border-radius: 10px;
+    padding: 0.45rem;
+    width: calc(100vw - 1rem);
+  }
+
+  .talk-image-modal-stage {
+    height: 72vh;
+    max-height: 42rem;
+  }
+
+  .talk-image-modal-button {
+    font-size: 1.65rem;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .talk-image-modal-button-prev {
+    left: 0.55rem;
+  }
+
+  .talk-image-modal-button-next {
+    right: 0.55rem;
+  }
+
+  .talk-image-modal-close {
+    height: 2.35rem;
+    right: 0.8rem;
+    top: 0.8rem;
+    width: 2.35rem;
+  }
 }
 
 .profile-data-card-publication {

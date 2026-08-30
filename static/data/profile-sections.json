@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T22:59:04+09:00",
+  "updatedAt": "2026-08-30T23:07:26+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -628,11 +628,15 @@
         },
         {
           "Date": "2026.07",
-          "Award": "Early-career Researcher Award",
+          "Award": "Outstanding Young Researcher Award",
           "Recipient": "Giseop Kim",
           "Event": "ICROS 2026",
           "Event Link": "",
           "Popup Image": "/images/awards/icros-2026-early-career-award.jpg",
+          "Popup Images": [
+            "/images/awards/icros-2026-early-career-award.jpg",
+            "/images/awards/icros-2026-outstanding-young-researcher-award-ceremony.jpg"
+          ],
           "Popup Trigger": "Award",
           "Website": "",
           "Note": ""

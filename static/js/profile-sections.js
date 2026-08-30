@@ -93,16 +93,24 @@
     return escapeHtml(text);
   }
 
-  function popupColumn(row, defaultColumn) {
+  function popupImages(row) {
+    const images = Array.isArray(row["Popup Images"])
+      ? row["Popup Images"].map((image) => String(image || "").trim()).filter(Boolean)
+      : [];
+    if (images.length) return images;
     const popupImage = String(row["Popup Image"] || "").trim();
-    if (!popupImage) return "";
+    return popupImage ? [popupImage] : [];
+  }
+
+  function popupColumn(row, defaultColumn) {
+    if (!popupImages(row).length) return "";
     return String(row["Popup Trigger"] || defaultColumn || "").trim();
   }
 
   function renderPopupValue(row, column, valueHtml) {
-    const popupImage = String(row["Popup Image"] || "").trim();
-    if (!popupImage) return valueHtml;
-    return `<button class="profile-data-title-button" type="button" data-talk-popup-image="${escapeHtml(popupImage)}" data-talk-popup-title="${escapeHtml(row[column])}">${valueHtml}</button>`;
+    const images = popupImages(row);
+    if (!images.length) return valueHtml;
+    return `<button class="profile-data-title-button" type="button" data-talk-popup-images="${escapeHtml(images.join("|"))}" data-talk-popup-title="${escapeHtml(row[column])}">${valueHtml}</button>`;
   }
 
   function renderPopupTitle(row, primary) {
@@ -749,9 +757,9 @@
       });
     });
 
-    mount.querySelectorAll("[data-talk-popup-image]").forEach((button) => {
+    mount.querySelectorAll("[data-talk-popup-images]").forEach((button) => {
       button.addEventListener("click", () => {
-        openTalkImageModal(button.getAttribute("data-talk-popup-image"), button.getAttribute("data-talk-popup-title"));
+        openTalkImageModal(button.getAttribute("data-talk-popup-images"), button.getAttribute("data-talk-popup-title"));
       });
     });
 
@@ -764,28 +772,87 @@
     modal = document.createElement("div");
     modal.className = "talk-image-modal";
     modal.setAttribute("aria-hidden", "true");
-    modal.innerHTML = '<button class="talk-image-modal-backdrop" type="button" aria-label="Close talk image"></button><img class="talk-image-modal-image" alt="">';
+    modal.innerHTML = `
+      <button class="talk-image-modal-backdrop" type="button" aria-label="Close image gallery"></button>
+      <div class="talk-image-modal-dialog" role="dialog" aria-modal="true" aria-label="Image gallery">
+        <button class="talk-image-modal-close" type="button" aria-label="Close image gallery">×</button>
+        <div class="talk-image-modal-stage">
+          <img class="talk-image-modal-image" alt="">
+          <button class="talk-image-modal-button talk-image-modal-button-prev" type="button" aria-label="Previous image">‹</button>
+          <button class="talk-image-modal-button talk-image-modal-button-next" type="button" aria-label="Next image">›</button>
+        </div>
+        <div class="talk-image-modal-footer">
+          <span class="talk-image-modal-count" aria-live="polite"></span>
+          <div class="talk-image-modal-dots" aria-label="Image selector"></div>
+        </div>
+      </div>`;
     modal.addEventListener("click", (event) => {
-      if (event.target === modal || event.target.classList.contains("talk-image-modal-backdrop") || event.target.classList.contains("talk-image-modal-image")) {
+      if (event.target === modal || event.target.classList.contains("talk-image-modal-backdrop") || event.target.classList.contains("talk-image-modal-close")) {
         closeTalkImageModal();
       }
     });
+    modal.querySelector(".talk-image-modal-button-prev").addEventListener("click", () => changeTalkImageSlide(-1));
+    modal.querySelector(".talk-image-modal-button-next").addEventListener("click", () => changeTalkImageSlide(1));
+    modal.querySelector(".talk-image-modal-dots").addEventListener("click", (event) => {
+      const dot = event.target.closest("[data-talk-image-index]");
+      if (dot) showTalkImageSlide(modal, Number(dot.getAttribute("data-talk-image-index")));
+    });
+    let touchStartX = 0;
+    const stage = modal.querySelector(".talk-image-modal-stage");
+    stage.addEventListener("touchstart", (event) => {
+      touchStartX = event.changedTouches[0].clientX;
+    }, { passive: true });
+    stage.addEventListener("touchend", (event) => {
+      const distance = event.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(distance) > 40) changeTalkImageSlide(distance > 0 ? -1 : 1);
+    }, { passive: true });
     document.addEventListener("keydown", (event) => {
+      if (!modal.classList.contains("is-open")) return;
       if (event.key === "Escape") closeTalkImageModal();
+      if (event.key === "ArrowLeft") changeTalkImageSlide(-1);
+      if (event.key === "ArrowRight") changeTalkImageSlide(1);
     });
     document.body.appendChild(modal);
     return modal;
   }
 
-  function openTalkImageModal(src, title) {
-    if (!src) return;
-    const modal = ensureTalkImageModal();
+  function showTalkImageSlide(modal, requestedIndex) {
+    const state = modal._talkImageState;
+    if (!state || !state.images.length) return;
+    const index = (requestedIndex + state.images.length) % state.images.length;
+    state.index = index;
     const image = modal.querySelector(".talk-image-modal-image");
-    image.src = src;
-    image.alt = title || "Invited talk image";
+    image.src = state.images[index];
+    image.alt = `${state.title || "Gallery image"} (${index + 1} of ${state.images.length})`;
+    modal.querySelector(".talk-image-modal-count").textContent = `${index + 1} / ${state.images.length}`;
+    const hasMultipleImages = state.images.length > 1;
+    modal.querySelectorAll(".talk-image-modal-button").forEach((button) => {
+      button.hidden = !hasMultipleImages;
+    });
+    const dots = modal.querySelector(".talk-image-modal-dots");
+    dots.hidden = !hasMultipleImages;
+    dots.innerHTML = state.images
+      .map((_, dotIndex) => `<button class="talk-image-modal-dot${dotIndex === index ? " is-active" : ""}" type="button" data-talk-image-index="${dotIndex}" aria-label="Show image ${dotIndex + 1}"${dotIndex === index ? ' aria-current="true"' : ""}></button>`)
+      .join("");
+  }
+
+  function changeTalkImageSlide(direction) {
+    const modal = document.querySelector(".talk-image-modal.is-open");
+    if (!modal || !modal._talkImageState || modal._talkImageState.images.length < 2) return;
+    showTalkImageSlide(modal, modal._talkImageState.index + direction);
+  }
+
+  function openTalkImageModal(sources, title) {
+    const images = String(sources || "").split("|").map((image) => image.trim()).filter(Boolean);
+    if (!images.length) return;
+    const modal = ensureTalkImageModal();
+    modal._returnFocus = document.activeElement;
+    modal._talkImageState = { images, title: title || "Image gallery", index: 0 };
+    showTalkImageSlide(modal, 0);
     modal.classList.add("is-open");
     modal.setAttribute("aria-hidden", "false");
     document.body.classList.add("talk-image-modal-open");
+    modal.querySelector(".talk-image-modal-close").focus();
   }
 
   function closeTalkImageModal() {
@@ -794,6 +861,7 @@
     modal.classList.remove("is-open");
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("talk-image-modal-open");
+    if (modal._returnFocus && typeof modal._returnFocus.focus === "function") modal._returnFocus.focus();
   }
 
   function copySectionUri(section) {
