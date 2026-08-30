@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T23:07:26+09:00",
+  "updatedAt": "2026-08-30T23:11:59+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -623,7 +623,7 @@
           "Event Link": "https://2026.ieee-iros.org/",
           "Popup Image": "/images/awards/lt-mem-iros2026-best-paper-finalist.png",
           "Popup Trigger": "Award",
-          "Website": "https://team-aprl.github.io/publications.html",
+          "Website": "",
           "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding (10 out of 1,933 papers)"
         },
         {
