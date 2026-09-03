@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T23:11:59+09:00",
+  "updatedAt": "2026-09-04T08:55:50+09:00",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -345,6 +345,15 @@
           "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
           "Slide Link": "",
           "Event Link": "https://bridging-navigation.github.io/website/"
+        },
+        {
+          "Date": "2026.09.04",
+          "Event/Session": "Invited Seminar",
+          "Host / Venue": "Korea Aerospace Research Institute (KARI)",
+          "Invitation From": "Korea Aerospace Research Institute (KARI)",
+          "Title": "Lidar Inertial SLAM for Spaceship Docking",
+          "Slide Link": "",
+          "Event Link": ""
         },
         {
           "Date": "2026.08.19",
