@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-04T08:55:50+09:00",
+  "updatedAt": "2026-09-18T04:58:23.323Z",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -843,9 +843,22 @@
       "columns": [
         "Title",
         "Description",
-        "Link"
+        "Link",
+        "GitHub"
       ],
       "rows": [
+        {
+          "Title": "PDF Grid",
+          "Description": "A browser-based PDF viewer that lays out every page in a continuous grid, with adjustable columns, zoom, and saved reading positions. Files stay in your browser.",
+          "Link": "https://gisbi-kim.github.io/pdf-grid/",
+          "GitHub": "https://github.com/gisbi-kim/pdf-grid"
+        },
+        {
+          "Title": "HWP Grid",
+          "Description": "A browser-based HWP and HWPX grid viewer with side-by-side document comparison, bookmarks, and saved reading positions. Documents are processed locally without server uploads.",
+          "Link": "https://gisbi-kim.github.io/hwp-grid/",
+          "GitHub": "https://github.com/gisbi-kim/hwp-grid"
+        },
         {
           "Title": "Robotics Venue Guides",
           "Description": "Korean student guides to major robotics conferences, journals, and magazines—explaining each venue's role, research culture, and publication fit.",

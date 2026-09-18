@@ -1,5 +1,5 @@
 (function () {
-  const linkColumns = new Set(["Download Link", "Slide Link", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website"]);
+  const linkColumns = new Set(["Download Link", "Slide Link", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website", "GitHub"]);
   const compactColumns = new Set(["Year", "Date", "Published Date", "Semester", "Code", "Types", "Category"]);
   const linkLabels = {
     "Download Link": "Paper",
@@ -9,6 +9,7 @@
     "Explorer": "Explorer",
     "Event Link": "Event",
     "Website": "Website",
+    "GitHub": "GitHub",
   };
   const publicationBadgeColumns = ["Year", "Types", "Category"];
   const publicationFilters = {
