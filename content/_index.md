@@ -166,7 +166,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js?v=20260918-grid-projects" defer></script>
+        <script src="/js/profile-sections.js?v=20261002-talk-web-slides" defer></script>
     design:
       columns: '1'
 

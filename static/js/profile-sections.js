@@ -603,6 +603,8 @@
               row[column],
               isPublicationSection && column === "Download Link" && row.Title === "Chapter 8: LiDAR SLAM"
                 ? "Book (PDF)"
+                : isTalksSection && column === "Slide Link"
+                  ? row["Slide Link Label"] || ""
                 : isAwardsSection && column === "Website"
                   ? "Materials"
                 : isPersonalProjectsSection && column === "Link"
