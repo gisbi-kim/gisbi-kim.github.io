@@ -621,6 +621,8 @@
         "Event",
         "Event Link",
         "Website",
+        "Award Photos",
+        "Conference Photos",
         "Date",
         "Note"
       ],
@@ -634,6 +636,8 @@
           "Popup Image": "/images/awards/lt-mem-iros2026-best-paper-certificate.webp",
           "Popup Trigger": "Award",
           "Website": "",
+          "Award Photos": "https://team-aprl.github.io/gallery.html#iros2026-best-paper-award",
+          "Conference Photos": "https://team-aprl.github.io/gallery.html#iros2026-best-paper-award",
           "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding"
         },
         {
