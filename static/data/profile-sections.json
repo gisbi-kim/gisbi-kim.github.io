@@ -626,15 +626,15 @@
       ],
       "rows": [
         {
-          "Date": "2026.09",
-          "Award": "Best Paper Finalist",
+          "Date": "2026.09.30",
+          "Award": "Best Paper Award",
           "Recipient": "Yumin Lee, Hyoseok Ju, Giseop Kim",
           "Event": "IROS 2026",
           "Event Link": "https://2026.ieee-iros.org/",
-          "Popup Image": "/images/awards/lt-mem-iros2026-best-paper-finalist.png",
+          "Popup Image": "/images/awards/lt-mem-iros2026-best-paper-certificate.webp",
           "Popup Trigger": "Award",
           "Website": "",
-          "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding (10 out of 1,933 papers)"
+          "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding"
         },
         {
           "Date": "2026.07",
