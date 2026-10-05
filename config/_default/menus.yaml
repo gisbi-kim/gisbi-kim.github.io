@@ -24,5 +24,5 @@ main:
     url: /essays/
     weight: 50
   - name: CV
-    url: https://drive.google.com/drive/folders/1_0XFI8jedwYIr4QIIQ17cvAXhwOPRSrd
+    url: https://github.com/gisbi-kim/cv-giseopkim/blob/main/main.pdf
     weight: 60
