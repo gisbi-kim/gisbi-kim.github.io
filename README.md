@@ -41,6 +41,8 @@ Built with [Hugo](https://gohugo.io/) and [Hugo Blox Builder](https://hugoblox.c
 Source under `content/`, configuration in `hugo.yaml` and `config/_default/`.
 Auto-deployed to GitHub Pages on every push to `master`.
 
+Homepage section menus keep smooth scrolling and update the URL fragment (for example, `#talks`), so section addresses can be shared and revisited with browser Back/Forward.
+
 ## License
 
 Code: [MIT](LICENSE).

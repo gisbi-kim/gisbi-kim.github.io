@@ -952,6 +952,23 @@
     });
   }
 
+  function initNavbarSectionUrls() {
+    const navbar = document.getElementById("navbar-main");
+    if (!navbar) return;
+
+    // The theme prevents native anchor navigation while animating the scroll.
+    // Update history in capture phase without interrupting that animation.
+    navbar.addEventListener("click", (event) => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest("a.nav-link");
+      if (!link || link.origin !== window.location.origin || link.pathname !== window.location.pathname || link.search !== window.location.search) return;
+      if (!link.hash || !document.getElementById(decodeURIComponent(link.hash.slice(1)))) return;
+      if (window.location.hash !== link.hash) {
+        window.history.pushState(null, "", link.hash);
+      }
+    }, true);
+  }
+
   function initNavbarCleanup() {
     document.querySelectorAll("#navbar-main .nav-link").forEach((link) => {
       if (link.textContent.replace(/\s+/g, " ").trim() !== "Home") return;
@@ -970,6 +987,7 @@
     initProfileEmailLink();
     initScholarIconFallback();
     initNavbarCleanup();
+    initNavbarSectionUrls();
     if (!mounts.length) return;
 
     fetch("/data/profile-sections.json", { cache: "no-store" })
