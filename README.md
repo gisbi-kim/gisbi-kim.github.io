@@ -45,6 +45,20 @@ Homepage section menus keep smooth scrolling and update the URL fragment (for ex
 
 The header's **CV** menu opens the [current CV PDF](https://github.com/gisbi-kim/cv-giseopkim/blob/main/main.pdf), maintained in the separate CV repository.
 
+## Standalone essays
+
+Standalone essay pages live under `static/<slug>/index.html` and are listed by
+`static/js/essays-overlay.js` on `/essays/`. Bump the overlay query version in
+`content/essays/index.md` when updating the list.
+
+[Let’s Value Taste. Let’s Build It.](https://gisbi-kim.github.io/value-and-build-taste/)
+(October 11, 2026) preserves the author's Korean text and provides a complete
+[English translation](https://gisbi-kim.github.io/value-and-build-taste/en/).
+Both pages reuse the typography, spacing, and light/dark styles of
+`static/taste-productization-shipping/index.html`. Language links work without JavaScript.
+Validate paragraph completeness, both language links, responsive rendering, and
+the Essays card; the Pages workflow builds the full site with Hugo 0.128.2.
+
 ## License
 
 Code: [MIT](LICENSE).

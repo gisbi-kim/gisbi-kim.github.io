@@ -2,6 +2,12 @@
   const originalFetch = window.fetch.bind(window);
   const essays = [
     {
+      "Published Date": "2026.10.11",
+      "Title": "취향을 높이 삽시다. 취향을 구현합시다.",
+      "Tags": "AI, Robotics, Taste, Peer Review, Physical AI",
+      "Link": "https://gisbi-kim.github.io/value-and-build-taste/"
+    },
+    {
       "Published Date": "2026.08.22",
       "Title": "이름을 붙이는 사람이 연구를 주도한다",
       "Tags": "Research, Naming, Philosophy, Scientific Concepts",
@@ -129,7 +135,7 @@
         });
     }
 
-    data.updatedAt = "2026-08-22T00:00:00+09:00";
+    data.updatedAt = "2026-10-11T00:00:00+09:00";
 
     const headers = new Headers(response.headers);
     headers.set("content-type", "application/json; charset=utf-8");

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AI 리뷰 시대, 선의의 지지자와 연구자의 취향, 그리고 실제 세계에서 돌아가는 로봇에 대한 생각." />
+  <meta name="author" content="Giseop Kim" />
+  <title>취향을 높이 삽시다. 취향을 구현합시다. | Giseop Kim</title>
+  <link rel="canonical" href="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <link rel="alternate" hreflang="ko" href="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <link rel="alternate" hreflang="en" href="https://gisbi-kim.github.io/value-and-build-taste/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="취향을 높이 삽시다. 취향을 구현합시다." />
+  <meta property="og:description" content="AI 리뷰 시대, 선의의 지지자와 연구자의 취향, 그리고 실제 세계에서 돌아가는 로봇에 대한 생각." />
+  <meta property="og:url" content="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#202124;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f7f8fa;
+      --soft2:#f1f5f9;
+      --accent:#2563eb;
+      --accent-soft:#eff6ff;
+      --quote:#111827;
+      --max: 820px;
+      --wide: 1040px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:
+        "Pretendard Variable","Pretendard","Noto Sans KR",
+        -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+        "Helvetica Neue",Arial,sans-serif;
+      line-height:1.82;
+      letter-spacing:-0.012em;
+      word-break:keep-all;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .sitebar{
+      height:64px;
+      border-bottom:1px solid rgba(229,231,235,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+    }
+    .sitebar-inner{
+      width:min(calc(100% - 40px), var(--wide));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      font-size:14px;
+    }
+    .brand{
+      color:#111827;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .nav{
+      display:flex;
+      gap:18px;
+      white-space:nowrap;
+    }
+    .nav a{color:#4b5563}
+
+    .hero{
+      width:min(calc(100% - 40px), var(--wide));
+      margin:0 auto;
+      padding:88px 0 54px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 auto 18px;
+      max-width:900px;
+      font-size:clamp(38px,6vw,68px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:760;
+      color:#111827;
+    }
+    .subtitle{
+      margin:0 auto 17px;
+      max-width:760px;
+      font-size:clamp(18px,2.3vw,25px);
+      line-height:1.45;
+      color:#4b5563;
+      font-weight:430;
+      letter-spacing:-.025em;
+    }
+    .date{
+      color:#9ca3af;
+      font-size:14px;
+      margin-top:8px;
+    }
+    .generation-note{
+      color:#9ca3af;
+      font-size:13px;
+      margin-top:6px;
+    }
+
+    .hero-flow{
+      width:min(calc(100% - 40px), 940px);
+      margin:6px auto 76px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:28px 0;
+    }
+    .flow-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:15px;
+      color:#4b5563;
+    }
+    .flow-node{
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+    }
+    .flow-node.strong{
+      background:var(--accent-soft);
+      border-color:#bfdbfe;
+      color:#1d4ed8;
+      font-weight:700;
+    }
+    .arrow{color:#9ca3af}
+
+    main{
+      width:min(calc(100% - 40px), var(--max));
+      margin:0 auto;
+      padding-bottom:110px;
+    }
+
+    p{
+      margin:0 0 22px;
+      font-size:18px;
+    }
+
+    h2{
+      margin:78px 0 24px;
+      font-size:31px;
+      line-height:1.25;
+      letter-spacing:-.035em;
+      color:#111827;
+    }
+
+    h3{
+      margin:48px 0 18px;
+      font-size:23px;
+      line-height:1.35;
+      letter-spacing:-.028em;
+      color:#111827;
+    }
+
+    strong{font-weight:760;color:#111827}
+    var{font-family:Georgia,"Times New Roman",serif}
+
+    hr{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:72px 0;
+    }
+
+    blockquote{
+      margin:34px 0;
+      padding:3px 0 3px 24px;
+      border-left:3px solid #d1d5db;
+      color:var(--quote);
+      font-size:20px;
+      line-height:1.7;
+      font-weight:560;
+      letter-spacing:-.025em;
+    }
+    blockquote p{font-size:inherit;margin:0}
+
+    .lead{
+      font-size:21px;
+      line-height:1.78;
+      color:#30343b;
+      margin-bottom:24px;
+    }
+
+    .callout{
+      margin:34px 0;
+      padding:24px 26px;
+      border-radius:14px;
+      background:var(--soft);
+      border:1px solid #eceff3;
+    }
+    .callout .label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:#9ca3af;
+      margin-bottom:9px;
+      font-weight:700;
+    }
+    .callout p:last-child{margin-bottom:0}
+
+    .keyline{
+      margin:42px 0;
+      padding:27px 30px;
+      border:1px solid #dbeafe;
+      background:linear-gradient(180deg,#f8fbff,#ffffff);
+      border-radius:16px;
+      text-align:center;
+      font-size:21px;
+      line-height:1.7;
+      color:#1f2937;
+    }
+    .keyline strong{color:#1d4ed8}
+
+    .episode{
+      margin:30px 0 50px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .episode-item{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:21px 22px 18px;
+      background:#fff;
+    }
+    .episode-item .tag{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      color:#6b7280;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .episode-item h4{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-.02em;
+      color:#111827;
+    }
+    .episode-item p{
+      margin:0;
+      font-size:15.5px;
+      line-height:1.65;
+      color:#6b7280;
+    }
+
+    .equation{
+      margin:30px 0 34px;
+      padding:25px 18px;
+      text-align:center;
+      font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      font-size:15px;
+      line-height:2;
+      color:#374151;
+      background:#fafafa;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      overflow-x:auto;
+      white-space:nowrap;
+    }
+
+    ul{
+      margin:6px 0 26px 0;
+      padding-left:26px;
+    }
+    li{
+      margin:8px 0;
+      font-size:17px;
+    }
+
+    .three{
+      margin:34px 0 52px;
+      border-top:1px solid var(--line);
+    }
+    .three-row{
+      display:grid;
+      grid-template-columns:74px 1fr;
+      gap:18px;
+      padding:24px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .three-num{
+      font-size:13px;
+      color:#9ca3af;
+      padding-top:4px;
+      font-weight:700;
+    }
+    .three-row h4{
+      font-size:19px;
+      margin:0 0 8px;
+      color:#111827;
+      letter-spacing:-.02em;
+    }
+    .three-row p{
+      font-size:16px;
+      color:#6b7280;
+      margin:0;
+    }
+
+    .closing{
+      margin-top:78px;
+      padding-top:6px;
+      font-size:19px;
+    }
+
+    .tags{
+      margin-top:70px;
+      padding-top:28px;
+      border-top:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+    .tagchip{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f3f4f6;
+      color:#6b7280;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      color:#9ca3af;
+      font-size:13px;
+      text-align:center;
+      padding:34px 20px 45px;
+    }
+
+    @media (max-width:700px){
+      body{word-break:normal}
+      .sitebar{height:58px}
+      .sitebar-inner{width:min(calc(100% - 28px), var(--wide))}
+      .nav{gap:12px}
+      .hero{
+        width:min(calc(100% - 28px), var(--wide));
+        padding:62px 0 38px;
+      }
+      .hero h1{font-size:42px}
+      .subtitle{font-size:19px}
+      .hero-flow{
+        width:min(calc(100% - 28px), 940px);
+        margin-bottom:58px;
+      }
+      main{width:min(calc(100% - 30px), var(--max))}
+      p{font-size:17px}
+      .lead{font-size:19px}
+      h2{font-size:27px;margin-top:64px}
+      h3{font-size:21px}
+      blockquote{font-size:18px;padding-left:18px}
+      .episode{grid-template-columns:1fr}
+      .three-row{grid-template-columns:48px 1fr}
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#111315;
+        --text:#e5e7eb;
+        --muted:#9ca3af;
+        --line:#2b3037;
+        --soft:#171a1f;
+        --soft2:#1b2027;
+        --accent:#60a5fa;
+        --accent-soft:#17233a;
+        --quote:#f3f4f6;
+      }
+      .sitebar{background:rgba(17,19,21,.92);border-bottom-color:#252a31}
+      .brand,.hero h1,h2,h3,strong,.episode-item h4,.three-row h4{color:#f3f4f6}
+      .nav a,.subtitle,.flow-row{color:#a8afb9}
+      .flow-node{background:#171a1f;border-color:#30353d}
+      .flow-node.strong{background:#17233a;border-color:#2c4c78;color:#93c5fd}
+      .callout{background:#171a1f;border-color:#252a31}
+      .keyline{background:linear-gradient(180deg,#151b25,#111315);border-color:#263c5b;color:#d6dae1}
+      .keyline strong{color:#93c5fd}
+      .episode-item{background:#111315;border-color:#2b3037}
+      .equation{background:#151719;color:#c6cbd2}
+      .tagchip{background:#1c2025;color:#9ca3af}
+    }
+
+    .language-switch{display:flex;justify-content:center;gap:8px;margin:24px 0 0;font-size:14px}
+    .language-switch a{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+    .language-switch a[aria-current="page"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .lead{color:var(--text)}
+    .hero h1{line-height:1.2}
+    @media(max-width:700px){.hero h1{font-size:clamp(30px,8vw,42px)}}
+</style>
+</head>
+<body>
+  <header class="sitebar"><div class="sitebar-inner">
+    <a class="brand" href="https://gisbi-kim.github.io/">Giseop Kim</a>
+    <nav class="nav" aria-label="Main"><a href="https://gisbi-kim.github.io/essays/">Essays</a><a href="https://team-aprl.github.io/research.html">APRL</a></nav>
+  </div></header>
+  <section class="hero">
+    <h1>취향을 높이 삽시다.<br/>취향을 구현합시다.</h1>
+    <div class="date"><time datetime="2026-10-11">Oct 11, 2026</time></div>
+    <nav class="language-switch" aria-label="Language"><a href="https://gisbi-kim.github.io/value-and-build-taste/" lang="ko" hreflang="ko" aria-current="page">한국어</a> <a href="https://gisbi-kim.github.io/value-and-build-taste/en/" lang="en" hreflang="en">English</a></nav>
+  </section>
+  <main><article>
+    <p class="lead">이번에 운이 좋게 IROS 2026 best를 받았습니다.</p>
+<p>근데도 고민은 많은데요.</p>
+<p>2026년 말. 이제는 AI 시대에 AI 리뷰 자체를 받는 걸, 우려는 되지만 어쩔 수 없는 흐름이라고 체념하게 되기는 합니다. 그리고 LLM이 실제로 박사(과정)급으로 잘 보는 부분도 많기 때문에, 논문을 읽고 부족한 점을 짚어내는 능력 자체가 가장 큰 걱정은 아닙니다.</p>
+<p>다만 취향이 예전보다 빠른 속도로 소멸되는 것 같습니다.</p>
+<p>예를 들어 예전에는 선의의 지지자들이 있었습니다.</p>
+<blockquote><p>“이 논문은 여러모로 부족하지만, 저는 이 아이디어가 마음에 들어요. 얘를 같이 더 좋게 만들어보고 싶어요.”</p></blockquote>
+<p>리뷰도 3개 정도 받기 때문에 이런 선의의 지지자가 있으면 리부탈을 가고, 개선을 할 사이클을 돌 수 있었습니다. 부족한 점이 있다는 데 동의하면서도, 그럼에도 이걸 한 번 더 볼 이유를 이야기해주는 사람이 있었습니다.</p>
+<p>그런데 요즘 제가 받는 리뷰는 2개뿐인 경우도 있고, 그 2개의 평도 거의 유사하고, 체크리스트의 검수를 받는 느낌이 듭니다. 흔히 상위 학회의 문법적인 체크리스트라고 할까요.</p>
+<p>물론 이게 AI 때문이라고 단정할 수는 없습니다. 제출수가 너무 많아져서일 수도 있고, 리뷰할 여유가 없어져서일 수도 있고, 우리가 이미 비슷한 문법을 너무 잘 학습해서일 수도 있습니다.</p>
+<p>커뮤니티가 부족한 점을 찾아내는 일은 점점 잘하게 되는데, 부족한 점이 있음에도 왜 이 아이디어를 지지하는지 말하는 사람은 줄어드는 느낌입니다.</p>
+<p>그래서 학생들에게 도전적인 주제를 권유하기에 부담이 더욱 큰 요즘입니다.</p>
+<p>도전적인 주제이면서 상위 학회/저널이 갖춰야 할 구성적 체크리스트를 모두 포함하려면, 자원과 경력이 풍부한 고년차 학생들이 여럿 모여야 가능한 게 아닌가 싶은데요. 하지만 저년차에 선의의 지지를 받으며 성장하지 못한다면 그러한 고년차가 되기 힘들 것입니다.</p>
+<p>아직 이게 될지 안 될지도 모르는 일을 권하면서, 동시에 논문으로서 갖춰야 할 모든 것도 요구해야 한다니요. 권하는 사람 입장에서도 부담이 큽니다.</p>
+<p>사실 제출자들도 반성해야 합니다. 애초에 우리가 취향이 없는 물건을 만들어놓고, 그걸 왜 안 사주냐고 불평하는 상황도 많이 벌어지고 있으니까요.</p>
+<p>상위 학회의 체크리스트를 예상해서 논문을 만들고, 그렇게 만들어진 논문이 다시 체크리스트대로 평가받는 셈입니다. 현 상황의 취향 없는 리뷰 폭증은 취향 없는 과잉생산에 대한 응답이기도 할 것입니다.</p>
+<p>그러니 선의의 지지자가 줄어들었다고 아쉬워하는 만큼, 우리가 누군가의 취향에 닿을 만한 것을 만들고 있는지도 돌아봐야 합니다. 부족하지만 지지하고 싶은 아이디어와, 그냥 부족한 논문은 같지 않으니까요.</p>
+<p>다만 그런 요즘에도 불구하고 취향을 지키고자 하는 로보틱스인의 설 자리가 줄어드는 것은 아닌가 싶은데요.</p>
+<p>로보틱스 커뮤니티는 AI/CV 커뮤니티보다 이런 고민을 본격적으로 나누는 일이 적고, 그래서 이 문제에 더욱 취약한 상황이라고 생각합니다.</p>
+<p>근데 뭐 그렇다고 한들, AI/CV 쪽에서도 여러 고민들과 아이디어가 많았다 한들, 애초에 매년 제출수가 폭증해버리니 실질적으로는 여전히 어려운 것 같습니다.</p>
+<div class="keyline"><p>하지만 로보틱스 커뮤니티는 역설적으로, 이 당면 문제를 해결하지 않음으로써 해결할 수 있는 방법을 가지고 있습니다.</p></div>
+<p>결국 로봇이 실제 세계에서 돌아다니고 구동되는 걸 보여주는 것입니다.</p>
+<p>리뷰 시스템의 문제가 다 해결되기를 기다리지 않고, 우리가 가치 있다고 생각하는 것을 실제로 구현해서 보여주는 것입니다. 이게 왜 재미있는지, 왜 더 해볼 만한 일인지, 같이 뭘 더 해볼 수 있을지를 로봇으로 이야기하는 것이죠.</p>
+<p>어떤 문제를 풀고 싶은지. 어떤 환경에서 돌아가게 할 건지. 어떤 제약은 받아들이고, 어떤 제약은 끝까지 해결할 건지. 그래서 결국 얘가 뭘 하게 만들고 싶은지요.</p>
+<p>실제 세계에 로봇을 가져다 놓으면 이런 선택(제약에 대한 디자인)들을 해야 합니다. 그리고 그 선택들에 연구자의 취향이 들어갑니다. 논문의 문법만으로는 다 설명되지 않는, 제가 이걸 왜 하고 싶었는지가 드러날 수 있습니다.</p>
+<p>물론 “실제 로봇에서 했는가”라는 체크리스트를 하나 더 추가하자는 이야기는 아닙니다. 그러면 결국 돈 많고 사람 많은 팀만 유리해지는 문제로 돌아갑니다. 얼마나 비싼 로봇을 썼는지, 얼마나 큰 규모로 보여줬는지만 보게 되면 똑같습니다.</p>
+<p>이 로봇으로 뭘 해보고 싶었고, 실제로 어디까지 되게 만들었는지. 어떤 건 내가 이번에 못했는지. 대신 그것을 후속 연구자들이 어떻게 함께 해결해줬으면 좋겠는지. 그 선택과 구현과 교류의 행위를 좀 더 높이 사자는 이야기입니다.</p>
+<p>물론 실제로 구현을 가능하게 하기 위해서 AI 비중이 절반 이상이 될 것이라 생각합니다. AI 덕분에 결국 요즘의 지능로봇이 가능해지고 있는 거니까요. 피지컬AI 시대입니다. 기계/전자/전산 학생들 입장에서는 공부해야 할 게 두 배가 된 셈입니다.</p>
+<p>하지만 대 AI 시대에 안 그런 학과가 있을까요. 어차피 다들 비슷한 푸시를 받는 출발선입니다. 그리고 툴과 기술이 좋아졌으니, 예전에는 엄두를 못 냈던 걸 가능하게 된 요즘이기도 하고요.</p>
+<div class="keyline"><p>하지만 로보틱스는 로보틱스다워야 합니다.</p></div>
+<p>피지컬 AI는 AI의 도움으로 revolutionized된 로보틱스여야 합니다. 피지컬 AI를 또 다른 하나의 어떤 AI라고만 이해하면 연구라는 게 다시 결국 평균적 체크리스트를 채우는 일로 수렴하게 될 것입니다.</p>
+<p>부족한 점이 있어도 마음에 드는 아이디어가 있을 수 있습니다. 아직 다 갖춰지지 않았어도, 이걸 더 해봤으면 좋겠다는 연구가 있을 수 있습니다.</p>
+<p>리뷰하는 사람으로서는 그런 취향을 이야기할 수 있었으면 좋겠고, 연구하는 사람으로서는 자기 취향을 실제로 돌아가는 것으로 만들어낼 수 있었으면 좋겠습니다.</p>
+<div class="keyline"><strong>취향을 높이 삽시다!<br/>취향을 구현합시다!</strong></div>
+  </article>
+  <div class="tags"><span class="tagchip">AI</span><span class="tagchip">Robotics</span><span class="tagchip">Taste</span><span class="tagchip">Peer Review</span><span class="tagchip">Physical AI</span></div>
+  </main>
+  <footer>© 2026 Giseop Kim. All rights reserved.</footer>
+</body>
+</html>

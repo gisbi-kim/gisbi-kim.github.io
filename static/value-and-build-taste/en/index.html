@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="On well-intentioned champions, research taste, and robots working in the real world in the age of AI reviews." />
+  <meta name="author" content="Giseop Kim" />
+  <title>Let’s Value Taste. Let’s Build It. | Giseop Kim</title>
+  <link rel="canonical" href="https://gisbi-kim.github.io/value-and-build-taste/en/" />
+  <link rel="alternate" hreflang="ko" href="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <link rel="alternate" hreflang="en" href="https://gisbi-kim.github.io/value-and-build-taste/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://gisbi-kim.github.io/value-and-build-taste/" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Let’s Value Taste. Let’s Build It." />
+  <meta property="og:description" content="On well-intentioned champions, research taste, and robots working in the real world in the age of AI reviews." />
+  <meta property="og:url" content="https://gisbi-kim.github.io/value-and-build-taste/en/" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#202124;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --soft:#f7f8fa;
+      --soft2:#f1f5f9;
+      --accent:#2563eb;
+      --accent-soft:#eff6ff;
+      --quote:#111827;
+      --max: 820px;
+      --wide: 1040px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:
+        "Pretendard Variable","Pretendard","Noto Sans KR",
+        -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,
+        "Helvetica Neue",Arial,sans-serif;
+      line-height:1.82;
+      letter-spacing:-0.012em;
+      word-break:keep-all;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .sitebar{
+      height:64px;
+      border-bottom:1px solid rgba(229,231,235,.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);
+    }
+    .sitebar-inner{
+      width:min(calc(100% - 40px), var(--wide));
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      font-size:14px;
+    }
+    .brand{
+      color:#111827;
+      font-weight:700;
+      letter-spacing:-.02em;
+    }
+    .nav{
+      display:flex;
+      gap:18px;
+      white-space:nowrap;
+    }
+    .nav a{color:#4b5563}
+
+    .hero{
+      width:min(calc(100% - 40px), var(--wide));
+      margin:0 auto;
+      padding:88px 0 54px;
+      text-align:center;
+    }
+    .hero h1{
+      margin:0 auto 18px;
+      max-width:900px;
+      font-size:clamp(38px,6vw,68px);
+      line-height:1.08;
+      letter-spacing:-.045em;
+      font-weight:760;
+      color:#111827;
+    }
+    .subtitle{
+      margin:0 auto 17px;
+      max-width:760px;
+      font-size:clamp(18px,2.3vw,25px);
+      line-height:1.45;
+      color:#4b5563;
+      font-weight:430;
+      letter-spacing:-.025em;
+    }
+    .date{
+      color:#9ca3af;
+      font-size:14px;
+      margin-top:8px;
+    }
+    .generation-note{
+      color:#9ca3af;
+      font-size:13px;
+      margin-top:6px;
+    }
+
+    .hero-flow{
+      width:min(calc(100% - 40px), 940px);
+      margin:6px auto 76px;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      padding:28px 0;
+    }
+    .flow-row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      font-size:15px;
+      color:#4b5563;
+    }
+    .flow-node{
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f8fafc;
+      border:1px solid #e5e7eb;
+    }
+    .flow-node.strong{
+      background:var(--accent-soft);
+      border-color:#bfdbfe;
+      color:#1d4ed8;
+      font-weight:700;
+    }
+    .arrow{color:#9ca3af}
+
+    main{
+      width:min(calc(100% - 40px), var(--max));
+      margin:0 auto;
+      padding-bottom:110px;
+    }
+
+    p{
+      margin:0 0 22px;
+      font-size:18px;
+    }
+
+    h2{
+      margin:78px 0 24px;
+      font-size:31px;
+      line-height:1.25;
+      letter-spacing:-.035em;
+      color:#111827;
+    }
+
+    h3{
+      margin:48px 0 18px;
+      font-size:23px;
+      line-height:1.35;
+      letter-spacing:-.028em;
+      color:#111827;
+    }
+
+    strong{font-weight:760;color:#111827}
+    var{font-family:Georgia,"Times New Roman",serif}
+
+    hr{
+      border:0;
+      border-top:1px solid var(--line);
+      margin:72px 0;
+    }
+
+    blockquote{
+      margin:34px 0;
+      padding:3px 0 3px 24px;
+      border-left:3px solid #d1d5db;
+      color:var(--quote);
+      font-size:20px;
+      line-height:1.7;
+      font-weight:560;
+      letter-spacing:-.025em;
+    }
+    blockquote p{font-size:inherit;margin:0}
+
+    .lead{
+      font-size:21px;
+      line-height:1.78;
+      color:#30343b;
+      margin-bottom:24px;
+    }
+
+    .callout{
+      margin:34px 0;
+      padding:24px 26px;
+      border-radius:14px;
+      background:var(--soft);
+      border:1px solid #eceff3;
+    }
+    .callout .label{
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      color:#9ca3af;
+      margin-bottom:9px;
+      font-weight:700;
+    }
+    .callout p:last-child{margin-bottom:0}
+
+    .keyline{
+      margin:42px 0;
+      padding:27px 30px;
+      border:1px solid #dbeafe;
+      background:linear-gradient(180deg,#f8fbff,#ffffff);
+      border-radius:16px;
+      text-align:center;
+      font-size:21px;
+      line-height:1.7;
+      color:#1f2937;
+    }
+    .keyline strong{color:#1d4ed8}
+
+    .episode{
+      margin:30px 0 50px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+    .episode-item{
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:21px 22px 18px;
+      background:#fff;
+    }
+    .episode-item .tag{
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      color:#6b7280;
+      text-transform:uppercase;
+      margin-bottom:8px;
+    }
+    .episode-item h4{
+      margin:0 0 8px;
+      font-size:18px;
+      letter-spacing:-.02em;
+      color:#111827;
+    }
+    .episode-item p{
+      margin:0;
+      font-size:15.5px;
+      line-height:1.65;
+      color:#6b7280;
+    }
+
+    .equation{
+      margin:30px 0 34px;
+      padding:25px 18px;
+      text-align:center;
+      font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+      font-size:15px;
+      line-height:2;
+      color:#374151;
+      background:#fafafa;
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      overflow-x:auto;
+      white-space:nowrap;
+    }
+
+    ul{
+      margin:6px 0 26px 0;
+      padding-left:26px;
+    }
+    li{
+      margin:8px 0;
+      font-size:17px;
+    }
+
+    .three{
+      margin:34px 0 52px;
+      border-top:1px solid var(--line);
+    }
+    .three-row{
+      display:grid;
+      grid-template-columns:74px 1fr;
+      gap:18px;
+      padding:24px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .three-num{
+      font-size:13px;
+      color:#9ca3af;
+      padding-top:4px;
+      font-weight:700;
+    }
+    .three-row h4{
+      font-size:19px;
+      margin:0 0 8px;
+      color:#111827;
+      letter-spacing:-.02em;
+    }
+    .three-row p{
+      font-size:16px;
+      color:#6b7280;
+      margin:0;
+    }
+
+    .closing{
+      margin-top:78px;
+      padding-top:6px;
+      font-size:19px;
+    }
+
+    .tags{
+      margin-top:70px;
+      padding-top:28px;
+      border-top:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      gap:9px;
+    }
+    .tagchip{
+      font-size:13px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:#f3f4f6;
+      color:#6b7280;
+    }
+
+    footer{
+      border-top:1px solid var(--line);
+      color:#9ca3af;
+      font-size:13px;
+      text-align:center;
+      padding:34px 20px 45px;
+    }
+
+    @media (max-width:700px){
+      body{word-break:normal}
+      .sitebar{height:58px}
+      .sitebar-inner{width:min(calc(100% - 28px), var(--wide))}
+      .nav{gap:12px}
+      .hero{
+        width:min(calc(100% - 28px), var(--wide));
+        padding:62px 0 38px;
+      }
+      .hero h1{font-size:42px}
+      .subtitle{font-size:19px}
+      .hero-flow{
+        width:min(calc(100% - 28px), 940px);
+        margin-bottom:58px;
+      }
+      main{width:min(calc(100% - 30px), var(--max))}
+      p{font-size:17px}
+      .lead{font-size:19px}
+      h2{font-size:27px;margin-top:64px}
+      h3{font-size:21px}
+      blockquote{font-size:18px;padding-left:18px}
+      .episode{grid-template-columns:1fr}
+      .three-row{grid-template-columns:48px 1fr}
+    }
+
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#111315;
+        --text:#e5e7eb;
+        --muted:#9ca3af;
+        --line:#2b3037;
+        --soft:#171a1f;
+        --soft2:#1b2027;
+        --accent:#60a5fa;
+        --accent-soft:#17233a;
+        --quote:#f3f4f6;
+      }
+      .sitebar{background:rgba(17,19,21,.92);border-bottom-color:#252a31}
+      .brand,.hero h1,h2,h3,strong,.episode-item h4,.three-row h4{color:#f3f4f6}
+      .nav a,.subtitle,.flow-row{color:#a8afb9}
+      .flow-node{background:#171a1f;border-color:#30353d}
+      .flow-node.strong{background:#17233a;border-color:#2c4c78;color:#93c5fd}
+      .callout{background:#171a1f;border-color:#252a31}
+      .keyline{background:linear-gradient(180deg,#151b25,#111315);border-color:#263c5b;color:#d6dae1}
+      .keyline strong{color:#93c5fd}
+      .episode-item{background:#111315;border-color:#2b3037}
+      .equation{background:#151719;color:#c6cbd2}
+      .tagchip{background:#1c2025;color:#9ca3af}
+    }
+
+    .language-switch{display:flex;justify-content:center;gap:8px;margin:24px 0 0;font-size:14px}
+    .language-switch a{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+    .language-switch a[aria-current="page"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);font-weight:700}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .lead{color:var(--text)}
+    .hero h1{line-height:1.2}
+    @media(max-width:700px){.hero h1{font-size:clamp(30px,8vw,42px)}}
+</style>
+</head>
+<body>
+  <header class="sitebar"><div class="sitebar-inner">
+    <a class="brand" href="https://gisbi-kim.github.io/">Giseop Kim</a>
+    <nav class="nav" aria-label="Main"><a href="https://gisbi-kim.github.io/essays/">Essays</a><a href="https://team-aprl.github.io/research.html">APRL</a></nav>
+  </div></header>
+  <section class="hero">
+    <h1>Let’s Value Taste.<br/>Let’s Build It.</h1>
+    <div class="date"><time datetime="2026-10-11">Oct 11, 2026</time></div>
+    <nav class="language-switch" aria-label="Language"><a href="https://gisbi-kim.github.io/value-and-build-taste/" lang="ko" hreflang="ko">한국어</a> <a href="https://gisbi-kim.github.io/value-and-build-taste/en/" lang="en" hreflang="en" aria-current="page">English</a></nav>
+  </section>
+  <main><article>
+    <p class="lead">I was fortunate enough to receive a best paper award at IROS 2026.</p>
+<p>But I still have plenty on my mind.</p>
+<p>Late 2026. In this AI era, I am beginning to resign myself to receiving AI reviews as an inevitable trend, even though I have reservations. And since LLMs already read remarkably well in many respects, at the level of a PhD student or someone with a PhD, their ability to read a paper and point out its shortcomings is not my biggest concern.</p>
+<p>What worries me is that taste seems to be disappearing faster than before.</p>
+<p>There used to be well-intentioned champions, for example.</p>
+<blockquote><p>“This paper falls short in several ways, but I like this idea. I want to help make it better.”</p></blockquote>
+<p>We would get around three reviews, and with a champion like that, we could move into rebuttal and go through a cycle of improvement. There was someone who agreed that the paper had shortcomings, yet could still explain why it deserved another look.</p>
+<p>These days, though, I sometimes receive only two reviews. And those two are almost identical. It feels like going through a checklist inspection. The familiar checklist of what a paper at a top conference is supposed to look like.</p>
+<p>Of course, I cannot say for certain that AI is the cause. Perhaps there are simply too many submissions. Perhaps reviewers have no time to spare. Or perhaps we have already learned the same conventions all too well.</p>
+<p>The community keeps getting better at finding shortcomings, but I feel that fewer people explain why they support an idea despite those shortcomings.</p>
+<p>That makes it increasingly difficult to encourage students to take on challenging topics.</p>
+<p>To pursue a challenging topic while also satisfying every structural requirement of a top conference or journal, perhaps you need several senior students with plenty of resources and experience working together. But if students cannot grow with well-intentioned support in their early years, it will be hard for them to become those senior students in the first place.</p>
+<p>We encourage them to try something when we do not even know whether it will work, while also asking them to deliver everything a paper is expected to contain. That is a heavy burden for the person giving that encouragement, too.</p>
+<p>In fact, we authors also need to reflect on ourselves. There are plenty of cases where we make something with no taste of our own, then complain that nobody wants to buy it.</p>
+<p>We anticipate the checklist of a top conference and build a paper around it. Then that paper is evaluated by the same checklist. The current flood of reviews without taste may also be a response to overproduction without taste.</p>
+<p>So, as much as we lament the dwindling number of well-intentioned champions, we should also ask whether we are making something that could resonate with someone&#x27;s taste. An imperfect idea worth supporting and a paper that is simply lacking are not the same thing.</p>
+<p>Still, I wonder whether there is less and less room for roboticists who are trying to hold on to their taste despite all this.</p>
+<p>I think the robotics community has had fewer sustained discussions about these concerns than the AI/CV community, which makes us more vulnerable to this problem.</p>
+<p>Then again, even with all the discussions and ideas in AI/CV, the number of submissions keeps exploding every year. In practice, it still seems difficult.</p>
+<div class="keyline"><p>But paradoxically, the robotics community has a way to solve this problem by not solving it.</p></div>
+<p>Ultimately, it is about showing robots moving around and working in the real world.</p>
+<p>Without waiting for every problem in the review system to be fixed, we can build what we believe is valuable and show it working. We can use robots to say why this is interesting, why it is worth pursuing, and what more we could do together.</p>
+<p>What problem do we want to solve? What environment do we want it to work in? Which constraints will we accept, and which will we keep working to overcome? What, in the end, do we want this thing to do?</p>
+<p>Putting a robot in the real world forces us to make these choices—designing around constraints. And a researcher&#x27;s taste goes into those choices. They can reveal why I wanted to do this in ways that the conventions of a paper cannot fully capture.</p>
+<p>Of course, I am not suggesting that we add one more checkbox: “Was it tested on a real robot?” That would take us right back to favoring teams with more money and more people. If all we look at is how expensive the robot was or how large the demonstration was, nothing changes.</p>
+<p>What did I want to do with this robot, and how far did I actually get it to work? What could I not do this time? How would I like future researchers to help solve those remaining problems together? I am asking us to place more value on these acts of choosing, building, and exchanging ideas.</p>
+<p>Of course, I expect AI to account for more than half of what makes these implementations possible. Today&#x27;s intelligent robots are becoming possible thanks to AI, after all. This is the Physical AI era. For students in mechanical engineering, electronics, and computer science, that means twice as much to study.</p>
+<p>But what discipline is not facing that in this age of AI? We are all at a starting line under similar pressure. And with better tools and technology, things we would not even have dared attempt before are now becoming possible.</p>
+<div class="keyline"><p>Still, robotics should stay true to robotics.</p></div>
+<p>Physical AI should be robotics revolutionized with the help of AI. If we understand Physical AI as just another kind of AI, research will eventually converge again on filling out an average checklist.</p>
+<p>An idea can have shortcomings and still be one we like. A piece of research can be incomplete and still make us want to see it pursued further.</p>
+<p>As reviewers, I hope we can express that taste. As researchers, I hope we can turn our own taste into something that actually works.</p>
+<div class="keyline"><strong>Let&#x27;s value taste!<br/>Let&#x27;s build it!</strong></div>
+  </article>
+  <div class="tags"><span class="tagchip">AI</span><span class="tagchip">Robotics</span><span class="tagchip">Taste</span><span class="tagchip">Peer Review</span><span class="tagchip">Physical AI</span></div>
+  </main>
+  <footer>© 2026 Giseop Kim. All rights reserved.</footer>
+</body>
+</html>

@@ -10,5 +10,5 @@ type: page
 </div>
 
 <div class="profile-data" data-profile-section="essays" data-profile-view="cards"></div>
-<script src="/js/essays-overlay.js?v=20260822a"></script>
+<script src="/js/essays-overlay.js?v=20261011a"></script>
 <script src="/js/profile-sections.js" defer></script>
