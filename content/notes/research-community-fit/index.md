@@ -13,29 +13,27 @@ draft: false
 math: false
 ---
 
-> **이 논문이 세상에 나오지 않았다면, 연구 커뮤니티는 무엇을 잃었을까?**
+트랙션으로 고객 수요가 있음을 입증했다면, 그다음에는 **제품-시장 적합성(Product-Market Fit, PMF)**을 평가해 볼 차례다. 실리콘밸리의 엔젤 투자자 Sean Ellis는 제품이 시장에서 진정으로 필요한지 알아보기 위해 사용자에게 다음과 같이 물어보라고 제안한다.
 
-논문이 학회에 받아들여지는 것과, 다른 연구자들의 일을 바꾸는 것은 서로 다른 성과다. 제품의 Product-Market Fit(PMF)을 연구에 빗대면, 논문의 완성도와 게재 가능성에 더해 **누가 이 결과를 필요로 하고, 무엇에 계속 사용하는가**를 물을 수 있다.
-
-이 관점을 **Research-Community Fit(RCF)**이라 부를 수 있다. 제품과 시장의 관계를 연구와 커뮤니티의 관계로 옮겨, 연구의 필요성과 지속적 활용을 생각해 보자는 것이다.
-
-## 출발점: Product-Market Fit
-
-고객이 관심을 보인다는 사실만으로 제품이 시장에 자리 잡았다고 말하기는 어렵다. Product-Market Fit을 살피려면 제품이 얼마나 필요한지, 그리고 사람들이 계속 사용하는지를 함께 물어야 한다.
-
-1. **상실을 묻는다.** 제품을 좋아하는지에 그치지 않고, 더 이상 쓸 수 없다면 어떤 기분일지 묻는다.
-2. **강한 필요의 비율을 살핀다.** “Very disappointed” 응답이 40% 이상이면 PMF의 유의미한 신호로 해석한다.
-3. **계속 사용하는지 확인한다.** 한두 번 이용한 뒤 떠나는 사람과 계속 돌아오는 사람을 구분하며, retention과 DAU·MAU 같은 사용 지표를 살핀다.
-
-### Sean Ellis의 질문과 40% 기준
-
-Sean Ellis의 PMF 질문은 제품을 잃었을 때의 반응에 초점을 맞춘다.
-
-> How would you feel if you could no longer use this product?
+> **How would you feel if you could no longer use this product?**
 >
-> 이 제품을 더 이상 사용할 수 없다면 어떤 기분일까요?
+> 이 제품을 더 이상 쓸 수 없다면 어떨까요?
 
-Sean Ellis와 GoPractice의 [PMFsurvey](https://pmfsurvey.com/)는 이 질문에 “very disappointed”라고 답하는 사용자의 비율로 제품의 필요를 살핀다.
+사용자 중 **40% 이상이 “Very Disappointed(매우 실망할 것이다)”**라고 답한다면, 제품이 시장에서 의미 있는 가치를 제공하고 있다는 신호로 볼 수 있다. 이는 성공을 보장하는 절대적 법칙이 아니라 PMF를 가늠하는 경험적 기준이다.
+
+제품의 가치를 평가할 때 중요한 또 다른 지표는 **리텐션(Retention, 사용자 잔존율)**이다. 한두 번 사용하고 이탈하는 고객이 아니라, 계속해서 서비스를 이용하려는 고객이 얼마나 되는지를 살펴야 한다. 제품에 따라 월간 활성 사용자 수(MAU)나 일간 활성 사용자 수(DAU)를 함께 활용할 수 있다. 다만 DAU·MAU는 활동 규모를 나타내며, 엄밀한 의미의 리텐션과는 구별해야 한다.
+
+**그렇다면 논문에도 Product-Market Fit과 같은 개념이 존재할까?**
+
+> **If this paper had never been published, what would the research community have lost?**
+>
+> 이 논문이 세상에 나오지 않았다면, 연구 커뮤니티는 무엇을 잃었을까?
+
+논문이 학회에 받아들여지는 것과 다른 연구자들의 일을 바꾸는 것은 서로 다른 성과다. 제품과 시장의 관계를 연구와 커뮤니티의 관계에 빗대면, **누가 이 연구를 필요로 하며, 어떤 후속 연구에서 지속적으로 활용하는가**를 물을 수 있다. 이 관점을 여기서는 **Research-Community Fit(RCF)**이라고 부르자.
+
+## PMF의 40% Rule과 Retention을 해석할 때
+
+위 40% 기준에는 맥락이 있다. Sean Ellis와 GoPractice의 [PMFsurvey](https://pmfsurvey.com/)는 제품이 사라졌을 때 “very disappointed”라고 답하는 사용자의 비율을 하나의 판단 신호로 다룬다.
 
 Ellis는 2009년 「The Startup Pyramid」에서 거의 100개 스타트업을 비교한 경험을 바탕으로 40%를 제시했고, 이 경계에 다소 임의적인 면이 있다고 직접 밝혔다. 따라서 **40%는 제품의 PMF를 가늠하는 경험적 기준이지, 모든 시장에서 성공을 보장하는 법칙이 아니다.** [Sean Ellis의 원문 아카이브](https://www.startup-marketing.com/category/productmarket-fit/)에서 해당 글을 읽을 수 있다.
 
