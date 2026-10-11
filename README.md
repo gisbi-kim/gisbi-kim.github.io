@@ -59,6 +59,19 @@ Both pages reuse the typography, spacing, and light/dark styles of
 Validate paragraph completeness, both language links, responsive rendering, and
 the Essays card; the Pages workflow builds the full site with Hugo 0.128.2.
 
+## Notes & Summaries
+
+Source-attributed notes live in `content/notes/<slug>/index.md` and appear
+automatically on `/notes/`, newest first. Use the existing title, subtitle,
+summary, date, authors, tags, and draft front matter.
+
+[Research-Community Fit](https://gisbi-kim.github.io/notes/research-community-fit/)
+(October 11, 2026) connects Sean Ellis's PMF question to research planning and
+lasting use. It distinguishes the source image, public PMF references, the
+ChatGPT discussion, and editorial clarifications. The unidentified book image
+is not redistributed; its bibliographic source and reuse permission remain
+unverified. The product's 40% heuristic is not presented as a paper metric.
+
 ## License
 
 Code: [MIT](LICENSE).
