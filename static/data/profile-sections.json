@@ -341,7 +341,7 @@
           "Date": "2026.11.12 (Upcoming)",
           "Event/Session": "IEMEK 2026 Fall Conference — Outstanding Conference Paper Invited Session",
           "Host / Venue": "Grabel Hotel Jeju, Saryeoni Hall, Jeju, South Korea",
-          "Invitation From": "전북대학교 이상준 교수님",
+          "Invitation From": "Prof. Sang Jun Lee of JBNU",
           "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
           "Slide Link": "",
           "Event Link": ""
@@ -350,7 +350,7 @@
           "Date": "2026.09.27",
           "Event/Session": "IROS 2026 WS (bridging-navigation)",
           "Host / Venue": "IROS 2026",
-          "Invitation From": "Daeun Song",
+          "Invitation From": "Prof. Daeun Song of Ewha Womans University",
           "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
           "Slide Link": "https://gisbi-kim.github.io/iros26-bridging-navigation-talk",
           "Slide Link Label": "Web Slides",
@@ -387,7 +387,7 @@
           "Date": "2026.07.24",
           "Event/Session": "Invited Talk",
           "Host / Venue": "KAIST",
-          "Invitation From": "Prof. Hyondong Oh",
+          "Invitation From": "Prof. Hyondong Oh of KAIST",
           "Title": "Bridging the Perception–Reasoning Gapfor Long-Term Robot Navigation (Feat. the Research Journey)",
           "Slide Link": "",
           "Event Link": ""
@@ -415,7 +415,7 @@
           "Date": "2026.05.28",
           "Event/Session": "Invited Talk",
           "Host / Venue": "Ewha Womans University",
-          "Invitation From": "Prof. Daeun Song",
+          "Invitation From": "Prof. Daeun Song of Ewha Womans University",
           "Title": "3D Perception, Language, and AI for Human-robot Interactive Navigation",
           "Popup Image": "/images/talks/ewha.jpeg",
           "Slide Link": "",
@@ -425,7 +425,7 @@
           "Date": "2026.04.02",
           "Event/Session": "Invited Talk",
           "Host / Venue": "Hanyang Univ (ERICA)",
-          "Invitation From": "Prof. Wansoo Kim",
+          "Invitation From": "Prof. Wansoo Kim of Hanyang University ERICA",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "",
           "Event Link": ""
@@ -443,7 +443,7 @@
           "Date": "2026.02.06",
           "Event/Session": "Spatial AI Tutorial Organizer & Speaker, KRoC 2026",
           "Host / Venue": "Pyeongchang, South Korea",
-          "Invitation From": "Prof. Sunglok Choi",
+          "Invitation From": "Prof. Sunglok Choi of SeoulTech",
           "Title": "IMU Basics and Inertial Aided Navigation",
           "Popup Image": "/images/talks/kroc_imu.jpeg",
           "Slide Link": "http://dropbox.com/scl/fi/1f8outhp6bywypygxbsn5/20260206-Kroc-2026-IMU-Basics-and-Inertial-Aided-Navigation.pptx?rlkey=qpyqft9cgxx5vzkccb6x4pp0x&dl=0",
@@ -462,7 +462,7 @@
           "Date": "2026.02.05",
           "Event/Session": "Special Session 3: AI-based Autonomous Systems, KRoC 2026",
           "Host / Venue": "Pyeongchang, South Korea",
-          "Invitation From": "Prof. Hyeonwoo Yu",
+          "Invitation From": "Prof. Hyeonwoo Yu of SKKU",
           "Title": "CoT/Scene-graph/and Recent Paradigms for Mobile Robot Navigation: A Short Survey and Real-World Lessons",
           "Slide Link": "https://www.dropbox.com/scl/fi/hhu6kb2utuommt3jfagcw/20260205-Kroc-2026-Giseop-Kim-TA3-Special-session.pptx?rlkey=31k2j9bnfrgptxmhkt2pb161a&e=1&dl=0",
           "Event Link": ""
@@ -489,7 +489,7 @@
           "Date": "2025.12.10",
           "Event/Session": "Invited Talk, Department of Intelligent Robotics, SKKU",
           "Host / Venue": "Suwon, South Korea",
-          "Invitation From": "Prof. Hyeonwoo Yu",
+          "Invitation From": "Prof. Hyeonwoo Yu of SKKU",
           "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
           "Slide Link": "",
           "Event Link": ""
@@ -498,7 +498,7 @@
           "Date": "2025.12.09",
           "Event/Session": "Invited Talk, Department of Civil and Environmental Engineering, KAIST",
           "Host / Venue": "Daejeon, South Korea",
-          "Invitation From": "Prof. Tae-Hyuk Kwon",
+          "Invitation From": "Prof. Tae-Hyuk Kwon of KAIST",
           "Title": "Robotics and Spatial AI for Construction",
           "Slide Link": "",
           "Event Link": ""
@@ -516,7 +516,7 @@
           "Date": "2025.10.30",
           "Event/Session": "Invited Talk, 2025 Fall Conference of The Korean Fiber Society",
           "Host / Venue": "Busan, South Korea",
-          "Invitation From": "Prof. Bong Hoon Kim",
+          "Invitation From": "Prof. Bong Hoon Kim of DGIST",
           "Title": "Physical AI for Smart Factory (Subtitle: Humanoid, Sensing, Spatial Intelligence)",
           "Slide Link": "",
           "Event Link": ""
@@ -796,6 +796,17 @@
       ],
       "rows": [
         {
+          "Date": "2027.07",
+          "Category": "International Conf",
+          "Venue": "RSS 2027",
+          "Role": "Area Chair (AC)",
+          "Event": "",
+          "Title": "Robotics: Science and Systems",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://roboticsconference.org/"
+        },
+        {
           "Date": "2027.05",
           "Category": "International Conf",
           "Venue": "ICRA 2027",
@@ -845,7 +856,7 @@
           "Venue": "KRoC 2026",
           "Role": "Tutorial Organizer",
           "Event": "",
-          "Title": "SLAM tutorial organizer",
+          "Title": "KRoC 1st Spatial AI Tutorial",
           "Tutorial Site": "https://sites.google.com/view/kroc26-spatial-ai-tutorial/home",
           "Explorer": "",
           "Website": ""

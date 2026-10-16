@@ -165,6 +165,18 @@
   function renderTalkInvitation(value) {
     return renderTalkConferenceLinks(value)
       .replace(
+        /\bSang Jun Lee\b/g,
+        '<a href="https://sites.google.com/view/miljbnu/" target="_blank" rel="noopener">Sang Jun Lee</a>'
+      )
+      .replace(
+        /\bHyondong Oh\b/g,
+        '<a href="https://fair.kaist.ac.kr/" target="_blank" rel="noopener">Hyondong Oh</a>'
+      )
+      .replace(
+        /\bBong Hoon Kim\b/g,
+        '<a href="https://bonghoonkim.com/" target="_blank" rel="noopener">Bong Hoon Kim</a>'
+      )
+      .replace(
         /\bDaeun Song\b/g,
         '<a href="https://robotics.ewha.ac.kr/" target="_blank" rel="noopener">Daeun Song</a>'
       )
