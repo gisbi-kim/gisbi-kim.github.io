@@ -499,6 +499,7 @@
 
   function rowYear(section, row) {
     if (section.title === "Publications/Patents") return publicationYear(row);
+    if (section.title === "Academic Service" && /\bpresent\s*$/i.test(String(row.Date || ""))) return "Current";
     if (section.title === "Teaching") return String(row.Year || "").trim();
     if (section.title === "Funded Projects") return String(row.Status || "").trim();
     const date = section.title === "Essays" ? row["Published Date"] : row.Date;
@@ -679,8 +680,13 @@
         .join("");
     }
 
+    // Ongoing appointments precede conference-year service without mutating source rows.
+    const orderedRows = isAcademicServiceSection
+      ? [...section.rows.filter((row) => rowYear(section, row) === "Current"),
+         ...section.rows.filter((row) => rowYear(section, row) !== "Current")]
+      : section.rows;
     let previousYear = "";
-    return section.rows
+    return orderedRows
       .map((row) => {
         const year = showYearSeparators ? rowYear(section, row) : "";
         const separator =
