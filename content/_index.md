@@ -166,7 +166,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js?v=20261016-talk-invitation-links" defer></script>
+        <script src="/js/profile-sections.js?v=20261021-current-service" defer></script>
     design:
       columns: '1'
 
