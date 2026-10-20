@@ -796,17 +796,6 @@
       ],
       "rows": [
         {
-          "Date": "2026.10–present",
-          "Category": "International Journal",
-          "Venue": "RA-L",
-          "Role": "Associate Editor (AE)",
-          "Event": "",
-          "Title": "IEEE Robotics and Automation Letters — Localization and Mapping",
-          "Tutorial Site": "",
-          "Explorer": "",
-          "Website": "https://www.ieee-ras.org/publications/ra-l"
-        },
-        {
           "Date": "2027.07",
           "Category": "International Conf",
           "Venue": "RSS 2027",
@@ -827,6 +816,17 @@
           "Tutorial Site": "",
           "Explorer": "",
           "Website": "https://2027.ieee-icra.org/about/committee/#:~:text=Workshops%20%26%20Tutorials%20Committee"
+        },
+        {
+          "Date": "2026.10–present",
+          "Category": "International Journal",
+          "Venue": "RA-L",
+          "Role": "Associate Editor (AE)",
+          "Event": "",
+          "Title": "IEEE Robotics and Automation Letters — Localization and Mapping",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://www.ieee-ras.org/publications/ra-l"
         },
         {
           "Date": "2026.10",
