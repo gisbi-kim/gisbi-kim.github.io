@@ -1,0 +1,4 @@
+interface:
+  display_name: "Sync Website and CV"
+  short_description: "Keep academic website and built CV consistent"
+  default_prompt: "Use $sync-website-cv to update my website and rebuild the matching CV."

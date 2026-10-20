@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T04:58:23.323Z",
+  "updatedAt": "2026-10-21",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -795,6 +795,17 @@
         "Website"
       ],
       "rows": [
+        {
+          "Date": "2026.10–present",
+          "Category": "International Journal",
+          "Venue": "RA-L",
+          "Role": "Associate Editor (AE)",
+          "Event": "",
+          "Title": "IEEE Robotics and Automation Letters — Localization and Mapping",
+          "Tutorial Site": "",
+          "Explorer": "",
+          "Website": "https://www.ieee-ras.org/publications/ra-l"
+        },
         {
           "Date": "2027.07",
           "Category": "International Conf",
