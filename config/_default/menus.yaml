@@ -1,17 +1,20 @@
 main:
+  - name: Experience
+    url: '#experience'
+    weight: 10
   - name: 'Research & Teaching'
     url: '#publications'
     weight: 20
-  - name: Talks
-    url: '#talks'
+  - name: Academic Service
+    url: '#academic-service'
     weight: 30
   - name: Awards
     url: '#awards'
     weight: 32
-  - name: Service
-    url: '#academic-service'
+  - name: Invited Talks
+    url: '#talks'
     weight: 35
-  - name: Projects
+  - name: Personal Projects
     url: '#personal-projects'
     weight: 45
   - name: Gallery
