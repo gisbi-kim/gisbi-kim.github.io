@@ -50,11 +50,11 @@ sections:
       columns: '1'
 
   - block: markdown
-    id: talks
+    id: academic-service
     content:
-      title: Invited Talks
+      title: Academic Service
       text: |
-        <div class="profile-data" data-profile-section="talks" data-profile-view="cards"></div>
+        <div class="profile-data" data-profile-section="academic_service" data-profile-view="cards"></div>
     design:
       columns: '1'
 
@@ -68,11 +68,11 @@ sections:
       columns: '1'
 
   - block: markdown
-    id: academic-service
+    id: talks
     content:
-      title: Academic Service
+      title: Invited Talks
       text: |
-        <div class="profile-data" data-profile-section="academic_service" data-profile-view="cards"></div>
+        <div class="profile-data" data-profile-section="talks" data-profile-view="cards"></div>
     design:
       columns: '1'
 
@@ -169,5 +169,6 @@ sections:
         <script src="/js/profile-sections.js?v=20261021-current-service" defer></script>
     design:
       columns: '1'
+
 
 ---
