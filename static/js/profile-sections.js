@@ -1,5 +1,5 @@
 (function () {
-  const linkColumns = new Set(["Download Link", "Slide Link", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website", "GitHub", "Award Photos", "Conference Photos"]);
+  const linkColumns = new Set(["Download Link", "Slide Link", "Video", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website", "GitHub", "Award Photos", "Conference Photos"]);
   const compactColumns = new Set(["Year", "Date", "Published Date", "Semester", "Code", "Types", "Category"]);
   const linkLabels = {
     "Download Link": "Paper",
