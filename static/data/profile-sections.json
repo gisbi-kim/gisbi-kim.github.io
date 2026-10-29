@@ -345,7 +345,8 @@
           "Invitation From": "RiTA 2026 Organizing Committee",
           "Title": "Toward Efficient, Scalable, and Human-Like Robot Navigation Intelligence",
           "Slide Link": "",
-          "Event Link": "https://icrita.org/"
+          "Event Link": "https://icrita.org/",
+          "Conference Category": "International"
         },
         {
           "Date": "2026.11.12",
@@ -354,7 +355,8 @@
           "Invitation From": "Prof. Sang Jun Lee of JBNU",
           "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2026.09.27",
@@ -365,7 +367,8 @@
           "Slide Link": "https://gisbi-kim.github.io/iros26-bridging-navigation-talk",
           "Slide Link Label": "Web Slides",
           "Event Link": "https://bridging-navigation.github.io/website/",
-          "Video": "https://youtu.be/LnogCUV9gZs?si=5GBh9oJjc5HIa1kR"
+          "Video": "https://youtu.be/LnogCUV9gZs?si=5GBh9oJjc5HIa1kR",
+          "Conference Category": "International"
         },
         {
           "Date": "2026.09.04",
@@ -410,7 +413,8 @@
           "Invitation From": "ICROS Organization Committee",
           "Title": "Visual Language Multi-robot SLAM",
           "Slide Link": "https://www.dropbox.com/scl/fi/zxwqqnc6hw6c74a0ww6cp/20260703-ICROS2026.pdf?rlkey=mcedth1cutmqcdnsyc1gtj5wy&dl=0",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2026.06.02",
@@ -458,7 +462,8 @@
           "Title": "IMU Basics and Inertial Aided Navigation",
           "Popup Image": "/images/talks/kroc_imu.jpeg",
           "Slide Link": "http://dropbox.com/scl/fi/1f8outhp6bywypygxbsn5/20260206-Kroc-2026-IMU-Basics-and-Inertial-Aided-Navigation.pptx?rlkey=qpyqft9cgxx5vzkccb6x4pp0x&dl=0",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2026.02.05",
@@ -467,7 +472,8 @@
           "Invitation From": "KRoC Organization Committee",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "https://www.dropbox.com/scl/fi/6ccku80b4dlmgexg7y3e8/20260205-Kroc-2026-Giseop-Kim-sinjin.pptx?rlkey=3x0mtdfwjbu47l7cbk2w30fhk&e=1&dl=0",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2026.02.05",
@@ -476,7 +482,8 @@
           "Invitation From": "Prof. Hyeonwoo Yu of SKKU",
           "Title": "CoT/Scene-graph/and Recent Paradigms for Mobile Robot Navigation: A Short Survey and Real-World Lessons",
           "Slide Link": "https://www.dropbox.com/scl/fi/hhu6kb2utuommt3jfagcw/20260205-Kroc-2026-Giseop-Kim-TA3-Special-session.pptx?rlkey=31k2j9bnfrgptxmhkt2pb161a&e=1&dl=0",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2026.02.02",
@@ -494,7 +501,8 @@
           "Invitation From": "ICEIC Organization Committee",
           "Title": "An Invitation to 3D Vision, Spatial AI, and Physical AI",
           "Slide Link": "https://www.dropbox.com/scl/fi/2aw69i4tv6ai6soddxbyu/20260118-slam-tutorial-iceic-giseop-kim.pptx?rlkey=txily56tuzntvnxlt99r5whtb&e=1&dl=0",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "International"
         },
         {
           "Date": "2025.12.10",
@@ -530,7 +538,8 @@
           "Invitation From": "Prof. Bong Hoon Kim of DGIST",
           "Title": "Physical AI for Smart Factory (Subtitle: Humanoid, Sensing, Spatial Intelligence)",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2025.08.15",
@@ -539,7 +548,8 @@
           "Invitation From": "Juwon Kim, AI Robotics KR",
           "Title": "Generative AI for Mobile Robot Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2025.07.18",
@@ -548,7 +558,8 @@
           "Invitation From": "IEIE AI Signal Processing Society / Image Understanding Research Group / Image Processing Research Group",
           "Title": "Generative AI for Mobile Robot Navigation",
           "Slide Link": "",
-          "Event Link": "https://www.theieie.org/events/?part=03&c_id=949"
+          "Event Link": "https://www.theieie.org/events/?part=03&c_id=949",
+          "Conference Category": "Domestic"
         },
         {
           "Date": "2025.06.13",

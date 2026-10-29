@@ -562,6 +562,10 @@
           currentTalkType === "Public Sector"
             ? '<span class="profile-data-badge profile-data-badge-government">Public Sector</span>'
             : "";
+        const conferenceCategory = row["Conference Category"];
+        const conferenceCategoryBadge = currentTalkType === "Conference" && ["International", "Domestic"].includes(conferenceCategory)
+          ? `<span class="profile-data-badge profile-data-badge-talk-${conferenceCategory.toLowerCase()}">${escapeHtml(conferenceCategory)}</span>`
+          : "";
         const conferenceBadge = currentTalkType === "Conference" ? '<span class="profile-data-badge profile-data-badge-conference">Conference</span>' : "";
         const industryBadge = currentTalkType === "Industry" ? '<span class="profile-data-badge profile-data-badge-industry">Industry</span>' : "";
         const fundedStatusBadge =
@@ -580,7 +584,7 @@
             ? `<span class="profile-data-badge profile-data-badge-code">${renderValue("Code", row.Code)}</span>`
             : "";
         const mainTeachingBadge = isMainTeaching ? '<span class="profile-data-badge profile-data-badge-main">Main</span>' : "";
-        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${academicServiceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
+        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceCategoryBadge}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${academicServiceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
         const metaHtml = metas
           .filter((column) => row[column] && !(isTeachingSection && column === "Code"))
           .map((column) => {
