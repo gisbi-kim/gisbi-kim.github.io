@@ -2728,3 +2728,9 @@ body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
   border-color: #f0d39b;
   color: #80510f;
 }
+
+.media-list { list-style:none; padding:0; margin:0; }
+.media-list li { display:grid; grid-template-columns:100px 75px minmax(0,1fr); align-items:baseline; gap:12px; padding:16px 0; border-bottom:1px solid rgba(128,128,128,.2); font-size:.88rem; line-height:1.65; }
+.media-list time,.media-outlet { color:#777; font-size:.8rem; white-space:nowrap; }
+.media-list a { word-break:keep-all; overflow-wrap:anywhere; }
+@media(max-width:640px) { .media-list li { grid-template-columns:100px 1fr; gap:4px 12px; } .media-list a { grid-column:1/-1; } }

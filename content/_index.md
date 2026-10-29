@@ -77,6 +77,19 @@ sections:
       columns: '1'
 
   - block: markdown
+    id: media
+    content:
+      title: Media
+      text: |
+        <ul class="media-list">
+        <li><time datetime="2026-10-29">2026.10.29</time><span class="media-outlet">대구일보</span><a href="https://www.idaegu.com/news/articleView.html?idxno=666590" target="_blank" rel="noopener noreferrer">[대구일보 인터뷰] “로봇도 경험을 기억해 상황을 판단하도록”…세계로봇학회가 주목한 DGIST 김기섭 교수</a></li>
+        <li><time datetime="2026-10-07">2026.10.07</time><span class="media-outlet">로봇신문</span><a href="https://www.irobotnews.com/news/articleView.html?idxno=48879" target="_blank" rel="noopener noreferrer">DGIST 김기섭 교수팀, 세계 최고 권위 로봇학회 ‘IROS 2026’ 최우수 논문상</a></li>
+        <li><time datetime="2025-04-30">2025.04.30</time><span class="media-outlet">로봇신문</span><a href="https://www.irobotnews.com/news/articleView.html?idxno=38430" target="_blank" rel="noopener noreferrer">'젊은 로봇 공학자' (81) DGIST 김기섭 교수</a></li>
+        </ul>
+    design:
+      columns: '1'
+
+  - block: markdown
     id: personal-projects
     content:
       title: Personal Projects
