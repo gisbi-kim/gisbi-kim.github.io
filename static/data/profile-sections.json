@@ -346,7 +346,7 @@
           "Title": "Toward Efficient, Scalable, and Human-Like Robot Navigation Intelligence",
           "Slide Link": "",
           "Event Link": "https://icrita.org/",
-          "Conference Category": "International"
+          "Scope": "International"
         },
         {
           "Date": "2026.11.12",
@@ -356,7 +356,7 @@
           "Title": "From Maps to Memory: Bridging the Perception–Reasoning Gap for Long-Term Robot Navigation",
           "Slide Link": "",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.09.27",
@@ -368,7 +368,7 @@
           "Slide Link Label": "Web Slides",
           "Event Link": "https://bridging-navigation.github.io/website/",
           "Video": "https://youtu.be/LnogCUV9gZs?si=5GBh9oJjc5HIa1kR",
-          "Conference Category": "International"
+          "Scope": "International"
         },
         {
           "Date": "2026.09.04",
@@ -377,7 +377,8 @@
           "Invitation From": "Korea Aerospace Research Institute (KARI)",
           "Title": "Lidar Inertial SLAM for Spaceship Docking",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.08.19",
@@ -386,7 +387,8 @@
           "Invitation From": "Dr. Joel Ryu, Korea Institute for Robot Industry Advancement (KIRIA)",
           "Title": "지도에서 기억으로: 장기 자율주행을 위한 인지와 추론의 연결",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.07.30",
@@ -395,7 +397,8 @@
           "Invitation From": "ETRI Daegu-Gyeongbuk Regional Research Division",
           "Title": "Geometric 3D Vision Made Easy? - The DUSt3R Family and Its Evolution",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.07.24",
@@ -404,7 +407,8 @@
           "Invitation From": "Prof. Hyondong Oh of KAIST",
           "Title": "Bridging the Perception–Reasoning Gapfor Long-Term Robot Navigation (Feat. the Research Journey)",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.07.03",
@@ -414,7 +418,7 @@
           "Title": "Visual Language Multi-robot SLAM",
           "Slide Link": "https://www.dropbox.com/scl/fi/zxwqqnc6hw6c74a0ww6cp/20260703-ICROS2026.pdf?rlkey=mcedth1cutmqcdnsyc1gtj5wy&dl=0",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.06.02",
@@ -424,7 +428,8 @@
           "Title": "What, When, and Why Visual-Language Navigation?",
           "Popup Image": "/images/talks/icra26.jpeg",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "International"
         },
         {
           "Date": "2026.05.28",
@@ -434,7 +439,8 @@
           "Title": "3D Perception, Language, and AI for Human-robot Interactive Navigation",
           "Popup Image": "/images/talks/ewha.jpeg",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.04.02",
@@ -443,7 +449,8 @@
           "Invitation From": "Prof. Wansoo Kim of Hanyang University ERICA",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.03.24",
@@ -452,7 +459,8 @@
           "Invitation From": "Dr. Nam Seung Woo, Intelligent Robot System Research Section, ETRI",
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.02.06",
@@ -463,7 +471,7 @@
           "Popup Image": "/images/talks/kroc_imu.jpeg",
           "Slide Link": "http://dropbox.com/scl/fi/1f8outhp6bywypygxbsn5/20260206-Kroc-2026-IMU-Basics-and-Inertial-Aided-Navigation.pptx?rlkey=qpyqft9cgxx5vzkccb6x4pp0x&dl=0",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.02.05",
@@ -473,7 +481,7 @@
           "Title": "Memory-Augmented Spatial Intelligence for Autonomous Robot Navigation",
           "Slide Link": "https://www.dropbox.com/scl/fi/6ccku80b4dlmgexg7y3e8/20260205-Kroc-2026-Giseop-Kim-sinjin.pptx?rlkey=3x0mtdfwjbu47l7cbk2w30fhk&e=1&dl=0",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.02.05",
@@ -483,7 +491,7 @@
           "Title": "CoT/Scene-graph/and Recent Paradigms for Mobile Robot Navigation: A Short Survey and Real-World Lessons",
           "Slide Link": "https://www.dropbox.com/scl/fi/hhu6kb2utuommt3jfagcw/20260205-Kroc-2026-Giseop-Kim-TA3-Special-session.pptx?rlkey=31k2j9bnfrgptxmhkt2pb161a&e=1&dl=0",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.02.02",
@@ -492,7 +500,8 @@
           "Invitation From": "Dalseo-gu Office Monthly Meeting Special Lecture",
           "Title": "Daegu's Innovation, Moving Towards a Robot and Future Mobility City",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.01.19",
@@ -502,7 +511,7 @@
           "Title": "An Invitation to 3D Vision, Spatial AI, and Physical AI",
           "Slide Link": "https://www.dropbox.com/scl/fi/2aw69i4tv6ai6soddxbyu/20260118-slam-tutorial-iceic-giseop-kim.pptx?rlkey=txily56tuzntvnxlt99r5whtb&e=1&dl=0",
           "Event Link": "",
-          "Conference Category": "International"
+          "Scope": "International"
         },
         {
           "Date": "2025.12.10",
@@ -511,7 +520,8 @@
           "Invitation From": "Prof. Hyeonwoo Yu of SKKU",
           "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.12.09",
@@ -520,7 +530,8 @@
           "Invitation From": "Prof. Tae-Hyuk Kwon of KAIST",
           "Title": "Robotics and Spatial AI for Construction",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.12.08",
@@ -529,7 +540,8 @@
           "Invitation From": "Dr. Younghun Cho, Industrial Machinery DX Research Lab, KIMM",
           "Title": "SLAM, Spatial AI, and Human-Robot Interactive Navigation",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.10.30",
@@ -539,7 +551,7 @@
           "Title": "Physical AI for Smart Factory (Subtitle: Humanoid, Sensing, Spatial Intelligence)",
           "Slide Link": "",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.08.15",
@@ -549,7 +561,7 @@
           "Title": "Generative AI for Mobile Robot Navigation",
           "Slide Link": "",
           "Event Link": "",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.07.18",
@@ -559,7 +571,7 @@
           "Title": "Generative AI for Mobile Robot Navigation",
           "Slide Link": "",
           "Event Link": "https://www.theieie.org/events/?part=03&c_id=949",
-          "Conference Category": "Domestic"
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.06.13",
@@ -568,7 +580,8 @@
           "Invitation From": "Tae Young Kim, Mobile Robotics Team, Hyundai Motor Company",
           "Title": "Lessons from Translating Research into Products and Services",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.05.28",
@@ -577,7 +590,8 @@
           "Invitation From": "Dr. Hanul Jung, Mobility AI Convergence Research Section, ETRI Daegu-Gyeongbuk Regional Research Division",
           "Title": "Spatial AI, from the 2000s to 2025: The Evolution of Spatial Intelligence and the Future of Robotics",
           "Slide Link": "",
-          "Event Link": ""
+          "Event Link": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "EOL",

@@ -328,7 +328,8 @@
     return rows.filter((row) => {
       const matchesType = !filters.talkType || filters.talkType === "all" || talkType(row) === filters.talkType;
       const matchesYear = !filters.talkYear || filters.talkYear === "all" || rowYear({ title: "Invited Talks" }, row) === filters.talkYear;
-      return matchesType && matchesYear;
+      const matchesScope = !filters.talkScope || filters.talkScope === "all" || row.Scope === filters.talkScope;
+      return matchesType && matchesYear && matchesScope;
     });
   }
 
@@ -379,6 +380,7 @@
     return `<div class="profile-data-filters" aria-label="Invited talk filters">
       ${renderSegmentedFilter(key, "talkYear", "Year", yearOptions, filters.talkYear || "all")}
       ${renderSegmentedFilter(key, "talkType", "Type", options, filters.talkType || "all")}
+      ${renderSegmentedFilter(key, "talkScope", "Scope", [{ value: "all", label: "All" }, { value: "International", label: "International" }, { value: "Domestic", label: "Domestic" }], filters.talkScope || "all")}
     </div>`;
   }
 
@@ -562,8 +564,8 @@
           currentTalkType === "Public Sector"
             ? '<span class="profile-data-badge profile-data-badge-government">Public Sector</span>'
             : "";
-        const conferenceCategory = row["Conference Category"];
-        const conferenceCategoryBadge = currentTalkType === "Conference" && ["International", "Domestic"].includes(conferenceCategory)
+        const conferenceCategory = row.Scope;
+        const conferenceCategoryBadge = isTalksSection && ["International", "Domestic"].includes(conferenceCategory)
           ? `<span class="profile-data-badge profile-data-badge-talk-${conferenceCategory.toLowerCase()}">${escapeHtml(conferenceCategory)}</span>`
           : "";
         const conferenceBadge = currentTalkType === "Conference" ? '<span class="profile-data-badge profile-data-badge-conference">Conference</span>' : "";
