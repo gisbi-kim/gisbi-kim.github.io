@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-25",
+  "updatedAt": "2026-10-29",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -339,7 +339,16 @@
       ],
       "rows": [
         {
-          "Date": "2026.11.12 (Upcoming)",
+          "Date": "2026.12.04",
+          "Event/Session": "Invited Talk, 14th International Conference on Robot Intelligence Technology and Applications (RiTA 2026)",
+          "Host / Venue": "National Science Museum, Daejeon, South Korea",
+          "Invitation From": "RiTA 2026 Organizing Committee",
+          "Title": "Toward Efficient, Scalable, and Human-Like Robot Navigation Intelligence",
+          "Slide Link": "",
+          "Event Link": "https://icrita.org/"
+        },
+        {
+          "Date": "2026.11.12",
           "Event/Session": "IEMEK 2026 Fall Conference — Outstanding Conference Paper Invited Session",
           "Host / Venue": "Grabel Hotel Jeju, Saryeoni Hall, Jeju, South Korea",
           "Invitation From": "Prof. Sang Jun Lee of JBNU",
