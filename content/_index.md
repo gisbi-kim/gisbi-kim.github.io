@@ -166,7 +166,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js?v=20261029-talk-scope" defer></script>
+        <script src="/js/profile-sections.js?v=20261029-talk-empty" defer></script>
     design:
       columns: '1'
 

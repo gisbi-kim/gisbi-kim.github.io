@@ -747,9 +747,9 @@
       ${key === "publications" ? renderPublicationSummary(key, summaryRows, filters) : ""}
       ${key === "funded_projects" ? renderFundedSummary(baseRows) : ""}
       ${key === "talks" ? renderTalkFilters(key, baseRows, filters) : ""}
-      ${key === "talks" ? renderTalkCollapseControls() : ""}
+      ${key === "talks" && rows.length ? renderTalkCollapseControls() : ""}
       ${key === "essays" ? renderEssayFilters(key, baseRows, filters) : ""}
-      ${view === "table" ? renderTable(renderedSection) : `<div class="profile-data-grid profile-data-grid-${escapeHtml(key)}">${renderCards(renderedSection)}</div>`}
+      ${key === "talks" && rows.length === 0 ? `<p class="profile-data-status" role="status">${baseRows.length ? "No talks match the selected filters. Try changing the year, type, or scope." : "No talks are available yet."}</p>` : view === "table" ? renderTable(renderedSection) : `<div class="profile-data-grid profile-data-grid-${escapeHtml(key)}">${renderCards(renderedSection)}</div>`}
     `;
 
     mount.querySelectorAll("[data-profile-filter]").forEach((button) => {
