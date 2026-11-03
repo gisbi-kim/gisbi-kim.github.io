@@ -314,6 +314,7 @@
   }
 
   function talkType(row) {
+    if (row.Type) return row.Type;
     const talkContext = `${row["Event/Session"] || ""} ${row["Invitation From"] || ""}`;
     if (/(IROS|KRoC|ICEIC|Conference|Summer School|Award Session)/i.test(talkContext)) return "Conference";
     if (/Hyundai Motor Company|Mobile Robotics Team|URobotics/i.test(`${row["Host / Venue"] || ""} ${row["Invitation From"] || ""}`)) return "Industry";

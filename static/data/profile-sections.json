@@ -359,6 +359,18 @@
           "Scope": "Domestic"
         },
         {
+          "Date": "2026.11.10",
+          "Event/Session": "DGIST GLOCAL Special Seminar",
+          "Host / Venue": "DGIST, E7-241, Daegu, South Korea (16:30–17:30)",
+          "Invitation From": "Institute of Robotics and Mechatronics Engineering, DGIST",
+          "Title": "지도에서 기억으로: 로봇의 인지와 추론을 잇는 장기 공간지능",
+          "Popup Image": "/images/talks/dgist-glocal-2026.jpg",
+          "Slide Link": "",
+          "Event Link": "",
+          "Scope": "Domestic",
+          "Type": "Research Institute"
+        },
+        {
           "Date": "2026.09.27",
           "Event/Session": "IROS 2026 WS (bridging-navigation)",
           "Host / Venue": "IROS 2026",
