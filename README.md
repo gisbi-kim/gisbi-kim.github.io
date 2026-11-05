@@ -43,6 +43,8 @@ Auto-deployed to GitHub Pages on every push to `master`.
 
 Homepage section menus keep smooth scrolling and update the URL fragment (for example, `#talks`), so section addresses can be shared and revisited with browser Back/Forward.
 
+The Awards section includes a bilingual explanation of the 2026 single-year citation indicators and an in-page viewer for the IROS 2025 HEAI award photos. The figures describe a 2025 citation snapshot, not career-long impact.
+
 The header's **CV** menu opens the [current CV PDF](https://github.com/gisbi-kim/cv-giseopkim/blob/main/main.pdf), maintained in the separate CV repository.
 
 ## Standalone essays

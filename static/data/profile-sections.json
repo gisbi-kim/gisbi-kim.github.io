@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-29",
+  "updatedAt": "2026-11-06",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -678,12 +678,24 @@
         "Event",
         "Event Link",
         "Website",
+        "Details Page",
+        "Certificate",
         "Award Photos",
         "Conference Photos",
         "Date",
         "Note"
       ],
       "rows": [
+        {
+          "Date": "2026",
+          "Award": "World's Top 2% Scientists — Single-year",
+          "Recipient": "Giseop Kim",
+          "Event": "Stanford / Elsevier",
+          "Event Link": "https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/9/",
+          "Website": "",
+          "Note": "2025 citation impact; Industrial Engineering & Automation: 1,341 / 131,085 (top 1.02%, excluding self-citations).",
+          "Details Page": "/awards/top-researcher-2026.html"
+        },
         {
           "Date": "2026.09.30",
           "Award": "Best Paper Award",
@@ -725,12 +737,19 @@
         {
           "Date": "2025.10",
           "Award": "Best Poster Award",
-          "Recipient": "Jiseon Kim (MS student of APRL)",
+          "Recipient": "Jiseon Kim, Daeun Song, Bokeon Suh, Hyoseok Ju, Yumin Lee, Xuesu Xiao, Giseop Kim",
           "Event": "HEAI Workshop, IROS 2025",
           "Event Link": "https://heai-iros25-workshop.github.io/",
-          "Popup Image": "/images/awards/people.jpg",
-          "Website": "https://www.dropbox.com/scl/fo/dz1m3bmpiiyb2ho8xku8x/ANYZ1dryKAzS2Lg_Z_Q5aQU?rlkey=5wt0uhmzp2s4zia7p1x79ansp&e=1&dl=0",
-          "Note": ""
+          "Popup Image": "/images/awards/heai-iros2025-certificate.png",
+          "Website": "",
+          "Note": "",
+          "Certificate": "/images/awards/heai-iros2025-certificate.png",
+          "Award Photos": "/images/awards/heai-iros2025-group.jpg",
+          "Popup Images": [
+            "/images/awards/heai-iros2025-certificate.png",
+            "/images/awards/heai-iros2025-group.jpg"
+          ],
+          "Photo Viewer": true
         }
       ]
     },

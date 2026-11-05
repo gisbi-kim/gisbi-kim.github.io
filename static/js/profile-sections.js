@@ -1,7 +1,9 @@
 (function () {
-  const linkColumns = new Set(["Download Link", "Slide Link", "Video", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website", "GitHub", "Award Photos", "Conference Photos"]);
+  const linkColumns = new Set(["Certificate", "Details Page", "Download Link", "Slide Link", "Video", "Lecture Material Links", "Link", "Tutorial Site", "Explorer", "Event Link", "Website", "GitHub", "Award Photos", "Conference Photos"]);
   const compactColumns = new Set(["Year", "Date", "Published Date", "Semester", "Code", "Types", "Category"]);
   const linkLabels = {
+    "Certificate": "Award certificate ↗",
+    "Details Page": "Citation metrics ↗",
     "Video": "Video",
     "Download Link": "Paper",
     "Lecture Material Links": "Material",
@@ -85,7 +87,7 @@
     if (!value) return "";
     const text = String(value).trim();
     const href = localPreviewHref(text);
-    const linkTarget = isUrl(href) ? ' target="_blank" rel="noopener"' : "";
+    const linkTarget = isUrl(href) || ["Details Page", "Certificate", "Award Photos"].includes(column) ? ' target="_blank" rel="noopener"' : "";
     if (linkColumns.has(column) && (isUrl(text) || isInternalPath(text))) {
       const host = hostLabel(text);
       const label = labelOverride || linkLabels[column] || (host.includes("dropbox.com") ? "Material" : `Open ${host}`);
@@ -621,7 +623,9 @@
         const actionHtml = actions
           .filter((column) => row[column] && !(isAwardsSection && column === "Event Link"))
           .map((column) =>
-            renderValue(
+            isAwardsSection && row["Photo Viewer"] && ["Certificate", "Award Photos"].includes(column)
+              ? `<button class="profile-data-link award-photo-link" type="button" data-talk-popup-images="${escapeHtml(column === "Certificate" ? `${row["Certificate"]}|${row["Award Photos"]}` : `${row["Award Photos"]}|${row["Certificate"]}`)}" data-talk-popup-title="IROS 2025 HEAI Best Poster Award">${escapeHtml(linkLabels[column].replace(" ↗", ""))}</button>`
+              : renderValue(
               column,
               row[column],
               isPublicationSection && column === "Download Link" && row.Title === "Chapter 8: LiDAR SLAM"
