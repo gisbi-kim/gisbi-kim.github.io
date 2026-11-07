@@ -49,6 +49,16 @@ The Awards section includes a bilingual explanation of the 2026 single-year cita
 
 The header's **CV** menu opens the [current CV PDF](https://github.com/gisbi-kim/cv-giseopkim/blob/main/main.pdf), maintained in the separate CV repository.
 
+## Publication Journey
+
+[Publication Journey](https://gisbi-kim.github.io/publication-journey/) is linked as the first card under **Research & Teaching** (`#publications`). The four homepage cards use two columns on desktop and the existing swipeable row on mobile.
+
+The standalone page lives in `static/publication-journey/`; Hugo publishes it unchanged. It brings together the interactive timeline, **Places. Maps. Memory.** milestones, and a searchable publication index. Years run horizontally; nine curated research-question rows connect related work within three research areas. The November 7, 2026 snapshot contains 50 source entries, with seven domestic conference entries hidden unless enabled. Preprints and later versions count separately; this is not automatic synchronization with APRL.
+
+Maintain paper metadata in `data.json` and assign each ID to one topic in `research-topics.mjs`. Local figures and provenance are documented in [the page README](static/publication-journey/README.md). These are public source records and editorial groupings; the page adds no new CV records.
+
+Validate with `node scripts/check-publication-journey.mjs`, `node --check static/publication-journey/app.js`, and the normal Hugo build. Preview through `hugo server`, then check the homepage card, topic and domestic-conference filters, paper dialogs, and a narrow viewport. The page needs JavaScript for interaction and offers a publication-list link without it. Google Fonts is optional, with system fallbacks.
+
 ## Standalone essays
 
 Standalone essay pages live under `static/<slug>/index.html` and are listed by
