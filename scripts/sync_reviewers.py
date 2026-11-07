@@ -56,7 +56,9 @@ def render_service(data):
             if not re.match(r'^https?://[^\s{}\\]+$', link):
                 raise ValueError(f'Invalid service link: {link}')
             text = r'\href{' + latex(link) + '}{' + text + '}'
-        detail = r'\textbf{' + role + '}, ' + text + ' (' + latex(venue) + ').'
+        event = item.get('Event', '').strip()
+        event_text = (', ' + latex(event)) if event else ''
+        detail = r'\textbf{' + role + '}, ' + text + event_text + ' (' + latex(venue) + ').'
         rows.append(r'\daterow{' + date_text + '}{' + detail + '}')
     return SERVICE_START + '\n' + r'\begin{tabularx}{\textwidth}{@{}L{34mm}Y@{}}' + '\n' + '\n'.join(rows) + '\n' + r'\end{tabularx}' + '\n' + SERVICE_END
 
