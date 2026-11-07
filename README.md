@@ -43,7 +43,7 @@ Auto-deployed to GitHub Pages on every push to `master`.
 
 Homepage section menus keep smooth scrolling and update the URL fragment (for example, `#talks`), so section addresses can be shared and revisited with browser Back/Forward.
 
-Academic Service includes a collapsed reviewer list, grouped by conferences and journals, with confirmed participation years. Reviewer records are maintained in `static/data/profile-sections.json`. Run `python scripts/sync_reviewers.py --cv <path-to-cv>` to update the marked block in the companion CV source, then rebuild and verify its PDF and README; add `--check` to detect drift. The script does not run or publish automatically.
+Academic Service includes a collapsed reviewer list, grouped by conferences and journals, with confirmed participation years. Academic service and reviewer records are maintained in `static/data/profile-sections.json`. The companion CV repository checks this data hourly and rebuilds and commits its CV when service changes. GitHub may delay scheduled runs. The workflow does not synchronize other sections. To synchronize locally, run `python scripts/sync_reviewers.py --cv <path-to-cv>` and rebuild the CV; add `--check` to detect drift.
 
 The Awards section includes a bilingual explanation of the 2026 single-year citation indicators and an in-page viewer for the IROS 2025 HEAI award photos. The figures describe a 2025 citation snapshot, not career-long impact.
 

@@ -6,6 +6,8 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+SERVICE_START = '% BEGIN WEBSITE SERVICE'
+SERVICE_END = '% END WEBSITE SERVICE'
 START = '% BEGIN WEBSITE REVIEWERS'
 END = '% END WEBSITE REVIEWERS'
 
@@ -34,6 +36,39 @@ def render(data):
     return START + '\n' + '\n\n'.join(blocks) + '\n' + END
 
 
+def render_service(data):
+    entries = data['sections']['academic_service']['rows']
+    if not isinstance(entries, list) or not entries:
+        raise ValueError('Academic service must contain entries')
+    rows = []
+    for item in sorted(entries, key=lambda x: not str(x.get('Date', '')).endswith('present')):
+        date, role, venue, title = (item.get(k, '').strip() for k in ('Date', 'Role', 'Venue', 'Title'))
+        if not all((date, role, venue, title)):
+            raise ValueError('Each academic service entry requires Date, Role, Venue and Title')
+        year = re.match(r'^(\d{4})(?:\.\d{2})?(?:[–-]present)?$', date)
+        if not year:
+            raise ValueError(f'Unsupported service date: {date}')
+        date_text = year[1] + ('--present' if date.endswith('present') else '')
+        role = latex(role)
+        text = latex(title)
+        link = item.get('Tutorial Site') or item.get('Website') or item.get('Explorer') or ''
+        if link:
+            if not re.match(r'^https?://[^\s{}\\]+$', link):
+                raise ValueError(f'Invalid service link: {link}')
+            text = r'\href{' + latex(link) + '}{' + text + '}'
+        detail = r'\textbf{' + role + '}, ' + text + ' (' + latex(venue) + ').'
+        rows.append(r'\daterow{' + date_text + '}{' + detail + '}')
+    return SERVICE_START + '\n' + r'\begin{tabularx}{\textwidth}{@{}L{34mm}Y@{}}' + '\n' + '\n'.join(rows) + '\n' + r'\end{tabularx}' + '\n' + SERVICE_END
+
+
+def replace_block(source, start_marker, end_marker, content):
+    if source.count(start_marker) != 1 or source.count(end_marker) != 1 or source.index(start_marker) > source.index(end_marker):
+        raise ValueError(f'CV must contain exactly one correctly ordered pair of markers: {start_marker}')
+    start = source.index(start_marker)
+    end = source.index(end_marker) + len(end_marker)
+    return source[:start] + content + source[end:]
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--cv', type=Path, required=True, help='Path to the CV repository')
@@ -42,20 +77,17 @@ def main():
     data = json.loads((ROOT / 'static/data/profile-sections.json').read_text(encoding='utf-8'))
     cv = args.cv / 'main.tex'
     source = cv.read_text(encoding='utf-8')
-    if source.count(START) != 1 or source.count(END) != 1 or source.index(START) > source.index(END):
-        raise ValueError('CV must contain exactly one correctly ordered pair of reviewer markers')
-    start = source.index(START)
-    end = source.index(END) + len(END)
-    new = source[:start] + render(data) + source[end:]
+    new = replace_block(source, SERVICE_START, SERVICE_END, render_service(data))
+    new = replace_block(new, START, END, render(data))
     if args.check:
         if source != new:
-            raise SystemExit('Reviewer data differs between website and CV')
-        print('Reviewer records match.')
+            raise SystemExit('Academic service differs between website and CV')
+        print('Academic service records match.')
     elif source != new:
         cv.write_text(new, encoding='utf-8')
-        print('Updated reviewer records in CV main.tex; rebuild and verify the CV.')
+        print('Updated academic service in CV main.tex; rebuild and verify the CV.')
     else:
-        print('Reviewer records already match.')
+        print('Academic service records already match.')
 
 if __name__ == '__main__':
     main()
