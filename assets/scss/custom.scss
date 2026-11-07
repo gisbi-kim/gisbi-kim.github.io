@@ -2736,3 +2736,10 @@ body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
 @media(max-width:640px) { .media-list li { grid-template-columns:100px 1fr; gap:4px 12px; } .media-list a { grid-column:1/-1; } }
 
 .award-photo-link { border: 0; padding: 0; background: none; cursor: pointer; font: inherit; }
+
+.profile-reviewers-content { padding: 0.9rem 1rem 1rem; }
+.profile-reviewers-content section + section { margin-top: 1.2rem; }
+.profile-reviewers-content h3 { font-size: 0.9rem; margin: 0 0 0.55rem; }
+.profile-reviewers-content ul { list-style: none; margin: 0; padding: 0; }
+.profile-reviewers-content li { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.2rem 1rem; padding: 0.35rem 0; font-size: 0.88rem; }
+.profile-reviewers-years { color: var(--bs-secondary-color, #5b6472); white-space: nowrap; }

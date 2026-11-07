@@ -692,13 +692,21 @@
         .join("");
     }
 
+    const reviewerPanel = isAcademicServiceSection && section.reviewers
+      ? `<details class="profile-data-year-group profile-reviewers">
+          <summary><span class="profile-data-year-group-title"><span class="profile-data-year-group-arrow" aria-hidden="true"></span>Reviewers</span>
+            <span class="profile-data-year-group-status"><span class="profile-data-year-group-hint"><span class="profile-data-year-group-hint-closed">Show entries</span><span class="profile-data-year-group-hint-open">Hide entries</span></span></span></summary>
+          <div class="profile-reviewers-content">${Object.entries(section.reviewers).map(([category, entries]) => `<section><h3>${escapeHtml(category)}</h3><ul>${entries.map(([venue, years]) => `<li><span>${escapeHtml(venue)}</span><span class="profile-reviewers-years">${escapeHtml(years)}</span></li>`).join("")}</ul></section>`).join("")}</div>
+        </details>`
+      : "";
+
     // Ongoing appointments precede conference-year service without mutating source rows.
     const orderedRows = isAcademicServiceSection
       ? [...section.rows.filter((row) => rowYear(section, row) === "Current"),
          ...section.rows.filter((row) => rowYear(section, row) !== "Current")]
       : section.rows;
     let previousYear = "";
-    return orderedRows
+    return reviewerPanel + orderedRows
       .map((row) => {
         const year = showYearSeparators ? rowYear(section, row) : "";
         const separator =

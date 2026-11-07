@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-06",
+  "updatedAt": "2026-11-08",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -939,7 +939,81 @@
           "Explorer": "",
           "Website": ""
         }
-      ]
+      ],
+      "reviewers": {
+        "Conferences": [
+          [
+            "IEEE International Conference on Robotics and Automation (ICRA)",
+            "2024, 2026, 2027"
+          ],
+          [
+            "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+            "2023, 2024, 2025, 2026"
+          ],
+          [
+            "Robotics: Science and Systems (RSS)",
+            "2024, 2025, 2026"
+          ],
+          [
+            "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+            "2025, 2026"
+          ],
+          [
+            "European Conference on Computer Vision (ECCV)",
+            "2026"
+          ],
+          [
+            "IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)",
+            "2026"
+          ],
+          [
+            "Conference on Neural Information Processing Systems (NeurIPS), Evaluations and Datasets Track",
+            "2026"
+          ],
+          [
+            "AAAI Conference on Artificial Intelligence (AAAI)",
+            "2027"
+          ],
+          [
+            "IEEE/SICE International Symposium on System Integration (SII)",
+            "2026"
+          ],
+          [
+            "International Conference on Control, Automation and Systems (ICCAS)",
+            "2026"
+          ],
+          [
+            "International Conference on Ubiquitous Robots (UR)",
+            "2023, 2025"
+          ],
+          [
+            "International Conference on Space Robotics (iSpaRo)",
+            "2026"
+          ]
+        ],
+        "Journals": [
+          [
+            "IEEE Transactions on Robotics (T-RO)",
+            "2023, 2024, 2026"
+          ],
+          [
+            "IEEE Robotics and Automation Letters (RA-L)",
+            "2023, 2024, 2025, 2026"
+          ],
+          [
+            "The International Journal of Robotics Research (IJRR)",
+            "2026"
+          ],
+          [
+            "IEEE Transactions on Aerospace and Electronic Systems",
+            "2025"
+          ],
+          [
+            "Advanced Robotics",
+            "2024"
+          ]
+        ]
+      }
     },
     "personal_projects": {
       "title": "Personal Projects",

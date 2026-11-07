@@ -179,7 +179,7 @@ sections:
       title: Essays
       text: |
         <p class="profile-data-more-link"><a href="/essays/">View Essays →</a></p>
-        <script src="/js/profile-sections.js?v=20261106-awards" defer></script>
+        <script src="/js/profile-sections.js?v=20261108-reviewers" defer></script>
     design:
       columns: '1'
 
