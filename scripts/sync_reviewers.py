@@ -40,7 +40,7 @@ def render_service(data):
     entries = data['sections']['academic_service']['rows']
     if not isinstance(entries, list) or not entries:
         raise ValueError('Academic service must contain entries')
-    rows = []
+    groups = {'International': [], 'Domestic': []}
     for item in sorted(entries, key=lambda x: not str(x.get('Date', '')).endswith('present')):
         date, role, venue, title = (item.get(k, '').strip() for k in ('Date', 'Role', 'Venue', 'Title'))
         if not all((date, role, venue, title)):
@@ -59,8 +59,16 @@ def render_service(data):
         event = item.get('Event', '').strip()
         event_text = (', ' + latex(event)) if event else ''
         detail = r'\textbf{' + role + '}, ' + text + event_text + ' (' + latex(venue) + ').'
-        rows.append(r'\daterow{' + date_text + '}{' + detail + '}')
-    return SERVICE_START + '\n' + r'\begin{tabularx}{\textwidth}{@{}L{34mm}Y@{}}' + '\n' + '\n'.join(rows) + '\n' + r'\end{tabularx}' + '\n' + SERVICE_END
+        category = item.get('Category', '').strip()
+        scope = category.split(' ', 1)[0]
+        if scope not in groups:
+            raise ValueError(f'Unsupported academic service category: {category}')
+        groups[scope].append(r'\daterow{' + date_text + '}{' + detail + '}')
+    blocks = []
+    for scope, rows in groups.items():
+        if rows:
+            blocks.append(r'\subsection{' + scope + '}' + '\n' + r'\begin{tabularx}{\textwidth}{@{}L{34mm}Y@{}}' + '\n' + '\n'.join(rows) + '\n' + r'\end{tabularx}')
+    return SERVICE_START + '\n' + '\n\n'.join(blocks) + '\n' + SERVICE_END
 
 
 def replace_block(source, start_marker, end_marker, content):
