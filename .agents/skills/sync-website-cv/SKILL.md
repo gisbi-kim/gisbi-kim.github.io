@@ -19,6 +19,7 @@ description: Update Giseop Kim's academic website and companion CV together for 
 2. Verify role, venue, date, and acceptance from user-supplied evidence or relevant mail. Publish only authorized biographical facts, never mail bodies, private addresses, registration links, or review assignments.
 3. Check for existing entries to avoid duplicates. Distinguish conference year from appointment start: RSS Area Chair belongs to RSS 2027; RA-L Associate Editor began October 2026, area Localization and Mapping. Do not infer term end dates.
 4. Update website and corresponding CV section with equivalent facts, preserving full venue names and layout. Update JSON `updatedAt` and use Asia/Seoul for revision dates.
+   For reviewer service, `sections.academic_service.reviewers` in the website JSON is the source of truth. After editing it, run `python scripts/sync_reviewers.py --cv <path-to-cv>` from the website repository, then rebuild the CV. The script replaces only the marked reviewer block in `main.tex`; never include manuscript-level or private email details. Run the same command with `--check` to detect drift. Conference years are event years; journal years are confirmed review years. Do not turn missing years into continuous ranges.
 5. Record the narrow change and evidence type/date in CV `CHANGELOG.md`. Do not imply unrelated facts were reverified.
 6. Assess CV relevance for styling, navigation, essays, and personal projects; these normally need no CV edit. State that assessment rather than inventing a CV change.
 
@@ -42,4 +43,4 @@ Commit the CV source, generated PDF, README, revision date and changelog togethe
 
 Verify remote source and PDF blob hashes against tested files. Confirm Pages deployment and live content. Inspect the existing CV link and preserve its canonical destination in the CV repository. Report each repository separately if one fails. Never declare synchronization complete after only editing TeX or adding a workflow.
 
-This skill directs future agent work; it is not an unattended synchronization service.
+This skill is invoked by Codex during relevant work. The reviewer script synchronizes the source on invocation; it does not monitor repositories, rebuild PDFs, commit, or deploy unattended. Always complete the build and publication steps above when authorized.
