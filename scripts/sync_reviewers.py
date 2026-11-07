@@ -32,7 +32,7 @@ def render(data):
             if not re.fullmatch(r'\d{4}(, \d{4})*', years):
                 raise ValueError(f'Invalid years for {venue}: {years}')
             rows.append(r'\daterow{' + latex(years) + '}{' + latex(venue) + '.}')
-        blocks.append('\\subsection{' + title + '}\n\\begin{tabularx}{\\textwidth}{@{}L{34mm}Y@{}}\n' + '\n'.join(rows) + '\n\\end{tabularx}')
+        blocks.append('\\subsection{' + title + '}\n\\begin{tabularx}{\\textwidth}{@{}L{50mm}Y@{}}\n' + '\n'.join(rows) + '\n\\end{tabularx}')
     return START + '\n' + '\n\n'.join(blocks) + '\n' + END
 
 
@@ -93,3 +93,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
