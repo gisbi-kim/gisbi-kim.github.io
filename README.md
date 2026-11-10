@@ -79,6 +79,10 @@ Source-attributed notes live in `content/notes/<slug>/index.md` and appear
 automatically on `/notes/`, newest first. Use the existing title, subtitle,
 summary, date, authors, tags, and draft front matter.
 
+[IROS 2026 Talks and Discussions](https://gisbi-kim.github.io/iros-2026-talks/)
+is linked from the notes collection using `external_link`. It organizes 26 videos
+by topic and provides bilingual notes and links to speakers and videos.
+
 [Research-Community Fit](https://gisbi-kim.github.io/notes/research-community-fit/)
 (October 11, 2026) connects Sean Ellis's PMF question to research planning and
 lasting use. It distinguishes the source image, public PMF references, the
