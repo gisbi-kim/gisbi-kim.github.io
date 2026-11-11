@@ -47,7 +47,7 @@ sections:
           </a>
           <a class="profile-quick-link" id="teaching" href="https://team-aprl.github.io/teaching.html" target="_blank" rel="noopener noreferrer">
             <span class="profile-quick-link-index">04</span>
-            <span class="profile-quick-link-copy"><strong>Teaching</strong><span>Courses, AI/SW SCHOOL, and materials</span></span>
+            <span class="profile-quick-link-copy"><strong>Teaching</strong><span>Courses and materials</span></span>
             <span class="profile-quick-link-arrow" aria-hidden="true">↗</span>
           </a>
         </nav>
