@@ -83,6 +83,14 @@ summary, date, authors, tags, and draft front matter.
 is linked from the notes collection using `external_link`. It organizes 26 videos
 by topic and provides bilingual notes and links to speakers and videos.
 
+[FieldAI JD Atlas](https://gisbi-kim.github.io/fieldai-jd-atlas/)
+is linked from `content/notes/fieldai-jd-atlas/index.md` using `external_link`.
+The separate public repository hosts 64 robotics and spatial AI job descriptions
+in nine topics, with original English, Korean reference translations, disclosed
+pay ranges, and conceptual job illustrations. It is an unofficial collection
+of public postings captured on November 15, 2026; recruiting status is not
+automatically refreshed. This personal-project link does not change CV records.
+
 [Research-Community Fit](https://gisbi-kim.github.io/notes/research-community-fit/)
 (October 11, 2026) connects Sean Ellis's PMF question to research planning and
 lasting use. It distinguishes the source image, public PMF references, the
