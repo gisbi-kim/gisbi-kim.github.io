@@ -91,6 +91,10 @@ pay ranges, and conceptual job illustrations. It is an unofficial collection
 of public postings captured on November 15, 2026; recruiting status is not
 automatically refreshed. This personal-project link does not change CV records.
 
+[From Language to Action · History of Robot Intelligence & VLA](https://gisbi-kim.github.io/vla-history/index.html)
+is linked from the Notes collection using `external_link`. The bilingual essay
+traces robot learning models through their inputs, outputs, and control timescales.
+
 [Research-Community Fit](https://gisbi-kim.github.io/notes/research-community-fit/)
 (October 11, 2026) connects Sean Ellis's PMF question to research planning and
 lasting use. It distinguishes the source image, public PMF references, the
