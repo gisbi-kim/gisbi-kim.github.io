@@ -589,7 +589,10 @@
             ? `<span class="profile-data-badge profile-data-badge-code">${renderValue("Code", row.Code)}</span>`
             : "";
         const mainTeachingBadge = isMainTeaching ? '<span class="profile-data-badge profile-data-badge-main">Main</span>' : "";
-        const badgeHtml = `${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceCategoryBadge}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${academicServiceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
+        const awardScopeBadge = isAwardsSection && ["International", "Domestic"].includes(row.Scope)
+          ? `<span class="profile-data-badge profile-data-badge-talk-${row.Scope.toLowerCase()}">${escapeHtml(row.Scope)}</span>`
+          : "";
+        const badgeHtml = `${awardScopeBadge}${publicationBadges}${aprlBadge}${essayTagBadges}${conferenceCategoryBadge}${conferenceBadge}${talksBadge}${researchInstituteBadge}${industryBadge}${governmentBadge}${fundedStatusBadge}${academicServiceBadge}${teachingCodeBadge}${mainTeachingBadge}`;
         const metaHtml = metas
           .filter((column) => row[column] && !(isTeachingSection && column === "Code"))
           .map((column) => {
@@ -655,7 +658,7 @@
             : isTalksSection && primary === "Title"
               ? renderPopupTitle(row, primary)
               : renderValue(primary, row[primary]);
-        const titleRow = primary ? `<div class="profile-data-title-row">${badgeHtml}<h3>${titleValue}</h3></div>` : "";
+        const titleRow = primary ? `<div class="profile-data-title-row">${badgeHtml}<h3>${titleValue}</h3></div>` : (awardScopeBadge ? `<div class="profile-data-title-row">${awardScopeBadge}</div>` : "");
         const contentBlock = `<div class="profile-data-publication-body">
             ${titleRow}
             <div class="profile-data-meta-row">${metaHtml}</div>

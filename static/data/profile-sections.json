@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-08",
+  "updatedAt": "2026-11-18",
   "sections": {
     "publications": {
       "title": "Publications/Patents",
@@ -694,7 +694,8 @@
           "Event Link": "https://elsevier.digitalcommonsdata.com/datasets/btchxktzyw/9/",
           "Website": "",
           "Note": "2025 citation impact; Industrial Engineering & Automation: 1,341 / 131,085 (top 1.02%, excluding self-citations).",
-          "Details Page": "/awards/top-researcher-2026.html"
+          "Details Page": "/awards/top-researcher-2026.html",
+          "Scope": "International"
         },
         {
           "Date": "2026.09.30",
@@ -707,7 +708,8 @@
           "Website": "",
           "Award Photos": "https://team-aprl.github.io/gallery.html#iros2026-best-paper-award",
           "Conference Photos": "https://team-aprl.github.io/gallery.html#iros2026",
-          "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding"
+          "Note": "LT-Mem: Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding",
+          "Scope": "International"
         },
         {
           "Date": "2026.07",
@@ -722,7 +724,8 @@
           ],
           "Popup Trigger": "Award",
           "Website": "",
-          "Note": ""
+          "Note": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2026.02",
@@ -732,7 +735,8 @@
           "Event Link": "",
           "Popup Image": "/images/awards/gallery-2026-02-06-2.jpg",
           "Website": "",
-          "Note": ""
+          "Note": "",
+          "Scope": "Domestic"
         },
         {
           "Date": "2025.10",
@@ -749,7 +753,8 @@
             "/images/awards/heai-iros2025-certificate.png",
             "/images/awards/heai-iros2025-group.jpg"
           ],
-          "Photo Viewer": true
+          "Photo Viewer": true,
+          "Scope": "International"
         }
       ]
     },
