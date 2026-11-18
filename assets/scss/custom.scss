@@ -2744,7 +2744,7 @@ body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
 .media-clipping figcaption { margin-top: 0.35rem; font-size: 0.8rem; }
 @media(max-width:640px) {
   .media-list li { grid-template-columns:100px 1fr; gap:4px 12px; }
-  .media-list li > a, .media-clipping { grid-column:1/-1; }
+  .media-list li > a, .media-title, .media-clipping { grid-column:1/-1; }
   .media-clipping { margin-top: 0.5rem; }
 }
 
