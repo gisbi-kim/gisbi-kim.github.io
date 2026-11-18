@@ -2733,7 +2733,20 @@ body.dark.ssi-paper-page .article-style .ssi-language-switch a.is-active:hover {
 .media-list li { display:grid; grid-template-columns:100px 75px minmax(0,1fr); align-items:baseline; gap:12px; padding:16px 0; border-bottom:1px solid rgba(128,128,128,.2); font-size:.88rem; line-height:1.65; }
 .media-list time,.media-outlet { color:#777; font-size:.8rem; white-space:nowrap; }
 .media-list a { word-break:keep-all; overflow-wrap:anywhere; }
-@media(max-width:640px) { .media-list li { grid-template-columns:100px 1fr; gap:4px 12px; } .media-list a { grid-column:1/-1; } }
+.media-clipping {
+  grid-column: 3 / -1;
+  width: 100%;
+  max-width: 420px;
+  margin: 0;
+}
+.media-clipping a, .media-clipping img { display: block; }
+.media-clipping img { width: 100%; height: auto; }
+.media-clipping figcaption { margin-top: 0.35rem; font-size: 0.8rem; }
+@media(max-width:640px) {
+  .media-list li { grid-template-columns:100px 1fr; gap:4px 12px; }
+  .media-list li > a, .media-clipping { grid-column:1/-1; }
+  .media-clipping { margin-top: 0.5rem; }
+}
 
 .award-photo-link { border: 0; padding: 0; background: none; cursor: pointer; font: inherit; }
 
