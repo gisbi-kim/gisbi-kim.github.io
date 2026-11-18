@@ -49,6 +49,8 @@ The Awards section labels each entry International or Domestic and includes a bi
 
 The header's **CV** menu opens the [current CV PDF](https://github.com/gisbi-kim/cv-giseopkim/blob/main/main.pdf), maintained in the separate CV repository.
 
+Media coverage is listed in the homepage's Media section. The November 18, 2026 Maeil Shinmun entry links to the online article and displays the supplied print clipping from `static/media/`.
+
 ## Publication Journey
 
 [Publication Journey](https://gisbi-kim.github.io/publication-journey/) is linked as the first card under **Research & Teaching** (`#publications`). The four homepage cards use two columns on desktop and the existing swipeable row on mobile.
