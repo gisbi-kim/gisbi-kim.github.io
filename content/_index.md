@@ -90,10 +90,7 @@ sections:
         <li>
           <time datetime="2026-11-18">2026.11.18</time>
           <span class="media-outlet">매일신문</span>
-          <a href="https://m.imaeil.com/page/view/2026111711203370515" target="_blank" rel="noopener noreferrer">[매일 탑 리더스 아카데미] 김기섭 DGIST 교수 “인류가 로봇과 일하는 시대에 필요한 것은 상호작용”</a>
-          <div class="media-clipping">
-            <a href="/media/maeil-newspaper-2026-11-18.png" target="_blank" rel="noopener noreferrer" aria-label="매일신문 2026년 11월 18일 22면 지면 보기 (새 탭)">지면 보기 (22면) ↗</a>
-          </div>
+          <span class="media-title"><a href="https://m.imaeil.com/page/view/2026111711203370515" target="_blank" rel="noopener noreferrer">[매일 탑 리더스 아카데미] 김기섭 DGIST 교수 “인류가 로봇과 일하는 시대에 필요한 것은 상호작용”</a> <a href="/media/maeil-newspaper-2026-11-18.png" target="_blank" rel="noopener noreferrer" aria-label="매일신문 2026년 11월 18일 22면 지면 보기 (새 탭)">(지면보기)</a></span>
         </li>
         <li><time datetime="2026-10-29">2026.10.29</time><span class="media-outlet">대구일보</span><a href="https://www.idaegu.com/news/articleView.html?idxno=666590" target="_blank" rel="noopener noreferrer">[대구일보 인터뷰] “로봇도 경험을 기억해 상황을 판단하도록”…세계로봇학회가 주목한 DGIST 김기섭 교수</a></li>
         <li><time datetime="2026-10-07">2026.10.07</time><span class="media-outlet">로봇신문</span><a href="https://www.irobotnews.com/news/articleView.html?idxno=48879" target="_blank" rel="noopener noreferrer">DGIST 김기섭 교수팀, 세계 최고 권위 로봇학회 ‘IROS 2026’ 최우수 논문상</a></li>
