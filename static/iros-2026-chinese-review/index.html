@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IROS 2026 &amp; LT-Mem 중국 웹 평론·진단·인사이트 총정리</title>
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --surface: #131926;
+      --surface-2: #1a2234;
+      --border: #26324a;
+      --text: #e6ecf5;
+      --text-muted: #9aa7bd;
+      --accent: #60a5fa;
+      --accent-2: #34d399;
+      --accent-3: #f59e0b;
+      --accent-4: #a78bfa;
+      --quote-bg: #0f1522;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", "Noto Sans KR", "PingFang SC", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, #111827 0%, #0f172a 60%, #172554 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 44px 0 36px;
+      margin-bottom: 28px;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(96, 165, 250, 0.14);
+      color: var(--accent);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+    .badge.green {
+      background: rgba(52, 211, 153, 0.14);
+      color: var(--accent-2);
+      border-color: rgba(52, 211, 153, 0.3);
+    }
+    .badge.amber {
+      background: rgba(245, 158, 11, 0.14);
+      color: var(--accent-3);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    h1 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 820px;
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .stat-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .stat-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Nav / Controls */
+    .controls {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(11, 15, 23, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      margin-bottom: 28px;
+    }
+    .controls-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tab-btn {
+      background: var(--surface);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover {
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .tab-btn.active {
+      background: var(--accent);
+      color: #09111e;
+      border-color: var(--accent);
+    }
+    .search-box {
+      flex: 1;
+      min-width: 220px;
+      max-width: 320px;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 13px;
+      outline: none;
+    }
+    .search-box input:focus {
+      border-color: var(--accent);
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 34px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* Quote Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 22px;
+      transition: border-color 0.15s ease;
+    }
+    .card:hover {
+      border-color: #3b4f75;
+    }
+    .card-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .source-tag {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      background: var(--surface-2);
+      color: var(--accent);
+      border: 1px solid var(--border);
+    }
+    .topic-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--accent-2);
+    }
+    .topic-tag.purple {
+      background: rgba(167, 139, 250, 0.14);
+      color: var(--accent-4);
+    }
+    .topic-tag.amber {
+      background: rgba(245, 158, 11, 0.14);
+      color: var(--accent-3);
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-top: 6px;
+      width: 100%;
+    }
+    .card-link {
+      font-size: 12px;
+      white-space: nowrap;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(96, 165, 250, 0.1);
+      border: 1px solid rgba(96, 165, 250, 0.25);
+    }
+
+    .quote-block {
+      background: var(--quote-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 13px 16px;
+      margin-top: 12px;
+    }
+    .quote-block.green {
+      border-left-color: var(--accent-2);
+    }
+    .quote-block.amber {
+      border-left-color: var(--accent-3);
+    }
+    .quote-block.purple {
+      border-left-color: var(--accent-4);
+    }
+    .quote-point {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .quote-block.green .quote-point { color: var(--accent-2); }
+    .quote-block.amber .quote-point { color: var(--accent-3); }
+    .quote-block.purple .quote-point { color: var(--accent-4); }
+
+    .zh {
+      font-size: 14.5px;
+      color: #f3f6fc;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .ko {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .note-box {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.25);
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+
+    /* Two-column summary boxes */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .info-box h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .info-box ul {
+      padding-left: 18px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .info-box li {
+      margin-bottom: 6px;
+    }
+    .info-box strong {
+      color: var(--text);
+    }
+
+    /* Table */
+    .table-wrap {
+      overflow-x: auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    th, td {
+      padding: 11px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: var(--surface-2);
+      color: #fff;
+      font-weight: 700;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    td {
+      color: var(--text-muted);
+    }
+    td strong {
+      color: var(--text);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="badge-row">
+      <span class="badge">IROS 2026 · 피츠버그 (9.27~10.1)</span>
+      <span class="badge green">Best Paper: LT-Mem (DGIST APRL)</span>
+      <span class="badge amber">중국 웹 평론·진단·인사이트 아카이브</span>
+    </div>
+    <h1>IROS 2026 &amp; LT-Mem 중국 웹 반응·평론·진단 총정리</h1>
+    <p class="subtitle">
+      知乎(즈후), 虎嗅(Huxiu), 搜狐(Sohu), 网易(163), 雷峰网(Leiphone), CSDN, 企服科学, 凤凰网(iFeng), 必杰出海, RoboRadar 등
+      중국 주요 IT·로보틱스 매체 및 커뮤니티에서 다룬 <strong>IROS 2026 현장 평가, 산업계 온도차, 그리고 LT-Mem 수상의 의미</strong>를 원문 발췌와 함께 정리한 문서입니다.
+    </p>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="container controls-inner">
+    <div class="tabs" id="filterTabs">
+      <button class="tab-btn active" data-filter="all">전체 보기</button>
+      <button class="tab-btn" data-filter="ltmem">LT-Mem &amp; 장기 기억 평론</button>
+      <button class="tab-btn" data-filter="paradigm">IROS 2026 현장·패러다임 진단</button>
+      <button class="tab-btn" data-filter="industry">자본·촉각·하드웨어 현실론</button>
+      <button class="tab-btn" data-filter="platform">플랫폼 현황 &amp; 전체 링크</button>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="키워드 검색 (예: 虎嗅, 专才, 触觉, 1/16, 泡沫...)" />
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+  <!-- Stats -->
+  <section class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">IROS 2026 규모</div>
+      <div class="stat-value">4,348편 투고 / 1,585편 채택</div>
+      <div class="stat-sub">채택률 36.45% (최근 최저) · 31년 만의 피츠버그 개최</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Best Paper Award</div>
+      <div class="stat-value">LT-Mem (DGIST APRL)</div>
+      <div class="stat-sub">Yumin Lee, Hyoseok Ju, Giseop Kim (설립 1년 9개월 차 신생 랩)</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">핵심 효율 지표 (중국 매체 주목)</div>
+      <div class="stat-value">토큰 약 1/16 수준</div>
+      <div class="stat-sub">Qwen2.5-3B 소형 모델로도 Gemini급 VLM 베이스라인 압도</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">수집·분석된 중국 출처</div>
+      <div class="stat-value">15+ 개 매체/블로그</div>
+      <div class="stat-sub">虎嗅, 网易, 搜狐, 雷峰网, 企服科学, CSDN, 凤凰网 등</div>
+    </div>
+  </section>
+
+  <!-- Section 1: LT-Mem & Long-Term Memory Commentary -->
+  <section class="group-section" data-category="ltmem">
+    <h2 class="section-title">
+      <span class="section-dot" style="background: var(--accent-2);"></span>
+      1. LT-Mem 수상 의미 &amp; ‘장기 기억(长记忆)’ 평론
+    </h2>
+    <div class="cards">
+
+      <!-- Huxiu -->
+      <article class="card" data-category="ltmem">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">虎嗅 (Huxiu) / 42号电波</span>
+            <span class="topic-tag">핵심 출처 · 현장 리포트</span>
+          </div>
+          <a class="card-link" href="https://m.huxiu.com/article/4895175.html?type=text" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《想造 GPT 通才的年轻人，和相信专才的老将｜IROS 2026 现场》 (2026-10-02)</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">학계가 산업계의 목소리를 들었다 — LT-Mem 수상에 대한 직접 평론</div>
+          <div class="zh">“并且这届最佳论文给了关注长期记忆的工作，多少也说明学界听见了产业的声音，比起一次次惊艳的demo，机器人确实需要从失败里恢复的能力。”</div>
+          <div class="ko">그리고 이번 최우수 논문이 장기 기억에 주목한 연구에 주어졌다는 점은, 학계가 산업계의 목소리를 들었다는 것을 어느 정도 보여준다. 매번 사람들을 놀라게 하는 화려한 데모보다, 로봇에게는 정말로 실패로부터 복구할 수 있는 능력이 필요하다.</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">테슬라 로봇 플릿(Fleet) 담당자의 발언과 LT-Mem의 접점</div>
+          <div class="zh">“在产业讨论现场，一位在特斯拉负责机器人车队的嘉宾提到……如果只能选一个能力，他希望给机器人一个强大的记忆系统和从中学习的能力，即失败时弄清原因、自己恢复。今年IROS的最佳论文是Yumin Lee、Hyoseok Ju和Giseop Kim的《LT-Mem:Volatility-Aware Spatio-Temporal Memory for Lifelong Scene Understanding》，这篇best paper正是聚焦机器人长期记忆能力。这或许能说明产业非常关注机器人的长期记忆和学习能力，也为后续机器人学术研究指明了方向。”</div>
+          <div class="ko">산업계 토론 현장에서 테슬라의 로봇 플릿을 담당하는 한 패널은 … 단 하나의 능력만 고를 수 있다면 로봇에게 ‘강력한 기억 시스템과 그로부터 학습하는 능력’, 즉 실패했을 때 원인을 파악하고 스스로 복구하는 능력을 주고 싶다고 말했다. 올해 IROS 최우수 논문인 LT-Mem은 바로 로봇의 장기 기억 능력에 초점을 맞추고 있다. 이는 산업계가 로봇의 장기 기억과 학습 능력에 매우 큰 관심을 두고 있음을 보여주며, 향후 로봇 학술 연구의 방향을 제시한 것이라 할 수 있다.</div>
+        </div>
+      </article>
+
+      <!-- AI Tech Review / Sohu / Leaderobot / Sina -->
+      <article class="card" data-category="ltmem">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">搜狐 · 雷峰网/AI科技评论 · 机器人大讲堂 · 新浪</span>
+            <span class="topic-tag">패러다임 진단</span>
+          </div>
+          <a class="card-link" href="https://news.sohu.com/a/1091105792_114877" target="_blank" rel="noopener">搜狐 원문 ↗</a>
+          <a class="card-link" href="https://www.leaderobot.com/news/10376" target="_blank" rel="noopener">영문병기(Leaderobot) ↗</a>
+          <div class="card-title">《具身记忆赛道持续升温，长记忆迎来新 SOTA》 / 《机器人记不住事，这件事比它会不会干活更难解决》 (2026-10-22)</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">“엔지니어링 패치에서 공인된 과학적 문제로”</div>
+          <div class="zh">“IROS 2026 最佳论文启示录：没有长记忆的机器人，终将被淘汰。……评委会从近两千篇收录论文中选中它，想必不仅是认可其扎实的工作，也是代表学界宣告：具身长记忆（long-term embodied memory）已经从一个工程补丁，变成了机器人领域公认的科学问题。”</div>
+          <div class="ko">IROS 2026 최우수 논문 계시록: 장기 기억이 없는 로봇은 결국 도태될 것이다. … 심사위원회가 2,000여 편의 채택 논문 중 이를 선정한 것은 탄탄한 연구를 인정했을 뿐만 아니라, 학계를 대표해 ‘체화 장기 기억’이 단순한 엔지니어링 땜질(패치)에서 로봇 분야의 공인된 과학적 문제로 격상되었음을 선언한 셈이다.</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">일회성 도구에서 장기 근무하는 ‘동료’로</div>
+          <div class="zh">“通用机器人要规模化落地，需要以小时、天乃至周为单位持续运行，而不只是几分钟。没有长记忆，每次相遇都是初次见面，机器人只是一个个孤立的单次动作执行器；有了长记忆，它才能从一次性工具变成可以长期上岗的同事。”</div>
+          <div class="ko">범용 로봇이 대규모로 상용화되려면 몇 분이 아니라 시간, 일, 심지어 주 단위로 연속 작동해야 한다. 장기 기억이 없으면 매번 만날 때마다 초면이 되어 고립된 단발성 동작 실행기에 그치지만, 장기 기억이 있어야 일회성 도구에서 장기 근무가 가능한 동료로 거듭날 수 있다.</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">학계(LT-Mem)와 산업계(BetaMem)의 수렴</div>
+          <div class="zh">“LT-Mem 从多会话建图切入，把问题收窄到干净、可评测；BetaMem 则从记忆如何形成、如何验证、如何从失败中学习的系统视角，搭建完整的记忆底座。一边是顶尖学术单点攻坚摘得顶会桂冠，一边是国内团队以产业落地为目标搭建完整记忆底座，学术和产业在此交汇，足以证明长记忆是整个领域正在收敛的核心方向判断。”</div>
+          <div class="ko">LT-Mem은 다중 세션 매핑에서 출발해 문제를 깔끔하고 평가 가능하게 좁혔고, 중국 스타트업 BetaMem은 기억 형성·검증·실패 학습의 시스템 관점에서 전체 기억 기반을 구축했다. 학계와 산업계가 이 지점에서 교차한다는 사실만으로도, 장기 기억이 전체 분야가 수렴하고 있는 핵심 방향임을 증명하기에 충분하다.</div>
+        </div>
+      </article>
+
+      <!-- Sohu series 1 -->
+      <article class="card" data-category="ltmem">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">搜狐 (Sohu)</span>
+            <span class="topic-tag">본질적 문제 제기</span>
+          </div>
+          <a class="card-link" href="https://www.sohu.com/a/1085660924_121124366" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《机器人长期记忆系列（一）：IROS 2026 最佳论文，为什么在研究机器人“记忆”？》 (2026-10-09)</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">“하드디스크를 키우는 게 아니다” — 장기 기억의 3가지 핵심 질문</div>
+          <div class="zh">“所以，机器人长期记忆不是‘把硬盘做大一点’，而是持续回答三个问题：我看到的，还是不是原来那件东西？它是真的变了，还是我这次没看清？新观察应该覆盖旧判断，还是与旧判断一起暂存？”</div>
+          <div class="ko">따라서 로봇의 장기 기억은 ‘하드디스크 용량을 키우는 것’이 아니라 세 가지 질문에 지속적으로 답하는 것이다. 내가 본 것이 원래 그 물건이 맞는가? 실제로 바뀐 것인가, 아니면 내가 이번에 못 본 것인가? 새로운 관측이 기존 판단을 덮어써야 하는가, 아니면 기존 판단과 함께 임시 보관해야 하는가?</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">“매번 재부팅할 때마다 처음 온 것처럼 굴어서는 안 된다”</div>
+          <div class="zh">“过去几年，机器人在‘看见当前画面’上进步很快。……但长期运行需要另一种能力：把不同时间的观察接起来。机器人面对的不是一张永远不变的场景照片，而是一个有历史、会变化的空间。LT-Mem 获奖值得关注，也正在于它把一个很实际的问题推到了台前：机器人长期生活在同一个世界里，不能每次重启都像第一次来到这里。”</div>
+          <div class="ko">지난 몇 년간 로봇은 ‘현재 장면을 보는 것’에서 빠르게 발전했다. … 하지만 장기 운용에는 서로 다른 시간의 관측을 이어 붙이는 능력이 필요하다. 로봇이 마주하는 것은 영원히 변하지 않는 사진이 아니라 역사가 있고 변화하는 공간이다. LT-Mem 수상이 주목할 만한 이유는 ‘로봇이 같은 세계에서 오래 살아간다면 매번 재부팅할 때마다 처음 온 것처럼 굴어서는 안 된다’는 현실적 문제를 전면으로 끌어올렸기 때문이다.</div>
+        </div>
+      </article>
+
+      <!-- Qifukexue -->
+      <article class="card" data-category="ltmem">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">企服科学 (Qifukexue)</span>
+            <span class="topic-tag">수상작 총평</span>
+          </div>
+          <a class="card-link" href="https://qifukexue.com/?p=40052" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《IROS 2026奖项揭晓：长期记忆研究获最佳论文，人形机器人网球与端托盘任务获奖》 (2026-10-08)</div>
+        </div>
+
+        <div class="quote-block green">
+          <div class="quote-point">단일 동작 시연에서 ‘지속적·안정적 작동’으로</div>
+          <div class="zh">“相比单纯展示机器人‘学会了什么新动作’，今年一批获奖工作开始触及更现实的问题：当机器人真正进入现实环境之后，怎样让这些能力持续、稳定地工作。……从最佳论文到各专项奖，IROS 2026的获奖名单显示，机器人研究正在从单一能力展示转向长期运行稳定性、真实环境适应性与数据效率等更具工程落地意义的方向。”</div>
+          <div class="ko">단순히 로봇이 ‘어떤 새로운 동작을 배웠는지’를 과시하는 데 그쳤던 과거와 달리, 올해 수상작들은 훨씬 현실적인 문제를 건드리기 시작했다. 로봇이 실제 환경에 투입된 뒤 이 능력들을 어떻게 지속적이고 안정적으로 작동시킬 것인가 하는 문제다. … 수상작 명단은 로봇 연구가 단일 능력 시연에서 장기 구동 안정성, 실제 환경 적응성, 데이터 효율성 등 엔지니어링 상용화 의미가 큰 방향으로 전환되고 있음을 보여준다.</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Section 2: IROS 2026 Paradigm & Field Debates -->
+  <section class="group-section" data-category="paradigm">
+    <h2 class="section-title">
+      <span class="section-dot" style="background: var(--accent);"></span>
+      2. IROS 2026 현장 대논쟁 &amp; 패러다임 전환 진단
+    </h2>
+    <div class="cards">
+
+      <!-- Huxiu Debates -->
+      <article class="card" data-category="paradigm">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">虎嗅 (Huxiu) / 42号电波</span>
+            <span class="topic-tag purple">세대 논쟁 · 창업 · 온도차</span>
+          </div>
+          <a class="card-link" href="https://m.huxiu.com/article/4895175.html?type=text" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">IROS 2026 피츠버그 현장 대토론 &amp; 원탁 포럼 진단</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">‘범용(通才) vs 전문(专才)’ 대토론: 두 번의 투표 모두 노장(전문가) 측 승리</div>
+          <div class="zh">“年轻人赌的是scale，老将们算的是产线。台下的人用两次投票给这场代际之争画了句号。……两场投票输给专才，并不意味着通才叙事的失败，这反而表现了机器人行业的一次自我校准。基础模型的上限没人会怀疑，但躺在手术台上的时候，同样也没人愿意为上限买单。”</div>
+          <div class="ko">젊은 연구자들은 스케일(Scale)에 베팅하고, 노장들은 생산 라인을 계산한다. 청중은 두 번의 현장 투표로 이 세대 논쟁에 마침표를 찍었다. … 전문 모델 측이 이겼다고 해서 범용 서사의 실패를 뜻하는 것은 아니며, 오히려 로봇 산업계의 ‘자기 교정’을 보여준다. 파운데이션 모델의 상한선을 의심하는 사람은 없지만, 막상 수술대 위에 누웠을 때 그 ‘상한선’을 믿고 돈을 지불하려는 사람 역시 없다.</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">‘가벼운 것(AI)’에서 다시 ‘무거운 것(현장·가동시간·표준)’으로</div>
+          <div class="zh">“但总结完这一周的讨论，会发现人们又开始谈‘重’的东西了，谈产线的节拍、谈八小时的连续运行、谈谁付钱、谈标准和责任。”</div>
+          <div class="ko">하지만 일주일간의 논의를 정리해 보면, 사람들이 다시 ‘무거운’ 것들을 이야기하기 시작했다는 걸 알 수 있다. 생산 라인의 템포, 8시간 연속 가동, 누가 비용을 낼 것인가, 표준과 책임 같은 것들이다.</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">학계(3~5년) vs 산업계(10년)의 온도차 &amp; 창업의 본질</div>
+          <div class="zh">“再看‘学界说三五年，产业说十年’的这个温差，这或许是健康的信号，做研究的人负责乐观，做生意的人负责冷静，两种人如今坐在同一个会场里认真吵架，行业成熟的样子莫过如此。……无论话题怎么变，共识就是具身智能不太缺好论文，缺的是把论文变成产品、把产品变成生意的人。”</div>
+          <div class="ko">‘학계는 3~5년, 산업계는 10년’을 말하는 이 온도차는 오히려 건강한 신호일지 모른다. 연구하는 사람은 낙관을 맡고, 사업하는 사람은 냉정을 맡아, 이 두 부류가 지금 같은 회의장에 앉아 진지하게 언쟁을 벌이고 있다. 산업이 성숙해지는 모습이란 이런 것이다. … 화제가 어떻게 바뀌든 공통된 결론은 체화 인공지능 분야에 좋은 논문이 부족한 게 아니라, 논문을 제품으로 만들고 제품을 비즈니스로 만드는 사람이 부족하다는 것이다.</div>
+        </div>
+      </article>
+
+      <!-- 163 AI Tech Review 1933 papers -->
+      <article class="card" data-category="paradigm">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">网易 (163) / AI科技评论</span>
+            <span class="topic-tag purple">1,933편 논문 전수 분석</span>
+          </div>
+          <a class="card-link" href="https://www.163.com/dy/article/L7LPDSUA0511DPVD.html" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《研究了1933篇 IROS 论文，我们看到了机器人学的六项新变化》 (2026-09-25)</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">“거대 모델이 로봇공학을 집어삼키지 못했다 — 중간층의 부활”</div>
+          <div class="zh">“在万众瞩目的 AGI 狂热大背景下，这近两千篇论文却释放了一个信号：大模型并没有‘吃掉’机器人学。恰恰相反，在经历了两年的端到端狂奔后，机器人研究正通过三维几何、符号推理和底层控制的‘中间层复兴’，试图在匹兹堡找回那个被像素和 Token 掩盖的物理灵魂。”</div>
+          <div class="ko">모두가 주목하는 AGI 열풍 속에서 이 2,000편 가까운 논문들은 하나의 신호를 보냈다. 거대 모델이 로봇공학(Robotics)을 ‘집어삼키지’ 못했다는 것이다. 정반대로, 지난 2년간의 엔드투엔드 질주를 겪은 뒤 로봇 연구는 3차원 기하, 기호 추론, 저수준 제어라는 ‘중간층의 부활’을 통해 픽셀과 토큰에 가려졌던 물리적 영혼을 피츠버그에서 되찾으려 하고 있다.</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">“반(反)엔드투엔드가 아닌, 시스템 엔지니어링과 계층의 재등장”</div>
+          <div class="zh">“因此，IROS 2026 出现的 Reasoning、Memory、Planner 和 Symbolic Constraint，与其说是在‘反端到端’，不如说机器人学正在重新发明大模型与低层控制之间的中间层。端到端没有简单失败，模块化也没有简单复辟。更准确的变化是：随着任务从单步抓取走向长时操作，从实验室环境走向开放世界，机器人系统正在重新出现层级。”</div>
+          <div class="ko">그러므로 IROS 2026에 등장한 추론, 기억, 플래너, 기호 제약은 ‘반(反)엔드투엔드’라기보다 로봇공학이 거대 모델과 저수준 제어 사이의 중간층을 재발명하고 있는 과정에 가깝다. 엔드투엔드가 단순히 실패한 것도, 모듈화가 단순히 복고로 돌아간 것도 아니다. 임무가 단일 스텝 파지에서 장기 조작으로, 실험실에서 개방 세계로 나아가면서 로봇 시스템에 다시 ‘계층(Hierarchy)’이 생겨나고 있는 것이다.</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">언어 모델과 로봇의 결정적 차이</div>
+          <div class="zh">“语言模型过去几年的成功，很大程度上来自把大量任务统一进一个模型。但机器人不同。它不仅要‘理解’，还要真正行动，而物理世界会把误差、延迟、接触和失败全部暴露出来。”</div>
+          <div class="ko">언어 모델의 지난 몇 년간 성공은 상당 부분 수많은 과제를 하나의 모델로 통합한 데서 비롯됐다. 하지만 로봇은 다르다. 로봇은 ‘이해’할 뿐 아니라 실제로 행동해야 하며, 물리 세계는 오차, 지연, 접촉, 실패를 남김없이 드러낸다.</div>
+        </div>
+      </article>
+
+      <!-- 163 Sinovum -->
+      <article class="card" data-category="paradigm">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">网易 (163) / 新物种Sinovum</span>
+            <span class="topic-tag purple">학회·대회·전시장 통합 관찰</span>
+          </div>
+          <a class="card-link" href="https://c.m.163.com/news/a/L88MCSBI0556KK2I.html" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《IROS 2026现场观察：长任务、失败恢复、世界模型，机器人走出Demo》 (2026-10-02)</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">아직 수렴되지 않은 아키텍처 — 모델과 제어 사이의 경계 다툼</div>
+          <div class="zh">“今年 IROS 还看不到一套已经收敛的具身智能架构。……这几条路线真正争夺的，其实是机器人系统里的边界：哪些问题应该交给模型，哪些状态必须显式预测，哪些反馈又根本来不及交给大模型处理。”</div>
+          <div class="ko">올해 IROS에서는 아직 하나로 수렴된 체화 인공지능 아키텍처가 보이지 않는다. … 이 여러 노선들이 진짜로 다투고 있는 것은 로봇 시스템 내부의 ‘경계선’이다. 어떤 문제는 모델에 맡겨야 하고, 어떤 상태는 명시적으로 예측해야 하며, 어떤 피드백은 거대 모델에 넘길 시간조차 없는가 하는 문제다.</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">“예측과 실행 사이의 메워지지 않은 간극”</div>
+          <div class="zh">“走完整个展馆后，会发现机器人依然会打球、跑步，也依然有足够吸引镜头的 Demo。但越来越多工作开始把时间花在那些没那么好看的部分：动作之后世界会不会按预期变化，预测错了能不能及时发现，策略给出答案以后，身体又能不能在真实的摩擦、碰撞和误差里把它执行出来。机器人离‘会想’越来越近，但真正决定它能不能进入现实世界的，仍然是预测和执行之间那一段没有被填平的距离。”</div>
+          <div class="ko">전시관을 다 둘러보면 로봇은 여전히 공을 치고 달릴 줄 알며 카메라를 끌어당기는 데모도 많다. 하지만 점점 더 많은 연구들이 ‘그렇게 멋져 보이지 않는 부분’에 시간을 쏟기 시작했다. 동작 이후 세계가 예상대로 변하는지, 예측이 틀렸을 때 제때 알아챌 수 있는지, 정책이 답을 내놓은 뒤 몸체가 실제 마찰·충돌·오차 속에서 이를 실행해 낼 수 있는지 등이다. 로봇은 점점 ‘생각할 줄 아는 단계’에 가까워지고 있지만, 현실 세계 진입을 결정짓는 것은 여전히 예측과 실행 사이의 메워지지 않은 간극이다.</div>
+        </div>
+      </article>
+
+      <!-- CSDN -->
+      <article class="card" data-category="paradigm">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">CSDN</span>
+            <span class="topic-tag purple">컬럼성 총평</span>
+          </div>
+          <a class="card-link" href="https://www.csdn.net/detail/weixin_29053577/150590" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《事件驱动的神经符号记忆：具身智能的范式迁移》</div>
+        </div>
+
+        <div class="quote-block purple">
+          <div class="quote-point">화려한 데모에서 절제된 합리성으로</div>
+          <div class="zh">“这不是评审口味变了，而是整个机器人领域正在经历一次静默但深刻的范式迁移。……IROS的奖杯不会颁给最炫的Demo，而是颁给那个把‘应该怎么做’想清楚，并用最克制的方式把它做出来的团队。这或许就是技术走向成熟的标志——当狂奔的激情沉淀为沉静的理性，真正的突破才刚刚开始。”</div>
+          <div class="ko">이는 심사위원들의 취향이 바뀐 것이 아니라, 로봇 분야 전체가 조용하지만 깊은 패러다임 전환을 겪고 있음을 뜻한다. … IROS의 트로피는 가장 화려한 데모가 아니라, ‘어떻게 해야 하는가’를 명확히 고민하고 가장 절제된 방식으로 구현해 낸 팀에게 주어진다. 이것이야말로 기술이 성숙 단계로 접어들었다는 신호다.</div>
+        </div>
+        <div class="note-box">
+          ※ 참고: 이 CSDN 글은 IROS 2026의 주요 테마(장기 기억·테니스·쟁반 균형)를 모티프로 필자가 각색해 쓴 에세이성 컬럼으로, 세부 논문 제목·수치는 실제 수상작(LT-Mem, LATENT, SteadyTray)과 다릅니다.
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Section 3: Capital, Tactile, Hardware Reality -->
+  <section class="group-section" data-category="industry">
+    <h2 class="section-title">
+      <span class="section-dot" style="background: var(--accent-3);"></span>
+      3. 자본과의 괴리 · ‘물리적 실행력’ · 촉각과 하드웨어 현실론
+    </h2>
+    <div class="cards">
+
+      <!-- Sohu / 163 Robot Player -->
+      <article class="card" data-category="industry">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">搜狐 (Sohu) / 网易 (Robot玩家)</span>
+            <span class="topic-tag amber">자본 vs 현장 괴리</span>
+          </div>
+          <a class="card-link" href="https://www.sohu.com/a/1085977088_122576315" target="_blank" rel="noopener">搜狐 원문 ↗</a>
+          <a class="card-link" href="https://www.163.com/dy/article/L8SV1AJ70556IERS.html" target="_blank" rel="noopener">网易 원문 ↗</a>
+          <div class="card-title">《IROS 2026释放新信号：最好的具身智能机器人，开始比谁能把活干完》 (2026-10-10)</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">속도가 완전히 다른 두 개의 경주 — IPO·밸류에이션 vs 현장 노동력 증명</div>
+          <div class="zh">“一边是上市、融资与不断抬高的估值，另一边是如何让机器人真正把一件工作做完。这两幅画面放在一起，构成了2026年具身智能行业最值得关注的矛盾：资本已经开始按照未来劳动力的规模为机器人定价，但大部分机器人仍在证明自己能够成为稳定劳动力。”</div>
+          <div class="ko">한쪽에서는 상장·투자 유치·치솟는 기업가치가 펼쳐지고, 다른 한쪽에서는 어떻게 로봇이 일 하나를 제대로 끝마치게 할 것인가를 씨름한다. 이 두 장면은 2026년 체화 인공지능 업계의 가장 주목할 모순을 이룬다. 자본은 이미 미래 노동력 규모를 기준으로 로봇에 가격표를 붙이고 있지만, 대부분의 로봇은 아직 자신이 ‘안정적인 노동력’이 될 수 있음을 증명하는 단계에 머물러 있다.</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">“백덤블링하는 로봇을 채용하지는 않는다”</div>
+          <div class="zh">“如果把十台机器人放进一场招聘面试，我们显然不会因为其中一台会后空翻，就直接决定录用它。……IROS 2026所释放出的一个重要信号是：行业开始从比较谁能完成高难度动作，转向比较谁能够把动作连接成工作。”</div>
+          <div class="ko">로봇 열 대를 채용 면접장에 세워둔다면, 그중 한 대가 백덤블링을 할 줄 안다고 해서 바로 채용하지는 않을 것이다. … IROS 2026이 보낸 중요한 신호는, 업계가 ‘누가 고난도 동작을 해내는가’를 겨루던 데서 ‘누가 동작들을 연결해 하나의 업무(Work)로 완성하는가’를 겨루는 단계로 넘어가기 시작했다는 점이다.</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">투자금이 대신할 수 없는 현장의 숫자들</div>
+          <div class="zh">“融资可以延长研发时间，上市可以扩大资金来源，产业股东可以提供场景，但它们都不能代替任务完成率、运行时间、人工介入频次、客户收入和部署成本。”</div>
+          <div class="ko">투자 유치는 R&amp;D 시간을 벌어주고, 상장은 자금줄을 넓혀주며, 산업계 주주는 현장을 제공해 줄 수 있다. 하지만 그 어떤 것도 임무 완수율, 가동 시간, 인간 개입 빈도, 고객 매출, 도입 비용을 대신해 줄 수는 없다.</div>
+        </div>
+      </article>
+
+      <!-- 163 Leifengwang Chinese Power -->
+      <article class="card" data-category="industry">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">网易 (163) / 雷锋网</span>
+            <span class="topic-tag amber">물리적 실행력 · 데이터 벽</span>
+          </div>
+          <a class="card-link" href="https://c.m.163.com/news/a/L8AFTRSP05118HA4.html" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《IROS 2026中国力量：当「实体能力」成为具身智能新硬通货》 (2026-10-03)</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">‘의미적 정확성’에서 ‘물리적 정확성’으로 — 데이터 벽을 넘는 도구</div>
+          <div class="zh">“风向已从‘让机器人更聪明（更强的模型）’，彻底转向了‘让机器人更能干（更强的实体）’。……但在今年 IROS 上，种种迹象表明：模型懂语义远远不够，机器人必须懂物理。……评价标准发生了质变：‘语义正确’让位于‘物理正确’。……具身智能撞上了‘数据墙’，而翻墙的工具不再只是算力，而是实体。”</div>
+          <div class="ko">바람의 방향이 ‘로봇을 더 똑똑하게(더 강한 모델)’에서 ‘로봇이 일을 더 잘하게(더 강한 실체·하드웨어)’로 완전히 바뀌었다. … 모델이 ‘의미(Semantics)’를 이해하는 것만으로는 턱없이 부족하며, 로봇은 반드시 ‘물리(Physics)’를 이해해야 한다. … 평가 기준에 질적 변화가 일어났다. ‘의미적 정확성’이 ‘물리적 정확성’에 자리를 내주었다. … 체화 인공지능은 ‘데이터의 벽’에 부딪혔고, 그 벽을 넘는 도구는 이제 단순한 연산력이 아니라 물리적 실체다.</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">“대규모 독서” vs “대규모 충돌” — 피츠버그(강철의 도시)가 주는 은유</div>
+          <div class="zh">“31 年后重回匹兹堡，IROS 2026 传递出了清晰的信号：具身智能的竞争，已经从‘智商比拼’转向了‘体能博弈’。大语言模型可以通过‘规模化阅读’获得智能，但机器人必须通过‘规模化撞击’和‘规模化交互’获得灵魂。……匹兹堡的‘钢铁’特质提醒我们：机器人学的根，永远在制造与工程里。”</div>
+          <div class="ko">31년 만에 피츠버그로 돌아온 IROS 2026은 분명한 메시지를 전했다. 체화 인공지능의 경쟁은 이미 ‘IQ 대결’에서 ‘체력(물리적 역량) 게임’으로 넘어갔다. 거대 언어 모델은 ‘대규모 독서’로 지능을 얻지만, 로봇은 ‘대규모 충돌’과 ‘대규모 상호작용’을 통해 영혼을 얻어야 한다. … 피츠버그의 ‘강철’이라는 정체성은 로봇공학의 뿌리가 언제나 제조와 엔지니어링에 있음을 일깨워 준다.</div>
+        </div>
+      </article>
+
+      <!-- Leiphone Dexterous Hand -->
+      <article class="card" data-category="industry">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">雷峰网 (Leiphone)</span>
+            <span class="topic-tag amber">덱스터러스 핸드 · 하드웨어 현실론</span>
+          </div>
+          <a class="card-link" href="https://m.leiphone.com/category/robot/jv4zJUmQr2wkoN0i.html" target="_blank" rel="noopener">원문 보기 ↗</a>
+          <div class="card-title">《IROS 2026 观察：从 Demo 到生产力工具，灵巧手还要跨过几道坎？》 (2026-10-30)</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">스펙 경쟁에서 ‘실용적 뺄셈’과 장기 신뢰성으로</div>
+          <div class="zh">“整体来看，厂商对落地的需求越来越高，心态也更加务实。过去大家追求参数丰富、指标极致，如今不少参数反而开始回调，有的是自由度做了减法，有的是传感器配置更加务实。长期可靠性、稳定使用、易维护，以及交付后能否真正用起来被放到更优先的位置。”</div>
+          <div class="ko">전반적으로 기업들의 상용화 요구가 높아졌고 태도도 훨씬 실용적으로 변했다. 과거에는 화려한 스펙과 극한의 지표만 쫓았지만, 이제는 많은 스펙이 하향 조정(조율)되고 있다. 자유도에서 뺄셈을 하거나 센서 구성을 더 실용적으로 바꾸며, 장기 신뢰성·안정적 사용·유지보수성·납품 후 실제 가동 여부가 최우선 순위로 올라왔다.</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">“하드웨어 납품이 조작 능력의 납품은 아니다”</div>
+          <div class="zh">“其二，参数够用之后，真正的分水岭是长期稳定工作能力。散热、结构可靠性、疲劳寿命和可维护性，这些在 Demo 中不容易被看到的问题，最终都会影响维护成本、寿命和停机风险。其三，硬件交付并不意味着操作能力的交付。不解决高质量操作数据的获取问题，‘硬件做得再好也很难用起来’。”</div>
+          <div class="ko">둘째, 스펙이 충분해진 이후 진짜 분수령은 장기 안정 가동 능력이다. 발열, 구조 신뢰성, 피로 수명, 유지보수성처럼 데모에서는 잘 보이지 않는 문제들이 결국 유지비, 수명, 가동 중단 리스크를 좌우한다. 셋째, 하드웨어 납품이 곧 조작 능력의 납품을 뜻하지는 않는다. 고품질 조작 데이터 확보 문제를 해결하지 못하면 ‘하드웨어를 아무리 잘 만들어도 실제로 쓰기 어렵다’.</div>
+        </div>
+      </article>
+
+      <!-- BeJaguar & iFeng -->
+      <article class="card" data-category="industry">
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="source-tag">必杰出海 (BeJaguar) &amp; 凤凰网 (iFeng)</span>
+            <span class="topic-tag amber">학계·산업계 교류 &amp; 촉각 폐루프</span>
+          </div>
+          <a class="card-link" href="https://www.bejaguar.com/newsinfo/11345766.html" target="_blank" rel="noopener">必杰出海 ↗</a>
+          <a class="card-link" href="https://tech.ifeng.com/c/8x1tlq9hFAX" target="_blank" rel="noopener">凤凰网 ↗</a>
+          <div class="card-title">AI·전통 제어의 상호 재구성 &amp; 촉각(Tactile)의 핵심 변수화</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">必杰出海: AI와 전통 로봇공학의 상호 재구성</div>
+          <div class="zh">“AI大模型不再是简单给机器人 ‘做决策’，而是深度融合运动控制、力觉触觉感知，服务真实的物理操作任务。AI没有替代传统机器人学，而是和机器人控制、感知技术互相塑造，共同推进具身智能的演进。……IROS 的独特价值，是打通学术研究与产业实践的双向通道。”</div>
+          <div class="ko">AI 거대 모델은 더 이상 로봇에게 단순히 ‘의사결정’만 내려주는 존재가 아니라, 운동 제어 및 역각·촉각 인지와 깊이 융합하여 실제 물리적 조작 임무를 뒷받침하고 있다. AI가 전통 로봇공학을 대체한 것이 아니라 서로를 재구성하며 진화를 이끌고 있으며, IROS의 고유한 가치는 학술 연구와 산업 실천 사이의 양방향 통로를 뚫어주는 데 있다.</div>
+        </div>
+
+        <div class="quote-block amber">
+          <div class="quote-point">凤凰网: 단순 감지를 넘어 ‘학습·제어 폐루프’로 들어온 촉각</div>
+          <div class="zh">“触觉在精密操作中的价值已经超出接触检测。它参与策略训练和动作评估，帮助机器人识别偏差、控制受力，并在接触发生后继续修正动作。对于装配、插接等误差敏感任务，触觉正在成为学习与控制闭环中的关键变量。”</div>
+          <div class="ko">정밀 조작에서 촉각의 가치는 이미 단순 ‘접촉 감지’를 넘어섰다. 촉각은 정책(Policy) 학습과 동작 평가에 직접 참여하여 로봇이 오차를 식별하고 힘을 제어하며, 접촉이 일어난 뒤에도 동작을 계속 보정하도록 돕는다. 조립·삽입처럼 오차에 민감한 작업에서 촉각은 학습과 제어 폐루프를 잇는 핵심 변수가 되고 있다.</div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Section 4: Platform Status, LT-Mem Highlights & All Links -->
+  <section class="group-section" data-category="platform">
+    <h2 class="section-title">
+      <span class="section-dot" style="background: var(--accent-4);"></span>
+      4. 플랫폼별 동향 · LT-Mem 중국 내 주목 포인트 · 전체 출처 디렉토리
+    </h2>
+
+    <div class="two-col" style="margin-bottom: 20px;">
+      <div class="info-box">
+        <h3>중국 플랫폼별 게시·확산 현황</h3>
+        <ul>
+          <li><strong>知乎 (Zhihu):</strong> <code>LT-Mem</code>이나 DGIST 김기섭 교수팀을 직접 다룬 단독 글은 현재 검색 색인상 확인되지 않음(IROS 일반 투고 논의 위주).</li>
+          <li><strong>搜狐 / 腾讯(QQ) / 网易(163):</strong> IROS 2026 현장 관찰기, 1,933편 논문 분석, LT-Mem 심층 리뷰가 가장 활발하게 올라온 채널.</li>
+          <li><strong>虎嗅 (Huxiu) / 雷峰网 (Leiphone):</strong> 산업계·학계 온도차, 테슬라 플릿 발언, 덱스터러스 핸드 현실론 등 가장 깊이 있는 평론 게재.</li>
+          <li><strong>CSDN / 深蓝学院 / 企服科学:</strong> 수상작 15편(본회 10 + 워크숍 5) 총정리 및 기술 트렌드 해설 중심.</li>
+          <li><strong>Bilibili / 小红书:</strong> Bilibili는 <code>LT-Mem</code> 검색 시 주로 LLM 메모리(LightMem 등) 영상이 노출되며, 샤오홍슈는 앱 내 직접 검색 필요.</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h3>중국 매체가 주목한 LT-Mem의 4가지 핵심 키워드</h3>
+        <ul>
+          <li><strong>时间性失忆 (Temporal Amnesia):</strong> 덮어쓰기(Overwrite)만 하거나 단순 스냅샷만 쌓아 과거 이력·객체 정체성을 잃어버리는 기존 SLAM의 한계 돌파.</li>
+          <li><strong>波动感知 + Tri-Memory:</strong> 객체별 변동성 점수(0~1)에 따른 <code>Overwrite / Hold / Multi-hypothesis</code> 정책과 <code>Live · Delta · Meta</code> 3중 기억 구조.</li>
+          <li><strong>“1/16 토큰” &amp; Qwen2.5-3B:</strong> 알리바바 경량 모델 <code>Qwen2.5-3B</code>로도 Gemini급 VLM 베이스라인을 압도하며 토큰 비용을 약 1/16로 절감한 점을 크게 조명.</li>
+          <li><strong>신생 연구실의 저력 (DGIST APRL):</strong> 2024년 12월 연구실 설립, 2025년 7월 제1저자 입학 후 1년 9개월 만에 IROS Best Paper를 수상한 ‘다크호스’ 스토리 강조.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>플랫폼 / 매체</th>
+            <th>주요 성격</th>
+            <th>제목 / 핵심 내용</th>
+            <th>원문 링크</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>虎嗅 (42号电波)</strong></td>
+            <td>현장 평론·대담</td>
+            <td>想造 GPT 通才的年轻人，和相信专才的老将｜IROS 2026 现场</td>
+            <td><a href="https://m.huxiu.com/article/4895175.html?type=text" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>网易 (AI科技评论)</strong></td>
+            <td>1,933편 논문 분석</td>
+            <td>研究了1933篇 IROS 论文，我们看到了机器人学的六项新变化</td>
+            <td><a href="https://www.163.com/dy/article/L7LPDSUA0511DPVD.html" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>网易 (新物种Sinovum)</strong></td>
+            <td>현장·전시·대회 관찰</td>
+            <td>IROS 2026现场观察：长任务、失败恢复、世界模型，机器人走出Demo</td>
+            <td><a href="https://c.m.163.com/news/a/L88MCSBI0556KK2I.html" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>网易 (雷锋网)</strong></td>
+            <td>산업·물리 AI 평론</td>
+            <td>IROS 2026中国力量：当「实体能力」成为具身智能新硬通货</td>
+            <td><a href="https://c.m.163.com/news/a/L8AFTRSP05118HA4.html" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>搜狐 / 机器人大讲堂 / 新浪</strong></td>
+            <td>장기 기억 평론</td>
+            <td>具身记忆赛道持续升温，长记忆迎来新 SOTA (LT-Mem &amp; BetaMem 비교)</td>
+            <td><a href="https://news.sohu.com/a/1091105792_114877" target="_blank" rel="noopener">搜狐 ↗</a> · <a href="https://www.leaderobot.com/news/10376" target="_blank" rel="noopener">Leaderobot ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>搜狐 / 网易 (Robot玩家)</strong></td>
+            <td>자본·상용화 진단</td>
+            <td>IROS 2026释放新信号：最好的具身智能机器人，开始比谁能把活干完</td>
+            <td><a href="https://www.sohu.com/a/1085977088_122576315" target="_blank" rel="noopener">搜狐 ↗</a> · <a href="https://www.163.com/dy/article/L8SV1AJ70556IERS.html" target="_blank" rel="noopener">网易 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>搜狐 (로봇 기억 시리즈)</strong></td>
+            <td>문제의식 해설</td>
+            <td>机器人长期记忆系列（一）：IROS 2026 最佳论文，为什么在研究机器人“记忆”？</td>
+            <td><a href="https://www.sohu.com/a/1085660924_121124366" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>雷峰网 (Leiphone)</strong></td>
+            <td>하드웨어·신뢰성 평론</td>
+            <td>IROS 2026 观察：从 Demo 到生产力工具，灵巧手还要跨过几道坎？</td>
+            <td><a href="https://m.leiphone.com/category/robot/jv4zJUmQr2wkoN0i.html" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>必杰出海 (BeJaguar)</strong></td>
+            <td>전시·산학연 총평</td>
+            <td>IROS 2026圆满收官｜看AI与机器人深度融合，具身智能迈向真实世界</td>
+            <td><a href="https://www.bejaguar.com/newsinfo/11345766.html" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>凤凰网 (iFeng)</strong></td>
+            <td>촉각(Tactile) 관찰</td>
+            <td>IROS 2026观察：触觉，正在走进机器人学习与真实应用</td>
+            <td><a href="https://tech.ifeng.com/c/8x1tlq9hFAX" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>企服科学 (Qifukexue)</strong></td>
+            <td>수상작·방향성 총평</td>
+            <td>IROS 2026奖项揭晓：长期记忆研究获最佳论文，人形机器人网球与端托盘任务获奖</td>
+            <td><a href="https://qifukexue.com/?p=40052" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>腾讯新闻 / 搜狐</strong></td>
+            <td>LT-Mem 기술·연구실</td>
+            <td>IROS 2026最佳论文奖，颁给了刚成立一年多的实验室：机器人有了长期记忆新框架</td>
+            <td><a href="https://view.inews.qq.com/a/20261015A071KV00" target="_blank" rel="noopener">腾讯 ↗</a> · <a href="https://www.sohu.com/a/1088046092_489960" target="_blank" rel="noopener">搜狐 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>TheRoboRadar</strong></td>
+            <td>LT-Mem 기술 요약</td>
+            <td>IROS 2026最佳论文：LT-Mem让机器人拥有跨轮次长期记忆</td>
+            <td><a href="https://theroboradar.com/news/lt-mem-robot-long-term-memory-iros-2026-571470" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>AgiEntry &amp; Hankli</strong></td>
+            <td>논문 기술 딥다이브</td>
+            <td>LT-Mem (arXiv:2608.19059) 상세 구조 및 공간지능 블로그 해설</td>
+            <td><a href="https://agientry.com/zh/papers/paper-2608.19059" target="_blank" rel="noopener">AgiEntry ↗</a> · <a href="https://hankli.space/blog-spatial-intelligence/spatial%20intelligence/2026/08/20/ltmem-volatilityaware-spatiotemporal-mem.html" target="_blank" rel="noopener">Hankli ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>CSDN / 深蓝学院</strong></td>
+            <td>15편 수상작 전체 리스트</td>
+            <td>最新｜IROS 2026 “夯”作，15篇获奖论文全揭晓！</td>
+            <td><a href="https://damodev.csdn.net/6acb5596536f457592af17ff.html" target="_blank" rel="noopener">CSDN ↗</a> · <a href="https://www.shenlanxueyuan.com/news/detail/177" target="_blank" rel="noopener">深蓝学院 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>CSDN (각색 컬럼)</strong></td>
+            <td>패러다임 전환 에세이</td>
+            <td>事件驱动的神经符号记忆：具身智能的范式迁移 (※ 세부 논문명/수치 각색 주의)</td>
+            <td><a href="https://www.csdn.net/detail/weixin_29053577/150590" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+          <tr>
+            <td><strong>RobotToday</strong></td>
+            <td>Finalist 10편 정리</td>
+            <td>IROS 2026 Best Paper Finalists 리스트</td>
+            <td><a href="https://robottoday.com/article/iros-2026-best-paper-finalists" target="_blank" rel="noopener">열기 ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    수집 기준일: 2026-11-19 · IROS 2026 &amp; LT-Mem 중국 웹 평론·진단 아카이브
+  </footer>
+
+</main>
+
+<script>
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const sections = document.querySelectorAll('.group-section');
+  const cards = document.querySelectorAll('.card');
+  const searchInput = document.getElementById('searchInput');
+
+  let currentFilter = 'all';
+
+  function applyFilters() {
+    const q = searchInput.value.trim().toLowerCase();
+
+    sections.forEach(sec => {
+      const secCat = sec.getAttribute('data-category');
+      if (currentFilter === 'platform') {
+        sec.classList.toggle('hidden', secCat !== 'platform');
+        return;
+      }
+
+      if (secCat === 'platform') {
+        sec.classList.toggle('hidden', currentFilter !== 'all');
+        if (q && currentFilter === 'all') {
+          const text = sec.innerText.toLowerCase();
+          sec.classList.toggle('hidden', !text.includes(q));
+        }
+        return;
+      }
+
+      let visibleCount = 0;
+      const secCards = sec.querySelectorAll('.card');
+      secCards.forEach(card => {
+        const cats = card.getAttribute('data-category').split(' ');
+        const matchesCat = (currentFilter === 'all') || cats.includes(currentFilter);
+        const matchesQuery = !q || card.innerText.toLowerCase().includes(q);
+        const show = matchesCat && matchesQuery;
+        card.classList.toggle('hidden', !show);
+        if (show) visibleCount++;
+      });
+
+      sec.classList.toggle('hidden', visibleCount === 0);
+    });
+  }
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.getAttribute('data-filter');
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+</script>
+
+</body>
+</html>
